@@ -3,58 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QuickShop | Online Shopping System</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+    <title>QuickShop | Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <nav class="navbar">
+        <div class="logo">Quick<span>Shop</span></div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/login">Account</a></li>
+            <li><a href="/cart" class="cart-btn">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count">0</span>
+            </a></li>
+        </ul>
+    </nav>
 
-    <header>
-        <nav class="navbar">
-            <div class="logo">Quick<span>Shop</span></div>
-            <ul class="nav-links">
-                <li><a href="/">Home</a></li>
-                <li><a href="/products">Shop</a></li>
-                <li><a href="/login">Login/Register</a></li>
-                <li><a href="/cart" class="cart-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span id="cart-count">0</span>
-                </a></li>
-            </ul>
-        </nav>
+    <header class="hero">
+        <h1>New Arrivals 2026</h1>
+        <p>Shop the latest trends directly from local sellers.</p>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Upgrade Your Lifestyle</h1>
-            <p>Best deals on Electronics, Fashion, and more.</p>
-            <a href="#products" class="btn">Shop Now</a>
-        </div>
-    </section>
-
-    <main id="products" class="container">
+    <main class="container">
         <h2 class="section-title">Featured Products</h2>
-        
-        <div class="product-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <img src="../static/images/sample-product.jpg" alt="Product Name">
+        <div class="product-grid" id="product-container">
+            {% if products %}
+                {% for product in products %}
+                <div class="product-card">
+                    <div class="badge">Hot</div>
+                    <img src="{{ url_for('static', filename='images/' + product.image) }}" alt="{{ product.name }}">
+                    <div class="product-details">
+                        <h3>{{ product.name }}</h3>
+                        <p class="price">₹{{ product.price }}</p>
+                        <button class="add-btn" onclick="addToCart('{{ product.id }}')">Add to Cart</button>
+                    </div>
                 </div>
-                <div class="product-info">
-                    <h3>Smartphone Pro Max</h3>
-                    <p class="category">Electronics</p>
-                    <p class="price">$999.00</p>
-                    <button class="add-to-cart-btn" onclick="addToCart(1)">Add to Cart</button>
-                </div>
-            </div>
-
-            </div>
+                {% endfor %}
+            {% else %}
+                <p>No products found. Add some in the Admin panel!</p>
+            {% endif %}
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; 2024 QuickShop E-commerce System | PBSSD Project</p>
-    </footer>
-
-    <script src="../static/js/script.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 </html>
