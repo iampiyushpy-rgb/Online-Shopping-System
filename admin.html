@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | PBSSD Premium</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0f172a; }
+        .stat-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; text-align: center; transition: all 0.3s; }
+        .stat-card:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.05); }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary border-bottom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary" href="#">PBSSD <span class="text-white">ADMIN</span></a>
+            <div class="ms-auto">
+                <span class="text-secondary me-3"><i class="bi bi-person-circle me-1"></i>Administrator</span>
+                <a href="index.html" class="btn btn-outline-danger btn-sm rounded-pill px-3">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold"><i class="bi bi-speedometer2 me-2"></i>Dashboard Overview</h2>
+            <button class="btn btn-primary rounded-pill"><i class="bi bi-plus-lg me-2"></i>Add New Product</button>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="row g-4 mb-5">
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h6 class="text-secondary text-uppercase mb-3">Total Revenue</h6>
+                    <h2 class="fw-bold text-primary">₹12.4L</h2>
+                    <span class="text-success small"><i class="bi bi-arrow-up"></i> 12% vs last month</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h6 class="text-secondary text-uppercase mb-3">Active Orders</h6>
+                    <h2 class="fw-bold text-success">842</h2>
+                    <span class="text-success small"><i class="bi bi-arrow-up"></i> 5% growth</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h6 class="text-secondary text-uppercase mb-3">Stock Units</h6>
+                    <h2 class="fw-bold text-info">1.2k</h2>
+                    <span class="text-warning small"><i class="bi bi-exclamation-triangle"></i> 5 low stock items</span>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stat-card">
+                    <h6 class="text-secondary text-uppercase mb-3">Site Visitors</h6>
+                    <h2 class="fw-bold text-warning">5,204</h2>
+                    <span class="text-success small"><i class="bi bi-arrow-up"></i> 24% surge</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Table -->
+        <div class="p-5 rounded-4 shadow-lg bg-body-tertiary">
+            <h4 class="fw-bold mb-4"><i class="bi bi-list-task me-2 text-primary"></i>Inventory Management</h4>
+            <div class="table-responsive">
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Category</th>
+                            <th>Product</th>
+                            <th>Inventory</th>
+                            <th>Status</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>#771</td><td>Electronics</td><td>MacBook Pro M3</td><td>12</td><td><span class="badge bg-success">Healthy</span></td><td class="text-end"><i class="bi bi-pencil me-3"></i><i class="bi bi-trash text-danger"></i></td></tr>
+                        <tr><td>#882</td><td>Fashion</td><td>Premium Indigo Jeans</td><td>204</td><td><span class="badge bg-warning">High Flow</span></td><td class="text-end"><i class="bi bi-pencil me-3"></i><i class="bi bi-trash text-danger"></i></td></tr>
+                        <tr><td>#993</td><td>Grocery</td><td>Organic Wild Honey</td><td>45</td><td><span class="badge bg-success">Healthy</span></td><td class="text-end"><i class="bi bi-pencil me-3"></i><i class="bi bi-trash text-danger"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

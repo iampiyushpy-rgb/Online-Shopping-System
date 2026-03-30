@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PBSSD E-Shop | Live Demo</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .hero-section {
+            padding: 100px 0;
+            background: radial-gradient(circle at top right, #1e293b, #0f172a);
+        }
+
+        .product-card {
+            background: #1e293b;
+            border: 1px solid var(--glass-border);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            border-color: #3b82f6;
+        }
+
+        .admin-preview {
+            background: #1e293b;
+            border-radius: 15px;
+            padding: 30px;
+            margin-top: 80px;
+            border: 1px dashed #475569;
+        }
+
+        .btn-primary {
+            background: #2563eb;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 8px;
+        }
+
+        .badge-stock {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid #10b981;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top glass-nav px-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-primary animate__animated animate__fadeInLeft" href="#">
+                PBSSD <span class="text-white">PROTOTYPE</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admin">Admin View</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-3 fw-bold animate__animated animate__fadeInDown">Elevate Your Shopping</h1>
+            <p class="lead text-secondary animate__animated animate__fadeIn animate__delay-1s">
+                Experience the future of E-commerce UI with our high-fidelity prototype.
+            </p>
+            <a href="#shop" class="btn btn-primary btn-lg mt-3 animate__animated animate__zoomIn animate__delay-1s">
+                Shop Collection <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- Product Grid -->
+    <section id="shop" class="container py-5">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <h2 class="fw-bold">Featured Products</h2>
+            <span class="text-secondary">6 Items Showing</span>
+        </div>
+        <div class="row g-4">
+            <!-- Product 1 -->
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500" class="card-img-top rounded mb-3" alt="MacBook">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">MacBook Pro M3</h5>
+                        <p class="text-secondary small">The ultimate powerhouse for creators.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹1,69,900</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=500" class="card-img-top rounded mb-3" alt="iPhone">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">iPhone 15 Pro</h5>
+                        <p class="text-secondary small">Titanium design and A17 Pro chip.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹1,34,900</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" class="card-img-top rounded mb-3" alt="Headphones">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">Studio Headphones</h5>
+                        <p class="text-secondary small">Noise cancelling with spatial audio.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹24,500</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- (Repeat for 6 products) -->
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" class="card-img-top rounded mb-3" alt="Watch">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">Smart Watch Ultra</h5>
+                        <p class="text-secondary small">Health tracking and rugged build.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹79,900</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=500" class="card-img-top rounded mb-3" alt="Desk">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">Minimalist Desk</h5>
+                        <p class="text-secondary small">Clean workspace for better focus.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹12,000</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card product-card h-100 p-3">
+                    <img src="https://images.unsplash.com/photo-1526170315830-ef18a2f78358?w=500" class="card-img-top rounded mb-3" alt="Camera">
+                    <div class="card-body p-0">
+                        <h5 class="card-title fw-bold">Retro Camera Z5</h5>
+                        <p class="text-secondary small">Classic look, modern 4K sensors.</p>
+                        <div class="d-flex justify-content-between align-items-center mt-3">
+                            <span class="fs-5 fw-bold">₹45,000</span>
+                            <button class="btn btn-outline-primary btn-sm add-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Preview -->
+    <section id="admin" class="container mb-5">
+        <div class="admin-preview shadow-lg animate__animated animate__fadeInUp">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0 fw-bold"><i class="bi bi-shield-check me-2 text-primary"></i>Admin Inventory Preview</h4>
+                <button class="btn btn-sm btn-primary">Add New Item</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover align-middle">
+                    <thead class="text-secondary">
+                        <tr>
+                            <th>ID</th>
+                            <th>Product Name</th>
+                            <th>Stock Level</th>
+                            <th>Price</th>
+                            <th class="text-end">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>#101</td><td>MacBook Pro M3</td><td><span class="badge badge-stock">12 units</span></td><td>₹1,69,900</td><td class="text-end"><i class="bi bi-pencil me-3"></i><i class="bi bi-trash text-danger"></i></td></tr>
+                        <tr><td>#102</td><td>iPhone 15 Pro</td><td><span class="badge badge-stock">45 units</span></td><td>₹1,34,900</td><td class="text-end"><i class="bi bi-pencil me-3"></i><i class="bi bi-trash text-danger"></i></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SweetAlert2 & Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.querySelectorAll('.add-cart-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                Swal.fire({
+                    title: 'Added to Cart!',
+                    text: 'This product has been added to your session.',
+                    icon: 'success',
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    background: '#1e293b',
+                    color: '#fff'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
