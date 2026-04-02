@@ -3,14 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>product-details</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Product Details | PBSSD Fresh</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="../css/product-details.css">
+    <style>
+        :root {
+            --bg-color: #FAFAF7;
+            --primary-nature: #5A8A5A;
+            --headline-color: #1A1A1A;
+            --text-muted: #6C757D;
+            --border-soft: #E5E5E0;
+        }
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--headline-color);
+        }
+        .heading-lora { font-family: 'Lora', serif; }
+        .color-nature { color: var(--primary-nature); }
+
+        /* Custom button style */
+        .btn-nature {
+            background: var(--primary-nature);
+            color: white;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-nature:hover { filter: brightness(0.9); transform: translateY(-2px); color: white; }
+
+        /* Swiper navigation overrides for better visibility */
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-nature) !important;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background-color: var(--primary-nature);
+            color: white !important;
+        }
+        .swiper-button-next::after, .swiper-button-prev::after {
+            font-size: 1.2rem !important;
+        }
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px; /* Soften edges */
+        }
+        .swiper.mySwiper2 {
+            margin-bottom: 15px;
+            border: 1px solid var(--border-soft);
+            border-radius: 10px;
+        }
+        .swiper.mySwiper {
+            padding: 5px 0; /* Give some space for thumbs */
+        }
+        .swiper.mySwiper .swiper-slide {
+            opacity: 0.6;
+            border: 1px solid var(--border-soft);
+            border-radius: 8px;
+            transition: opacity 0.3s ease, border-color 0.3s ease;
+        }
+        .swiper.mySwiper .swiper-slide-thumb-active {
+            opacity: 1;
+            border-color: var(--primary-nature);
+        }
+
+        /* Product details specific styles */
+        .c-product-con {
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+        }
+        .c-product-con h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--headline-color);
+        }
+        .c-price-product {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 1.5rem;
+        }
+        .c-normal-p {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-right: 10px;
+        }
+        .c-discount-p {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-nature);
+        }
+        .c-delivery-banner img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-soft);
+        }
+        .c-feature-product {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 1.5rem;
+        }
+        .c-feature-product li {
+            margin-bottom: 0.5rem;
+            color: var(--headline-color);
+            position: relative;
+            padding-left: 25px;
+        }
+        .c-feature-product li::before {
+            content: "\f26a"; /* Bootstrap icon check */
+            font-family: "bootstrap-icons";
+            position: absolute;
+            left: 0;
+            color: var(--primary-nature);
+            font-weight: bold;
+        }
+        .c-chose-brand .form-control, .c-other-option li, .c-coupon-option li {
+            border-radius: 8px;
+            border: 1px solid var(--border-soft);
+            background: white;
+            padding: 15px;
+            margin-bottom: 10px;
+        }
+        .c-chose-brand .form-control {
+            padding: 10px 15px;
+            margin-bottom: 1.5rem;
+        }
+        .c-other-option li:hover {
+            border-color: var(--primary-nature);
+            box-shadow: 0 2px 8px rgba(90, 138, 90, 0.1);
+        }
+        .c-other-option .form-check {
+            display: flex;
+            align-items: center;
+        }
+        .c-other-option .form-check-input {
+            margin-top: 0;
+            margin-right: 15px;
+            border-color: var(--border-soft);
+        }
+        .c-other-option .form-check-label strong {
+            color: var(--primary-nature);
+            font-weight: 700;
+        }
+        .c-coupon-option {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 2rem;
+            border-top: 1px dashed var(--border-soft);
+            padding-top: 2rem;
+        }
+        .c-tag-w {
+            background: var(--primary-nature);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .c-tag-w img {
+            width: 20px;
+            height: 20px;
+            filter: invert(1); /* Make tag icon white */
+        }
+        .c-coupon-option h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--headline-color);
+        }
+        .c-coupon-option h5 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+        .c-coupon-option .badge {
+            font-weight: 600;
+            padding: 0.4em 0.7em;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <section class="c-prduct-d">
+    <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="../../index.html" style="color: var(--primary-nature)">PBSSD <span style="color: #1A1A1A">FRESH</span></a>
+            <a href="../../index.html" class="btn btn-outline-secondary rounded-pill px-4 small">
+                <i class="bi bi-arrow-left me-1"></i> Back to Shop
+            </a>
+        </div>
+    </nav>
+
+    <main class="c-prduct-d container py-5">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-5">
@@ -66,17 +270,17 @@
 			
 			<div class="col-lg-6">
 				<div class="c-product-con">
-					<h1>01 Number Snap Case</h1>
+					<h1 class="heading-lora fw-bold">01 Number Snap Case</h1>
 					<div class="c-price-product">
 						<span class="c-normal-p">₹499.00</span>
-						<span class="c-discount-p">₹99.00</span>
+						<span class="c-discount-p color-nature">₹99.00</span>
 					</div>
 					<div class="c-delivery-banner">
 						<img src="../assets/delivery-banner.jpg" alt="">
 					</div>
 					<ul class="c-feature-product">
-						<li>Thin & light Poly-carbonate case</li>
-						<li>Smooth & seam-free surface</li>
+						<li>Thin &amp; light Poly-carbonate case</li>
+						<li>Smooth &amp; seam-free surface</li>
 						<li>Photo-realistic print quality</li>
 						<li>Hassle-free replacements</li>
 						<li>Delivery in 5-7 working days</li>
@@ -85,7 +289,6 @@
 						<select class="form-control">
 							<option>Choose Mobile Brand</option>	
 							<option>Apple</option>
-							<option>Google</option>
 							<option>Infinix</option>
 							
 						</select>
@@ -94,7 +297,7 @@
 						<li>
 							<div class="form-check">
 							  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-							  <label class="form-check-label" for="flexCheckDefault">
+							  <label class="form-check-label text-muted" for="flexCheckDefault">
 							    Add Flexible Glass Screen Guard
 							    <br>
 							    <strong>₹29.00</strong>
@@ -105,7 +308,7 @@
 						<li>
 							<div class="form-check">
 							  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault-2">
-							  <label class="form-check-label" for="flexCheckDefault-2">
+							  <label class="form-check-label text-muted" for="flexCheckDefault-2">
 							    Add Same Design Key Chain
 							    <br>
 							    <strong>₹29.00</strong>
@@ -116,7 +319,7 @@
 						<li>
 							<div class="form-check">
 							  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault-3">
-							  <label class="form-check-label" for="flexCheckDefault-3">
+							  <label class="form-check-label text-muted" for="flexCheckDefault-3">
 							    Add Same Design Phone Grip
 							    <br>
 							    <strong>₹29.00</strong>
@@ -126,7 +329,7 @@
 						</li>
 					</ul>
 
-					<button  class="c-btn-3" tabindex="0"><span> Add To Card</span></button>
+					<button class="btn btn-nature btn-lg px-5 py-3 rounded-pill shadow-lg w-100" tabindex="0"> Add To Cart</button>
 
 					<ul class="c-coupon-option">
 						<li>
@@ -155,8 +358,16 @@
 				</div>
 			</div>
 		</div>
-	</div>	
-</section>
+	</div>
+    </main>
+
+    <footer class="py-5 mt-5 border-top" style="background: #1A1A1A; color: #A0A090;">
+        <div class="container text-center">
+            <p>© 2023 PBSSD Fresh Seller Solutions. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
@@ -180,6 +391,5 @@
       },
     });
   </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
