@@ -331,12 +331,21 @@
     <section class="container mt-5" data-aos="fade-up">
         <div class="d-flex flex-wrap justify-content-center gap-2 py-4" id="category-filters">
             <div class="category-pill active" onclick="filterProducts('All', this)">All</div>
-            <div class="category-pill" onclick="filterProducts('Grocery', this)">Grocery</div>
+            <div class="category-pill" onclick="filterProducts('Health & Wellness', this)">Health & Wellness</div>
+            <div class="category-pill" onclick="filterProducts('Beauty & Personal Care', this)">Beauty & Personal Care</div>
+            <div class="category-pill" onclick="filterProducts('Pet Supplies', this)">Pet Supplies</div>
+            <div class="category-pill" onclick="filterProducts('Baby & Kids', this)">Baby & Kids</div>
+            <div class="category-pill" onclick="filterProducts('Office & Stationery', this)">Office & Stationery</div>
             <div class="category-pill" onclick="filterProducts('Home Appliances', this)">Home Appliances</div>
-            <div class="category-pill" onclick="filterProducts('Fashion', this)">Fashion</div>
-            <div class="category-pill" onclick="filterProducts('Kids', this)">Kids</div>
-            <div class="category-pill" onclick="filterProducts('Beauty', this)">Beauty</div>
-            <div class="category-pill" onclick="filterProducts('Electronics', this)">Electronics</div>
+            <div class="category-pill" onclick="filterProducts('Smart Home & IoT', this)">Smart Home & IoT</div>
+            <div class="category-pill" onclick="filterProducts('Footwear', this)">Footwear</div>
+            <div class="category-pill" onclick="filterProducts('Jewelry & Watches', this)">Jewelry & Watches</div>
+            <div class="category-pill" onclick="filterProducts('Groceries & Gourmet Food', this)">Groceries & Gourmet Food</div>
+            <div class="category-pill" onclick="filterProducts('Bags & Luggage', this)">Bags & Luggage</div>
+            <div class="category-pill" onclick="filterProducts('Musical Instruments', this)">Musical Instruments</div>
+            <div class="category-pill" onclick="filterProducts('Gardening & Outdoor', this)">Gardening & Outdoor</div>
+            <div class="category-pill" onclick="filterProducts('Industrial & Scientific (B2B)', this)">Industrial & Scientific</div>
+            <div class="category-pill" onclick="filterProducts('Digital Products & Services', this)">Digital Products</div>
         </div>
     </section>
 
@@ -402,19 +411,34 @@
     
     <script>
         // --- PRODUCT DATA ARRAY (50 ITEMS) ---
-        const categories = ['Grocery', 'Home Appliances', 'Fashion', 'Kids', 'Beauty', 'Electronics'];
+        const categories = [
+            'Health & Wellness', 'Beauty & Personal Care', 'Pet Supplies', 'Baby & Kids', 
+            'Office & Stationery', 'Home Appliances', 'Smart Home & IoT', 'Footwear', 
+            'Jewelry & Watches', 'Groceries & Gourmet Food', 'Bags & Luggage', 
+            'Musical Instruments', 'Gardening & Outdoor', 'Industrial & Scientific (B2B)', 
+            'Digital Products & Services'
+        ];
         const productPool = [
-            { name: 'Organic Honey', price: '₹450', img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=500' },
-            { name: 'Air Fryer', price: '₹7,999', img: 'https://images.unsplash.com/photo-1585659722982-789758793322?w=500' },
-            { name: 'Leather Jacket', price: '₹4,500', img: 'https://images.unsplash.com/photo-1551028711-031cde72b4d5?w=500' },
-            { name: 'Teddy Bear', price: '₹999', img: 'https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=500' },
+            { name: 'Multivitamins', price: '₹1,200', img: 'https://images.unsplash.com/photo-1584017911766-d451b3d0e843?w=500' },
             { name: 'Face Serum', price: '₹899', img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=500' },
-            { name: 'Noise Buds', price: '₹2,500', img: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500' }
+            { name: 'Dog Food', price: '₹2,500', img: 'https://images.unsplash.com/photo-1589924691106-906f13979416?w=500' },
+            { name: 'Baby Monitor', price: '₹4,500', img: 'https://images.unsplash.com/photo-1555252333-978fead06d0c?w=500' },
+            { name: 'Notebook Set', price: '₹599', img: 'https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=500' },
+            { name: 'Air Purifier', price: '₹12,999', img: 'https://images.unsplash.com/photo-1585338107529-13afc5f02586?w=500' },
+            { name: 'Smart Bulb', price: '₹999', img: 'https://images.unsplash.com/photo-1550524513-317059df8c52?w=500' },
+            { name: 'Running Shoes', price: '₹3,200', img: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500' },
+            { name: 'Smartwatch', price: '₹5,499', img: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500' },
+            { name: 'Organic Quinoa', price: '₹450', img: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500' },
+            { name: 'Travel Suitcase', price: '₹7,500', img: 'https://images.unsplash.com/photo-1565026057447-bc90a3dceb87?w=500' },
+            { name: 'Acoustic Guitar', price: '₹6,800', img: 'https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=500' },
+            { name: 'Indoor Planter', price: '₹1,299', img: 'https://images.unsplash.com/photo-1485955900106-19499164c88b?w=500' },
+            { name: 'Power Drill', price: '₹4,200', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?w=500' },
+            { name: 'Software License', price: '₹2,999', img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=500' }
         ];
 
         const products = [];
-        for (let i = 1; i <= 60; i++) {
-            const template = productPool[i % 6];
+        for (let i = 0; i < 60; i++) {
+            const template = productPool[i % productPool.length];
             products.push({
                 id: i,
                 name: `${template.name} v${i}`,
