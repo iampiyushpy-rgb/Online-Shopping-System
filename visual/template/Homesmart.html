@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomeSmart - Premium Home Essentials</title>
+    <meta name="description"
+        content="Discover premium home essentials with HomeSmart. From cookware to gardening, elevate your living space today.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/Homesmart.css">
+</head>
+
+<body>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-inner" id="hero-carousel-inner">
+            <!-- Dynamic Slides Injected via JS -->
+        </div>
+
+        <!-- Carousel Arrows (Hidden on idle) -->
+        <button class="carousel-control prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-nav" id="hero-carousel-nav">
+            <!-- Dynamic Dots Injected via JS -->
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="shop">
+
+        <!-- Today's Top Deals -->
+        <section class="container" style="background: #fff8f8;">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">LIMITED TIME ONLY</span>
+                    <h2>Today's Top Deals</h2>
+                </div>
+                <a href="#" class="view-all">Shop All Deals <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='ProductDetails.html?name=Smart Kitchen Combo&price=$199&img=https:'//images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=400&h=300&fit=crop&cat=Deals">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556910110-ad52744d7c1f?q=80&w=400&h=300&fit=crop"
+                            class="product-image">
+                        <span class="product-badge badge-deal">50% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Kitchen Combo</h3>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$399</span>
+                            $199</p><button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- More deal items... -->
+                <div class="product-card"
+                    onclick="window.location.href='ProductDetails.html?name=Luxury Sofa Set Lux&price=$1,200&img=https://images.unsplash.com/photo-1493663214224-992ca251d102?q=80&w=400&h=300&fit=crop&cat=Deals'">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1493663214224-992ca251d102?q=80&w=400&h=300&fit=crop"
+                            class="product-image"><span class="product-badge badge-deal">Top Pick</span></div>
+                    <div class="product-info">
+                        <h3>Luxury Sofa Set Lux</h3>
+                        <p class="product-price">$1,200</p><button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="container">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">CUSTOMER FAVORITES</span>
+                    <h2>Best Sellers of the Week</h2>
+                </div>
+                <a href="#" class="view-all">Browse Popular <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='ProductDetails.html?name=Chef Knife Set&price=$89&img=https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=400&h=300&fit=crop&cat=Best Sellers'">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=400&h=300&fit=crop"
+                            class="product-image"><span class="product-badge badge-best">#1 Seller</span></div>
+                    <div class="product-info">
+                        <h3>Professional Chef knife Set</h3>
+                        <p class="product-price">$89</p><button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='ProductDetails.html?name=Organic Air Pure&price=$45&img=https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&h=300&fit=crop&cat=Best Sellers'">
+                    <div class="image-wrapper"><img
+                            src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&h=300&fit=crop"
+                            class="product-image"><span class="product-badge badge-best">Trending</span></div>
+                    <div class="product-info">
+                        <h3>Organic Air Pure</h3>
+                        <p class="product-price">$45</p><button class="add-to-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hardcoded Sections with Renamed Headers -->
+        <section class="container" style="background: var(--light-green);">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">KITCHEN MASTERCLASS</span>
+                    <h2>Gourmet Cookware Collection</h2>
+                </div>
+                <a href="#" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='ProductDetails.html?name=Emerald Ceramic Pot Set&price=$129.99&img=cookware_category_green_1775381016223.png&cat=Cookware'">
+                    <div class="image-wrapper">
+                        <img src="cookware_category_green_1775381016223.png" alt="Cookware" class="product-image">
+                        <span class="product-badge badge-new">New Arrival</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Emerald Ceramic Pot Set</h3>
+                        <p class="product-price">$129.99</p><button class="add-to-cart"
+                            onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <!-- ... other items would be updated similarly or handled via JS ... -->
+            </div>
+        </section>
+
+        <div id="dynamic-categories"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-green); color: white; padding: 4rem 5%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">HomeSmart</h3>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem;">The ultimate destination for premium home essentials and
+                    elegant living solutions.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Shop</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem;">New Arrivals</li>
+                    <li style="margin-bottom: 0.5rem;">Best Sellers</li>
+                    <li style="margin-bottom: 0.5rem;">Sale</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Support</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem;">Help Center</li>
+                    <li style="margin-bottom: 0.5rem;">Shipping Info</li>
+                </ul>
+            </div>
+        </div>
+        <div
+            style="text-align: center; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+            &copy; 2026 HomeSmart. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/Homesmart.js" defer></script>
+</body>
+
+</html>

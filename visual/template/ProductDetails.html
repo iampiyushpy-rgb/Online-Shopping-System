@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - HomeSmart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/ProductDetails.css">
+</head>
+<body>
+    <header style="margin-bottom: 0;">
+        <div class="logo" onclick="window.location.href='Homesmart.html'" style="cursor:pointer">
+            <i class="fas fa-leaf"></i> UMart
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search for products...">
+        </div>
+        <div class="nav-actions">
+            <i class="far fa-user"></i>
+            <i class="far fa-heart"></i>
+            <div style="position: relative;">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count" style="position: absolute; top: -8px; right: -10px; background: var(--accent-green); color: white; border-radius: 50%; font-size: 0.5rem; padding: 2px 6px; border: 2px solid white;">3</span>
+            </div>
+        </div>
+    </header>
+   
+    <nav class="breadcrumb-nav">
+        <a href="../template/Homesmart.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> <span>Back to Home</span>
+        </a>
+    </nav> 
+
+    <div class="details-container" style="padding-top:25px;">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+            <div class="main-image-container">
+                <img id="product-img" src="" alt="Product Image" class="main-image">
+            </div>
+            <div class="thumbnail-container" id="thumb-list">
+                <!-- Thumbnails populated via JS -->
+            </div>
+
+            <!-- Product Video Section -->
+            <div class="video-player-container">
+                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&h=450&fit=crop" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                <div class="video-overlay" onclick="alert('Playing Product Demo Video...')">
+                    <i class="fas fa-play-circle play-btn"></i>
+                    <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Watch Product Demo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Meta Data -->
+        <div class="product-meta">
+            <p style="color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;" id="category-name">Home Essentials</p>
+            <h1 id="product-title">Loading Product...</h1>
+            
+            <div class="rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>(4.8 • 2,450 Reviews)</span>
+            </div>
+
+            <div class="price-tag" id="product-price">$0.00</div>
+
+            <p class="description">
+                Experience the perfect blend of style and utility. This premium product is crafted with high-quality sustainable materials to ensure durability and aesthetic appeal in your modern home. Designed for those who value quality and elegance.
+            </p>
+
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <span>Material</span>
+                    <strong id="spec-material">Eco-Friendly Ceramic</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Dimensions</span>
+                    <strong>12 x 8 x 4 inches</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Warranty</span>
+                    <strong>2 Years Limited</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Shipping</span>
+                    <strong>Free Delivery</strong>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-buy"><i class="fas fa-bolt"></i> BUY NOW</button>
+                <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            </div>
+
+            <div style="background: white; padding: 2rem; border-radius: 20px; box-shadow: var(--shadow-sm);">
+                <h4 style="margin-bottom: 1rem;">Offers & Savings</h4>
+                <div style="border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="font-weight: 600; color: var(--text-dark);">Bank Offer</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">10% Instant Discount on SBI Credit Cards. <a href="#" style="color: var(--accent-green);">T&C</a></p>
+                </div>
+                <div style="border-left: 3px solid var(--accent-green); padding-left: 1rem;">
+                    <p style="font-weight: 600; color: var(--text-dark);">Special Price</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Get extra $5 off on your first purchase.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="container" style="background: var(--bg-gray);">
+        <div class="section-header">
+            <h2>Customers also viewed</h2>
+        </div>
+        <div class="product-scroll-container" id="related-scroll">
+            <!-- Populated via JS -->
+        </div>
+    </section>
+
+    <footer style="background-color: var(--primary-green); color: white; padding: 4rem 5%;">
+        <!-- Footer content (simplified) -->
+        <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2026 HomeSmart. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="../js/ProductDetails.js" defer></script>
+</body>
+</html>
