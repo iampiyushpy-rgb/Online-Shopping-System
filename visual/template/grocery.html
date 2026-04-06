@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>sprout. — Fresh Grocery</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="../css/footer.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -105,12 +107,12 @@
     background: inherit; opacity: 0.06;
     background-size: 40px 40px;
   }
-  .slide-0 { background: linear-gradient(135deg, #E8F0E0 0%, #d4e8c2 100%); }
-  .slide-1 { background: linear-gradient(135deg, #FFF8E7 0%, #fde8c0 100%); }
-  .slide-2 { background: linear-gradient(135deg, #FCE8EC 0%, #f9d0d8 100%); }
-  .slide-3 { background: linear-gradient(135deg, #E8F4FD 0%, #c8e6f8 100%); }
-  .slide-4 { background: linear-gradient(135deg, #F3E8FD 0%, #e0c8f8 100%); }
-  .slide-5 { background: linear-gradient(135deg, #E8FDF0 0%, #c8f0d8 100%); }
+  .slide-0 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1540331547168-8b63109225b7?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+  .slide-1 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+  .slide-2 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+  .slide-3 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+  .slide-4 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+  .slide-5 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
 
   .slide-content {
     flex: 1; z-index: 2; animation: slideIn 0.6s ease both;
@@ -125,12 +127,12 @@
     font-family: 'Lora', serif;
     font-size: clamp(2.2rem, 3.5vw, 3.4rem);
     font-style: italic; font-weight: 400;
-    line-height: 1.18; color: var(--black);
+    line-height: 1.18; color: var(--ivory);
     margin-bottom: 0.9rem;
   }
   .slide-content h1 em { color: var(--sage); font-style: normal; }
   .slide-content p {
-    color: var(--gray); font-size: 1rem; max-width: 400px; margin-bottom: 1.8rem; line-height: 1.7;
+    color: rgba(255, 255, 255, 0.85); font-size: 1rem; max-width: 400px; margin-bottom: 1.8rem; line-height: 1.7;
   }
   .slide-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
@@ -164,7 +166,8 @@
     cursor: pointer;
   }
   .slide-pcard:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(90,138,90,0.18); }
-  .slide-pcard .sp-emoji { font-size: 2.6rem; line-height: 1; }
+  .slide-pcard .sp-emoji { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+  .slide-pcard .sp-emoji img { width: 100%; height: 100%; object-fit: cover; }
   .slide-pcard .sp-name { font-size: 0.78rem; font-weight: 500; color: var(--black); }
   .slide-pcard .sp-price { font-size: 0.82rem; font-weight: 600; color: var(--sage); }
   .slide-pcard .sp-add {
@@ -179,7 +182,7 @@
     width: 155px; padding: 1.5rem 1.2rem;
     background: rgba(255,255,255,0.92);
   }
-  .slide-pcard.featured .sp-emoji { font-size: 3.5rem; }
+  .slide-pcard.featured .sp-emoji { width: 70px; height: 70px; }
   .slide-pcard.featured .sp-name { font-size: 0.85rem; }
   .slide-pcard.featured .sp-price { font-size: 0.9rem; }
 
@@ -385,7 +388,7 @@
 
 <!-- NAV -->
 <nav>
-  <span class="logo">sprout<span>.</span></span>
+  <span class="logo">PBSSD GROCERY<span>.</span></span>
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#">Shop</a></li>
@@ -397,7 +400,7 @@
       <span>🔍</span>
       <input type="text" placeholder="Search groceries…" />
     </div>
-    <button class="bag-btn">🛒 Bag (0)</button>
+    <a href="cart.html" class="bag-btn">🛒 Bag (0)</a>
   </div>
 </nav>
 
@@ -412,25 +415,25 @@
         <h1>Crisp, fresh<br/><em>vegetables</em> daily.</h1>
         <p>Hand-picked from local farms every morning. Organic, pesticide-free, and bursting with flavour.</p>
         <div class="slide-actions">
-          <button class="btn-primary">Shop Vegetables →</button>
+          <button class="btn-primary" data-target="vegetables">Shop Vegetables →</button>
           <button class="btn-outline">View all deals</button>
         </div>
       </div>
       <div class="slide-products">
         <div class="slide-pcard">
-          <div class="sp-emoji">🥕</div>
+          <div class="sp-emoji"><img src="../assets/Baby Carrots.jpg" alt="Carrots"></div>
           <div class="sp-name">Baby Carrots</div>
           <div class="sp-price">₹35</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard featured">
-          <div class="sp-emoji">🥦</div>
+          <div class="sp-emoji"><img src="../assets/Broccoli.jpg" alt="Broccoli"></div>
           <div class="sp-name">Organic Broccoli</div>
           <div class="sp-price">₹49</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard">
-          <div class="sp-emoji">🍅</div>
+          <div class="sp-emoji"><img src="../assets/Cherry Tomatoes.jpg" alt="Tomatoes"></div>
           <div class="sp-name">Cherry Tomatoes</div>
           <div class="sp-price">₹58</div>
           <button class="sp-add add-btn">+</button>
@@ -445,25 +448,25 @@
         <h1>Nature's sweetest<br/><em>fruits</em>, delivered.</h1>
         <p>From juicy mangoes to crisp apples — sourced from the finest orchards across India.</p>
         <div class="slide-actions">
-          <button class="btn-primary">Shop Fruits →</button>
+          <button class="btn-primary" data-target="fruits">Shop Fruits →</button>
           <button class="btn-outline">View all deals</button>
         </div>
       </div>
       <div class="slide-products">
         <div class="slide-pcard">
-          <div class="sp-emoji">🍌</div>
+          <div class="sp-emoji"><img src="../assets/Bananas.jpg" alt="Bananas"></div>
           <div class="sp-name">Bananas</div>
           <div class="sp-price">₹38</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard featured">
-          <div class="sp-emoji">🥭</div>
+          <div class="sp-emoji"><img src="../assets/Alphonso Mango.jpg" alt="Mango"></div>
           <div class="sp-name">Alphonso Mango</div>
           <div class="sp-price">₹130</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard">
-          <div class="sp-emoji">🍓</div>
+          <div class="sp-emoji"><img src="../assets/Fresh Strawberries.jpg" alt="Strawberries"></div>
           <div class="sp-name">Strawberries</div>
           <div class="sp-price">₹89</div>
           <button class="sp-add add-btn">+</button>
@@ -478,25 +481,25 @@
         <h1>Wholesome<br/><em>dairy</em> every morning.</h1>
         <p>Pure, pasteurised, and packed with goodness — from our trusted farm partners to your breakfast table.</p>
         <div class="slide-actions">
-          <button class="btn-primary">Shop Dairy →</button>
+          <button class="btn-primary" data-target="dairy">Shop Dairy →</button>
           <button class="btn-outline">View all deals</button>
         </div>
       </div>
       <div class="slide-products">
         <div class="slide-pcard">
-          <div class="sp-emoji">🧈</div>
+          <div class="sp-emoji"><img src="../assets/Unsalted Butter.jpg" alt="Butter"></div>
           <div class="sp-name">Unsalted Butter</div>
           <div class="sp-price">₹55</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard featured">
-          <div class="sp-emoji">🥛</div>
+          <div class="sp-emoji"><img src="../assets/milk-groccery.jpg" alt="Milk"></div>
           <div class="sp-name">Full Cream Milk</div>
           <div class="sp-price">₹32</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard">
-          <div class="sp-emoji">🧀</div>
+          <div class="sp-emoji"><img src="../assets/cheese-img.jpg" alt="Cheese"></div>
           <div class="sp-name">Cheddar Cheese</div>
           <div class="sp-price">₹145</div>
           <button class="sp-add add-btn">+</button>
@@ -511,25 +514,25 @@
         <h1>Premium<br/><em>chocolate</em>, every bite.</h1>
         <p>From rich dark bars to silky milk chocolate — curated from world-class confectioners.</p>
         <div class="slide-actions">
-          <button class="btn-primary">Shop Chocolate →</button>
+          <button class="btn-primary" data-target="chocolate">Shop Chocolate →</button>
           <button class="btn-outline">View all deals</button>
         </div>
       </div>
       <div class="slide-products">
         <div class="slide-pcard">
-          <div class="sp-emoji">🍬</div>
+          <div class="sp-emoji"><img src="../assets/Choco Chip Cookies.jpg " alt="Choco Bites"></div>
           <div class="sp-name">Milk Choco Bites</div>
           <div class="sp-price">₹120</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard featured">
-          <div class="sp-emoji">🍫</div>
+          <div class="sp-emoji"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"></div>
           <div class="sp-name">Dark Chocolate Bar</div>
           <div class="sp-price">₹185</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard">
-          <div class="sp-emoji">🍩</div>
+          <div class="sp-emoji"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"></div>
           <div class="sp-name">Hazelnut Praline</div>
           <div class="sp-price">₹210</div>
           <button class="sp-add add-btn">+</button>
@@ -544,25 +547,25 @@
         <h1>Ready in<br/><em>2 minutes</em>, always.</h1>
         <p>Stock up on your favourite noodles and instant meals. Perfect for busy days and midnight cravings.</p>
         <div class="slide-actions">
-          <button class="btn-primary">Shop Noodles →</button>
+          <button class="btn-primary" data-target="noodles">Shop Noodles →</button>
           <button class="btn-outline">View all deals</button>
         </div>
       </div>
       <div class="slide-products">
         <div class="slide-pcard">
-          <div class="sp-emoji">🍝</div>
+          <div class="sp-emoji"><img src="../assets/Atta Maggi.jpg" alt="Atta Maggi"></div>
           <div class="sp-name">Atta Maggi</div>
           <div class="sp-price">₹78</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard featured">
-          <div class="sp-emoji">🍜</div>
+          <div class="sp-emoji"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi Noodles"></div>
           <div class="sp-name">Maggi 2-Min Noodles</div>
           <div class="sp-price">₹72</div>
           <button class="sp-add add-btn">+</button>
         </div>
         <div class="slide-pcard">
-          <div class="sp-emoji">🥘</div>
+          <div class="sp-emoji"><img src="../assets/Cup Noodles.jpg" alt="Cup Noodles"></div>
           <div class="sp-name">Cup Noodles</div>
           <div class="sp-price">₹35</div>
           <button class="sp-add add-btn">+</button>
@@ -585,12 +588,12 @@
   <p class="section-label">All Categories</p>
   <h2 class="section-title">Shop by Category</h2>
   <div class="pills">
-    <button class="pill active">🥬 All</button>
-    <button class="pill">🥛 Dairy</button>
-    <button class="pill">🥦 Vegetables</button>
-    <button class="pill">🍎 Fruits</button>
-    <button class="pill">🍫 Chocolate</button>
-    <button class="pill">🍜 Maggi & Noodles</button>
+    <button class="pill active" data-target="all">🥬 All</button>
+    <button class="pill" data-target="dairy">🥛 Dairy</button>
+    <button class="pill" data-target="vegetables">🥦 Vegetables</button>
+    <button class="pill" data-target="fruits">🍎 Fruits</button>
+    <button class="pill" data-target="chocolate">🍫 Chocolate</button>
+    <button class="pill" data-target="noodles">🍜 Maggi & Noodles</button>
     <button class="pill">🧃 Beverages</button>
     <button class="pill">⚽ Sports & Fitness</button>
     <button class="pill">📚 Books & Stationery</button>
@@ -598,7 +601,7 @@
   </div>
 
   <!-- DAIRY -->
-  <p class="section-label" style="margin-top:1.5rem;">Dairy Products</p>
+  <p id="dairy" class="section-label" style="margin-top:1.5rem;">Dairy Products</p>
   <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Fresh & Wholesome</h3>
   <div class="product-grid">
     <div class="product-card" style="animation-delay:0s">
@@ -659,7 +662,7 @@
   </div>
 
   <!-- VEGETABLES -->
-  <p class="section-label" style="margin-top:3rem;">Vegetables</p>
+  <p id="vegetables" class="section-label" style="margin-top:3rem;">Vegetables</p>
   <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Garden-Fresh Picks</h3>
   <div class="product-grid">
     <div class="product-card"><div class="product-img"><img src="../assets/Broccoli.jpg" alt="Broccoli"><span class="product-badge">ORGANIC</span></div><div class="product-info"><h3>Broccoli</h3><div class="sub">500 g · Local Farm</div><div class="product-footer"><div><span class="price">₹49</span></div><button class="add-btn">+</button></div></div></div>
@@ -670,7 +673,7 @@
   </div>
 
   <!-- FRUITS -->
-  <p class="section-label" style="margin-top:3rem;">Fruits</p>
+  <p id="fruits" class="section-label" style="margin-top:3rem;">Fruits</p>
   <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Nature's Sweetness</h3>
   <div class="product-grid">
     <div class="product-card"><div class="product-img"><img src="../assets/Royal Gala Apples.jpg" alt="Apples"><span class="product-badge">SEASONAL</span></div><div class="product-info"><h3>Royal Gala Apples</h3><div class="sub">4 pcs · Kashmir</div><div class="product-footer"><div><span class="price">₹95</span></div><button class="add-btn">+</button></div></div></div>
@@ -681,11 +684,11 @@
   </div>
 
   <!-- CHOCOLATE -->
-  <p class="section-label" style="margin-top:3rem;">Chocolate</p>
+  <p id="chocolate" class="section-label" style="margin-top:3rem;">Chocolate</p>
   <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Indulge Mindfully</h3>
   <div class="product-grid">
     <div class="product-card"><div class="product-img"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"><span class="product-badge">70% DARK</span></div><div class="product-info"><h3>Dark Chocolate Bar</h3><div class="sub">90 g · Lindt</div><div class="product-footer"><div><span class="price">₹185</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/milk-groccery.jpg" alt="Milk Chocolate"></div><div class="product-info"><h3>Milk Chocolate Bites</h3><div class="sub">150 g · Cadbury</div><div class="product-footer"><div><span class="price">₹120</span><span class="old-price">₹145</span></div><button class="add-btn">+</button></div></div></div>
+    <div class="product-card"><div class="product-img"><img src="../assets/Milk Chocolate Bites.jpg" alt="Milk Chocolate"></div><div class="product-info"><h3>Milk Chocolate Bites</h3><div class="sub">150 g · Cadbury</div><div class="product-footer"><div><span class="price">₹120</span><span class="old-price">₹145</span></div><button class="add-btn">+</button></div></div></div>
     <div class="product-card"><div class="product-img"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"><span class="product-badge">NEW</span></div><div class="product-info"><h3>Hazelnut Praline</h3><div class="sub">100 g · Ferrero</div><div class="product-footer"><div><span class="price">₹210</span></div><button class="add-btn">+</button></div></div></div>
     <div class="product-card"><div class="product-img"><img src="../assets/Choco Chip Cookies.jpg" alt="Cookies"></div><div class="product-info"><h3>Choco Chip Cookies</h3><div class="sub">200 g · Crispy</div><div class="product-footer"><div><span class="price">₹90</span></div><button class="add-btn">+</button></div></div></div>
     <div class="product-card"><div class="product-img"><img src="../assets/White Chocolate Block.jpg" alt="White Chocolate"></div><div class="product-info"><h3>White Chocolate Block</h3><div class="sub">80 g · Creamy</div><div class="product-footer"><div><span class="price">₹155</span></div><button class="add-btn">+</button></div></div></div>
@@ -693,7 +696,7 @@
   </div>
 
   <!-- MAGGI & NOODLES -->
-  <p class="section-label" style="margin-top:3rem;">Maggi & Noodles</p>
+  <p id="noodles" class="section-label" style="margin-top:3rem;">Maggi & Noodles</p>
   <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Quick & Tasty Meals</h3>
   <div class="product-grid">
     <div class="product-card"><div class="product-img"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi"><span class="product-badge">BESTSELLER</span></div><div class="product-info"><h3>Maggi 2-Minute Noodles</h3><div class="sub">280 g · Pack of 4</div><div class="product-footer"><div><span class="price">₹72</span></div><button class="add-btn">+</button></div></div></div>
@@ -744,6 +747,19 @@
   </div>
 </div>
 
+<!-- MIXED PRODUCTS SECTION -->
+<div class="section" style="padding-top: 0;">
+  <p class="section-label">Daily Essentials Mix </p>
+  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">summer deal for you</h3>
+  <div class="product-grid">
+    <div class="product-card"><div class="product-img"><img src="../assets/whey protein.jpg" alt="protein"><span class="product-badge">BESTSELLER</span></div><div class="product-info"><h3>Whey protein</h3><div class="sub">1kg · protein</div><div class="product-footer"><div><span class="price">₹4999</span></div><button class="add-btn">+</button></div></div></div>
+    <div class="product-card"><div class="product-img"><img src="../assets/bru_coffee.jpg" alt="coffee"></div><div class="product-info"><h3>Bru coffee</h3><div class="sub">500 ml · coffee</div><div class="product-footer"><div><span class="price">₹320</span></div><button class="add-btn">+</button></div></div></div>
+    <div class="product-card"><div class="product-img"><img src="../assets/alomonds.jpg" alt="alomonds"><span class="product-badge">SEASONAL</span></div><div class="product-info"><h3>Almonds</h3><div class="sub">100g · Sweet</div><div class="product-footer"><div><span class="price">₹330</span></div><button class="add-btn">+</button></div></div></div>
+    <div class="product-card"><div class="product-img"><img src="../assets/fortune.jpg" alt="oil"></div><div class="product-info"><h3>Oil furtune</h3><div class="sub">5kg · healthy</div><div class="product-footer"><div><span class="price">₹1805</span></div><button class="add-btn">+</button></div></div></div>
+    <div class="product-card"><div class="product-img"><img src="../assets/tide.jpg" alt="Maggi"></div><div class="product-info"><h3>Tide</h3><div class="sub">4lg pack</div><div class="product-footer"><div><span class="price">₹420</span></div><button class="add-btn">+</button></div></div></div>
+  </div>
+</div>
+
 <!-- FEATURES -->
 <div class="features">
   <div class="feature-card">
@@ -769,46 +785,54 @@
 </div>
 
 <!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo">sprout<span>.</span></span>
-      <p>Organic, sustainable groceries for everyday life. Fresh from the farm, straight to your kitchen.</p>
+<footer class="c-footer-w">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">PBSSD FRESH</h5>
+                <p class="footer-text">Your daily dose of fresh and organic products, delivered to your doorstep with care and quality.</p>
+                <div class="social-icons mt-4">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-6">
+                <h5 class="footer-heading">Quick Links</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h5 class="footer-heading">Help & Support</h5>
+                <ul class="list-unstyled footer-links">
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping Policy</a></li>
+                    <li><a href="#">Returns & Exchanges</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <h5 class="footer-heading">Subscribe to our Newsletter</h5>
+                <p class="footer-text">Get the latest updates on new products and upcoming sales.</p>
+                <form class="newsletter-form mt-3">
+                    <div class="input-group">
+                        <input type="email" class="form-control" placeholder="Your email address" required>
+                        <button class="btn btn-subscribe" type="submit">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr class="footer-divider">
+        <div class="footer-bottom">
+            <p>&copy; 2024 PBSSD Fresh. All Rights Reserved.</p>
+        </div>
     </div>
-    <div class="footer-col">
-      <h5>Shop</h5>
-      <ul>
-        <li><a href="#">Dairy</a></li>
-        <li><a href="#">Vegetables</a></li>
-        <li><a href="#">Fruits</a></li>
-        <li><a href="#">Beverages</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Our Farmers</a></li>
-        <li><a href="#">Sustainability</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Careers</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Help</h5>
-      <ul>
-        <li><a href="#">FAQs</a></li>
-        <li><a href="#">Delivery Info</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 sprout. All rights reserved.</p>
-    <p>Made with 💚 for fresh living</p>
-  </div>
 </footer>
 
 <script>
@@ -857,6 +881,39 @@
     pill.addEventListener('click', () => {
       document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
       pill.classList.add('active');
+      
+      const targetId = pill.getAttribute('data-target');
+      if (targetId === 'all') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        const navHeight = document.querySelector('nav').offsetHeight;
+        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // ── SLIDER BUTTONS TO SECTIONS ──
+  document.querySelectorAll('.slide-actions .btn-primary').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.getAttribute('data-target');
+      if (targetId) {
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          const navHeight = document.querySelector('nav').offsetHeight;
+          const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          
+          // Sync active pill
+          document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+          const targetPill = document.querySelector(`.pill[data-target="${targetId}"]`);
+          if (targetPill) targetPill.classList.add('active');
+        }
+      }
     });
   });
 
