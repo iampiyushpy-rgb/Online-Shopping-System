@@ -258,3 +258,121 @@
     .product-gallery { position: static; height: auto; }
     .main-image { height: 350px; }
 }
+
+/* =============================================
+   NEW: Product Details Enhanced Features
+   ============================================= */
+
+/* Main image container for badge + like positioning */
+.main-image-container {
+    position: relative;
+}
+
+/* Product Badge */
+.pd-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: var(--accent-green);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 6px 14px;
+    border-radius: 50px;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(45, 90, 39, 0.25);
+}
+
+/* Like / Wishlist Button */
+.pd-like-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    color: #94a3b8;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 2;
+}
+
+.pd-like-btn:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    color: #ef4444;
+}
+
+.pd-like-btn.liked {
+    color: #ef4444;
+    background: #fff1f2;
+}
+
+.pd-like-btn.liked i {
+    animation: heartPop 0.4s ease;
+}
+
+@keyframes heartPop {
+    0% { transform: scale(1); }
+    40% { transform: scale(1.35); }
+    100% { transform: scale(1); }
+}
+
+/* Price Row */
+.pd-price-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.pd-price-row .price-tag {
+    margin-bottom: 0;
+}
+
+/* Original Price Strikethrough */
+.pd-original-price {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #94a3b8;
+    text-decoration: line-through;
+}
+
+/* Discount Badge */
+.pd-discount-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+}
+
+/* Empty star color */
+.rating .empty,
+.related-stars .empty {
+    color: #e2e8f0;
+}
+
+/* Stars in related products */
+.related-stars {
+    color: #f1c40f;
+    font-size: 0.75rem;
+    margin: 4px 0;
+    display: flex;
+    gap: 2px;
+}

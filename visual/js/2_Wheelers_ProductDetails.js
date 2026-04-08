@@ -1,17 +1,17 @@
 // =============================================
-// ProductDetails.js — HomeSmart Product Details
+// 2_Wheelers_ProductDetails.js
 // Features: Dynamic stars, like button, badge,
 // discount %, description — matching AllProducts
 // =============================================
 
 // --- URL Parameters ---
 const urlParams = new URLSearchParams(window.location.search);
-const name = urlParams.get('name') || 'Premium Essential';
-const price = urlParams.get('price') || '$45.00';
-const img = urlParams.get('img') || 'https://images.unsplash.com/photo-1522770179533-24471fcdba45?q=80&w=400&h=300&fit=crop';
-const cat = urlParams.get('cat') || 'General';
-const rating = parseFloat(urlParams.get('rating')) || 4.8;
-const reviews = parseInt(urlParams.get('reviews')) || 2450;
+const name = urlParams.get('name') || 'Premium Bike';
+const price = urlParams.get('price') || '$999.00';
+const img = urlParams.get('img') || 'https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=400&h=300&fit=crop';
+const cat = urlParams.get('cat') || '2 Wheelers';
+const rating = parseFloat(urlParams.get('rating')) || 4.7;
+const reviews = parseInt(urlParams.get('reviews')) || 1850;
 const originalPrice = urlParams.get('originalPrice') || '';
 const desc = urlParams.get('desc') || '';
 const badge = urlParams.get('badge') || '';
@@ -21,7 +21,7 @@ document.getElementById('product-title').innerText = name;
 document.getElementById('product-price').innerText = price;
 document.getElementById('product-img').src = img;
 document.getElementById('category-name').innerText = cat;
-document.title = name + " - HomeSmart";
+document.title = name + " - 2 Wheelers";
 
 // --- Dynamic Star Rating ---
 function renderStars(rating) {
@@ -80,7 +80,7 @@ if (badgeEl && badge) {
 }
 
 // --- Like / Wishlist Button ---
-let likedProducts = JSON.parse(localStorage.getItem('hs_liked') || '[]');
+let likedProducts = JSON.parse(localStorage.getItem('2w_liked') || '[]');
 
 function isLiked(productName) {
     return likedProducts.includes(productName);
@@ -98,7 +98,7 @@ function toggleLike(productName) {
         btn.classList.add('liked');
         btn.innerHTML = '<i class="fas fa-heart"></i>';
     }
-    localStorage.setItem('hs_liked', JSON.stringify(likedProducts));
+    localStorage.setItem('2w_liked', JSON.stringify(likedProducts));
 }
 
 const likeBtn = document.getElementById('like-btn');
@@ -117,9 +117,9 @@ const thumbList = document.getElementById('thumb-list');
 
 const galleryImages = [
     img,
-    "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?q=80&w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=400&h=300&fit=crop",
-    "https://images.unsplash.com/photo-1581783598307-5bbe6ed40e5a?q=80&w=400&h=300&fit=crop"
+    "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=400&h=300&fit=crop",
+    "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=400&h=300&fit=crop"
 ];
 
 galleryImages.forEach((src, idx) => {
@@ -138,25 +138,25 @@ galleryImages.forEach((src, idx) => {
     thumbList.appendChild(thumb);
 });
 
-// --- Generate 20 Dynamic Related Products ---
+// --- Generate 20 Dynamic Related Bike Products ---
 const relatedProductsPool = [
-    { name: "Nordic Minimalist Vase", price: "$32.00", img: "https://images.unsplash.com/photo-1581783598307-5bbe6ed40e5a?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 1560 },
-    { name: "Bamboo Serving Tray", price: "$24.50", img: "https://images.unsplash.com/photo-1513519245088-0e12902e15ca?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 2100 },
-    { name: "Velvet Cushion Set", price: "$45.00", img: "https://images.unsplash.com/photo-1583847268964-b28dc2f51ac9?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 2340 },
-    { name: "Ceramic Coffee Dripper", price: "$28.00", img: "https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 980 },
-    { name: "Aromatic Diffuser", price: "$39.99", img: "https://images.unsplash.com/photo-1602928294711-536f9ae94098?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 2560 },
-    { name: "Wooden Coaster Set", price: "$15.00", img: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 2800 },
-    { name: "Glass Storage Jars", price: "$19.00", img: "https://images.unsplash.com/photo-1521128182236-407137f8ea6b?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 3800 },
-    { name: "Linen Table Runner", price: "$22.00", img: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 1890 },
-    { name: "Cotton Throw Blanket", price: "$55.00", img: "https://images.unsplash.com/photo-1512418490979-92798cec352a?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 2100 },
-    { name: "Matte Black Planter", price: "$34.00", img: "https://images.unsplash.com/photo-1485955900006-10f4d324d411?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 1200 }
+    { name: "Apex Mountain Pro X9", price: "$1,299", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 2450 },
+    { name: "Velocity Road Racer", price: "$899", img: "https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 1890 },
+    { name: "CityGlide Hybrid 7", price: "$549", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 1560 },
+    { name: "TrailBlazer Fat Tire", price: "$989", img: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 1240 },
+    { name: "Pro Cycling Helmet", price: "$79", img: "https://images.unsplash.com/photo-1557803175-2b3156c31fc8?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 3200 },
+    { name: "Cycling Gloves Pro", price: "$34", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 2340 },
+    { name: "Carbon Frame Racer", price: "$1,499", img: "https://images.unsplash.com/photo-1485965120184-e220f721d03e?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 890 },
+    { name: "KidStar BMX Blaze", price: "$279", img: "https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 980 },
+    { name: "LED Bike Light Set", price: "$25", img: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 3450 },
+    { name: "Titanium Bike Lock", price: "$45", img: "https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 2100 }
 ];
 
 const scroll = document.getElementById('related-scroll');
 for (let i = 0; i < 20; i++) {
     const baseProduct = relatedProductsPool[i % relatedProductsPool.length];
     const p = {
-        name: `${baseProduct.name} ${Math.floor(i / relatedProductsPool.length + 1)}`,
+        name: i < relatedProductsPool.length ? baseProduct.name : `${baseProduct.name} v${Math.floor(i / relatedProductsPool.length) + 1}`,
         price: baseProduct.price,
         img: baseProduct.img,
         rating: baseProduct.rating,
@@ -166,7 +166,7 @@ for (let i = 0; i < 20; i++) {
     const card = document.createElement('div');
     card.className = 'product-card';
     card.style.minWidth = '240px';
-    card.onclick = () => window.location.href = `ProductDetails.html?name=${encodeURIComponent(p.name)}&price=${encodeURIComponent(p.price)}&img=${encodeURIComponent(p.img)}&cat=Related&rating=${p.rating}&reviews=${p.reviews}`;
+    card.onclick = () => window.location.href = `2_Wheelers_ProductDetails.html?name=${encodeURIComponent(p.name)}&price=${encodeURIComponent(p.price)}&img=${encodeURIComponent(p.img)}&cat=Related&rating=${p.rating}&reviews=${p.reviews}`;
     
     card.innerHTML = `
         <div class="image-wrapper">

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Wheelers - Premium Bikes & Cycles</title>
+    <meta name="description"
+        content="Shop premium bikes, cycles, and riding gear at 2 Wheelers. From mountain bikes to electric cycles, find your perfect ride today.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared Base CSS -->
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <!-- Page-Specific CSS -->
+    <link rel="stylesheet" href="../css/2_Wheelers.css">
+</head>
+
+<body class="two-wheelers-body">
+
+    <!-- Sticky Header -->
+    <!-- <header>
+        <div class="logo" onclick="window.location.href='Homesmart.html'" style="cursor:pointer">
+            <i class="fas fa-bicycle"></i> 2 Wheelers
+        </div>
+        <div class="search-container">
+            <input type="text" class="search-bar" placeholder="Search bikes, cycles, accessories...">
+        </div>
+        <div class="nav-actions">
+            <i class="far fa-user"></i>
+            <i class="far fa-heart"></i>
+            <div style="position: relative;">
+                <i class="fas fa-shopping-bag"></i>
+                <span id="cart-count"
+                    style="position: absolute; top: -8px; right: -10px; background: var(--accent-green); color: white; border-radius: 50%; font-size: 0.6rem; padding: 2px 6px; border: 2px solid white;">0</span>
+            </div>
+        </div>
+    </header> -->
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel" style="padding-top: 25px;">
+        <div class="carousel-inner" id="hero-carousel-inner">
+            <!-- Dynamic Slides Injected via JS -->
+        </div>
+
+        <!-- Carousel Arrows -->
+        <button class="carousel-control prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+
+        <!-- Carousel Indicators -->
+        <div class="carousel-nav" id="hero-carousel-nav">
+            <!-- Dynamic Dots Injected via JS -->
+        </div>
+
+        <!-- Carousel Progress Bar -->
+        <div class="carousel-progress-bar">
+            <div id="carousel-progress-fill" class="progress-fill"></div>
+        </div>
+    </section>
+
+    <!-- Feature Trust Bar -->
+    <div class="feature-banner">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+            <div>
+                <h4>Free Shipping</h4>
+                <p>On orders above $99</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+            <div>
+                <h4>2-Year Warranty</h4>
+                <p>On all bike frames</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-rotate-left"></i></div>
+            <div>
+                <h4>Easy Returns</h4>
+                <p>30-day hassle-free</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-headset"></i></div>
+            <div>
+                <h4>Expert Support</h4>
+                <p>Call our bike pros 24/7</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="shop">
+
+        <!-- Today's Top Deals -->
+        <section class="container" style="background: #ffffff;">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">LIMITED TIME ONLY</span>
+                    <h2>Today's Top Deals</h2>
+                </div>
+                <a href="2_Wheelers_AllProducts.html" class="view-all">Shop All Deals <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Apex Mountain Pro X9&price=$1,299&img=../assets/hero_bike_1.png&cat=Deals&rating=4.8&reviews=2450&originalPrice=$2,199&desc=Full suspension carbon fiber frame with 29-inch wheels. Built for the toughest terrain.&badge=40%25 OFF'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_bike_1.png" class="product-image" alt="Apex Mountain Pro X9">
+                        <span class="product-badge badge-deal">40% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Apex Mountain Pro X9</h3>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$2,199</span>
+                            $1,299</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Velocity Road Racer&price=$899&img=../assets/hero_bike_2.png&cat=Deals&rating=4.7&reviews=1890&originalPrice=$1,299&desc=Aerodynamic alloy frame with Shimano 22-speed drivetrain.&badge=30%25 OFF'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_bike_2.png" class="product-image" alt="Velocity Road Racer">
+                        <span class="product-badge badge-deal">30% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Velocity Road Racer</h3>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$1,299</span>
+                            $899</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Pro Cycling Helmet&price=$79&img=https://images.unsplash.com/photo-1557803175-2b3156c31fc8?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.8&reviews=3200&originalPrice=$159&desc=MIPS protection system with 18 ventilation channels.&badge=50%25 OFF'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1557803175-2b3156c31fc8?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Pro Cycling Helmet">
+                        <span class="product-badge badge-deal">50% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Pro Cycling Helmet</h3>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$159</span>
+                            $79</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=EcoVolt E-Bike 500&price=$1,649&img=../assets/hero_ebike.png&cat=Deals&rating=4.9&reviews=3120&originalPrice=$2,199&desc=500W motor, 80km range, regenerative braking.&badge=25%25 OFF'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_ebike.png" class="product-image" alt="EcoVolt E-Bike 500">
+                        <span class="product-badge badge-deal">25% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>EcoVolt E-Bike 500</h3>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$2,199</span>
+                            $1,649</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Sellers -->
+        <section class="container" style="background: var(--light-green);">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">RIDER FAVORITES</span>
+                    <h2>Best Sellers of the Week</h2>
+                </div>
+                <a href="2_Wheelers_AllProducts.html" class="view-all">Browse Popular <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=CityGlide Hybrid 7&price=$549&img=https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.5&reviews=1560&badge=%231 Seller'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532298229144-0ec0c57515c7?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="CityGlide Hybrid 7">
+                        <span class="product-badge badge-best">#1 Seller</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>CityGlide Hybrid 7</h3>
+                        <p class="product-price">$549</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=TrailBlazer Fat Tire&price=$989&img=https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.7&reviews=1240&badge=Trending'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="TrailBlazer Fat Tire">
+                        <span class="product-badge badge-best">Trending</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>TrailBlazer Fat Tire</h3>
+                        <p class="product-price">$989</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=KidStar BMX Blaze&price=$279&img=https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.6&reviews=980&badge=Kids Fav'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1507035895480-2b3156c31fc8?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="KidStar BMX Blaze">
+                        <span class="product-badge badge-best">Kids Fav</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>KidStar BMX Blaze</h3>
+                        <p class="product-price">$279</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Cycling Gloves Pro&price=$34&img=https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.5&reviews=2340&badge=Hot'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Cycling Gloves Pro">
+                        <span class="product-badge badge-best">Hot</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cycling Gloves Pro</h3>
+                        <p class="product-price">$34</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Premium Bikes Collection -->
+        <section class="container" style="background: #ffffff;">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">PREMIUM COLLECTION</span>
+                    <h2>Signature Bikes Gallery</h2>
+                </div>
+                <a href="2_Wheelers_AllProducts.html" class="view-all">View All <i class="fas fa-chevron-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Apex Mountain Pro X9&price=$1,299&img=../assets/hero_bike_1.png&cat=Premium&rating=4.8&reviews=2450&badge=Signature'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_bike_1.png" alt="Apex Mountain Pro X9" class="product-image">
+                        <span class="product-badge badge-new">Signature</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Apex Mountain Pro X9</h3>
+                        <p class="product-price">$1,299</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=Velocity Road Racer&price=$899&img=../assets/hero_bike_2.png&cat=Premium&rating=4.7&reviews=1890&badge=New Arrival'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_bike_2.png" alt="Velocity Road Racer" class="product-image">
+                        <span class="product-badge badge-new">New Arrival</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Velocity Road Racer</h3>
+                        <p class="product-price">$899</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='2_Wheelers_ProductDetails.html?name=EcoVolt E-Bike 500&price=$1,649&img=../assets/hero_ebike.png&cat=Premium&rating=4.9&reviews=3120&badge=Electric'">
+                    <div class="image-wrapper">
+                        <img src="../assets/hero_ebike.png" alt="EcoVolt E-Bike 500" class="product-image">
+                        <span class="product-badge badge-new">Electric</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>EcoVolt E-Bike 500</h3>
+                        <p class="product-price">$1,649</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dynamic Categories (injected via JS) -->
+        <div id="dynamic-categories"></div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: var(--primary-green); color: white; padding: 4rem 5%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;"><i class="fas fa-bicycle"
+                        style="margin-right: 0.5rem;"></i>2 Wheelers</h3>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem;">Your ultimate destination for premium bikes, cycles,
+                    and riding gear. Ride with confidence, style, and purpose.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Shop</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem;">Mountain Bikes</li>
+                    <li style="margin-bottom: 0.5rem;">Road Bikes</li>
+                    <li style="margin-bottom: 0.5rem;">Electric Bikes</li>
+                    <li style="margin-bottom: 0.5rem;">Accessories</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Support</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem;">Help Center</li>
+                    <li style="margin-bottom: 0.5rem;">Shipping Info</li>
+                    <li style="margin-bottom: 0.5rem;">Warranty Policy</li>
+                    <li style="margin-bottom: 0.5rem;">Bike Size Guide</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.3rem; opacity: 0.8;">
+                    <i class="fab fa-instagram" style="cursor:pointer;"></i>
+                    <i class="fab fa-facebook" style="cursor:pointer;"></i>
+                    <i class="fab fa-youtube" style="cursor:pointer;"></i>
+                    <i class="fab fa-strava" style="cursor:pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <div
+            style="text-align: center; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+            &copy; 2026 2 Wheelers. All rights reserved.</div>
+    </footer>
+
+    <script src="../js/2_Wheelers.js" defer></script>
+</body>
+
+</html>

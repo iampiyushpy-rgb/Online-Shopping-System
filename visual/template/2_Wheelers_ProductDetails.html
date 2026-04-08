@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details - HomeSmart</title>
+    <title>Product Details - 2 Wheelers</title>
+    <meta name="description" content="View detailed product information, specs, and related bikes at 2 Wheelers.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
@@ -14,27 +15,10 @@
 </head>
 
 <body>
-    <!-- <header>
-        <div class="logo" onclick="window.location.href='Homesmart.html'" style="cursor:pointer">
-            <i class="fas fa-leaf"></i> HomeSmart
-        </div>
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search for products...">
-        </div>
-        <div class="nav-actions">
-            <i class="far fa-user"></i>
-            <i class="far fa-heart"></i>
-            <div style="position: relative;">
-                <i class="fas fa-shopping-bag"></i>
-                <span id="cart-count"
-                    style="position: absolute; top: -8px; right: -10px; background: var(--accent-green); color: white; border-radius: 50%; font-size: 0.6rem; padding: 2px 6px; border: 2px solid white;">3</span>
-            </div>
-        </div>
-    </header> -->
 
     <nav class="breadcrumb-nav">
-        <a href="../template/Homesmart.html" class="back-link">
-            <i class="fas fa-arrow-left"></i> <span>Back to Smart Home</span>
+        <a href="../template/2_Wheelers.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> <span>Back to 2 Wheelers</span>
         </a>
     </nav>
 
@@ -56,7 +40,7 @@
 
             <!-- Product Video Section -->
             <div class="video-player-container">
-                <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=800&h=450&fit=crop"
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&h=450&fit=crop"
                     style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
                 <div class="video-overlay" onclick="alert('Playing Product Demo Video...')">
                     <i class="fas fa-play-circle play-btn"></i>
@@ -69,7 +53,7 @@
         <!-- Right: Meta Data -->
         <div class="product-meta">
             <p style="color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;"
-                id="category-name">Home Essentials</p>
+                id="category-name">2 Wheelers</p>
             <h1 id="product-title">Loading Product...</h1>
 
             <!-- Dynamic Rating -->
@@ -85,23 +69,23 @@
             </div>
 
             <p class="description" id="product-desc">
-                Experience the perfect blend of style and utility. This premium product is crafted with high-quality
-                sustainable materials to ensure durability and aesthetic appeal in your modern home. Designed for those
-                who value quality and elegance.
+                Engineered for performance and built for adventure. This premium two-wheeler features cutting-edge
+                technology, superior craftsmanship, and ergonomic design to deliver an unmatched riding experience
+                on any terrain.
             </p>
 
             <div class="spec-grid">
                 <div class="spec-item">
-                    <span>Material</span>
-                    <strong id="spec-material">Eco-Friendly Ceramic</strong>
+                    <span>Frame</span>
+                    <strong id="spec-material">Carbon Fiber Alloy</strong>
                 </div>
                 <div class="spec-item">
-                    <span>Dimensions</span>
-                    <strong>12 x 8 x 4 inches</strong>
+                    <span>Wheel Size</span>
+                    <strong>29 inches</strong>
                 </div>
                 <div class="spec-item">
                     <span>Warranty</span>
-                    <strong>2 Years Limited</strong>
+                    <strong>2 Years Frame</strong>
                 </div>
                 <div class="spec-item">
                     <span>Shipping</span>
@@ -121,9 +105,14 @@
                     <p style="font-size: 0.9rem; color: var(--text-muted);">10% Instant Discount on SBI Credit Cards. <a
                             href="#" style="color: var(--accent-green);">T&C</a></p>
                 </div>
+                <div style="border-left: 3px solid var(--accent-green); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="font-weight: 600; color: var(--text-dark);">EMI Available</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">No-cost EMI starting from $50/month.</p>
+                </div>
                 <div style="border-left: 3px solid var(--accent-green); padding-left: 1rem;">
-                    <p style="font-weight: 600; color: var(--text-dark);">Special Price</p>
-                    <p style="font-size: 0.9rem; color: var(--text-muted);">Get extra $5 off on your first purchase.</p>
+                    <p style="font-weight: 600; color: var(--text-dark);">Free Accessories</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Get a free helmet & lock with every bike
+                        purchase over $500.</p>
                 </div>
             </div>
         </div>
@@ -132,7 +121,7 @@
     <!-- Related Products -->
     <section class="container" style="background: var(--bg-gray);">
         <div class="section-header">
-            <h2>Customers also viewed</h2>
+            <h2>Riders also viewed</h2>
         </div>
         <div class="product-scroll-container" id="related-scroll">
             <!-- Populated via JS -->
@@ -140,13 +129,13 @@
     </section>
 
     <footer style="background-color: var(--primary-green); color: white; padding: 4rem 5%;">
-        <!-- Footer content (simplified) -->
+        <!-- Footer content -->
         <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
-            &copy; 2026 HomeSmart. All rights reserved.
+            &copy; 2026 2 Wheelers. All rights reserved.
         </div>
     </footer>
 
-    <script src="../js/ProductDetails.js" defer></script>
+    <script src="../js/2_Wheelers_ProductDetails.js" defer></script>
 </body>
 
 </html>
