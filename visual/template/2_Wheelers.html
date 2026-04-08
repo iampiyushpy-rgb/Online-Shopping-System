@@ -15,36 +15,932 @@
 
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
     <!-- Shared Base CSS -->
     <link rel="stylesheet" href="../css/Abhi_style.css">
     <!-- Page-Specific CSS -->
     <link rel="stylesheet" href="../css/2_Wheelers.css">
+
+    <style>
+        :root {
+            --bg-color: #FAFAF7;
+            --primary-nature: #5A8A5A;
+            --headline-color: #1A1A1A;
+            --text-muted: #6C757D;
+            --border-soft: #E5E5E0;
+            --body-font: 'DM Sans', sans-serif;
+            --heading-font: 'Lora', serif;
+            --section-padding: 100px 0;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #d1d1ca;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-nature);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            font-family: var(--body-font);
+            color: var(--headline-color);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        /* ============================================================
+           NAVBAR
+        ============================================================ */
+        .navbar {
+            background: transparent;
+            padding: 18px 0;
+            z-index: 1050;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            top: 0;
+            left: 0;
+            right: 0;
+            position: fixed !important;
+        }
+
+        .navbar-inner {
+            background: rgba(250, 250, 247, 0.82);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 0.5px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 10px 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06), 0 1.5px 4px rgba(90, 138, 90, 0.06);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            position: relative;
+            flex-wrap: nowrap;
+        }
+
+        .navbar.scrolled .navbar-inner {
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(90, 138, 90, 0.08);
+            background: rgba(250, 250, 247, 0.95);
+        }
+
+        .navbar-brand {
+            color: var(--primary-nature) !important;
+            font-family: var(--heading-font);
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links .nav-link {
+            font-family: var(--body-font);
+            font-weight: 500;
+            font-size: 0.92rem;
+            color: var(--headline-color);
+            padding: 6px 14px;
+            border-radius: 10px;
+            transition: background 0.2s, color 0.2s;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .nav-links .nav-link:hover,
+        .nav-links .nav-link.active {
+            background: rgba(90, 138, 90, 0.10);
+            color: var(--primary-nature);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .nav-icon-btn {
+            width: 40px;
+            height: 40px;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 12px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--headline-color);
+            font-size: 1.05rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .nav-icon-btn:hover {
+            background: rgba(90, 138, 90, 0.08);
+            border-color: rgba(90, 138, 90, 0.20);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(90, 138, 90, 0.15);
+        }
+
+        .nav-search-bar {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-search-input {
+            width: 100%;
+            padding: 8px 40px 8px 16px;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            background: white;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        .nav-search-input:focus {
+            border-color: var(--primary-nature);
+            box-shadow: 0 0 0 3px rgba(90, 138, 90, 0.10);
+        }
+
+        .nav-search-icon {
+            position: absolute;
+            right: 12px;
+            color: var(--text-muted);
+            font-size: 1rem;
+            pointer-events: none;
+        }
+
+        .nav-search-clear {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0;
+            display: none;
+        }
+
+        .nav-login-btn {
+            padding: 8px 16px;
+            border-radius: 12px;
+            background: var(--primary-nature);
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .nav-login-btn:hover {
+            background: #4a7a4a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(90, 138, 90, 0.3);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: #e11d48;
+            color: white;
+            border-radius: 50%;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 2px 6px;
+            min-width: 18px;
+            text-align: center;
+            border: 2px solid white;
+        }
+
+        .settings-wrapper {
+            position: relative;
+        }
+
+        .settings-panel {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            width: 280px;
+            background: white;
+            border: 1px solid var(--border-soft);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+            margin-top: 8px;
+        }
+
+        .settings-panel.open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .settings-panel-header {
+            padding: 16px 20px 8px;
+            font-weight: 600;
+            color: var(--headline-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .settings-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .settings-item:hover {
+            background: rgba(90, 138, 90, 0.05);
+        }
+
+        .settings-item-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .settings-item-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: rgba(108, 117, 125, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .settings-item-label {
+            font-weight: 500;
+            color: var(--headline-color);
+            font-size: 0.9rem;
+        }
+
+        .settings-item-sub {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .s-toggle {
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            background: #e5e5e0;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .s-toggle.on {
+            background: var(--primary-nature);
+        }
+
+        .s-toggle::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: white;
+            transition: transform 0.2s;
+        }
+
+        .s-toggle.on::before {
+            transform: translateX(20px);
+        }
+
+        .settings-link-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--headline-color);
+            transition: background 0.2s;
+        }
+
+        .settings-link-item:hover {
+            background: rgba(90, 138, 90, 0.05);
+        }
+
+        .settings-divider {
+            height: 1px;
+            background: var(--border-soft);
+            margin: 8px 0;
+        }
+
+        .nav-backdrop {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(240, 19, 19, 0.806);
+            z-index: 1040;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .nav-backdrop.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .nav-hamburger {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 12px;
+            background: white;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--headline-color);
+            font-size: 1.05rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .nav-hamburger:hover {
+            background: rgba(90, 138, 90, 0.08);
+            border-color: rgba(90, 138, 90, 0.20);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(90, 138, 90, 0.15);
+        }
+
+        @media (max-width: 991px) {
+            .navbar-inner {
+                padding: 8px 16px;
+            }
+
+            .nav-search-bar {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-hamburger {
+                display: flex;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .navbar-inner {
+                border-radius: 14px;
+                padding: 8px 12px;
+            }
+
+            .nav-right {
+                gap: 4px;
+            }
+
+            .nav-icon-btn {
+                width: 36px;
+                height: 36px;
+            }
+
+            .nav-login-btn {
+                display: none;
+            }
+        }
+
+        .nav-mobile-panel {
+            position: fixed;
+            top: 0;
+            right: -300px;
+            width: 280px;
+            height: 100vh;
+            background: white;
+            z-index: 1050;
+            padding: 80px 0 20px;
+            transition: right 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-mobile-panel.open {
+            right: 0;
+        }
+
+        .mobile-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            color: var(--headline-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav-link:hover {
+            background: rgba(90, 138, 90, 0.05);
+        }
+
+        .mobile-nav-link i {
+            font-size: 1.1rem;
+            color: var(--primary-nature);
+        }
+
+        .mobile-nav-divider {
+            height: 1px;
+            background: var(--border-soft);
+            margin: 12px 24px;
+        }
+
+        .mobile-fab-btn {
+            margin: 12px 24px;
+            padding: 12px 20px;
+            background: var(--primary-nature);
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-fab-btn:hover {
+            background: #4a7a4a;
+            transform: translateY(-1px);
+        }
+
+        /* ============================================================
+           CATEGORY NAV BAR
+        ============================================================ */
+        .category-nav-bar {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 72%;
+            max-width: 860px;
+            z-index: 1045;
+            background: transparent;
+            backdrop-filter: blur(16px);
+            border: 0.5px solid var(--border-soft);
+            border-radius: 14px;
+            box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+            transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
+        }
+
+        .category-nav-bar.scrolled {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.10);
+        }
+
+        .category-nav-overflow-wrap {
+            position: relative;
+            overflow: hidden;
+            border-radius: 13px;
+        }
+
+        .category-nav-overflow-wrap::before,
+        .category-nav-overflow-wrap::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 44px;
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .category-nav-overflow-wrap::before {
+            left: 0;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.95) 30%, transparent);
+            opacity: 0;
+        }
+
+        .category-nav-overflow-wrap::after {
+            right: 0;
+            background: linear-gradient(to left, rgba(255, 255, 255, 0.95) 30%, transparent);
+            opacity: 1;
+        }
+
+        .category-nav-overflow-wrap.show-left::before {
+            opacity: 1;
+        }
+
+        .category-nav-overflow-wrap.hide-right::after {
+            opacity: 0;
+        }
+
+        .category-nav-scroll {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            padding: 7px 14px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            white-space: nowrap;
+        }
+
+        .category-nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cat-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            flex-shrink: 0;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 8px;
+            padding: 4px 13px;
+            font-family: var(--body-font);
+            font-weight: 600;
+            font-size: 0.78rem;
+            background: white;
+            color: var(--text-muted);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            letter-spacing: 0.1px;
+        }
+
+        .cat-pill.active {
+            background: var(--primary-nature);
+            color: white;
+            border-color: var(--primary-nature);
+            box-shadow: 0 3px 10px rgba(90, 138, 90, 0.2);
+        }
+
+        .cat-pill:hover:not(.active) {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cat-pill[data-cat="For You"]:hover:not(.active) {
+            background: #eef2ff;
+            color: #4f46e5;
+            border-color: #c7d2fe;
+        }
+
+        .cat-pill[data-cat="Grocery"]:hover:not(.active) {
+            background: #eef2ff;
+            color: #4f46e5;
+            border-color: #c7d2fe;
+        }
+
+        .cat-pill[data-cat="Fashion"]:hover:not(.active) {
+            background: #fdf2f8;
+            color: #db2777;
+            border-color: #fbcfe8;
+        }
+
+        .cat-pill[data-cat="Mobiles"]:hover:not(.active) {
+            background: #eff6ff;
+            color: #2563eb;
+            border-color: #bfdbfe;
+        }
+
+        .cat-pill[data-cat="Beauty"]:hover:not(.active) {
+            background: #fff7ed;
+            color: #ea580c;
+            border-color: #fed7aa;
+        }
+
+        .cat-pill[data-cat="Electronics"]:hover:not(.active) {
+            background: #f0fdf4;
+            color: #16a34a;
+            border-color: #bbf7d0;
+        }
+
+        .cat-pill[data-cat="Home"]:hover:not(.active) {
+            background: #fefce8;
+            color: #ca8a04;
+            border-color: #fde68a;
+        }
+
+        .cat-pill[data-cat="Appliances"]:hover:not(.active) {
+            background: #f0fdfa;
+            color: #0d9488;
+            border-color: #99f6e4;
+        }
+
+        .cat-pill[data-cat="Toys"]:hover:not(.active) {
+            background: #fff1f2;
+            color: #e11d48;
+            border-color: #fecdd3;
+        }
+
+        .cat-pill[data-cat="Food"]:hover:not(.active) {
+            background: #f7fee7;
+            color: #65a30d;
+            border-color: #d9f99d;
+        }
+
+        .cat-pill[data-cat="Auto"]:hover:not(.active) {
+            background: #faf5ff;
+            color: #7c3aed;
+            border-color: #e9d5ff;
+        }
+
+        .cat-pill[data-cat="2 Wheelers"]:hover:not(.active) {
+            background: #fff8f1;
+            color: #c2410c;
+            border-color: #fed7aa;
+        }
+
+        .cat-pill[data-cat="Books"]:hover:not(.active) {
+            background: #f0f9ff;
+            color: #0369a1;
+            border-color: #bae6fd;
+        }
+
+        .cat-pill[data-cat="Furniture"]:hover:not(.active) {
+            background: #fdf4ff;
+            color: #9333ea;
+            border-color: #e9d5ff;
+        }
+
+        .cat-pill[data-cat="Sports"]:hover:not(.active) {
+            background: #fff7ed;
+            color: #d97706;
+            border-color: #fcd34d;
+        }
+
+        .cat-pill[data-cat="Medicines"]:hover:not(.active) {
+            background: #fef2f2;
+            color: #dc2626;
+            border-color: #fca5a5;
+        }
+
+        .cat-pill i {
+            font-size: 0.72rem;
+        }
+
+        body {
+            padding-top: 136px;
+        }
+
+        @media (max-width: 768px) {
+            .category-nav-bar {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .navbar {
+                padding: 12px 0;
+            }
+
+            .navbar-inner {
+                padding: 8px 14px;
+                border-radius: 16px;
+            }
+
+            body {
+                padding-top: 124px;
+            }
+
+            .nav-mobile-panel {
+                top: 70px;
+            }
+
+            .category-nav-bar {
+                top: 72px;
+                width: 94%;
+                border-radius: 12px;
+            }
+
+            .category-nav-scroll {
+                padding: 6px 12px;
+                gap: 3px;
+            }
+
+            .cat-pill {
+                font-size: 0.74rem;
+                padding: 4px 11px;
+            }
+        }
+    </style>
 </head>
 
 <body class="two-wheelers-body">
 
-    <!-- Sticky Header -->
-    <!-- <header>
-        <div class="logo" onclick="window.location.href='Homesmart.html'" style="cursor:pointer">
-            <i class="fas fa-bicycle"></i> 2 Wheelers
-        </div>
-        <div class="search-container">
-            <input type="text" class="search-bar" placeholder="Search bikes, cycles, accessories...">
-        </div>
-        <div class="nav-actions">
-            <i class="far fa-user"></i>
-            <i class="far fa-heart"></i>
-            <div style="position: relative;">
-                <i class="fas fa-shopping-bag"></i>
-                <span id="cart-count"
-                    style="position: absolute; top: -8px; right: -10px; background: var(--accent-green); color: white; border-radius: 50%; font-size: 0.6rem; padding: 2px 6px; border: 2px solid white;">0</span>
+    <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
+
+    <nav class="navbar animate__animated animate__fadeInDown">
+        <div class="container">
+            <div class="navbar-inner w-100">
+                <a class="navbar-brand fw-bold" href="../../index.html"
+                    style="display:flex;align-items:center;gap:0;text-decoration:none;">
+                    <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="flex-shrink:0;">
+                        <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+                        <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 10" stroke="#5A8A5A" stroke-width="2.2"
+                            stroke-linecap="round" fill="none" />
+                        <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="9.5" cy="17" r="1.2" fill="white" />
+                        <circle cx="16.5" cy="17" r="1.2" fill="white" />
+                        <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#1A1A1A" letter-spacing="-0.3">Urban</text>
+                        <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#5A8A5A" letter-spacing="-0.3">mart</text>
+                        <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+                    </svg>
+                </a>
+                <ul class="nav-links ms-3">
+                    <li><a class="nav-link active" href="../../index.html#shop">Shop</a></li>
+                </ul>
+                <div class="nav-search-bar">
+                    <i class="bi bi-search nav-search-icon"></i>
+                    <input type="text" id="navSearchInput" class="nav-search-input"
+                        placeholder="Search products, categories...">
+                    <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+                            class="bi bi-x"></i></button>
+                </div>
+                <div class="nav-right">
+                    <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites"
+                        style="position:relative;">
+                        <i class="bi bi-heart"></i>
+                        <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
+                    </button>
+                    <div class="settings-wrapper">
+                        <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                                class="bi bi-gear"></i></button>
+                        <div class="settings-panel" id="settingsPanel">
+                            <div class="settings-panel-header">Preferences</div>
+                            <div class="settings-item" onclick="toggleSetting('notifications')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Notifications</div>
+                                        <div class="settings-item-sub">Deals &amp; order updates</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-notifications"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('darkmode')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Dark Mode</div>
+                                        <div class="settings-item-sub">Switch appearance</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle" id="toggle-darkmode"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('offers')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Personalised Offers</div>
+                                        <div class="settings-item-sub">Based on your activity</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-offers"></button>
+                            </div>
+                            <div class="settings-divider"></div>
+                            <div class="settings-panel-header">Account</div>
+                            <a class="settings-link-item" href="login.html">
+                                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                                    Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="#">
+                                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                                    Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="seller.html">
+                                <div class="settings-item-icon"
+                                    style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                                        class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                                    with Us</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;color:var(--primary-nature);"></i>
+                            </a>
+                            <a class="settings-link-item" href="about.html">
+                                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                                    UrbanMart</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="nav-icon-btn" onclick="window.location.href='cart.html'"
+                        title="Cart">
+                        <i class="bi bi-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </button>
+                    <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
+                        Login</a>
+                    <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
+                        <span id="user-nav-name">Profile</span></a>
+                    <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
+                            class="bi bi-list" id="hamburgerIcon"></i></button>
+                </div>
             </div>
         </div>
-    </header> -->
+    </nav>
+
+    <div class="category-nav-bar" id="categoryNavBar">
+        <div class="category-nav-overflow-wrap" id="catOverflowWrap">
+            <div class="category-nav-scroll" id="category-filters">
+                <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-grid-fill"></i> For You</div>
+                <div class="cat-pill" data-cat="Grocery"><a href="grocery.html" style="text-decoration: none; color: inherit;"><i
+                        class="bi bi-grid-fill"></i> Grocery</a></div>
+                <div class="cat-pill" data-cat="Fashion" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-bag-heart"></i> Fashion</div>
+                <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-phone"></i> Mobiles</div>
+                <div class="cat-pill" data-cat="Beauty"><a href="beauty.html" style="text-decoration: none; color: inherit;"><i
+                        class="bi bi-stars"></i> Beauty</a></div>
+                <div class="cat-pill" data-cat="Electronics" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-cpu"></i> Electronics</div>
+                <div class="cat-pill" data-cat="Home" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-house"></i>
+                    Home</div>
+                <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-lightning-charge"></i> Appliances</div>
+                <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-controller"></i> Toys</div>
+                <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-basket"></i> Food</div>
+                <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-car-front"></i> Auto</div>
+                <div class="cat-pill active" data-cat="2 Wheelers"><i
+                        class="bi bi-bicycle"></i> 2 Wheelers</div>
+                <div class="cat-pill" data-cat="Books" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-book"></i> Books</div>
+                <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-lamp"></i> Furniture</div>
+                <div class="cat-pill" data-cat="Sports" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-trophy"></i> Sports</div>
+                <div class="cat-pill" data-cat="Medicines" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-capsule"></i> Medicines</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="nav-mobile-panel" id="mobilePanel">
+        <a class="mobile-nav-link" href="../../index.html" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+        <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
+        <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+        <div class="mobile-nav-divider"></div>
+        <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+                class="bi bi-person-circle"></i> Login</a>
+        <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html" style="border-radius:12px;"><i
+                class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+    </div>
+
 
     <!-- Hero Carousel -->
-    <section class="hero-carousel" style="padding-top: 25px;">
+    <section class="hero-carousel" style="padding-top: 100px;">
         <div class="carousel-inner" id="hero-carousel-inner">
             <!-- Dynamic Slides Injected via JS -->
         </div>
@@ -330,7 +1226,126 @@
             &copy; 2026 2 Wheelers. All rights reserved.</div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Navbar functionality
+        let settingsOpen = false;
+        function toggleSettings() {
+            settingsOpen = !settingsOpen;
+            const panel = document.getElementById('settingsPanel');
+            const btn = document.getElementById('settingsBtn');
+            if (panel) panel.classList.toggle('open', settingsOpen);
+            if (btn) btn.classList.toggle('active', settingsOpen);
+            document.getElementById('navBackdrop')?.classList.toggle('active', settingsOpen);
+            if (mobileOpen) closeMobile();
+        }
+        function closeSettings() {
+            settingsOpen = false;
+            document.getElementById('settingsPanel')?.classList.remove('open');
+            document.getElementById('settingsBtn')?.classList.remove('active');
+        }
+        function toggleSetting(id) { document.getElementById('toggle-' + id)?.classList.toggle('on'); }
+
+        let mobileOpen = false, searchOpen = false;
+        function toggleMobile() {
+            mobileOpen = !mobileOpen;
+            const panel = document.getElementById('mobilePanel');
+            const icon = document.getElementById('hamburgerIcon');
+            const backdrop = document.getElementById('navBackdrop');
+            if (mobileOpen) {
+                if (panel) { panel.style.display = 'flex'; requestAnimationFrame(() => panel.classList.add('open')); }
+                if (icon) icon.className = 'bi bi-x-lg';
+                backdrop?.classList.add('active');
+            } else { closeMobile(); }
+        }
+        function closeMobile() {
+            mobileOpen = false;
+            const panel = document.getElementById('mobilePanel');
+            const icon = document.getElementById('hamburgerIcon');
+            if (panel) {
+                panel.classList.remove('open');
+                setTimeout(() => { if (!mobileOpen) panel.style.display = 'none'; }, 350);
+            }
+            if (icon) icon.className = 'bi bi-list';
+        }
+        function closeAll() { closeMobile(); closeSettings(); document.getElementById('navBackdrop')?.classList.remove('active'); }
+        function clearNavSearch() {
+            const input = document.getElementById('navSearchInput');
+            const clear = document.getElementById('navSearchClear');
+            if (input) input.value = '';
+            clear?.classList.remove('visible');
+            input?.focus();
+        }
+
+        // Cart badge functionality
+        let cartDB;
+        const cartRequest = indexedDB.open('PBSSDCartDB', 1);
+        cartRequest.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains('cart_state')) db.createObjectStore('cart_state');
+        };
+        cartRequest.onsuccess = (e) => {
+            cartDB = e.target.result;
+            refreshCartBadge();
+        };
+
+        function getCartBadgeEl() {
+            return document.getElementById('cart-badge') || document.getElementById('cartBadge');
+        }
+        function refreshCartBadge() {
+            if (!cartDB) return;
+            const tx = cartDB.transaction(['cart_state'], 'readonly');
+            const store = tx.objectStore('cart_state');
+            const getReq = store.get('count');
+            getReq.onsuccess = () => {
+                const badge = getCartBadgeEl();
+                if (badge) badge.innerText = getReq.result || 0;
+            };
+        }
+
+        function toggleFavDrawer() {
+            // Placeholder for favourites drawer
+            console.log('Favourites drawer toggled');
+        }
+
+        // Initialize AOS
+        AOS.init();
+
+        // Category nav fades
+        const catScroll = document.getElementById('category-filters');
+        const catWrap = document.getElementById('catOverflowWrap');
+        function updateCatFades() {
+            if (!catScroll || !catWrap) return;
+            const { scrollLeft, scrollWidth, clientWidth } = catScroll;
+            catWrap.classList.toggle('show-left', scrollLeft > 8);
+            catWrap.classList.toggle('hide-right', scrollLeft + clientWidth >= scrollWidth - 8);
+        }
+        catScroll?.addEventListener('scroll', updateCatFades, { passive: true });
+        window.addEventListener('resize', updateCatFades);
+
+        // Initialize
+        updateCatFades();
+        window.dispatchEvent(new Event('scroll'));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            const catBar = document.getElementById('categoryNavBar');
+            if (!nav || !catBar) return;
+            const navH = nav.getBoundingClientRect().height;
+            if (window.scrollY > 50) { 
+                nav.classList.add('scrolled'); 
+                catBar.classList.add('scrolled'); 
+                catBar.style.top = (navH - 10) + 'px'; 
+            } else { 
+                nav.classList.remove('scrolled'); 
+                catBar.classList.remove('scrolled'); 
+                catBar.style.top = (navH + 4) + 'px'; 
+            }
+        });
+    </script>
     <script src="../js/2_Wheelers.js" defer></script>
+
 </body>
 
 </html>
