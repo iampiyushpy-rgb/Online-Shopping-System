@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VERDĒ — Beauty & Personal Care</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="beauty.css">
+</head>
+<body>
+
+<!-- ── CURSOR ──────────────────────────────────── -->
+<div id="cur-dot"></div>
+<div id="cur-ring"></div>
+
+<!-- ── LOADER ─────────────────────────────────── -->
+<div id="loader">
+  <div class="loader-leaf">
+    <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="36" cy="36" rx="28" ry="18" fill="none" stroke="#95D5B2" stroke-width="1.5"/>
+      <path d="M36 18 Q56 36 36 54" fill="none" stroke="#52B788" stroke-width="1.5"/>
+      <path d="M36 54 Q22 44 26 30" fill="none" stroke="#95D5B2" stroke-width="1"/>
+    </svg>
+  </div>
+  <div class="loader-brand">VERD<span>Ē</span></div>
+  <div class="loader-track"><div class="loader-fill"></div></div>
+  <div class="loader-tagline">Nature's finest — for you</div>
+</div>
+
+
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-canvas">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="blob blob3"></div>
+  </div>
+
+  <!-- Left -->
+  <div class="hero-left">
+    <div class="hero-badge">100% Natural &amp; Cruelty-Free</div>
+    <h1 class="hero-title">
+      Pure Beauty,<br>
+      <span class="italic">Rooted in</span>
+      <span class="line2">Nature</span>
+    </h1>
+    <p class="hero-sub">Science-backed, plant-powered skincare, haircare and personal care — crafted for men, women &amp; kids. Your glow, naturally.</p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-fill"><span>Explore Products</span></a>
+      <a href="#ingredients" class="btn-ghost">Our Ingredients</a>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><span class="trust-num">50K+</span><span class="trust-label">Happy Customers</span></div>
+      <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Natural Extracts</span></div>
+      <div class="trust-item"><span class="trust-num">Zero</span><span class="trust-label">Harmful Chemicals</span></div>
+    </div>
+  </div>
+
+  <!-- Right 3D card -->
+  <div class="hero-right">
+    <div class="hero-scene-3d">
+      <!-- floating chips -->
+      <div class="float-chip chip1"><div class="chip-dot green"></div>Vegan Certified</div>
+      <div class="float-chip chip2"><div class="chip-dot lime"></div>pH Balanced</div>
+      <div class="float-chip chip3"><div class="chip-dot yellow"></div>Derma Tested</div>
+
+      <div class="card-main">
+        <div class="card-main-bg">
+          <div class="product-3d-wrap">
+            <div class="prod-bottle">
+              <div class="prod-label"></div>
+              <div class="prod-shine"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-main-info">
+          <h4>Botanical Glow Serum</h4>
+          <p>Women · Face Care · 30ml</p>
+          <div class="price-row">
+            <span class="price">₹1,299</span>
+            <button class="add-quick" onclick="addToCart(1)">+ Add</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-bar"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- ── TICKER ─────────────────────────────────── -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack">
+    <span class="ticker-item">Free Shipping Above ₹799</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">100% Natural Formulas</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">Cruelty-Free &amp; Vegan</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">30-Day Easy Returns</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">Dermatologist Approved</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">Free Shipping Above ₹799</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">100% Natural Formulas</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">Cruelty-Free &amp; Vegan</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">30-Day Easy Returns</span>
+    <span class="ticker-sep">✦</span>
+    <span class="ticker-item">Dermatologist Approved</span>
+    <span class="ticker-sep">✦</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     CATEGORIES
+══════════════════════════════════════════════ -->
+<section class="section" id="categories">
+  <div class="sec-header reveal">
+    <span class="sec-tag">Shop By Category</span>
+    <h2 class="sec-title">Care for <span class="ital">Every Soul</span></h2>
+    <p class="sec-sub">From nourishing serums to gentle baby washes — find perfectly curated care for everyone.</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card cat-women reveal reveal-d1" onclick="filterByCategory('women')">
+      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
+      <div class="cat-icon-wrap">💆‍♀️</div>
+      <div class="cat-overlay"></div>
+      <div class="cat-info">
+        <div class="cat-eyebrow">Category</div>
+        <div class="cat-name">Women</div>
+        <div class="cat-count">180+ Products</div>
+        <a class="cat-link">Shop Women →</a>
+      </div>
+    </div>
+    <div class="cat-card cat-men reveal reveal-d2" onclick="filterByCategory('men')">
+      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
+      <div class="cat-icon-wrap">🧴</div>
+      <div class="cat-overlay"></div>
+      <div class="cat-info">
+        <div class="cat-eyebrow">Category</div>
+        <div class="cat-name">Men</div>
+        <div class="cat-count">120+ Products</div>
+        <a class="cat-link">Shop Men →</a>
+      </div>
+    </div>
+    <div class="cat-card cat-kids reveal reveal-d3" onclick="filterByCategory('kids')">
+      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
+      <div class="cat-icon-wrap">🧸</div>
+      <div class="cat-overlay"></div>
+      <div class="cat-info">
+        <div class="cat-eyebrow">Category</div>
+        <div class="cat-name">Kids</div>
+        <div class="cat-count">80+ Products</div>
+        <a class="cat-link">Shop Kids →</a>
+      </div>
+    </div>
+    <div class="cat-card cat-all reveal reveal-d4" onclick="filterByCategory('all')">
+      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
+      <div class="cat-icon-wrap">🌿</div>
+      <div class="cat-overlay"></div>
+      <div class="cat-info">
+        <div class="cat-eyebrow">Category</div>
+        <div class="cat-name">All Care</div>
+        <div class="cat-count">380+ Products</div>
+        <a class="cat-link">Shop All →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PRODUCTS
+══════════════════════════════════════════════ -->
+<section class="section section-alt" id="products">
+  <div class="sec-header center reveal">
+    <span class="sec-tag">Our Products</span>
+    <h2 class="sec-title">Nature's <span class="ital">Best Picks</span></h2>
+    <p class="sec-sub">Explore our bestselling formulations — blending ancient botanical wisdom with modern science.</p>
+  </div>
+
+  <div class="filter-row reveal">
+    <button class="f-tab on" onclick="filterProd(this,'all')">All</button>
+    <button class="f-tab" onclick="filterProd(this,'skincare')">Skincare</button>
+    <button class="f-tab" onclick="filterProd(this,'haircare')">Haircare</button>
+    <button class="f-tab" onclick="filterProd(this,'bodycare')">Body Care</button>
+    <button class="f-tab" onclick="filterProd(this,'men')">Men</button>
+    <button class="f-tab" onclick="filterProd(this,'kids')">Kids</button>
+    <button class="f-tab" onclick="filterProd(this,'sale')">On Sale</button>
+  </div>
+
+  <div class="prod-grid" id="prodGrid"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     INGREDIENTS 3D
+══════════════════════════════════════════════ -->
+<section class="ingr-section" id="ingredients">
+  <div class="ingr-bg-rings">
+    <div class="i-ring"></div><div class="i-ring"></div>
+    <div class="i-ring"></div><div class="i-ring"></div>
+  </div>
+  <div class="ingr-grid">
+    <div>
+      <span class="sec-tag sec-tag-white reveal">What's Inside</span>
+      <h2 class="sec-title sec-title-white reveal">Powered by <span class="ital">Pure Botanicals</span></h2>
+      <p class="sec-sub sec-sub-white reveal">Every VERDĒ formula contains only the finest plant-derived actives — zero parabens, sulphates, or synthetic fragrances.</p>
+      <div class="ingr-list" style="margin-top:32px;">
+        <div class="ingr-item reveal reveal-d1">
+          <div class="ingr-icon">🌱</div>
+          <div class="ingr-text"><h4>Aloe Vera Complex</h4><p>Deep hydration, soothing inflammation, and natural pH restoration for all skin types.</p></div>
+        </div>
+        <div class="ingr-item reveal reveal-d2">
+          <div class="ingr-icon">🫐</div>
+          <div class="ingr-text"><h4>Wild Blueberry Extract</h4><p>Antioxidant powerhouse — fights free radicals and visibly reduces signs of ageing.</p></div>
+        </div>
+        <div class="ingr-item reveal reveal-d3">
+          <div class="ingr-icon">🌿</div>
+          <div class="ingr-text"><h4>Green Tea & Centella</h4><p>Calming, brightening duo that reduces redness and evens skin tone naturally.</p></div>
+        </div>
+        <div class="ingr-item reveal reveal-d4">
+          <div class="ingr-icon">🥥</div>
+          <div class="ingr-text"><h4>Cold-Pressed Coconut Oil</h4><p>Rich in lauric acid — nourishes hair, softens skin, and provides natural UV protection.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ingr-visual reveal">
+      <div class="ingr-cube-wrap">
+        <div class="cube-face cf-front">🌿</div>
+        <div class="cube-face cf-back">🌸</div>
+        <div class="cube-face cf-left">🫐</div>
+        <div class="cube-face cf-right">🥥</div>
+        <div class="cube-face cf-top">🌾</div>
+        <div class="cube-face cf-bottom">🌱</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PROMO / OFFER STRIP
+══════════════════════════════════════════════ -->
+<div class="promo-strip" id="about">
+  <div class="promo-left reveal">
+    <div class="promo-eyebrow">Limited Time Offer</div>
+    <h2 class="promo-title">Glow Up Sale —<br><em>Up to 40% Off</em></h2>
+    <p class="promo-desc">Treat yourself (or someone you love) to our bestselling bundles at the lowest price of the year. Natural beauty shouldn't cost the earth.</p>
+    <a href="#products" class="btn-white">Shop the Sale</a>
+  </div>
+  <div class="promo-right reveal reveal-d2">
+    <div class="promo-card">
+      <div class="promo-badge">40%</div>
+      <div class="promo-badge-sub">OFF Selected Products</div>
+      <div class="countdown-row">
+        <div class="cd-box"><span class="cd-n" id="cdD">03</span><div class="cd-l">Days</div></div>
+        <div class="cd-box"><span class="cd-n" id="cdH">11</span><div class="cd-l">Hrs</div></div>
+        <div class="cd-box"><span class="cd-n" id="cdM">45</span><div class="cd-l">Min</div></div>
+        <div class="cd-box"><span class="cd-n" id="cdS">00</span><div class="cd-l">Sec</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TRENDING
+══════════════════════════════════════════════ -->
+<section class="section" id="trending">
+  <div class="sec-header reveal">
+    <span class="sec-tag">What's Glowing</span>
+    <h2 class="sec-title">Trending <span class="ital">Right Now</span></h2>
+  </div>
+  <div class="trend-grid">
+    <div class="trend-card tc1 reveal reveal-d1">
+      <div class="trend-bg"></div><div class="trend-ov"></div>
+      <div class="trend-badge">🔥 Bestseller</div>
+      <div class="trend-deco">→</div>
+      <div class="trend-info">
+        <div class="trend-cat">Women · Skincare</div>
+        <div class="trend-name">Rose Glow Kit</div>
+        <div class="trend-price">From ₹999</div>
+      </div>
+    </div>
+    <div class="trend-card tc2 reveal reveal-d2">
+      <div class="trend-bg"></div><div class="trend-ov"></div>
+      <div class="trend-badge">⭐ Top Rated</div>
+      <div class="trend-deco">→</div>
+      <div class="trend-info">
+        <div class="trend-cat">Men · Grooming</div>
+        <div class="trend-name">Charcoal Detox Set</div>
+        <div class="trend-price">From ₹799</div>
+      </div>
+    </div>
+    <div class="trend-card tc3 reveal reveal-d3">
+      <div class="trend-bg"></div><div class="trend-ov"></div>
+      <div class="trend-badge">🌿 New Formula</div>
+      <div class="trend-deco">→</div>
+      <div class="trend-info">
+        <div class="trend-cat">Kids · Gentle Care</div>
+        <div class="trend-name">Calm &amp; Clean Bundle</div>
+        <div class="trend-price">From ₹499</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FEATURES / WHY US
+══════════════════════════════════════════════ -->
+<div class="section section-dark">
+  <div class="sec-header center reveal">
+    <span class="sec-tag sec-tag-white">Why VERDĒ</span>
+    <h2 class="sec-title sec-title-white">Our <span class="ital">Promise</span> to You</h2>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card reveal reveal-d1">
+      <span class="feat-ico">🚚</span>
+      <div class="feat-title">Free Delivery</div>
+      <div class="feat-desc">On all orders above ₹799. Express next-day delivery available pan India.</div>
+    </div>
+    <div class="feat-card reveal reveal-d2">
+      <span class="feat-ico">🌿</span>
+      <div class="feat-title">100% Natural</div>
+      <div class="feat-desc">Zero parabens, sulphates, SLS or synthetic fragrances. Ever.</div>
+    </div>
+    <div class="feat-card reveal reveal-d3">
+      <span class="feat-ico">🔬</span>
+      <div class="feat-title">Derma Tested</div>
+      <div class="feat-desc">Every formula clinically tested and dermatologist approved for safety.</div>
+    </div>
+    <div class="feat-card reveal reveal-d4">
+      <span class="feat-ico">🔄</span>
+      <div class="feat-title">Easy Returns</div>
+      <div class="feat-desc">30-day hassle-free returns. If you're not glowing, neither are we.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     TESTIMONIALS
+══════════════════════════════════════════════ -->
+<section class="section section-alt">
+  <div class="sec-header center reveal">
+    <span class="sec-tag">Real People, Real Glow</span>
+    <h2 class="sec-title">What Our <span class="ital">Community Says</span></h2>
+  </div>
+  <div class="test-grid">
+    <div class="test-card reveal reveal-d1">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"The Botanical Serum completely transformed my skin in just 3 weeks. I get compliments every single day now!"</p>
+      <div class="test-author">
+        <div class="test-av" style="background:#E8F5E9;">👩</div>
+        <div><div class="test-name">Priya Sharma</div><div class="test-role">Skincare Enthusiast · Mumbai</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal reveal-d2">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"Finally, a men's grooming line that actually works and doesn't smell like a chemical factory. Absolutely love it."</p>
+      <div class="test-author">
+        <div class="test-av" style="background:#E8F5E9;">👨</div>
+        <div><div class="test-name">Arjun Mehta</div><div class="test-role">Daily Groomer · Bengaluru</div></div>
+      </div>
+    </div>
+    <div class="test-card reveal reveal-d3">
+      <div class="test-stars">★★★★★</div>
+      <p class="test-quote">"My daughter has sensitive skin and VERDĒ Kids' range is the only one that hasn't caused any reaction. Pure relief!"</p>
+      <div class="test-author">
+        <div class="test-av" style="background:#E8F5E9;">👩‍👧</div>
+        <div><div class="test-name">Sunita Patel</div><div class="test-role">Parent · Ahmedabad</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     NEWSLETTER
+══════════════════════════════════════════════ -->
+<section class="section">
+  <div class="nl-inner reveal">
+    <h2>Unlock <em>Your Glow</em> — Join the VERDĒ Circle</h2>
+    <p>Get 10% off your first order + exclusive tips, new launches & members-only deals.</p>
+    <div class="nl-form">
+      <input type="email" placeholder="Enter your email" id="nlEmail">
+      <button onclick="subscribe()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">VERD<span class="dot">Ē</span></div>
+      <p class="footer-desc">Beauty that honours you and the planet. 100% natural personal care — crafted with intention, delivered with love.</p>
+      <div class="socials">
+        <a class="soc-btn" href="#">f</a>
+        <a class="soc-btn" href="#">in</a>
+        <a class="soc-btn" href="#">tw</a>
+        <a class="soc-btn" href="#">▶</a>
+        <a class="soc-btn" href="#">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul class="footer-links">
+        <li><a href="#">Skincare</a></li>
+        <li><a href="#">Haircare</a></li>
+        <li><a href="#">Body Care</a></li>
+        <li><a href="#">Men's Grooming</a></li>
+        <li><a href="#">Kids' Care</a></li>
+        <li><a href="#">Gift Sets</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Help</h5>
+      <ul class="footer-links">
+        <li><a href="#">Skin Quiz</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Ingredients Glossary</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul class="footer-links">
+        <li><a href="#">Our Story</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Certifications</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 VERDĒ Beauty. All rights reserved. Made with 🌿 in India.</div>
+    <div class="pay-icons">
+      <div class="pay-ic">VISA</div>
+      <div class="pay-ic">MC</div>
+      <div class="pay-ic">UPI</div>
+      <div class="pay-ic">PayTM</div>
+      <div class="pay-ic">COD</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ── CART DRAWER ─────────────────────────────── -->
+<div class="cart-veil" id="cartVeil" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cart-hdr">
+    <div class="cart-hdr-title">Your Bag 🌿</div>
+    <button class="cart-hdr-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-ftr" id="cartFtr" style="display:none;">
+    <div class="cart-total-row"><span class="ctl">Total</span><span class="ctv" id="cartTotal">₹0</span></div>
+    <button class="checkout-btn" onclick="checkout()">Checkout Securely</button>
+  </div>
+</div>
+
+<!-- ── SEARCH OVERLAY ─────────────────────────── -->
+<div class="search-veil" id="searchVeil">
+  <div class="search-wrap">
+    <input type="text" placeholder="Search products…" id="searchInput" oninput="onSearch(this.value)">
+    <button class="search-x" onclick="closeSearch()">✕</button>
+    <div class="search-tags">
+      <span class="s-tag" onclick="qSearch('Aloe Vera Gel')">Aloe Vera Gel</span>
+      <span class="s-tag" onclick="qSearch('Face Serum')">Face Serum</span>
+      <span class="s-tag" onclick="qSearch('Hair Oil')">Hair Oil</span>
+      <span class="s-tag" onclick="qSearch('Sunscreen')">Sunscreen</span>
+      <span class="s-tag" onclick="qSearch('Baby Wash')">Baby Wash</span>
+      <span class="s-tag" onclick="qSearch('Beard Balm')">Beard Balm</span>
+      <span class="s-tag" onclick="qSearch('Body Lotion')">Body Lotion</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOAST ──────────────────────────────────── -->
+<div class="toast" id="toast"><span class="toast-ic">✓</span><span id="toastMsg">Done!</span></div>
+
+<!-- ── WISHLIST FLASH ─────────────────────────── -->
+<div class="wl-flash" id="wlFlash">🌿 Added to Wishlist!</div>
+
+<script src="beauty.js"></script>
+</body>
+</html>
