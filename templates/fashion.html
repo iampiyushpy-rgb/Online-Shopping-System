@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUXE — Fashion for Every Soul</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fashion.css">
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-text">LUXE</div>
+  <div class="loader-bar"></div>
+</div>
+
+
+
+
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-scene">
+    <div class="hero-bg-layer"></div>
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">New Season 2026</div>
+    <h1 class="hero-title">Dress Your <span class="italic">Story</span><br>Own Every Moment</h1>
+    <p class="hero-subtitle">Curated fashion for men, women & kids. Discover timeless elegance meets contemporary edge — collections crafted for every chapter of life.</p>
+    <div class="hero-ctas">
+      <a href="#categories" class="btn-primary"><span>Shop Now</span></a>
+      <a href="#trending" class="btn-outline">Explore Trends</a>
+    </div>
+  </div>
+  <div class="hero-3d-card" id="hero3dCard">
+    <div class="hero-floating-tag tag1">⭐ New Arrival</div>
+    <div class="hero-floating-tag tag2">🔥 Trending Now</div>
+    <div class="hero-card-inner">
+      <div class="hero-card-img">
+        <img src="https://images.unsplash.com/photo-1590770426020-6a4ae9d31a1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Signature Silk Blazer" style="width:100%;height:100%;object-fit:cover;" loading="lazy" />
+      </div>
+      <div class="hero-card-info">
+        <h4>Signature Silk Blazer</h4>
+        <p>Women's Collection · Size M</p>
+        <div class="price">₹4,299</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner" id="tickerInner">
+    <span class="ticker-item">Free Shipping Over ₹999</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">New Summer Collection 2026</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Up to 50% Off on Select Styles</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Easy 30-Day Returns</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Exclusive Member Rewards</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Free Shipping Over ₹999</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">New Summer Collection 2026</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Up to 50% Off on Select Styles</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Easy 30-Day Returns</span>
+    <span class="ticker-dot">◆</span>
+    <span class="ticker-item">Exclusive Member Rewards</span>
+    <span class="ticker-dot">◆</span>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Shop By Category</span>
+    <h2 class="section-title">Fashion for <span class="italic">Every Soul</span></h2>
+  </div>
+  <div class="categories-grid">
+    <div class="cat-card cat-men reveal reveal-delay-1" id="men" onclick="filterCategory('men')">
+      <div class="cat-bg"></div>
+      <div class="cat-pattern"></div>
+      <div class="cat-silhouette cat-sil-men"></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">Category</div>
+        <div class="cat-name">Men</div>
+        <div class="cat-count">240+ Styles</div>
+        <a class="cat-btn">Shop Men</a>
+      </div>
+    </div>
+    <div class="cat-card cat-women reveal reveal-delay-2" id="women" onclick="filterCategory('women')">
+      <div class="cat-bg"></div>
+      <div class="cat-pattern"></div>
+      <div class="cat-silhouette cat-sil-women"></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">Category</div>
+        <div class="cat-name">Women</div>
+        <div class="cat-count">380+ Styles</div>
+        <a class="cat-btn">Shop Women</a>
+      </div>
+    </div>
+    <div class="cat-card cat-kids reveal reveal-delay-3" id="kids" onclick="filterCategory('kids')">
+      <div class="cat-bg"></div>
+      <div class="cat-pattern"></div>
+      <div class="cat-silhouette cat-sil-kids"></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">Category</div>
+        <div class="cat-name">Kids</div>
+        <div class="cat-count">160+ Styles</div>
+        <a class="cat-btn">Shop Kids</a>
+      </div>
+    </div>
+    <div class="cat-card cat-all reveal reveal-delay-4" onclick="filterCategory('all')">
+      <div class="cat-bg"></div>
+      <div class="cat-pattern"></div>
+      <div class="cat-silhouette cat-sil-all"></div>
+      <div class="cat-overlay"></div>
+      <div class="cat-content">
+        <div class="cat-tag">Category</div>
+        <div class="cat-name">All</div>
+        <div class="cat-count">780+ Styles</div>
+        <a class="cat-btn">Shop All</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="section products-section" id="sale">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">Featured Picks</span>
+    <h2 class="section-title">Curated <span class="italic">Favourites</span></h2>
+  </div>
+  <div class="filter-tabs reveal">
+    <button class="filter-tab active" onclick="filterProducts(this,'all')">All</button>
+    <button class="filter-tab" onclick="filterProducts(this,'men')">Men</button>
+    <button class="filter-tab" onclick="filterProducts(this,'women')">Women</button>
+    <button class="filter-tab" onclick="filterProducts(this,'kids')">Kids</button>
+    <button class="filter-tab" onclick="filterProducts(this,'sale')">On Sale</button>
+    <button class="filter-tab" onclick="filterProducts(this,'new')">New In</button>
+  </div>
+  <div class="products-grid" id="productsGrid"></div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo-banner">
+  <div>
+    <div class="promo-eyebrow reveal">Limited Time Offer</div>
+    <h2 class="promo-title reveal">Mega Sale<br><em>Ends Soon</em></h2>
+    <p class="promo-desc reveal">Don't miss out on our biggest sale of the season. Premium fabrics, elevated cuts, and iconic styles — all at an unbelievable price for a limited time.</p>
+    <a href="#sale" class="btn-primary reveal"><span>Grab the Deal</span></a>
+  </div>
+  <div class="promo-visual reveal">
+    <div class="promo-3d-ring"></div>
+    <div class="promo-3d-ring"></div>
+    <div class="promo-3d-ring"></div>
+    <div class="promo-center-tag">
+      <div class="promo-discount">50%</div>
+      <div class="promo-off">OFF SELECTED ITEMS</div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<div style="background:#1a1a1a; padding:32px 6%;">
+  <div style="max-width:600px; margin:0 auto; text-align:center;">
+    <p style="color:rgba(255,255,255,0.5); font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; margin-bottom:16px;">Sale Ends In</p>
+    <div class="countdown" style="justify-content:center;">
+      <div class="countdown-unit"><span class="countdown-num" id="cdDays">02</span><div class="countdown-label">Days</div></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cdHours">14</span><div class="countdown-label">Hours</div></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cdMins">38</span><div class="countdown-label">Mins</div></div>
+      <div class="countdown-unit"><span class="countdown-num" id="cdSecs">22</span><div class="countdown-label">Secs</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRENDING -->
+<section class="section" id="trending">
+  <div class="section-header reveal">
+    <span class="section-eyebrow">What's Hot</span>
+    <h2 class="section-title">Trending <span class="italic">Right Now</span></h2>
+  </div>
+  <div class="trending-grid">
+    <div class="trending-card tcard1 reveal reveal-delay-1">
+      <div class="trending-bg"></div>
+      <div class="trending-overlay"></div>
+      <div class="trending-deco">HOT</div>
+      <div class="trending-content">
+        <div class="trending-label">Women · Summer</div>
+        <div class="trending-name">Boho Maxi Dress</div>
+        <div class="trending-price">From ₹1,899</div>
+      </div>
+    </div>
+    <div class="trending-card tcard2 reveal reveal-delay-2">
+      <div class="trending-bg"></div>
+      <div class="trending-overlay"></div>
+      <div class="trending-deco">NEW</div>
+      <div class="trending-content">
+        <div class="trending-label">Men · Casual</div>
+        <div class="trending-name">Linen Shirt Set</div>
+        <div class="trending-price">From ₹1,499</div>
+      </div>
+    </div>
+    <div class="trending-card tcard3 reveal reveal-delay-3">
+      <div class="trending-bg"></div>
+      <div class="trending-overlay"></div>
+      <div class="trending-deco">★ 4.9</div>
+      <div class="trending-content">
+        <div class="trending-label">Kids · Play</div>
+        <div class="trending-name">Adventure Outfit</div>
+        <div class="trending-price">From ₹799</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features-section">
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <span class="feature-icon">🚚</span>
+      <div class="feature-title">Free Delivery</div>
+      <div class="feature-desc">Free shipping on all orders above ₹999. Express delivery available.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-1">
+      <span class="feature-icon">↩️</span>
+      <div class="feature-title">Easy Returns</div>
+      <div class="feature-desc">30-day hassle-free return policy with full refunds guaranteed.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-2">
+      <span class="feature-icon">🔒</span>
+      <div class="feature-title">Secure Payment</div>
+      <div class="feature-desc">256-bit SSL encryption on all transactions. Your data is safe.</div>
+    </div>
+    <div class="feature-card reveal reveal-delay-3">
+      <span class="feature-icon">💬</span>
+      <div class="feature-title">24/7 Support</div>
+      <div class="feature-desc">Round-the-clock customer support via chat, email, and phone.</div>
+    </div>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <div class="newsletter-inner reveal">
+    <h2>Get <em>Exclusive</em> Deals<br>Straight to Your Inbox</h2>
+    <p>Join 50,000+ fashion lovers. Be first to know about new arrivals, sales & style tips.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Your email address" id="emailInput">
+      <button onclick="subscribeNewsletter()">Subscribe</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">LU<span>X</span>E</div>
+      <p class="footer-desc">Fashion that tells your story. Premium quality, timeless design, delivered with care to your doorstep across India.</p>
+      <div class="social-links">
+        <a class="social-btn" href="#">f</a>
+        <a class="social-btn" href="#">in</a>
+        <a class="social-btn" href="#">tw</a>
+        <a class="social-btn" href="#">yt</a>
+        <a class="social-btn" href="#">📷</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul class="footer-links">
+        <li><a href="#">Men's Fashion</a></li>
+        <li><a href="#">Women's Fashion</a></li>
+        <li><a href="#">Kids' Fashion</a></li>
+        <li><a href="#">Accessories</a></li>
+        <li><a href="#">New Arrivals</a></li>
+        <li><a href="#">Sale</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul class="footer-links">
+        <li><a href="#">Size Guide</a></li>
+        <li><a href="#">Track Order</a></li>
+        <li><a href="#">Returns</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul class="footer-links">
+        <li><a href="#">About LUXE</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Sustainability</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 LUXE Fashion. All rights reserved. Made with ❤️ in India.</div>
+    <div class="payment-icons">
+      <div class="payment-icon">VISA</div>
+      <div class="payment-icon">MC</div>
+      <div class="payment-icon">UPI</div>
+      <div class="payment-icon">PayTM</div>
+      <div class="payment-icon">COD</div>
+    </div>
+  </div>
+</footer>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-drawer" id="cartDrawer">
+  <div class="cart-header">
+    <div class="cart-title">Your Bag</div>
+    <button class="cart-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-total">
+      <span class="cart-total-label">Total</span>
+      <span class="cart-total-amount" id="cartTotal">₹0</span>
+    </div>
+
+<button class="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+  </div>
+
+<!-- WISHLIST DRAWER -->
+
+  </div>
+
+
+  <div class="search-box">
+    <input type="text" placeholder="Search for styles, brands…" id="searchInput" oninput="handleSearch(this.value)">
+    <button class="search-close" onclick="closeSearch()">✕</button>
+    <div class="search-suggestions">
+      <span class="search-tag" onclick="quickSearch('Linen Shirts')">Linen Shirts</span>
+      <span class="search-tag" onclick="quickSearch('Summer Dresses')">Summer Dresses</span>
+      <span class="search-tag" onclick="quickSearch('Kids Casuals')">Kids Casuals</span>
+      <span class="search-tag" onclick="quickSearch('Ethnic Wear')">Ethnic Wear</span>
+      <span class="search-tag" onclick="quickSearch('Joggers')">Joggers</span>
+      <span class="search-tag" onclick="quickSearch('Sarees')">Sarees</span>
+      <span class="search-tag" onclick="quickSearch('Blazers')">Blazers</span>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <span class="toast-icon">✓</span>
+  <span id="toastMsg">Added to cart!</span>
+</div>
+
+<!-- WISHLIST TOAST -->
+
+
+<script src="fashion.js"></script>
+</body>
+</html>
