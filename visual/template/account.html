@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <!-- Footer CSS -->
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="../css/footer.css">
     <link rel="stylesheet" href="../css/account.css">
 
@@ -89,6 +90,274 @@
             padding: 30px;
             border: 0.5px solid var(--border-soft);
             box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .profile-left:hover, .profile-right:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+        .edit-btn {
+            background: var(--primary-nature);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.8rem;
+            margin-left: 10px;
+            transition: all 0.3s ease;
+            opacity: 0.7;
+        }
+        .edit-btn:hover {
+            background: #4a7a4a;
+            transform: scale(1.1);
+            opacity: 1;
+        }
+        .profile-pic {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto;
+        }
+        .profile-pic img {
+            transition: transform 0.3s ease;
+        }
+        .profile-pic:hover img {
+            transform: scale(1.05);
+        }
+        .profile-pic .edit-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+        }
+        .clickable {
+            cursor: pointer;
+        }
+        .clickable:hover {
+            background-color: #e9f7ef;
+        }
+        .nav-tabs .nav-link {
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+        .nav-tabs .nav-link.active {
+            background: none;
+            border-bottom-color: var(--primary-nature);
+            color: var(--primary-nature);
+            font-weight: 600;
+        }
+        .nav-tabs .nav-link:hover {
+            border-bottom-color: var(--primary-nature);
+            color: var(--primary-nature);
+        }
+        .form-control, .form-select {
+            border-radius: 10px;
+            border: 1px solid var(--border-soft);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-nature);
+            box-shadow: 0 0 0 0.2rem rgba(90, 138, 90, 0.25);
+        }
+        .btn-success, .btn-secondary {
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .btn-success:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(25, 135, 84, 0.3);
+        }
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(108, 117, 125, 0.3);
+        }
+
+        .um-footer {
+            background: #1a4535;
+            padding: 64px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .um-footer::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(90, 180, 90, 0.10) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .um-footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 44px;
+        }
+
+        .um-footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            letter-spacing: -1px;
+            margin-bottom: 18px;
+        }
+
+        .um-footer-logo span {
+            color: #8bd18b;
+        }
+
+        .um-footer-dot {
+            color: #8bd18b;
+        }
+
+        .um-footer-tagline {
+            color: rgba(255, 255, 255, 0.72);
+            line-height: 1.8;
+            max-width: 320px;
+            margin-bottom: 24px;
+        }
+
+        .um-footer-socials {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .um-social-btn {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.10);
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        .um-social-btn:hover {
+            background: rgba(255, 255, 255, 0.22);
+            color: white;
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+        }
+
+        .um-footer-col-head {
+            font-family: var(--body-font);
+            font-size: 0.72rem;
+            font-weight: 800;
+            letter-spacing: 1.8px;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 18px;
+        }
+
+        .um-footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .um-footer-links a {
+            font-size: 0.90rem;
+            color: rgba(255, 255, 255, 0.72);
+            text-decoration: none;
+            transition: color 0.2s, padding-left 0.2s;
+            display: inline-block;
+        }
+
+        .um-footer-links a:hover {
+            color: white;
+            padding-left: 4px;
+        }
+
+        .um-footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.10);
+            margin: 48px 0 0;
+        }
+
+        .um-footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 0 24px;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .um-footer-copy {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.42);
+            margin: 0;
+        }
+
+        .um-payment-badges {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .um-pay-badge {
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: rgba(255, 255, 255, 0.60);
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 6px;
+            padding: 4px 10px;
+            transition: all 0.2s;
+        }
+
+        .um-pay-badge:hover {
+            background: rgba(255, 255, 255, 0.18);
+            color: white;
+        }
+
+        @media (max-width: 991px) {
+            .um-footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 36px;
+            }
+
+            .um-footer-brand {
+                grid-column: 1 / -1;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .um-footer-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 28px;
+            }
+
+            .um-footer {
+                padding: 48px 0 0;
+            }
+
+            .um-footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
         }
     </style>
 </head>
@@ -114,36 +383,46 @@
         </div>
     </nav>
 
-    <section class="profile-description">
+    <section class="profile-description py-5 mb-5" style="min-height: 80vh;" data-aos="fade-up" data-aos-duration="800">
         <div class="container">
-            <div class="row">
-                <div class="col-4">
-                    <div class="profile-left">   
-                        <div class="profile-pic">
-                            <label class="-label" for="file">
-                                <span><i class="fa-regular fa-camera"></i>Change Image</span>
-                            </label>
-                            <input id="file" type="file" onchange="loadFile(event)"/>
-                            <img src="../assets/user-img.png" id="output" width="200" />
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="profile-left text-center" data-aos="fade-right" data-aos-delay="200">   
+                        <div class="profile-pic mb-4">
+                            <img src="../assets/user-img.png" id="output" class="rounded-circle shadow" width="200" height="200" alt="Profile Picture" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEwMCIgcj0iMTAwIiBmaWxsPSIjZGRkIi8+PHBhdGggZD0iTTEwMCAxMTBDODggMTEwIDgwIDEwMi44IDgwIDkwQzgwIDc3LjIgODggNjggMTAwIDY4QzExMiA2OCAxMjAgNzcuMiAxMjAgOTBDMTIwIDEwMi44IDExMiAxMTAgMTAwIDExMFoiIGZpbGw9IiM5OTk5OTkiLz48Y2lyY2xlIGN4PSI3NSIgY3k9Ijg1IiByPSI4IiBmaWxsPSIjOTk5OTk5Ii8+PGNpcmNsZSBjeD0iMTI1IiBjeT0iODUiIHI9IjgiIGZpbGw9IiM5OTk5OTkiLz48L3N2Zz4='" />
+                            <button class="edit-btn animate__animated animate__fadeIn" onclick="editPhoto()" title="Edit Photo"><i class="bi bi-pencil"></i></button>
+                            <input id="file" type="file" onchange="loadFile(event)" style="display:none;"/>
                         </div>
                         <div class="profile-username">
-                            <h3>Soumalyo Ghosh</h3>
-                            <p>Enthusiast Buyer</p>
+                            <h3 id="user-name" class="mb-2">Loading...</h3>
+                            <p id="user-role" class="text-muted">Enthusiast Buyer</p>
+                            <button class="edit-btn animate__animated animate__fadeIn" onclick="editName()" title="Edit Name"><i class="bi bi-pencil"></i></button>
                         </div>
-                        <div class="profile-activity">
-                            <h4>Activity</h4>
-                            <ul>
-                                <li><a href="#"><p>Orders</p><p>5</p></a></li>
-                                <li><a href="#"><p>Cartlist</p><p>3</p></a></li>
-                                <li><a href="#"><p>Reviews</p><p>6</p></a></li>
-                                <li><a href="#"><p>Favourites</p><p>2</p></a></li>
-                                
+                        <div class="profile-activity mt-4">
+                            <h4 class="mb-3">Activity</h4>
+                            <ul class="list-unstyled">
+                                <li class="d-flex justify-content-between align-items-center mb-2 p-2 rounded bg-light transition-all hover-lift">
+                                    <span><i class="bi bi-box-seam me-2 text-primary"></i>Orders</span>
+                                    <span class="badge bg-primary">5</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2 p-2 rounded bg-light transition-all hover-lift clickable" onclick="goToCart()">
+                                    <span><i class="bi bi-cart me-2 text-success"></i>Cartlist</span>
+                                    <span class="badge bg-success">3</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2 p-2 rounded bg-light transition-all hover-lift">
+                                    <span><i class="bi bi-star me-2 text-warning"></i>Reviews</span>
+                                    <span class="badge bg-warning">6</span>
+                                </li>
+                                <li class="d-flex justify-content-between align-items-center mb-2 p-2 rounded bg-light transition-all hover-lift">
+                                    <span><i class="bi bi-heart me-2 text-danger"></i>Favourites</span>
+                                    <span class="badge bg-danger">2</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-8">
-                    <div class="profile-right">
+                <div class="col-lg-8">
+                    <div class="profile-right" data-aos="fade-left" data-aos-delay="400">
                         <nav>
                             <ul class="nav nav-tabs" id="myTab" role="tablist">
                                 <li class="nav-item" role="presentation">
@@ -159,69 +438,77 @@
                             </ul>
                         </nav>   
 
-                        <div class="tab-content">
-                            <div class="tab-pane active" id="about" role="tabpanel" aria-labelledby="about-tab">
-                                <form>
+                        <div class="tab-content mt-4">
+                            <div class="tab-pane active animate__animated animate__fadeIn" id="about" role="tabpanel" aria-labelledby="about-tab">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>About</h5>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="toggleEdit('about')" id="edit-about-btn"><i class="bi bi-pencil"></i> Edit</button>
+                                </div>
+                                <form id="about-form">
                                   <div class="mb-3">
                                       <label for="name" class="form-label">Full Name</label>
-                                      <input type="text" class="form-control" id="name" placeholder="User Name">
+                                      <input type="text" class="form-control" id="name" placeholder="User Name" readonly>
                                   </div>
                                   <div class="mb-3">
                                       <label for="bio" class="form-label">Bio</label>
-                                      <input type="text" class="form-control" id="bio" placeholder="Tell us about yourself">
+                                      <input type="text" class="form-control" id="bio" placeholder="Tell us about yourself" readonly>
                                   </div>
                                   <div class="mb-3">
                                       <label for="occupation" class="form-label">Occupation (Optional)</label>
-                                      <select id="occupation" class="form-select">
+                                      <select id="occupation" class="form-select" disabled>
                                           <option>Teacher</option>
                                           <option>Student</option>
+                                          <option>Other</option>
                                       </select>
                                   </div>
                                   <div class="mb-3">
                                       <label for="country" class="form-label">State</label>
-                                      <select id="country" class="form-select">
+                                      <select id="country" class="form-select" disabled>
                                           <option>West Bengal</option>
                                           <option>Assam</option>
                                           <option>Odisha</option>
                                           <option>Tamil Nadu</option>
                                           <option>Maharashtra</option>
+                                          <option>Other</option>
                                       </select>
                                   </div>
                                   <div class="mb-3">
-                                      <label for="city" class="form-label">Address </label>
-                                      <input type="text" class="form-control"  placeholder="City, Street, etc.">
+                                      <label for="city" class="form-label">Address</label>
+                                      <input type="text" class="form-control" id="address" placeholder="City, Street, etc." readonly>
                                   </div>
-                                  <button type="submit" class="c-btn-sub mt-2">Submit</button>
+                                  <div id="about-buttons" style="display:none;">
+                                      <button type="button" class="btn btn-success me-2" onclick="saveAbout()">Save</button>
+                                      <button type="button" class="btn btn-secondary" onclick="cancelEdit('about')">Cancel</button>
+                                  </div>
                               </form>
                             </div>
                             <div class="tab-pane" id="order" role="tabpanel" aria-labelledby="order-tab">
                             </div>
 
-                            <div class="tab-pane" id="security" role="tabpanel" aria-labelledby="security-tab">
-                                <form>
+                            <div class="tab-pane animate__animated animate__fadeIn" id="security" role="tabpanel" aria-labelledby="security-tab">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5>Account Security</h5>
+                                    <button class="btn btn-outline-primary btn-sm" onclick="toggleEdit('security')" id="edit-security-btn"><i class="bi bi-pencil"></i> Edit</button>
+                                </div>
+                                <form id="security-form">
                                   <div class="mb-3">
                                       <label for="email" class="mb-2">Email</label>
-                                      <input type="text" class="form-control" id="email" placeholder="email@domain.com" >
-                                  </div>
-                                  <div class="mb-3">
-                                      <button type="button" class="c-btn-sub mt-2">Edit</button>
+                                      <input type="email" class="form-control" id="email" placeholder="email@domain.com" readonly>
                                   </div>
                                   <div class="mb-3 c-security">
                                       <label for="password" class="mb-2">Password</label>
-                                      <input type="text" class="form-control" id="password" placeholder="********" >
+                                      <input type="password" class="form-control" id="password" placeholder="********" readonly>
                                       <div class="c-passIcon">
-                                          <i class="fa fa-eye-slash"></i>
+                                          <i class="fa fa-eye-slash" onclick="togglePassword()"></i>
                                       </div>
                                   </div>
                                   <div class="mb-3">
-                                      <button type="button" class="c-btn-sub mt-2">Change Password</button>
-                                  </div>
-                                  <div class="mb-3">
                                       <label for="number" class="mb-2">Phone Number</label>
-                                      <input type="text" class="form-control" id="number" placeholder="+91 1234567890" >
+                                      <input type="text" class="form-control" id="number" placeholder="+91 1234567890" readonly>
                                   </div>
-                                  <div class="mb-3">
-                                      <button type="button" class="c-btn-sub mt-2">Edit</button>
+                                  <div id="security-buttons" style="display:none;">
+                                      <button type="button" class="btn btn-success me-2" onclick="saveSecurity()">Save</button>
+                                      <button type="button" class="btn btn-secondary" onclick="cancelEdit('security')">Cancel</button>
                                   </div>
                               </form>
                             </div>
@@ -232,59 +519,279 @@
             </div>
         </div>
     </section>
-    <footer class="c-footer-w">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-heading">PBSSD FRESH</h5>
-                    <p class="footer-text">Your daily dose of fresh and organic products, delivered to your doorstep with care and quality.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <div style="height: 60px;"></div>
+    <footer class="um-footer mt-5">
+        <div class="container">
+            <div class="um-footer-grid">
+                <div class="um-footer-brand">
+                    <div class="um-footer-logo">Urban<span>mart</span><span class="um-footer-dot">.</span></div>
+                    <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep across India.</p>
+                    <div class="um-footer-socials">
+                        <a href="#" class="um-social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="um-social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="um-social-btn" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="um-social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="um-social-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="footer-heading">Quick Links</h5>
-                    <ul class="list-unstyled footer-links">
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Shop</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Shop</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="#">Fashion &amp; Clothing</a></li>
+                        <li><a href="#">Mobiles &amp; Tablets</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Home &amp; Furniture</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="footer-heading">Help & Support</h5>
-                    <ul class="list-unstyled footer-links">
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Help</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns &amp; Refunds</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping Policy</a></li>
-                        <li><a href="#">Returns & Exchanges</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="footer-heading">Subscribe to our Newsletter</h5>
-                    <p class="footer-text">Get the latest updates on new products and upcoming sales.</p>
-                    <form class="newsletter-form mt-3">
-                        <div class="input-group">
-                            <input type="email" class="form-control" placeholder="Your email address" required>
-                            <button class="btn btn-subscribe" type="submit">Subscribe</button>
-                        </div>
-                    </form>
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Company</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="about.html">About UrbanMart</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="seller.html">Partner with Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
                 </div>
             </div>
-            <hr class="footer-divider">
-            <div class="footer-bottom">
-                <p>&copy; 2024 PBSSD Fresh. All Rights Reserved.</p>
+            <div class="um-footer-divider"></div>
+            <div class="um-footer-bottom">
+                <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
+                <div class="um-payment-badges">
+                    <span class="um-pay-badge">VISA</span>
+                    <span class="um-pay-badge">MC</span>
+                    <span class="um-pay-badge">UPI</span>
+                    <span class="um-pay-badge">PayTM</span>
+                    <span class="um-pay-badge">COD</span>
+                </div>
             </div>
         </div>
     </footer>
 
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        let currentUser = null;
+        let db = null;
+
+        // Initialize IndexedDB
+        function initDB() {
+            const request = indexedDB.open('PBSSDFreshAuthDB', 1);
+            request.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains('users')) {
+                    db.createObjectStore('users', { keyPath: 'email' });
+                }
+            };
+            request.onsuccess = (e) => {
+                db = e.target.result;
+                loadUserData();
+            };
+            request.onerror = (e) => {
+                console.error('IndexedDB error:', e);
+            };
+        }
+
+        // Load user data from IndexedDB
+        function loadUserData() {
+            const stored = JSON.parse(localStorage.getItem('pbssd_user')) || {};
+            if (stored.photo) {
+                populateFields(stored);
+            }
+            if (!stored.email || !db) return;
+
+            const tx = db.transaction(['users'], 'readonly');
+            const store = tx.objectStore('users');
+            const getReq = store.get(stored.email);
+            getReq.onsuccess = () => {
+                currentUser = getReq.result || stored;
+                populateFields(currentUser);
+            };
+        }
+
+        // Populate form fields with user data
+        function populateFields(user) {
+            document.getElementById('user-name').innerText = user.name || 'User';
+            document.getElementById('name').value = user.name || '';
+            document.getElementById('email').value = user.email || '';
+            document.getElementById('bio').value = user.bio || '';
+            document.getElementById('occupation').value = user.occupation || 'Other';
+            document.getElementById('country').value = user.state || 'Other';
+            document.getElementById('address').value = user.address || '';
+            document.getElementById('number').value = user.phone || '';
+            const img = document.getElementById('output');
+            if (user.photo) {
+                img.src = user.photo;
+            } else {
+                img.src = '../assets/user-img.png';
+            }
+        }
+
+        // Toggle edit mode for sections
+        function toggleEdit(section) {
+            const form = document.getElementById(section + '-form');
+            const inputs = form.querySelectorAll('input, select');
+            const buttons = document.getElementById(section + '-buttons');
+            const editBtn = document.getElementById('edit-' + section + '-btn');
+
+            const isEditing = buttons.style.display !== 'none';
+
+            if (isEditing) {
+                // Cancel edit
+                cancelEdit(section);
+            } else {
+                // Start edit
+                inputs.forEach(input => {
+                    if (input.id !== 'email') { // Email readonly
+                        input.readOnly = false;
+                        input.disabled = false;
+                    }
+                });
+                buttons.style.display = 'block';
+                buttons.classList.add('animate__animated', 'animate__slideInUp');
+                editBtn.innerHTML = '<i class="bi bi-x"></i> Cancel';
+            }
+        }
+
+        // Cancel edit
+        function cancelEdit(section) {
+            const form = document.getElementById(section + '-form');
+            const inputs = form.querySelectorAll('input, select');
+            const buttons = document.getElementById(section + '-buttons');
+            const editBtn = document.getElementById('edit-' + section + '-btn');
+
+            inputs.forEach(input => {
+                input.readOnly = true;
+                input.disabled = true;
+            });
+            buttons.style.display = 'none';
+            editBtn.innerHTML = '<i class="bi bi-pencil"></i> Edit';
+            populateFields(currentUser); // Reset to original values
+        }
+
+        function goToCart() {
+            window.location.href = 'cart.html';
+        }
+
+        // Save about section
+        function saveAbout() {
+            const name = document.getElementById('name').value;
+            const bio = document.getElementById('bio').value;
+            const occupation = document.getElementById('occupation').value;
+            const state = document.getElementById('country').value;
+            const address = document.getElementById('address').value;
+
+            currentUser.name = name;
+            currentUser.bio = bio;
+            currentUser.occupation = occupation;
+            currentUser.state = state;
+            currentUser.address = address;
+
+            saveToDB(currentUser);
+            toggleEdit('about');
+            document.getElementById('user-name').innerText = name;
+            localStorage.setItem('pbssd_user', JSON.stringify({ name, email: currentUser.email, photo: currentUser.photo }));
+        }
+
+        // Save security section
+        function saveSecurity() {
+            const phone = document.getElementById('number').value;
+
+            currentUser.phone = phone;
+
+            saveToDB(currentUser);
+            toggleEdit('security');
+        }
+
+        // Save to IndexedDB
+        function saveToDB(user) {
+            const tx = db.transaction(['users'], 'readwrite');
+            const store = tx.objectStore('users');
+            store.put(user);
+            tx.oncomplete = () => {
+                alert('Profile updated successfully!');
+            };
+            tx.onerror = (e) => {
+                console.error('Save error:', e);
+                alert('Error saving profile.');
+            };
+        }
+
+        // Edit photo
+        function editPhoto() {
+            document.getElementById('file').click();
+        }
+
+        // Load file for photo
+        function loadFile(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const imgSrc = e.target.result;
+                    document.getElementById('output').src = imgSrc;
+                    currentUser.photo = imgSrc;
+                    saveToDB(currentUser);
+                    localStorage.setItem('pbssd_user', JSON.stringify({ name: currentUser.name, email: currentUser.email, photo: imgSrc }));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Edit name directly
+        function editName() {
+            const nameEl = document.getElementById('user-name');
+            const currentName = nameEl.innerText;
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.value = currentName;
+            input.className = 'form-control d-inline-block w-auto';
+            nameEl.innerHTML = '';
+            nameEl.appendChild(input);
+            input.focus();
+            input.addEventListener('blur', () => {
+                const newName = input.value;
+                nameEl.innerHTML = newName;
+                currentUser.name = newName;
+                saveToDB(currentUser);
+                localStorage.setItem('pbssd_user', JSON.stringify({ name: newName, email: currentUser.email, photo: currentUser.photo }));
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') input.blur();
+            });
+        }
+
+        // Tab switching animation
+        document.querySelectorAll('.nav-link').forEach(tab => {
+            tab.addEventListener('click', function() {
+                const target = this.getAttribute('data-bs-target');
+                document.querySelectorAll('.tab-pane').forEach(pane => {
+                    pane.classList.remove('animate__fadeIn');
+                    pane.classList.add('animate__fadeOut');
+                });
+                setTimeout(() => {
+                    document.querySelectorAll('.tab-pane').forEach(pane => {
+                        pane.classList.remove('animate__fadeOut');
+                    });
+                    document.querySelector(target).classList.add('animate__fadeIn');
+                }, 200);
+            });
+        });
+
         // Sticky Navbar Effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.navbar');
@@ -294,12 +801,6 @@
                 nav.classList.remove('scrolled');
             }
         });
-
-        // Profile Image Load
-        var loadFile = function (event) {
-            var image = document.getElementById("output");
-            image.src = URL.createObjectURL(event.target.files[0]);
-        };
 
         // Simple Logout Logic
         function handleLogout() {
@@ -311,6 +812,9 @@
         window.addEventListener('load', () => {
             if (!localStorage.getItem('pbssd_user')) {
                 window.location.href = 'login.html';
+            } else {
+                initDB();
+                AOS.init();
             }
         });
     </script>
