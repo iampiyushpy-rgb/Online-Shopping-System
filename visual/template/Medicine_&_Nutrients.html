@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine & Nutrients — Your Health, Simplified</title>
+    <meta name="description"
+        content="Shop premium medicines, vitamins, supplements, and health essentials. Trusted brands, certified products, and free delivery on orders above $30.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/Medicine_&_Nutrients.css">
+</head>
+
+<body class="med-body">
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="carousel-inner" id="hero-carousel-inner"></div>
+        <button class="carousel-control prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-control next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
+        <div class="carousel-nav" id="hero-carousel-nav"></div>
+        <div class="carousel-progress-bar">
+            <div id="carousel-progress-fill" class="progress-fill"></div>
+        </div>
+    </section>
+
+    <!-- Feature Trust Bar -->
+    <div class="feature-banner">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-truck-medical"></i></div>
+            <div><h4>Free Delivery</h4><p>On orders above $30</p></div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+            <div><h4>100% Genuine</h4><p>Certified products only</p></div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-user-doctor"></i></div>
+            <div><h4>Expert Advice</h4><p>Pharmacist-verified</p></div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-clock-rotate-left"></i></div>
+            <div><h4>Easy Returns</h4><p>15-day hassle-free</p></div>
+        </div>
+    </div>
+
+    <!-- Health Quick Strip -->
+    <div class="health-strip">
+        <div class="health-strip-item"><i class="fas fa-fire"></i><span>Trending Now</span></div>
+        <div class="health-strip-divider"></div>
+        <div class="health-strip-item"><i class="fas fa-prescription-bottle-medical"></i><span>New Arrivals</span></div>
+        <div class="health-strip-divider"></div>
+        <div class="health-strip-item"><i class="fas fa-star"></i><span>Top Rated</span></div>
+        <div class="health-strip-divider"></div>
+        <div class="health-strip-item"><i class="fas fa-percent"></i><span>Mega Deals</span></div>
+        <div class="health-strip-divider"></div>
+        <div class="health-strip-item"><i class="fas fa-leaf"></i><span>Organic Range</span></div>
+    </div>
+
+    <!-- Category Quick Tabs -->
+    <div class="category-tabs">
+        <button class="category-tab active" data-cat="vitamins"><i class="fas fa-capsules"></i> Vitamins</button>
+        <button class="category-tab" data-cat="painrelief"><i class="fas fa-hand-holding-medical"></i> Pain Relief</button>
+        <button class="category-tab" data-cat="digestive"><i class="fas fa-stomach"></i> Digestive Health</button>
+        <button class="category-tab" data-cat="immunity"><i class="fas fa-shield-virus"></i> Immunity</button>
+        <button class="category-tab" data-cat="skincare"><i class="fas fa-pump-soap"></i> Skin Care</button>
+        <button class="category-tab" data-cat="babykids"><i class="fas fa-baby"></i> Baby & Kids</button>
+        <button class="category-tab" data-cat="diabetes"><i class="fas fa-syringe"></i> Diabetes Care</button>
+        <button class="category-tab" data-cat="protein"><i class="fas fa-dumbbell"></i> Protein & Fitness</button>
+        <button class="category-tab" data-cat="herbal"><i class="fas fa-seedling"></i> Herbal / Ayurveda</button>
+        <button class="category-tab" data-cat="firstaid"><i class="fas fa-kit-medical"></i> First Aid</button>
+    </div>
+
+    <main id="shop">
+
+        <!-- Top Deals — Hardcoded -->
+        <section class="container" style="background: white;">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">LIMITED TIME OFFERS</span>
+                    <h2>Today's Health Deals</h2>
+                </div>
+                <a href="Medicine_&_Nutrients_AllProducts.html" class="view-all">Shop All Deals <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Vitamin D3 5000 IU&price=$12.99&img=https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400&h=300&fit=crop&cat=Vitamins&rating=4.9&reviews=24000&originalPrice=$19.99&desc=High-potency Vitamin D3 for bone and immune support. 120 softgels.&badge=Bestseller&brand=NatureMade'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400&h=300&fit=crop" class="product-image" alt="Vitamin D3">
+                        <span class="product-badge badge-deal">35% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Vitamin D3 5000 IU</h3>
+                        <p class="med-subtitle">NatureMade • 120 Softgels</p>
+                        <p class="product-price"><span style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$19.99</span> $12.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Omega-3 Fish Oil&price=$18.99&img=https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=400&h=300&fit=crop&cat=Supplements&rating=4.8&reviews=31000&originalPrice=$29.99&desc=Triple-strength EPA/DHA for heart, brain, and joint health. 180 count.&badge=Top Rated&brand=Nordic Naturals'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=400&h=300&fit=crop" class="product-image" alt="Omega-3 Fish Oil">
+                        <span class="product-badge badge-deal">37% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Omega-3 Fish Oil</h3>
+                        <p class="med-subtitle">Nordic Naturals • 180 Softgels</p>
+                        <p class="product-price"><span style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$29.99</span> $18.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Probiotic 50 Billion CFU&price=$24.99&img=https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=400&h=300&fit=crop&cat=Digestive&rating=4.7&reviews=18000&originalPrice=$39.99&desc=Advanced multi-strain probiotic for gut health and digestion.&badge=Award Winner&brand=Garden of Life'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?q=80&w=400&h=300&fit=crop" class="product-image" alt="Probiotic">
+                        <span class="product-badge badge-deal">38% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Probiotic 50B CFU</h3>
+                        <p class="med-subtitle">Garden of Life • 30 Caps</p>
+                        <p class="product-price"><span style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$39.99</span> $24.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Ashwagandha KSM-66&price=$15.99&img=https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=400&h=300&fit=crop&cat=Herbal&rating=4.8&reviews=22000&originalPrice=$24.99&desc=Clinically-proven adaptogen for stress relief and energy. 90 veggie caps.&badge=Organic&brand=Himalaya'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=400&h=300&fit=crop" class="product-image" alt="Ashwagandha">
+                        <span class="product-badge badge-deal">36% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Ashwagandha KSM-66</h3>
+                        <p class="med-subtitle">Himalaya • 90 Veggie Caps</p>
+                        <p class="product-price"><span style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$24.99</span> $15.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bestsellers -->
+        <section class="container" style="background: var(--med-section-alt);">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">TRUSTED BY MILLIONS</span>
+                    <h2>Bestselling Health Products</h2>
+                </div>
+                <a href="Medicine_&_Nutrients_AllProducts.html" class="view-all">Browse All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Multivitamin Complete&price=$22.99&img=https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400&h=300&fit=crop&cat=Vitamins&rating=4.9&reviews=45000&badge=N°1 Seller&brand=Centrum'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=400&h=300&fit=crop" class="product-image" alt="Multivitamin">
+                        <span class="product-badge badge-best">#1 Seller</span>
+                        <span class="rx-badge">#1</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Multivitamin Complete</h3>
+                        <p class="med-subtitle">Centrum • 200 Tablets</p>
+                        <p class="product-price">$22.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Whey Protein Isolate&price=$34.99&img=https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400&h=300&fit=crop&cat=Protein&rating=4.8&reviews=38000&badge=Top Rated&brand=Optimum Nutrition'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?q=80&w=400&h=300&fit=crop" class="product-image" alt="Whey Protein">
+                        <span class="product-badge badge-best">Top Rated</span>
+                        <span class="rx-badge">#2</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Whey Protein Isolate</h3>
+                        <p class="med-subtitle">Optimum Nutrition • 2 lbs</p>
+                        <p class="product-price">$34.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Collagen Peptides&price=$27.99&img=https://images.unsplash.com/photo-1556227702-d1e4e7b5c232?q=80&w=400&h=300&fit=crop&cat=Skincare&rating=4.7&reviews=29000&badge=Trending&brand=Vital Proteins'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1556227702-d1e4e7b5c232?q=80&w=400&h=300&fit=crop" class="product-image" alt="Collagen Peptides">
+                        <span class="product-badge badge-best">Trending</span>
+                        <span class="rx-badge">#3</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Collagen Peptides</h3>
+                        <p class="med-subtitle">Vital Proteins • 20 oz</p>
+                        <p class="product-price">$27.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="window.location.href='Medicine_&_Nutrients_ProductDetails.html?name=Elderberry Gummies&price=$14.99&img=https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=400&h=300&fit=crop&cat=Immunity&rating=4.8&reviews=41000&badge=Kids Fav&brand=Zarbees'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1550572017-edd951aa8f72?q=80&w=400&h=300&fit=crop" class="product-image" alt="Elderberry Gummies">
+                        <span class="product-badge badge-best">Kids Fav</span>
+                        <span class="rx-badge">#4</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Elderberry Gummies</h3>
+                        <p class="med-subtitle">Zarbee's • 60 Gummies</p>
+                        <p class="product-price">$14.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Health Tip Banner -->
+        <div class="health-tip-banner">
+            <i class="fas fa-heartbeat quote-icon"></i>
+            <blockquote>"Let food be thy medicine and medicine be thy food."</blockquote>
+            <cite>— Hippocrates</cite>
+        </div>
+
+        <!-- Expert Spotlight -->
+        <section class="container" style="background: white;">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">TRUSTED PROFESSIONALS</span>
+                    <h2>Our Health Experts</h2>
+                </div>
+            </div>
+            <div class="expert-spotlight" id="expert-spotlight-grid"></div>
+        </section>
+
+        <!-- Dynamic Category Sections -->
+        <div id="dynamic-categories"></div>
+
+    </main>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <h2>Stay Healthy — Subscribe Today</h2>
+        <p>Get weekly health tips, exclusive discounts, and first access to new products delivered to your inbox.</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background-color: #2d5a27; color: white; padding: 4rem 5%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;"><i class="fas fa-capsules" style="margin-right: 0.5rem; color: #4caf50;"></i>MediStore</h3>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem;">Your trusted destination for genuine medicines, vitamins, and health supplements. Pharmacist-verified, delivered with care.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Categories</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Vitamins & Supplements</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Pain Relief</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Diabetes Care</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Herbal & Ayurveda</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Support</h4>
+                <ul style="list-style: none; opacity: 0.8;">
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Help Center</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Shipping Info</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Returns Policy</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Prescription Upload</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.3rem; opacity: 0.8;">
+                    <i class="fab fa-instagram" style="cursor:pointer;"></i>
+                    <i class="fab fa-facebook" style="cursor:pointer;"></i>
+                    <i class="fab fa-twitter" style="cursor:pointer;"></i>
+                    <i class="fab fa-youtube" style="cursor:pointer;"></i>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="margin-bottom: 0.5rem;">We Accept</h4>
+                    <div style="display: flex; gap: 0.8rem; font-size: 1.5rem; opacity: 0.7;">
+                        <i class="fab fa-cc-visa"></i> <i class="fab fa-cc-mastercard"></i> <i class="fab fa-cc-paypal"></i> <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
+            &copy; 2026 MediStore. All rights reserved. | Made with <i class="fas fa-heart" style="color: #4caf50;"></i> for your health
+        </div>
+    </footer>
+
+    <script src="../js/Medicine_&_Nutrients.js" defer></script>
+</body>
+</html>

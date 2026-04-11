@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Health Products — MediStore</title>
+    <meta name="description" content="Browse 50+ medicines, vitamins, supplements, and health essentials. Filter by category, sort by price and rating.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/Medicine_&_Nutrients_AllProducts.css">
+</head>
+
+<body style="background: #f8fafc; overflow-x: hidden;">
+
+    <!-- Back to MediStore -->
+    <nav style="max-width:1600px; margin:1.2rem auto 0; padding:0 5%;">
+        <a href="Medicine_&_Nutrients.html" class="back-btn-med">
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-capsules"></i>
+            <span>Back to MediStore</span>
+        </a>
+    </nav>
+
+    <!-- Sticky Filter/Sort Bar -->
+    <div class="filter-bar">
+        <div class="filter-top-row">
+            <!-- Custom Sort Dropdown -->
+            <div class="custom-dropdown" id="sortDropdown">
+                <button class="dropdown-trigger" id="sortTrigger">
+                    <i class="fas fa-sliders dropdown-icon"></i>
+                    <span id="sortLabel">Sort: Featured</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu" id="sortMenu">
+                    <div class="dropdown-item active" data-sort="featured"><i class="fas fa-star"></i> Featured <i class="fas fa-check dropdown-check"></i></div>
+                    <div class="dropdown-item" data-sort="price-low"><i class="fas fa-arrow-down-short-wide"></i> Price: Low → High <i class="fas fa-check dropdown-check"></i></div>
+                    <div class="dropdown-item" data-sort="price-high"><i class="fas fa-arrow-up-wide-short"></i> Price: High → Low <i class="fas fa-check dropdown-check"></i></div>
+                    <div class="dropdown-item" data-sort="rating"><i class="fas fa-star"></i> Top Rated <i class="fas fa-check dropdown-check"></i></div>
+                    <div class="dropdown-item" data-sort="reviews"><i class="fas fa-comments"></i> Most Reviewed <i class="fas fa-check dropdown-check"></i></div>
+                </div>
+            </div>
+
+            <div class="results-count">Showing <span id="product-count">0</span> products</div>
+        </div>
+
+        <!-- Category Filter Buttons -->
+        <div class="filter-controls" id="filterControls">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
+            <button class="filter-btn" data-filter="Vitamins"><i class="fas fa-capsules"></i> Vitamins</button>
+            <button class="filter-btn" data-filter="Pain Relief"><i class="fas fa-hand-holding-medical"></i> Pain Relief</button>
+            <button class="filter-btn" data-filter="Digestive"><i class="fas fa-leaf"></i> Digestive</button>
+            <button class="filter-btn" data-filter="Immunity"><i class="fas fa-shield-virus"></i> Immunity</button>
+            <button class="filter-btn" data-filter="Skincare"><i class="fas fa-pump-soap"></i> Skincare</button>
+            <button class="filter-btn" data-filter="Baby & Kids"><i class="fas fa-baby"></i> Baby & Kids</button>
+            <button class="filter-btn" data-filter="Diabetes"><i class="fas fa-syringe"></i> Diabetes</button>
+            <button class="filter-btn" data-filter="Protein"><i class="fas fa-dumbbell"></i> Protein</button>
+            <button class="filter-btn" data-filter="Herbal"><i class="fas fa-seedling"></i> Herbal</button>
+            <button class="filter-btn" data-filter="First Aid"><i class="fas fa-kit-medical"></i> First Aid</button>
+        </div>
+    </div>
+
+    <!-- Sort Backdrop -->
+    <div class="dropdown-backdrop" id="sortBackdrop"></div>
+
+    <!-- Products Grid -->
+    <div class="products-grid-wrapper">
+        <div class="products-grid" id="products-grid">
+            <!-- All product cards injected via JS -->
+        </div>
+
+        <div class="load-more-section">
+            <p>You've seen all products! 💊</p>
+            <div class="products-end-mark"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #2d5a27; color: white; padding: 3rem 5%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-capsules" style="margin-right: 0.5rem; color: #4caf50;"></i>MediStore</h3>
+                <p style="opacity: 0.8; font-size: 0.9rem;">Your trusted destination for genuine medicines, vitamins, and health essentials. Pharmacist-verified.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.8rem;">Quick Links</h4>
+                <ul style="list-style: none; opacity: 0.8; font-size: 0.85rem;">
+                    <li style="margin-bottom: 0.4rem;"><a href="Medicine_&_Nutrients.html" style="color:white;text-decoration:none;">Home</a></li>
+                    <li style="margin-bottom: 0.4rem;"><a href="#" style="color:white;text-decoration:none;">About</a></li>
+                    <li style="margin-bottom: 0.4rem;"><a href="#" style="color:white;text-decoration:none;">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.8rem;">Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.3rem; opacity: 0.8;">
+                    <i class="fab fa-instagram" style="cursor:pointer;"></i>
+                    <i class="fab fa-facebook" style="cursor:pointer;"></i>
+                    <i class="fab fa-twitter" style="cursor:pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 3rem; opacity: 0.5; font-size: 0.8rem;">
+            &copy; 2026 MediStore. All rights reserved. | Made with <i class="fas fa-heart" style="color: #4caf50;"></i> for your health
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></button>
+
+    <script src="../js/Medicine_&_Nutrients_AllProducts.js" defer></script>
+</body>
+</html>
