@@ -25,34 +25,6 @@ body {
   background: var(--warm-white);
   color: var(--ink);
   overflow-x: hidden;
-  cursor: none;
-}
-
-/* ── CUSTOM CURSOR ─────────────────────────────────────────── */
-#cursor {
-  width: 12px; height: 12px;
-  background: var(--gold);
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.1s ease;
-  mix-blend-mode: multiply;
-}
-#cursor-ring {
-  width: 36px; height: 36px;
-  border: 1.5px solid var(--gold);
-  border-radius: 50%;
-  position: fixed;
-  top: 0; left: 0;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.3s ease, width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-  opacity: 0.6;
-}
-body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring {
-  width: 56px; height: 56px; opacity: 1;
 }
 
 /* ── SCROLLBAR ─────────────────────────────────────────────── */
@@ -93,7 +65,7 @@ body:has(a:hover) #cursor-ring, body:has(button:hover) #cursor-ring {
 @keyframes loaderFill { from{transform:translateX(-100%)} to{transform:translateX(0)} }
 
 /* ── NAVBAR ────────────────────────────────────────────────── */
-nav {
+.navbar {
   position: fixed; top: 0; left: 0; right: 0;
   z-index: 1000;
   display: flex; align-items: center; justify-content: space-between;
@@ -103,7 +75,18 @@ nav {
   border-bottom: 1px solid var(--border);
   transition: var(--transition);
 }
-nav.scrolled { padding: 14px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+.navbar.scrolled { padding: 14px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
+.navbar-inner {
+  justify-content: space-between;
+}
+.navbar .container {
+  width: 100%;
+}
+.navbar .navbar-inner {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
 .nav-logo {
   font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
@@ -120,7 +103,6 @@ nav.scrolled { padding: 14px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
   letter-spacing: 0.15em; text-transform: uppercase;
   color: var(--ink); text-decoration: none;
   position: relative; padding-bottom: 4px;
-  cursor: none;
 }
 .nav-links a::after {
   content: '';
@@ -133,7 +115,7 @@ nav.scrolled { padding: 14px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
 .nav-icons { display: flex; gap: 20px; align-items: center; }
 .nav-icon {
   background: none; border: none;
-  font-size: 1.2rem; cursor: none;
+  font-size: 1.2rem;
   color: var(--ink);
   position: relative;
   transition: transform 0.2s ease;
@@ -149,7 +131,7 @@ nav.scrolled { padding: 14px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.06); }
 }
 .hamburger {
   display: none; flex-direction: column;
-  gap: 5px; background: none; border: none; cursor: none;
+  gap: 5px; background: none; border: none;
 }
 .hamburger span {
   width: 22px; height: 1.5px;

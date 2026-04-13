@@ -317,6 +317,7 @@
     .banner-emojis { display: none; }
   }
 </style>
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
 
@@ -326,6 +327,7 @@
         <div class="text-secondary small mt-2">Curating the Best for You...</div>
     </div>
 </div>
+
 
 <div class="search-overlay" id="searchOverlay">
     <div class="search-overlay-inner">
@@ -454,46 +456,60 @@
     <div class="category-nav-overflow-wrap" id="catOverflowWrap">
         <div class="category-nav-scroll" id="category-filters">
             <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-grid-fill"></i> For You</div>
-            <div class="cat-pill active" data-cat="Grocery" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><i
-                        class="bi bi-grid-fill"></i> Grocery</div>
-            <div class="cat-pill" data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
-                        class="bi bi-bag-heart"></i> Fashion</div>
+                    class="bi bi-grid-fill"></i> For You</div>
+            <div class="cat-pill active" data-cat="Grocery" onclick="window.location.href='grocery.html'"><i
+                    class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; " href="grocery.html">Grocery</a></div>
+            <div class="cat-pill " data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
+                    class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; " href="fashion.html">Fashion</a></div>
             <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-phone"></i> Mobiles</div>
-            <div class="cat-pill" data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
-                        class="bi bi-stars"></i> Beauty</div>
-            <div class="cat-pill" data-cat="Electronics" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-cpu"></i> Electronics</div>
-            <div class="cat-pill" data-cat="Home" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-house"></i> Home</div>
+                    class="bi bi-phone"></i> Mobiles</div>
+            <div class="cat-pill " data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
+                    class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="beauty.html">Beauty</a></div>
+            <div class="cat-pill " data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
+                    class="bi bi-cpu"></i> Electronics</div>
+            <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i class="bi bi-house"></i>
+                Home</div>
             <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-lightning-charge"></i> Appliances</div>
+                    class="bi bi-lightning-charge"></i> Appliances</div>
             <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-controller"></i> Toys</div>
+                    class="bi bi-controller"></i> Toys</div>
             <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-basket"></i> Food</div>
+                    class="bi bi-basket"></i> Food</div>
             <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-car-front"></i> Auto</div>
-            <div class="cat-pill" data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><i
-                        class="bi bi-bicycle"></i> 2 Wheelers</div>
-            <div class="cat-pill" data-cat="Books" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-book"></i> Books</div>
+                    class="bi bi-car-front"></i> Auto</div>
+            <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i
+                    class="bi bi-bicycle"></i> 2 Wheelers</a></div>
+            <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i
+                    class="bi bi-book"></i> <a href="Books.html" style="text-decoration: none; color: inherit;">Books</a></div>
             <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-lamp"></i> Furniture</div>
-            <div class="cat-pill" data-cat="Sports" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-trophy"></i> Sports</div>
-            <div class="cat-pill" data-cat="Medicines" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-capsule"></i> Medicines</div>
+                    class="bi bi-lamp"></i> Furniture</div>
+            <div class="cat-pill " data-cat="Sports" onclick="window.location.href='Fitness_&_Sports.html'"><a href="Fitness_&_Sports.html" style="text-decoration: none; color: inherit;"><i
+                    class="bi bi-trophy"></i> Sports</a></div>
+            <div class="cat-pill " data-cat="Medicines" onclick="window.location.href='Medicine_&_Nutrients.html'"><a href="Medicine_&_Nutrients.html" style="text-decoration: none; color: inherit;"><i
+                    class="bi bi-capsule"></i> Medicines</a></div>
+            <div class="cat-pill " data-cat="Pet" onclick="window.location.href='pet.html'"><i
+                    class="bi bi-tencent-qq"></i> Pet</div>
+            <div class="cat-pill travel-pill " data-cat="Travel" onclick="window.location.href='travel_landing.html'">
+                <span class="travel-badge">NEW</span>
+                <a href="travel_landing.html" style="text-decoration: none; color: inherit;">
+                    <i class="bi bi-airplane-fill"></i> Travel
+                </a>
+            </div>
         </div>
     </div>
 </div>
 
 <div class="nav-mobile-panel" id="mobilePanel">
-    <a class="mobile-nav-link" href="../../index.html"><i class="bi bi-house"></i> Home</a>
-    <a class="mobile-nav-link" href="../../index.html#shop"><i class="bi bi-bag"></i> Shop</a>
+    <a class="mobile-nav-link" href="../../index.html#home" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+    <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
     <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+    <div class="mobile-nav-divider"></div>
+    <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+            class="bi bi-person-circle"></i> Login</a>
+    <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html" style="border-radius:12px;"><i
+            class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
 </div>
+
 
 <!-- ANNOUNCEMENT -->
 <div class="announcement">🌿 Free delivery on orders over ₹499 &nbsp;|&nbsp; Fresh produce delivered daily</div>
@@ -1062,10 +1078,29 @@
       };
   }
 
+  function checkAuth() {
+      const user = JSON.parse(localStorage.getItem('pbssd_user'));
+      const loginNav = document.getElementById('login-nav-btn');
+      const profileNav = document.getElementById('user-profile-btn');
+      const nameDesktop = document.getElementById('user-nav-name');
+      const loginNavMobile = document.getElementById('login-nav-btn-mobile');
+      const profileNavMobile = document.getElementById('user-profile-btn-mobile');
+      const nameMobile = document.getElementById('user-nav-name-mobile');
+      if (user) {
+          loginNav?.classList.add('d-none');
+          profileNav?.classList.remove('d-none');
+          loginNavMobile?.classList.add('d-none');
+          profileNavMobile?.classList.remove('d-none');
+          if (nameDesktop) nameDesktop.innerText = user.name || 'Profile';
+          if (nameMobile) nameMobile.innerText = user.name || 'Profile';
+      }
+  }
+
   window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       setTimeout(() => { if (preloader) { preloader.style.opacity = '0'; preloader.style.visibility = 'hidden'; } }, 1000);
       AOS.init({ duration: 900, once: true, offset: 80, easing: 'ease-out-cubic' });
+      checkAuth();
       
       const nav = document.querySelector('.navbar');
       const catBar = document.getElementById('categoryNavBar');
@@ -1187,6 +1222,7 @@
   }, { threshold: 0.1 });
   document.querySelectorAll('.product-card').forEach(c => observer.observe(c));
 </script>
+<script src="../js/navbar.js" defer></script>
 </body>
 <style>
     /* Favourites Drawer Styles from style.css */
