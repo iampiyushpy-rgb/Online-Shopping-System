@@ -41,3 +41,10 @@ VALUES (1, 'Default Seller', 'seller@pbssd.gov.in', 'pbssd123', 'seller');
 
 INSERT IGNORE INTO products (seller_id, name, price, description, stock, image_url) 
 VALUES (1, 'Sample Laptop', 45000.00, 'High performance machine', 5, 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853');
+create Table sign_up(
+User_image BLOB,
+Full_name VARCHAR(100),
+Email_address VARCHAR(100),
+Phone bigint,
+Location text,
+Password VARCHAR(100));

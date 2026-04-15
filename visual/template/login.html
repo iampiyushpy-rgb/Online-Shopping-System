@@ -78,34 +78,34 @@
                     <h2 class="heading-lora mb-2">Join Us</h2>
                     <p class="text-secondary mb-4">Start your journey with us</p>
                     
-                    <form id="userRegisterForm">
+                    <form id="userRegisterForm" action="/">
                         <div class="text-center mb-3">
                             <img id="pfpPreview" class="preview-img" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%; border: 2px solid #5A8A5A; margin-bottom: 10px; display: none;" src="">
                             <label class="btn btn-outline-secondary btn-sm rounded-pill px-3">
                                 <i class="bi bi-camera me-1"></i> Upload Photo
-                                <input type="file" id="regPhoto" hidden accept="image/*">
+                                <input type="file" id="regPhoto" name="User_image" hidden accept="image/*">
                             </label>
                         </div>
                         <div class="form-floating-custom mb-3">
-                            <input type="text" id="regName" placeholder=" " required>
+                            <input type="text" id="regName" name="Full_name" placeholder=" " required>
                             <label for="regName">Full Name</label>
                         </div>
                         <div class="form-floating-custom mb-3">
-                            <input type="email" id="regEmail" placeholder=" " required>
+                            <input type="email" id="regEmail" name="Email_address" placeholder=" " required>
                             <label for="regEmail">Email Address</label>
                         </div>
                         <div class="row g-2 mb-3">
                             <div class="col-6 form-floating-custom">
-                                <input type="tel" id="regPhone" placeholder=" " required>
+                                <input type="tel" id="regPhone" name="Phone" placeholder=" " required>
                                 <label for="regPhone">Phone</label>
                             </div>
                             <div class="col-6 form-floating-custom">
-                                <input type="text" id="regLocation" placeholder=" " required>
+                                <input type="text" id="regLocation" name="Location" placeholder=" " required>
                                 <label for="regLocation">Location</label>
                             </div>
                         </div>
                         <div class="form-floating-custom mb-4">
-                            <input type="password" id="regPass" placeholder=" " required>
+                            <input type="password" id="regPass" name="Password" placeholder=" " required>
                             <label for="regPass">Password</label>
                         </div>
                         <button type="submit" class="btn btn-primary-nature w-100 mb-4">Create Account</button>
