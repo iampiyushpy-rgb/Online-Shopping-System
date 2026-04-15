@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -36,10 +39,22 @@
         }
 
         /* --- Scrollbar --- */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--primary-bg); }
-        ::-webkit-scrollbar-thumb { background: var(--secondary-bg); border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #059669; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--primary-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary-bg);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #059669;
+        }
 
         /* --- Hero Section --- */
         .hero-slider {
@@ -59,18 +74,41 @@
             animation: fadeIn 0.8s ease;
         }
 
-        .hero-slide.active { display: flex; }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        .hero-slide.active {
+            display: flex;
         }
 
-        .hero-content { max-width: 600px; }
-        .hero-content h1 { font-size: 2.8rem; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main); }
-        .hero-content span { color: var(--accent-color); }
-        .hero-content p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 2.5rem; }
-        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-content span {
+            color: var(--accent-color);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+
         .btn {
             padding: 0.8rem 2rem;
             border-radius: 50px;
@@ -89,14 +127,21 @@
             margin-right: 1rem;
         }
 
-        .btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 30px var(--accent-glow); }
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
 
         .btn-outline {
             border: 1px solid var(--accent-color);
             color: var(--accent-color);
             background: transparent;
         }
-        .btn-outline:hover { background: var(--accent-color); color: var(--primary-bg); }
+
+        .btn-outline:hover {
+            background: var(--accent-color);
+            color: var(--primary-bg);
+        }
 
         .hero-products {
             display: flex;
@@ -111,7 +156,7 @@
             border-radius: 20px;
             width: 250px;
             text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
             border: 1px solid var(--glass-border);
         }
@@ -141,14 +186,39 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         /* --- Categories --- */
-        section { padding: 80px 5%; }
-        .section-title { font-size: 2rem; margin-bottom: 3rem; position: relative; display: inline-block; color: var(--text-main); }
-        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 60px; height: 4px; background: var(--accent-color); }
+        section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            color: var(--text-main);
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+        }
 
         .category-grid {
             display: grid;
@@ -168,9 +238,23 @@
             display: block;
         }
 
-        .category-card:hover { border-color: var(--accent-color); background: #fff; transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .category-card i { font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem; }
-        .category-card p { color: var(--text-main); font-weight: 600; }
+        .category-card:hover {
+            border-color: var(--accent-color);
+            background: #fff;
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .category-card p {
+            color: var(--text-main);
+            font-weight: 600;
+        }
 
         /* --- Products --- */
         .product-grid {
@@ -190,7 +274,11 @@
             max-width: 220px;
         }
 
-        .product-card:hover { border-color: var(--accent-color); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+        .product-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
 
         .badge {
             position: absolute;
@@ -212,12 +300,33 @@
             transition: var(--transition);
         }
 
-        .product-card:hover .product-img { transform: scale(1.1); }
+        .product-card:hover .product-img {
+            transform: scale(1.1);
+        }
 
-        .product-info h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--text-main); }
-        .rating { color: #fbbf24; font-size: 0.9rem; margin-bottom: 1rem; }
-        .price-row { display: flex; justify-content: space-between; align-items: center; }
-        .price { font-size: 1.4rem; font-weight: 700; color: var(--accent-color); }
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .rating {
+            color: #fbbf24;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
 
         /* Slider Pagination */
         .slider-dots {
@@ -256,9 +365,14 @@
             transition: var(--transition);
         }
 
-        .add-cart-btn:hover { transform: scale(1.1); background: #15803d; }
+        .add-cart-btn:hover {
+            transform: scale(1.1);
+            background: #15803d;
+        }
 
-        .add-cart-btn.added { background: #15803d; }
+        .add-cart-btn.added {
+            background: #15803d;
+        }
 
         /* --- Deals --- */
         .deals-banner {
@@ -272,11 +386,24 @@
             margin: 40px 0;
         }
 
-        .deals-content h2 { font-size: 3rem; margin-bottom: 1rem; }
-        .deals-banner .btn-primary { background: white; color: var(--accent-color); box-shadow: none; }
+        .deals-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
 
-        .timer h3 { color: white; }
-        .timer h3 span { color: #4ade80; }
+        .deals-banner .btn-primary {
+            background: white;
+            color: var(--accent-color);
+            box-shadow: none;
+        }
+
+        .timer h3 {
+            color: white;
+        }
+
+        .timer h3 span {
+            color: #4ade80;
+        }
 
         /* --- Newsletter --- */
         .newsletter {
@@ -305,174 +432,241 @@
 
         /* --- Responsive --- */
         @media (max-width: 768px) {
-            .hero-slider { height: auto; min-height: 80vh; padding-bottom: 50px; }
-            .hero-slide { position: relative; flex-direction: column; text-align: center; height: auto; padding: 60px 5% 40px; }
-            .hero-content { margin-bottom: 3rem; }
-            .product-grid { grid-template-columns: 1fr; }
-            .deals-banner { flex-direction: column; text-align: center; gap: 2rem; padding: 2rem; }
+            .hero-slider {
+                height: auto;
+                min-height: 80vh;
+                padding-bottom: 50px;
+            }
+
+            .hero-slide {
+                position: relative;
+                flex-direction: column;
+                text-align: center;
+                height: auto;
+                padding: 60px 5% 40px;
+            }
+
+            .hero-content {
+                margin-bottom: 3rem;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .deals-banner {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+                padding: 2rem;
+            }
         }
     </style>
+    <link rel="stylesheet" href="../css/navbar.css">
 </head>
+
 <body>
 
-<div id="preloader">
-    <div class="loader-content">
-        <div class="loader-logo">UrbanMart</div>
-        <div class="text-secondary small mt-2">Curating the Best for You...</div>
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">UrbanMart</div>
+            <div class="text-secondary small mt-2">Curating the Best for You...</div>
+        </div>
     </div>
-</div>
 
-<div class="search-overlay" id="searchOverlay">
-    <div class="search-overlay-inner">
-        <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
-        <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
-        <button class="nav-icon-btn" onclick="toggleSearch()"
-            style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
-                class="bi bi-search"></i></button>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-inner">
+            <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
+            <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
+            <button class="nav-icon-btn" onclick="toggleSearch()"
+                style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
+                    class="bi bi-search"></i></button>
+        </div>
     </div>
-</div>
 
-<div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
+    <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
 
-<nav class="navbar animate__animated animate__fadeInDown">
-    <div class="container">
-        <div class="navbar-inner w-100">
-            <a class="navbar-brand fw-bold" href="../../index.html"
-                style="display:flex;align-items:center;gap:0;text-decoration:none;">
-                <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    style="flex-shrink:0;">
-                    <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
-                    <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
-                        stroke-linecap="round" fill="none" />
-                    <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
-                    <circle cx="9.5" cy="17" r="1.2" fill="white" />
-                    <circle cx="16.5" cy="17" r="1.2" fill="white" />
-                    <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
-                        fill="#1A1A1A" letter-spacing="-0.3">Urban</text>
-                    <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
-                        fill="#5A8A5A" letter-spacing="-0.3">mart</text>
-                    <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
-                </svg>
-            </a>
-            <ul class="nav-links ms-3">
-                <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
-            </ul>
-            <div class="nav-search-bar">
-                <i class="bi bi-search nav-search-icon"></i>
-                <input type="text" id="navSearchInput" class="nav-search-input"
-                    placeholder="Search products, categories...">
-                <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
-                        class="bi bi-x"></i></button>
-            </div>
-            <div class="nav-right">
-                <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites"
-                    style="position:relative;">
-                    <i class="bi bi-heart"></i>
-                    <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
-                </button>
-                <div class="settings-wrapper">
-                    <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
-                            class="bi bi-gear"></i></button>
-                    <div class="settings-panel" id="settingsPanel">
-                        <div class="settings-panel-header">Preferences</div>
-                        <div class="settings-item" onclick="toggleSetting('notifications')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Notifications</div>
-                                    <div class="settings-item-sub">Deals &amp; order updates</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle on" id="toggle-notifications"></button>
-                        </div>
-                        <div class="settings-item" onclick="toggleSetting('darkmode')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Dark Mode</div>
-                                    <div class="settings-item-sub">Switch appearance</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle" id="toggle-darkmode"></button>
-                        </div>
-                        <div class="settings-item" onclick="toggleSetting('offers')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Personalised Offers</div>
-                                    <div class="settings-item-sub">Based on your activity</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle on" id="toggle-offers"></button>
-                        </div>
-                        <div class="settings-divider"></div>
-                        <div class="settings-panel-header">Account</div>
-                        <a class="settings-link-item" href="login.html">
-                            <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
-                                Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
-                        </a>
-                        <a class="settings-link-item" href="#">
-                            <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
-                                Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
-                        </a>
-                        <a class="settings-link-item" href="seller.html">
-                            <div class="settings-item-icon"
-                                style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
-                                    class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
-                                with Us</span><i class="bi bi-chevron-right ms-auto"
-                                style="font-size:0.7rem;color:var(--primary-nature);"></i>
-                        </a>
-                        <a class="settings-link-item" href="about.html">
-                            <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
-                                UrbanMart</span><i class="bi bi-chevron-right ms-auto"
-                                style="font-size:0.7rem;"></i>
-                        </a>
-                    </div>
+    <nav class="navbar animate__animated animate__fadeInDown">
+        <div class="container">
+            <div class="navbar-inner w-100">
+                <a class="navbar-brand fw-bold" href="../../index.html"
+                    style="display:flex;align-items:center;gap:0;text-decoration:none;">
+                    <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="flex-shrink:0;">
+                        <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+                        <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
+                            stroke-linecap="round" fill="none" />
+                        <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="9.5" cy="17" r="1.2" fill="white" />
+                        <circle cx="16.5" cy="17" r="1.2" fill="white" />
+                        <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#1A1A1A" letter-spacing="-0.3">Urban</text>
+                        <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#5A8A5A" letter-spacing="-0.3">mart</text>
+                        <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+                    </svg>
+                </a>
+                <ul class="nav-links ms-3">
+                    <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
+                </ul>
+                <div class="nav-search-bar">
+                    <i class="bi bi-search nav-search-icon"></i>
+                    <input type="text" id="navSearchInput" class="nav-search-input"
+                        placeholder="Search products, categories...">
+                    <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+                            class="bi bi-x"></i></button>
                 </div>
-                <button class="nav-icon-btn" onclick="window.location.href='cart.html'"
-                    title="Cart">
-                    <i class="bi bi-bag"></i>
-                    <span class="cart-badge" id="cart-badge">0</span>
-                </button>
-                <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
-                    Login</a>
-                <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
-                    <span id="user-nav-name">Profile</span></a>
-                <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
-                        class="bi bi-list" id="hamburgerIcon"></i></button>
+                <div class="nav-right">
+                    <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites"
+                        style="position:relative;">
+                        <i class="bi bi-heart"></i>
+                        <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
+                    </button>
+                    <div class="settings-wrapper">
+                        <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                                class="bi bi-gear"></i></button>
+                        <div class="settings-panel" id="settingsPanel">
+                            <div class="settings-panel-header">Preferences</div>
+                            <div class="settings-item" onclick="toggleSetting('notifications')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Notifications</div>
+                                        <div class="settings-item-sub">Deals &amp; order updates</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-notifications"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('darkmode')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Dark Mode</div>
+                                        <div class="settings-item-sub">Switch appearance</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle" id="toggle-darkmode"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('offers')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Personalised Offers</div>
+                                        <div class="settings-item-sub">Based on your activity</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-offers"></button>
+                            </div>
+                            <div class="settings-divider"></div>
+                            <div class="settings-panel-header">Account</div>
+                            <a class="settings-link-item" href="login.html">
+                                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                                    Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="#">
+                                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                                    Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="seller.html">
+                                <div class="settings-item-icon"
+                                    style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                                        class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                                    with Us</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;color:var(--primary-nature);"></i>
+                            </a>
+                            <a class="settings-link-item" href="about.html">
+                                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                                    UrbanMart</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="nav-icon-btn" onclick="window.location.href='cart.html'" title="Cart">
+                        <i class="bi bi-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </button>
+                    <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
+                        Login</a>
+                    <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i
+                            class="bi bi-person-circle"></i>
+                        <span id="user-nav-name">Profile</span></a>
+                    <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
+                            class="bi bi-list" id="hamburgerIcon"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="category-nav-bar" id="categoryNavBar">
+        <div class="category-nav-overflow-wrap" id="catOverflowWrap">
+            <div class="category-nav-scroll" id="category-filters">
+                <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-grid-fill"></i> For You</div>
+                <div class="cat-pill " data-cat="Grocery" onclick="window.location.href='grocery.html'"><i
+                        class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; "
+                        href="grocery.html">Grocery</a></div>
+                <div class="cat-pill " data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
+                        class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; "
+                        href="fashion.html">Fashion</a></div>
+                <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-phone"></i> Mobiles</div>
+                <div class="cat-pill " data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
+                        class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; "
+                        href="beauty.html">Beauty</a></div>
+                <div class="cat-pill " data-cat="Pet" onclick="window.location.href='pet.html'"><i
+                        class="bi bi-tencent-qq"></i> Pet</div>
+                <div class="cat-pill active" data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
+                        class="bi bi-cpu"></i> Electronics</div>
+                <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
+                        class="bi bi-house"></i>
+                    Home</div>
+                <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-lightning-charge"></i> Appliances</div>
+                <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-controller"></i> Toys</div>
+                <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-basket"></i> Food</div>
+                <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-car-front"></i> Auto</div>
+                <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a
+                        href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i
+                            class="bi bi-bicycle"></i> 2 Wheelers</a></div>
+                <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i
+                        class="bi bi-book"></i> <a href="Books.html"
+                        style="text-decoration: none; color: inherit;">Books</a></div>
+                <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
+                        class="bi bi-lamp"></i> Furniture</div>
+                <div class="cat-pill " data-cat="Sports" onclick="window.location.href='Fitness_&_Sports.html'"><a
+                        href="Fitness_&_Sports.html" style="text-decoration: none; color: inherit;"><i
+                            class="bi bi-trophy"></i> Sports</a></div>
+                <div class="cat-pill " data-cat="Medicines" onclick="window.location.href='Medicine_&_Nutrients.html'">
+                    <a href="Medicine_&_Nutrients.html" style="text-decoration: none; color: inherit;"><i
+                            class="bi bi-capsule"></i> Medicines</a></div>
+                <div class="cat-pill travel-pill " data-cat="Travel"
+                    onclick="window.location.href='travel_landing.html'">
+                    <span class="travel-badge">NEW</span>
+                    <a href="travel_landing.html" style="text-decoration: none; color: inherit;">
+                        <i class="bi bi-airplane-fill"></i> Travel
+                    </a>
+                </div>
             </div>
         </div>
     </div>
-</nav>
 
-<div class="category-nav-bar" id="categoryNavBar">
-    <div class="category-nav-overflow-wrap" id="catOverflowWrap">
-        <div class="category-nav-scroll" id="category-filters">
-            <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-grid-fill"></i> For You</div>
-            <div class="cat-pill" data-cat="Grocery" onclick="window.location.href='grocery.html'"><i class="bi bi-grid-fill"></i> Grocery</div>
-            <div class="cat-pill" data-cat="Fashion" onclick="window.location.href='fashion.html'"><i class="bi bi-bag-heart"></i> Fashion</div>
-            <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-phone"></i> Mobiles</div>
-            <div class="cat-pill" data-cat="Beauty" onclick="window.location.href='beauty.html'"><i class="bi bi-stars"></i> Beauty</div>
-            <div class="cat-pill active" data-cat="Electronics" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><i class="bi bi-cpu"></i> Electronics</div>
-            <div class="cat-pill" data-cat="Home" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-house"></i> Home</div>
-            <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-lightning-charge"></i> Appliances</div>
-            <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-controller"></i> Toys</div>
-            <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-basket"></i> Food</div>
-            <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-car-front"></i> Auto</div>
-            <div class="cat-pill" data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><i class="bi bi-bicycle"></i> 2 Wheelers</div>
-            <div class="cat-pill" data-cat="Books" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-book"></i> Books</div>
-            <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-lamp"></i> Furniture</div>
-            <div class="cat-pill" data-cat="Sports" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-trophy"></i> Sports</div>
-            <div class="cat-pill" data-cat="Medicines" onclick="window.location.href='../../index.html#shop'"><i class="bi bi-capsule"></i> Medicines</div>
-        </div>
+    <div class="nav-mobile-panel" id="mobilePanel">
+        <a class="mobile-nav-link" href="../../index.html#home" onclick="closeAll()"><i class="bi bi-house"></i>
+            Home</a>
+        <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
+        <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+        <div class="mobile-nav-divider"></div>
+        <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+                class="bi bi-person-circle"></i> Login</a>
+        <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html"
+            style="border-radius:12px;"><i class="bi bi-person-circle"></i> <span
+                id="user-nav-name-mobile">Profile</span></a>
     </div>
-</div>
 
-<div class="nav-mobile-panel" id="mobilePanel">
-    <a class="mobile-nav-link" href="../../index.html"><i class="bi bi-house"></i> Home</a>
-    <a class="mobile-nav-link" href="../../index.html#shop"><i class="bi bi-bag"></i> Shop</a>
-    <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
-</div>
 
     <main>
         <div class="hero-slider" style="margin-top: 15px;">
@@ -487,12 +681,14 @@
                 </div>
                 <div class="hero-products">
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=60" alt="Smartphone">
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=60"
+                            alt="Smartphone">
                         <h4>ProStream Phone</h4>
                         <div class="price">₹74,999</div>
                     </div>
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=60" alt="Watch">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=60"
+                            alt="Watch">
                         <h4>Titan Smart Pro</h4>
                         <div class="price">₹12,499</div>
                     </div>
@@ -508,12 +704,14 @@
                 </div>
                 <div class="hero-products">
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=60" alt="Headphones">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=60"
+                            alt="Headphones">
                         <h4>Sonic Bass ANC</h4>
                         <div class="price">₹18,999</div>
                     </div>
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=500&q=60" alt="Speaker">
+                        <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=500&q=60"
+                            alt="Speaker">
                         <h4>AI Smart Speaker</h4>
                         <div class="price">₹4,999</div>
                     </div>
@@ -529,12 +727,14 @@
                 </div>
                 <div class="hero-products">
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=60" alt="Tablet">
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=60"
+                            alt="Tablet">
                         <h4>TabPro 12.9</h4>
                         <div class="price">₹54,999</div>
                     </div>
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=60" alt="Monitor">
+                        <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=60"
+                            alt="Monitor">
                         <h4>4K Monitor</h4>
                         <div class="price">₹32,500</div>
                     </div>
@@ -543,19 +743,22 @@
             <div class="hero-slide">
                 <div class="hero-content">
                     <h1>Capture <span>Every</span> Detail</h1>
-                    <p>Professional grade cameras and lenses for those who refuse to compromise on visual perfection.</p>
+                    <p>Professional grade cameras and lenses for those who refuse to compromise on visual perfection.
+                    </p>
                     <div class="hero-btns">
                         <a href="#audio-section" class="btn btn-primary">View Cameras</a>
                     </div>
                 </div>
                 <div class="hero-products">
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80" alt="Camera">
+                        <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80"
+                            alt="Camera">
                         <h4>ProCam 500</h4>
                         <div class="price">₹1,25,000</div>
                     </div>
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?auto=format&fit=crop&w=500&q=60" alt="Drone">
+                        <img src="https://images.unsplash.com/photo-1504890001746-a9a68eda46e2?auto=format&fit=crop&w=500&q=60"
+                            alt="Drone">
                         <h4>SkyHigh Drone</h4>
                         <div class="price">₹85,000</div>
                     </div>
@@ -571,12 +774,14 @@
                 </div>
                 <div class="hero-products">
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60" alt="Gaming">
+                        <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60"
+                            alt="Gaming">
                         <h4>DualSense Pro</h4>
                         <div class="price">₹5,999</div>
                     </div>
                     <div class="hero-product-card">
-                        <img src="https://images.unsplash.com/photo-1585338107529-13afc5f0141f?auto=format&fit=crop&w=500&q=60" alt="Mouse">
+                        <img src="https://images.unsplash.com/photo-1585338107529-13afc5f0141f?auto=format&fit=crop&w=500&q=60"
+                            alt="Mouse">
                         <h4>GamerX Mouse</h4>
                         <div class="price">₹4,200</div>
                     </div>
@@ -596,12 +801,24 @@
         <section id="categories">
             <h2 class="section-title">Popular Categories</h2>
             <div class="category-grid">
-                <a href="#power-section" class="category-card"><i class="fas fa-battery-full"></i><p>Power Bank</p></a>
-                <a href="#laptops-section" class="category-card"><i class="fas fa-laptop"></i><p>Laptops</p></a>
-                <a href="#audio-section" class="category-card"><i class="fas fa-headphones"></i><p>Audio</p></a>
-                <a href="#power-section" class="category-card"><i class="fas fa-clock"></i><p>Watches</p></a>
-                <a href="#gaming-section" class="category-card"><i class="fas fa-gamepad"></i><p>Gaming</p></a>
-                <a href="#audio-section" class="category-card"><i class="fas fa-camera"></i><p>Cameras</p></a>
+                <a href="#power-section" class="category-card"><i class="fas fa-battery-full"></i>
+                    <p>Power Bank</p>
+                </a>
+                <a href="#laptops-section" class="category-card"><i class="fas fa-laptop"></i>
+                    <p>Laptops</p>
+                </a>
+                <a href="#audio-section" class="category-card"><i class="fas fa-headphones"></i>
+                    <p>Audio</p>
+                </a>
+                <a href="#power-section" class="category-card"><i class="fas fa-clock"></i>
+                    <p>Watches</p>
+                </a>
+                <a href="#gaming-section" class="category-card"><i class="fas fa-gamepad"></i>
+                    <p>Gaming</p>
+                </a>
+                <a href="#audio-section" class="category-card"><i class="fas fa-camera"></i>
+                    <p>Cameras</p>
+                </a>
             </div>
         </section>
 
@@ -611,10 +828,13 @@
             <div class="product-grid">
                 <div class="product-card">
                     <span class="badge">Trending</span>
-                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=60" alt="Headphones" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=60"
+                        alt="Headphones" class="product-img">
                     <div class="product-info">
                         <h3>Sonic Bass ANC</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (5.0)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹18,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -622,10 +842,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=500&q=60" alt="Speaker" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1589492477829-5e65395b66cc?auto=format&fit=crop&w=500&q=60"
+                        alt="Speaker" class="product-img">
                     <div class="product-info">
                         <h3>AI Smart Speaker</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.7)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.7)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹4,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -633,10 +856,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=60" alt="Earbuds" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=500&q=60"
+                        alt="Earbuds" class="product-img">
                     <div class="product-info">
                         <h3>AirBuds Pro 2</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.6)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            (4.6)</div>
                         <div class="price-row">
                             <span class="price">₹14,500</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -645,10 +871,13 @@
                 </div>
                 <div class="product-card">
                     <span class="badge">New</span>
-                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=500&q=60" alt="Soundbar" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=500&q=60"
+                        alt="Soundbar" class="product-img">
                     <div class="product-info">
                         <h3>Cinema Surround</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.8)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.8)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹22,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -656,10 +885,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=500&q=60" alt="Portable Speaker" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=500&q=60"
+                        alt="Portable Speaker" class="product-img">
                     <div class="product-info">
                         <h3>Rugged Bass Go</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹7,200</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -667,10 +899,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=500&q=60" alt="Studio Headphones" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=500&q=60"
+                        alt="Studio Headphones" class="product-img">
                     <div class="product-info">
                         <h3>Studio Pro 700</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹24,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -678,10 +913,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1544101490-7ef21a3ada2b?auto=format&fit=crop&w=500&q=60" alt="Radio Speaker" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1544101490-7ef21a3ada2b?auto=format&fit=crop&w=500&q=60"
+                        alt="Radio Speaker" class="product-img">
                     <div class="product-info">
                         <h3>Retro Audio Pod</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹3,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -696,10 +934,13 @@
             <h2 class="section-title">Laptops & Productivity</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=60" alt="Laptop" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=500&q=60"
+                        alt="Laptop" class="product-img">
                     <div class="product-info">
                         <h3>ZenBook Ultra</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹1,15,000</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -707,10 +948,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=60" alt="Tablet" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=500&q=60"
+                        alt="Tablet" class="product-img">
                     <div class="product-info">
                         <h3>TabPro 12.9</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹54,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -718,10 +962,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=60" alt="Monitor" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=500&q=60"
+                        alt="Monitor" class="product-img">
                     <div class="product-info">
                         <h3>UltraWide 4K</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹32,500</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -729,10 +976,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=500&q=60" alt="SSD" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?auto=format&fit=crop&w=500&q=60"
+                        alt="SSD" class="product-img">
                     <div class="product-info">
                         <h3>External SSD 2TB</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.9)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹14,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -740,10 +990,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=60" alt="SwiftBook" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=500&q=60"
+                        alt="SwiftBook" class="product-img">
                     <div class="product-info">
                         <h3>SwiftBook Air</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.7)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.7)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹89,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -751,10 +1004,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=500&q=60" alt="Wireless Mouse" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=500&q=60"
+                        alt="Wireless Mouse" class="product-img">
                     <div class="product-info">
                         <h3>Ergo Wireless Mouse</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.5)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹2,499</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -769,10 +1025,13 @@
             <h2 class="section-title">Gaming Universe</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=500&q=60" alt="VR" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1622979135225-d2ba269cf1ac?auto=format&fit=crop&w=500&q=60"
+                        alt="VR" class="product-img">
                     <div class="product-info">
                         <h3>VR Vision X</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.1)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.1)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹42,500</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -780,10 +1039,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60" alt="Gaming" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=500&q=60"
+                        alt="Gaming" class="product-img">
                     <div class="product-info">
                         <h3>DualSense Pro</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.7)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            (4.7)</div>
                         <div class="price-row">
                             <span class="price">₹5,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -791,10 +1053,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f0141f?auto=format&fit=crop&w=500&q=60" alt="Mouse" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1585338107529-13afc5f0141f?auto=format&fit=crop&w=500&q=60"
+                        alt="Mouse" class="product-img">
                     <div class="product-info">
                         <h3>GamerX RGB</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3.5)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> (3.5)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹4,200</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -802,10 +1067,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?auto=format&fit=crop&w=500&q=60" alt="Keyboard" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?auto=format&fit=crop&w=500&q=60"
+                        alt="Keyboard" class="product-img">
                     <div class="product-info">
                         <h3>Mechanical Click</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.0)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹8,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -813,10 +1081,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=500&q=60" alt="Gaming Headset" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf?auto=format&fit=crop&w=500&q=60"
+                        alt="Gaming Headset" class="product-img">
                     <div class="product-info">
                         <h3>Stealth Headset</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.6)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            (4.6)</div>
                         <div class="price-row">
                             <span class="price">₹7,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -824,10 +1095,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1592840331052-16e15c2c6f95?auto=format&fit=crop&w=500&q=60" alt="Elite Controller" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1592840331052-16e15c2c6f95?auto=format&fit=crop&w=500&q=60"
+                        alt="Elite Controller" class="product-img">
                     <div class="product-info">
                         <h3>Elite Wireless Pad</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹4,500</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -842,10 +1116,13 @@
             <h2 class="section-title">Power & Essentials</h2>
             <div class="product-grid">
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1610940882244-18ac607d8575?auto=format&fit=crop&w=500&q=60" alt="Powerbank" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1610940882244-18ac607d8575?auto=format&fit=crop&w=500&q=60"
+                        alt="Powerbank" class="product-img">
                     <div class="product-info">
                         <h3>VoltCharge 30k</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.3)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹3,499</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -853,10 +1130,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=60" alt="Smart Hub" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=500&q=60"
+                        alt="Smart Hub" class="product-img">
                     <div class="product-info">
                         <h3>Voltix Smart Hub</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.4)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹6,499</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -864,10 +1144,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=60" alt="Smartphone" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=500&q=60"
+                        alt="Smartphone" class="product-img">
                     <div class="product-info">
                         <h3>ProStream Mobile</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i> (4.8)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                            (4.8)</div>
                         <div class="price-row">
                             <span class="price">₹74,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -875,10 +1158,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=60" alt="Watch" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=60"
+                        alt="Watch" class="product-img">
                     <div class="product-info">
                         <h3>Titan Smart Pro</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.2)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.2)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹12,499</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -886,10 +1172,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&w=500&q=60" alt="Solar Power Bank" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1620288627223-53302f4e8c74?auto=format&fit=crop&w=500&q=60"
+                        alt="Solar Power Bank" class="product-img">
                     <div class="product-info">
                         <h3>Solar Charger 20k</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.2)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> (4.2)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹5,999</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -897,10 +1186,13 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=500&q=60" alt="Security Cam" class="product-img">
+                    <img src="https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=500&q=60"
+                        alt="Security Cam" class="product-img">
                     <div class="product-info">
                         <h3>Smart Security Cam</h3>
-                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.5)</div>
+                        <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i> (4.5)
+                        </div>
                         <div class="price-row">
                             <span class="price">₹4,499</span>
                             <button class="add-cart-btn"><i class="fas fa-plus"></i></button>
@@ -940,7 +1232,8 @@
             <div class="um-footer-grid">
                 <div class="um-footer-brand">
                     <div class="um-footer-logo">Urban<span>mart</span><span class="um-footer-dot">.</span></div>
-                    <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep across India.</p>
+                    <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep
+                        across India.</p>
                     <div class="um-footer-socials">
                         <a href="#" class="um-social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
                         <a href="#" class="um-social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
@@ -985,7 +1278,8 @@
             </div>
             <div class="um-footer-divider"></div>
             <div class="um-footer-bottom">
-                <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill" style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
+                <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill"
+                        style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
                 <div class="um-payment-badges">
                     <span class="um-pay-badge">VISA</span>
                     <span class="um-pay-badge">MC</span>
@@ -1150,7 +1444,7 @@
 
         // --- ADD TO CART LOGIC ---
         document.querySelectorAll('.add-cart-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
+            btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 if (!localStorage.getItem('pbssd_user')) {
                     new bootstrap.Modal(document.getElementById('userLoginModal')).show();
@@ -1176,7 +1470,7 @@
                         tx.objectStore('cart_state').put(totalQty, 'count');
                     }
                 }
-                
+
                 this.innerHTML = '<i class="fas fa-check"></i>';
                 this.classList.add('added');
                 setTimeout(() => {
@@ -1213,5 +1507,7 @@
             updatePos();
         });
     </script>
+    <script src="../js/navbar.js" defer></script>
 </body>
+
 </html>

@@ -1,608 +1,1205 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Triply — Your Journey, Your Way</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-<link rel="stylesheet" href="../css/travel_landing.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Triply — Your Journey, Your Way</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../css/travel_landing.css">
+  <link rel="stylesheet" href="../css/navbar.css">
 </head>
+
 <body>
 
-<!-- navbar section -->
-<nav>
-  <div class="logo">
-    Triply
-  </div>
-  <ul class="nav-links">
-    <li><a href="#">Destinations</a></li>
-    <li><a href="#">Hotels</a></li>
-    <li><a href="#">Flights</a></li>
-    <li><a href="#">Tours</a></li>
-    <li><a href="#">About</a></li>
-  </ul>
-  <div class="nav-right">
-    <button class="btn-ghost">Sign In</button>
-    <button class="btn-primary">Get Started</button>
-  </div>
-</nav>
 
-<!-- HERO -->
-<div class="hero">
-  <div data-aos="fade-right">
-    <p class="hero-label"><i class="fa-solid fa-plane"></i> Discover the world</p>
-    <h1>Your Journey,<br>Your Way</h1>
-    <p>Plan, book, and experience extraordinary trips with personalized itineraries crafted just for you.</p>
-    <div class="hero-cta">
-      <button class="btn-large primary">Explore Now</button>
-      <button class="btn-large ghost">View Packages</button>
-    </div>
-    <div class="hero-stats">
-      <div>
-        <div class="stat-num">500+</div>
-        <div class="stat-label">Destinations</div>
-      </div>
-      <div>
-        <div class="stat-num">98k</div>
-        <div class="stat-label">Happy Travelers</div>
-      </div>
-      <div>
-        <div class="stat-num">4.9<i class="fa-solid fa-star"></i></div>
-        <div class="stat-label">Average Rating</div>
-      </div>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
+      <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
+      <button class="nav-icon-btn" onclick="toggleSearch()"
+        style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
+          class="bi bi-search"></i></button>
     </div>
   </div>
-  <div class="hero-cards">
-    <div class="hero-card tall" data-aos="fade-left" data-aos-delay="100">
-      <div  style="height: 100%;"> <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80" alt=""></div>
-      <div class="card-badge">
-        <div class="card-badge-title">California Sunset</div>
-        <div class="card-badge-sub">From $1,240 / person</div>
-      </div>
-    </div>
-    <div class="hero-card" data-aos="fade-left" data-aos-delay="200">
-      <div  style="height: 100%;"><img src="../assets/travel-hero-2.jpg" alt=""></div>
-      <div class="card-badge">
-        <div class="card-badge-title">Budapest, Hungary</div>
-        <div class="card-badge-sub">From $870 / person</div>
-      </div>
-    </div>
-    <div class="hero-card" data-aos="fade-left" data-aos-delay="300">
-      <div  style="height: 100%;"><img src=" https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=800&q=80" alt=""></div>
-      <div class="card-badge">
-        <div class="card-badge-title">Maldives Escape</div>
-        <div class="card-badge-sub">From $2,100 / person</div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- SEARCH section -->
-<div class="search-section" data-aos="fade-up" data-aos-delay="400">
-  <div class="search-bar">
-    <div class="search-item">
-      <label>Where to?</label>
-      <input type="text" placeholder="Search destinations...">
-    </div>
-    <div class="search-divider"></div>
-    <div class="search-item">
-      <label>Check In</label>
-      <input type="text" placeholder="Add dates">
-    </div>
-    <div class="search-divider"></div>
-    <div class="search-item">
-      <label>Check Out</label>
-      <input type="text" placeholder="Add dates">
-    </div>
-    <div class="search-divider"></div>
-    <div class="search-item">
-      <label>Travelers</label>
-      <input type="text" placeholder="Add guests">
-    </div>
-    <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
-  </div>
-</div>
+  <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
 
-<!-- popular section -->
-<section>
-  <div class="section-header" data-aos="fade-up">
-    <div>
-      <div class="section-label">Explore</div>
-      <h2 class="section-title">Popular Destinations</h2>
-    </div>
-    <a href="#" class="section-link">See all destinations →</a>
-  </div>
-  <div class="tabs" data-aos="fade-up" data-aos-delay="100">
-    <button class="tab active">All</button>
-    <button class="tab">Beach</button>
-    <button class="tab">Mountain</button>
-    <button class="tab">City</button>
-    <button class="tab">Adventure</button>
-  </div>
-  <div class="dest-grid">
-    <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="dest-img">
-        <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80" alt="Tokyo, Japan">
-        <div class="dest-overlay"></div>
-      </div>
-      <div class="dest-info">
-        <div class="dest-name">Tokyo, Japan</div>
-        <div class="dest-meta"> 12h · Asia</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="dest-price">$1,890 <span>/ person</span></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (2.4k)</div>
+  <nav class="navbar animate__animated animate__fadeInDown">
+    <div class="container">
+      <div class="navbar-inner w-100">
+        <a class="navbar-brand fw-bold" href="../../index.html"
+          style="display:flex;align-items:center;gap:0;text-decoration:none;">
+          <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="flex-shrink:0;">
+            <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+            <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
+              stroke-linecap="round" fill="none" />
+            <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="9.5" cy="17" r="1.2" fill="white" />
+            <circle cx="16.5" cy="17" r="1.2" fill="white" />
+            <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#1A1A1A"
+              letter-spacing="-0.3">Urban</text>
+            <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#5A8A5A"
+              letter-spacing="-0.3">mart</text>
+            <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+          </svg>
+        </a>
+        <ul class="nav-links ms-3">
+          <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
+        </ul>
+        <div class="nav-search-bar">
+          <i class="bi bi-search nav-search-icon"></i>
+          <input type="text" id="navSearchInput" class="nav-search-input" placeholder="Search products, categories...">
+          <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+              class="bi bi-x"></i></button>
+        </div>
+        <div class="nav-right">
+          <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites" style="position:relative;">
+            <i class="bi bi-heart"></i>
+            <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
+          </button>
+          <div class="settings-wrapper">
+            <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                class="bi bi-gear"></i></button>
+            <div class="settings-panel" id="settingsPanel">
+              <div class="settings-panel-header">Preferences</div>
+              <div class="settings-item" onclick="toggleSetting('notifications')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                  <div>
+                    <div class="settings-item-label">Notifications</div>
+                    <div class="settings-item-sub">Deals &amp; order updates</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-notifications"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('darkmode')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                  <div>
+                    <div class="settings-item-label">Dark Mode</div>
+                    <div class="settings-item-sub">Switch appearance</div>
+                  </div>
+                </div>
+                <button class="s-toggle" id="toggle-darkmode"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('offers')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                  <div>
+                    <div class="settings-item-label">Personalised Offers</div>
+                    <div class="settings-item-sub">Based on your activity</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-offers"></button>
+              </div>
+              <div class="settings-divider"></div>
+              <div class="settings-panel-header">Account</div>
+              <a class="settings-link-item" href="login.html">
+                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                  Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="#">
+                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                  Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="seller.html">
+                <div class="settings-item-icon" style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                    class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                  with Us</span><i class="bi bi-chevron-right ms-auto"
+                  style="font-size:0.7rem;color:var(--primary-nature);"></i>
+              </a>
+              <a class="settings-link-item" href="about.html">
+                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                  UrbanMart</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+            </div>
+          </div>
+          <button class="nav-icon-btn" onclick="window.location.href='cart.html'" title="Cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+          <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
+            Login</a>
+          <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
+            <span id="user-nav-name">Profile</span></a>
+          <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i class="bi bi-list"
+              id="hamburgerIcon"></i></button>
         </div>
       </div>
     </div>
-    <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="dest-img">
-        <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80" alt="Rome, Italy">
-        <div class="dest-overlay"></div>
-      </div>
-      <div class="dest-info">
-        <div class="dest-name">Rome, Italy</div>
-        <div class="dest-meta"> 8h · Europe</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="dest-price">$1,240 <span>/ person</span></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (1.9k)</div>
-        </div>
-      </div>
-    </div>
-    <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="dest-img">
-        <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80" alt="Bali, Indonesia">
-        <div class="dest-overlay"></div>
-      </div>
-      <div class="dest-info">
-        <div class="dest-name">Bali, Indonesia</div>
-        <div class="dest-meta"> 14h · Asia</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="dest-price">$980 <span>/ person</span></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7 (3.1k)</div>
-        </div>
-      </div>
-    </div>
-    <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
-      <div class="dest-img">
-        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80" alt="Paris, France">
-        <div class="dest-overlay"></div>
-      </div>
-      <div class="dest-info">
-        <div class="dest-name">Paris, France</div>
-        <div class="dest-meta">9h · Europe</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="dest-price">$1,450 <span>/ person</span></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (4.2k)</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+  </nav>
 
-<!-- hotels section -->
-<section style="background: var(--light);">
-  <div class="section-header" data-aos="fade-up">
-    <div>
-      <div class="section-label">Stay</div>
-      <h2 class="section-title">Top Rated Hotels</h2>
-    </div>
-    <a href="#" class="section-link">View all hotels →</a>
-  </div>
-  <div class="hotels-grid">
-    <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="hotel-img">
-        <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80" alt="Luxury Suite">
-      </div>
-      <div class="hotel-info">
-        <div class="hotel-tag">Top Pick</div>
-        <div class="hotel-name">Le Grand Palais Hotel</div>
-        <div class="hotel-loc"> Paris, France</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="hotel-price">$340 <small>/ night</small></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9</div>
+  <div class="category-nav-bar" id="categoryNavBar">
+    <div class="category-nav-overflow-wrap" id="catOverflowWrap">
+      <div class="category-nav-scroll" id="category-filters">
+        <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-grid-fill"></i> For You</div>
+        <div class="cat-pill " data-cat="Grocery" onclick="window.location.href='grocery.html'"><i
+            class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; " href="grocery.html">Grocery</a>
         </div>
-      </div>
-    </div>
-    <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="hotel-img">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80" alt="Waterfront Resort">
-      </div>
-      <div class="hotel-info">
-        <div class="hotel-tag"> Popular</div>
-        <div class="hotel-name">Azure Bay Resort & Spa</div>
-        <div class="hotel-loc"> Maldives</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="hotel-price">$520 <small>/ night</small></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8</div>
+        <div class="cat-pill " data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
+            class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; "
+            href="fashion.html">Fashion</a></div>
+        <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-phone"></i> Mobiles</div>
+        <div class="cat-pill " data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
+            class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="beauty.html">Beauty</a>
         </div>
-      </div>
-    </div>
-    <div class="hotel-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="hotel-img">
-        <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80" alt="Desert View Resort">
-      </div>
-      <div class="hotel-info">
-        <div class="hotel-tag"> Luxury</div>
-        <div class="hotel-name">Golden Sands Retreat</div>
-        <div class="hotel-loc"> Dubai, UAE</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="hotel-price">$680 <small>/ night</small></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9</div>
-        </div>
-      </div>
-    </div>
-    <div class="hotel-card" data-aos="fade-up" data-aos-delay="400">
-      <div class="hotel-img">
-        <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80" alt="Eco Lodge">
-      </div>
-      <div class="hotel-info">
-        <div class="hotel-tag"> Eco</div>
-        <div class="hotel-name">Rainforest Canopy Lodge</div>
-        <div class="hotel-loc"> Costa Rica</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
-          <div class="hotel-price">$210 <small>/ night</small></div>
-          <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="cat-pill " data-cat="Pet" onclick="window.location.href='pet.html'"><i class="bi bi-tencent-qq"></i>
+          Pet</div>
+        <div class="cat-pill " data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
+            class="bi bi-cpu"></i> Electronics</div>
+        <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
+            class="bi bi-house"></i>
+          Home</div>
+        <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lightning-charge"></i> Appliances</div>
+        <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-controller"></i> Toys</div>
+        <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-basket"></i> Food</div>
+        <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-car-front"></i> Auto</div>
+        <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a
+            href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i class="bi bi-bicycle"></i> 2
+            Wheelers</a></div>
+        <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i class="bi bi-book"></i>
+          <a href="Books.html" style="text-decoration: none; color: inherit;">Books</a></div>
+        <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lamp"></i> Furniture</div>
+        <div class="cat-pill " data-cat="Sports" onclick="window.location.href='Fitness_&_Sports.html'"><a
+            href="Fitness_&_Sports.html" style="text-decoration: none; color: inherit;"><i class="bi bi-trophy"></i>
+            Sports</a></div>
+        <div class="cat-pill " data-cat="Medicines" onclick="window.location.href='Medicine_&_Nutrients.html'"><a
+            href="Medicine_&_Nutrients.html" style="text-decoration: none; color: inherit;"><i
+              class="bi bi-capsule"></i> Medicines</a></div>
 
-<!-- top banner section -->
-<div class="promo-section" style="padding-top: 56px;">
-  <div class="promo-banner">
+        <div class="cat-pill travel-pill active" data-cat="Travel" onclick="window.location.href='travel_landing.html'">
+          <span class="travel-badge">NEW</span>
+          <a href="travel_landing.html" style="text-decoration: none; color: inherit;">
+            <i class="bi bi-airplane-fill"></i> Travel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-mobile-panel" id="mobilePanel">
+    <a class="mobile-nav-link" href="../../index.html#home" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+    <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
+    <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+    <div class="mobile-nav-divider"></div>
+    <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+        class="bi bi-person-circle"></i> Login</a>
+    <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html"
+      style="border-radius:12px;"><i class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+  </div>
+
+  <!-- pre-loader -->
+  <div class="pre-loader">
+    <div class="loader"></div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
     <div data-aos="fade-right">
-      <div class="promo-eyebrow"> Mobile App</div>
-      <h2 class="promo-title">Dare to live the life you've always wanted</h2>
-      <p class="promo-sub">Download our app and unlock exclusive deals, real-time itinerary management, and 24/7 travel support right in your pocket.</p>
-      <div class="store-btns">
-        <div class="store-btn">
-          <span class="store-icon"></span>
-          <div class="store-text">
-            <span class="store-small">Download on the</span>
-            <span class="store-name">App Store</span>
+      <p class="hero-label"><i class="fa-solid fa-plane"></i> Discover the world</p>
+      <h1>Your Journey,<br>Your Way</h1>
+      <p>Plan, book, and experience extraordinary trips with personalized itineraries crafted just for you.</p>
+      <div class="hero-cta">
+        <button class="btn-large primary">Explore Now</button>
+        <button class="btn-large ghost">View Packages</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Destinations</div>
+        </div>
+        <div>
+          <div class="stat-num">98k</div>
+          <div class="stat-label">Happy Travelers</div>
+        </div>
+        <div>
+          <div class="stat-num">4.9<i class="fa-solid fa-star"></i></div>
+          <div class="stat-label">Average Rating</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hero-card tall" data-aos="fade-left" data-aos-delay="100">
+        <div style="height: 100%;"> <img
+            src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+        <div class="card-badge">
+          <div class="card-badge-title">California Sunset</div>
+          <div class="card-badge-sub">From $1,240 / person</div>
+        </div>
+      </div>
+      <div class="hero-card" data-aos="fade-left" data-aos-delay="200">
+        <div style="height: 100%;"><img src="../assets/travel-hero-2.jpg" alt=""></div>
+        <div class="card-badge">
+          <div class="card-badge-title">Budapest, Hungary</div>
+          <div class="card-badge-sub">From $870 / person</div>
+        </div>
+      </div>
+      <div class="hero-card" data-aos="fade-left" data-aos-delay="300">
+        <div style="height: 100%;"><img
+            src=" https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=800&q=80" alt="">
+        </div>
+        <div class="card-badge">
+          <div class="card-badge-title">Maldives Escape</div>
+          <div class="card-badge-sub">From $2,100 / person</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SEARCH section -->
+  <div class="search-section" data-aos="fade-up" data-aos-delay="400">
+    <div class="search-bar">
+      <div class="search-item">
+        <label>Where to?</label>
+        <input type="text" placeholder="Search destinations...">
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-item">
+        <label>Check In</label>
+        <input type="date" placeholder="Add dates">
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-item">
+        <label>Check Out</label>
+        <input type="date" placeholder="Add dates">
+      </div>
+      <div class="search-divider"></div>
+      <div class="search-item">
+        <label>Travelers</label>
+        <input type="number" placeholder="Add guests">
+      </div>
+      <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+    </div>
+  </div>
+
+  <!-- popular section -->
+  <section>
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <div class="section-label">Explore</div>
+          <h2 class="section-title">Popular Destinations</h2>
+      </div>
+      <a href="#" class="section-link">See all destinations →</a>
+    </div>
+
+    <div class="tabs nav" id="myTab" role="tablist" data-aos="fade-up" data-aos-delay="100">
+      <button class="tab nav-link active" id="all-tab" data-bs-toggle="tab" data-bs-target="#all" type="button" role="tab" aria-controls="all" aria-selected="true">All</button>
+      <button class="tab nav-link" id="beach-tab" data-bs-toggle="tab" data-bs-target="#beach" type="button" role="tab" aria-controls="beach" aria-selected="false">Beach</button>
+      <button class="tab nav-link" id="mountain-tab" data-bs-toggle="tab" data-bs-target="#mountain" type="button" role="tab" aria-controls="mountain" aria-selected="false">Mountain</button>
+      <button class="tab nav-link" id="city-tab" data-bs-toggle="tab" data-bs-target="#city" type="button" role="tab" aria-controls="city" aria-selected="false">City</button>
+      <button class="tab nav-link" id="adventure-tab" data-bs-toggle="tab" data-bs-target="#adventure" type="button" role="tab" aria-controls="adventure" aria-selected="false">Adventure</button>
+    </div>
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="all-tab">
+        <div class="dest-grid">
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=800&q=80"
+            alt="Tokyo, Japan">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Tokyo, Japan</div>
+          <div class="dest-meta"> 12h · Asia</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,890 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (2.4k)</div>
           </div>
         </div>
-        <div class="store-btn">
-          <span class="store-icon"></span>
-          <div class="store-text">
-            <span class="store-small">Get it on</span>
-            <span class="store-name">Google Play</span>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&q=80"
+            alt="Rome, Italy">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Rome, Italy</div>
+          <div class="dest-meta"> 8h · Europe</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,240 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (1.9k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&q=80"
+            alt="Bali, Indonesia">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Bali, Indonesia</div>
+          <div class="dest-meta"> 14h · Asia</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$980 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7 (3.1k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=800&q=80"
+            alt="Paris, France">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Paris, France</div>
+          <div class="dest-meta">9h · Europe</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,450 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (4.2k)</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="promo-cards">
-      <div class="promo-card" data-aos="fade-left" data-aos-delay="100">
-        <div class="promo-card-icon"><i class="fa-regular fa-map"></i></div>
-        <div class="promo-card-title">Offline Maps</div>
-        <div class="promo-card-sub">Navigate anywhere, even without data</div>
       </div>
-      <div class="promo-card" data-aos="fade-left" data-aos-delay="200">
-        <div class="promo-card-icon"><i class="fa-regular fa-shield-alt"></i></div>
-        <div class="promo-card-title">24/7 Support</div>
-        <div class="promo-card-sub">Expert help whenever you need it</div>
-      </div>
-      <div class="promo-card" data-aos="fade-left" data-aos-delay="300">
-        <div class="promo-card-icon"><i class="fa-solid fa-ticket"></i></div>
-        <div class="promo-card-title">E-Tickets</div>
-        <div class="promo-card-sub">All your bookings in one place</div>
-      </div>
-      <div class="promo-card" data-aos="fade-left" data-aos-delay="400">
-        <div class="promo-card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
-        <div class="promo-card-title">Best Prices</div>
-        <div class="promo-card-sub">Price match guarantee on all stays</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- flight section -->
-<section class="flights-section" data-aos="fade-up">
-  <div class="section-header">
-    <div>
-      <div class="section-label">Fly</div>
-      <h2 class="section-title">Flight Offer Deals</h2>
-    </div>
-    <a href="#" class="section-link">All flights →</a>
-  </div>
-  <table class="flights-table">
-    <thead>
-      <tr>
-        <th>Airline</th>
-        <th>Route</th>
-        <th>Departure</th>
-        <th>Duration</th>
-        <th>Stops</th>
-        <th>Price</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><div class="airline-logo"><div class="airline-dot">EA</div> EasyAir</div></td>
-        <td>New York → Paris</td>
-        <td>06:45 AM</td>
-        <td>8h 20m</td>
-        <td><span class="badge badge-green">Nonstop</span></td>
-        <td><span class="flight-price">$489</span></td>
-        <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
-      </tr>
-      <tr>
-        <td><div class="airline-logo"><div class="airline-dot">SA</div> SkyAsia</div></td>
-        <td>London → Tokyo</td>
-        <td>11:30 AM</td>
-        <td>12h 45m</td>
-        <td><span class="badge badge-green">Nonstop</span></td>
-        <td><span class="flight-price">$742</span></td>
-        <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
-      </tr>
-      <tr>
-        <td><div class="airline-logo"><div class="airline-dot">WA</div> WingAir</div></td>
-        <td>Dubai → Bali</td>
-        <td>02:15 PM</td>
-        <td>9h 10m</td>
-        <td><span class="badge badge-orange">1 Stop</span></td>
-        <td><span class="flight-price">$395</span></td>
-        <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
-      </tr>
-      <tr>
-        <td><div class="airline-logo"><div class="airline-dot">OA</div> OceanAir</div></td>
-        <td>Sydney → Maldives</td>
-        <td>08:00 AM</td>
-        <td>11h 30m</td>
-        <td><span class="badge badge-green">Nonstop</span></td>
-        <td><span class="flight-price">$628</span></td>
-        <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-<!-- banner section -->
-<div class="banner-row">
-  <div class="banner-item" data-aos="zoom-in" data-aos-delay="100">
-    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80" alt="Adventure">
-    <div class="banner-overlay">
-      <div class="banner-tag">Adventure</div>
-      <div class="banner-title">Waiting for a fun place</div>
-    </div>
-  </div>
-  <div class="banner-item" data-aos="zoom-in" data-aos-delay="200">
-    <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800&q=80" alt="Camping">
-    <div class="banner-overlay">
-      <div class="banner-tag">Camping</div>
-      <div class="banner-title">Into the wild this summer</div>
-    </div>
-  </div>
-  <div class="banner-item" data-aos="zoom-in" data-aos-delay="300">
-    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Diving">
-    <div class="banner-overlay">
-      <div class="banner-tag">Diving</div>
-      <div class="banner-title">Explore ocean depths</div>
-    </div>
-  </div>
-  <div class="banner-item" data-aos="zoom-in" data-aos-delay="400">
-    <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80" alt="Scenic">
-    <div class="banner-overlay">
-      <div class="banner-tag">Scenic</div>
-      <div class="banner-title">Waiting for a fun place</div>
-    </div>
-  </div>
-</div>
-
-<!-- destination section -->
-<section class="ease-section">
-  <div class="ease-inner">
-    <div data-aos="fade-right">
-      <div class="section-label">Why Us</div>
-      <h2 class="section-title">Destinations with Ease</h2>
-      <p style="color: var(--muted); margin: 16px 0 24px; font-size: 15px; line-height: 1.7;">We handle every detail so you can focus on making memories. From booking to boarding, we've got you covered every step of the journey.</p>
-      <p style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">Secure payment options:</p>
-      <div class="payments">
-        <div class="pay-badge">💳 Visa</div>
-        <div class="pay-badge">◎ Mastercard</div>
-        <div class="pay-badge">P PayPal</div>
-        <div class="pay-badge">₿ Crypto</div>
-      </div>
-    </div>
-    <div class="ease-cards">
-      <div class="ease-card" data-aos="fade-left" data-aos-delay="100">
-        <div class="ease-icon"><i class="fa-regular fa-map"></i></div>
-        <div class="ease-card-title">Smart Itineraries</div>
-        <div class="ease-card-text">AI-powered trip planning tailored to your preferences and budget</div>
-      </div>
-      <div class="ease-card" data-aos="fade-left" data-aos-delay="200">
-        <div class="ease-icon"><i class="fa-regular fa-shield-alt"></i></div>
-        <div class="ease-card-title">Travel Insurance</div>
-        <div class="ease-card-text">Comprehensive coverage so you travel with complete peace of mind</div>
-      </div>
-      <div class="ease-card" data-aos="fade-left" data-aos-delay="300">
-        <div class="ease-icon"><i class="fa-solid fa-user-group"></i></div>
-        <div class="ease-card-title">Local Guides</div>
-        <div class="ease-card-text">Connect with verified local experts for authentic experiences</div>
-      </div>
-      <div class="ease-card" data-aos="fade-left" data-aos-delay="400">
-        <div class="ease-icon"><i class="fa-regular fa-calendar-check"></i></div>
-        <div class="ease-card-title">Instant Booking</div>
-        <div class="ease-card-text">Confirm flights, hotels, and tours in seconds with zero hassle</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!--  TESTIMONIALS section-->
-<section>
-  <div class="section-header" data-aos="fade-up">
-    <div>
-      <div class="section-label">Reviews</div>
-      <h2 class="section-title">What our clients say</h2>
-    </div>
-    <a href="#" class="section-link">Read all reviews →</a>
-  </div>
-  <div class="testimonials-grid">
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background: #DBEAFE; color: #1D4ED8;">SM</div>
-        <div>
-          <div class="reviewer-name">Sarah Mitchell</div>
-          <div class="reviewer-loc"> New York, USA</div>
+      <div class="tab-pane fade" id="beach" role="tabpanel" aria-labelledby="beach-tab">
+        <div class="dest-grid">
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?auto=format&fit=crop&w=800&q=80"
+            alt="Maldives">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Maldives</div>
+          <div class="dest-meta"> 14h · Asia</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$2,100 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (3.2k)</div>
+          </div>
         </div>
       </div>
-      <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-      <p class="testimonial-text">"Triply transformed our honeymoon into something truly magical. Every detail was perfect — from the villa in Santorini to the private sunset cruise. Absolutely flawless."</p>
-    </div>
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background: #D1FAE5; color: #065F46;">JK</div>
-        <div>
-          <div class="reviewer-name">James Kowalski</div>
-          <div class="reviewer-loc"> London, UK</div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1542332213-9b5a5a3fad35?auto=format&fit=crop&w=800&q=80"
+            alt="Maui, Hawaii">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Maui, Hawaii</div>
+          <div class="dest-meta"> 6h · North America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,650 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (2.1k)</div>
+          </div>
         </div>
       </div>
-      <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-      <p class="testimonial-text">"I've used dozens of travel apps, but Triply is on a different level. The customer service alone is worth it — they rebooked everything within minutes when my flight was cancelled."</p>
-    </div>
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="reviewer">
-        <div class="reviewer-avatar" style="background: #FEF3C7; color: #92400E;">LN</div>
-        <div>
-          <div class="reviewer-name">Lena Nguyen</div>
-          <div class="reviewer-loc"> Sydney, Australia</div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1581795669633-91b5825dfab9?auto=format&fit=crop&w=800&q=80"
+            alt="Phuket, Thailand">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Phuket, Thailand</div>
+          <div class="dest-meta"> 16h · Asia</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$850 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7 (1.5k)</div>
+          </div>
         </div>
       </div>
-      <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-      <p class="testimonial-text">"Solo travel has never felt safer or more exciting. Triply's local guides in Kyoto gave me experiences I couldn't have found on my own. Will be booking again soon!"</p>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1533692328991-08159ff19fca?auto=format&fit=crop&w=800&q=80"
+            alt="Bora Bora">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Bora Bora</div>
+          <div class="dest-meta">18h · Oceania</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$3,200 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (1.1k)</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+      </div>
+      <div class="tab-pane fade" id="mountain" role="tabpanel" aria-labelledby="mountain-tab">
+        <div class="dest-grid">
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1527668752968-14dc70a27c95?auto=format&fit=crop&w=800&q=80"
+            alt="Zermatt, Switzerland">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Zermatt, Switzerland</div>
+          <div class="dest-meta"> 10h · Europe</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,950 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (1.8k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1503614472-8c93d56e92ce?auto=format&fit=crop&w=800&q=80"
+            alt="Banff, Canada">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Banff, Canada</div>
+          <div class="dest-meta"> 5h · North America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,100 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (2.5k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1554357475-accb8a88a330?auto=format&fit=crop&w=800&q=80"
+            alt="Patagonia, Argentina">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Patagonia, Argentina</div>
+          <div class="dest-meta"> 14h · South America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$2,300 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (900)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?auto=format&fit=crop&w=800&q=80"
+            alt="Queenstown, New Zealand">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Queenstown, New Zealand</div>
+          <div class="dest-meta">15h · Oceania</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,750 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (1.2k)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+      <div class="tab-pane fade" id="city" role="tabpanel" aria-labelledby="city-tab">
+        <div class="dest-grid">
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?auto=format&fit=crop&w=800&q=80"
+            alt="New York City, USA">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">New York City, USA</div>
+          <div class="dest-meta"> 6h · North America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,200 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (5.6k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80"
+            alt="London, UK">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">London, UK</div>
+          <div class="dest-meta"> 7h · Europe</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,350 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7 (4.1k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80"
+            alt="Dubai, UAE">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Dubai, UAE</div>
+          <div class="dest-meta"> 12h · Middle East</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,600 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (3.8k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?auto=format&fit=crop&w=800&q=80"
+            alt="Singapore">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Singapore</div>
+          <div class="dest-meta">16h · Asia</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,450 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (2.9k)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+      <div class="tab-pane fade" id="adventure" role="tabpanel" aria-labelledby="adventure-tab">
+        <div class="dest-grid">
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1526392060635-9d6019884377?auto=format&fit=crop&w=800&q=80"
+            alt="Cusco, Peru">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Cusco, Peru</div>
+          <div class="dest-meta"> 11h · South America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,150 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9 (2.2k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=800&q=80"
+            alt="Reykjavik, Iceland">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Reykjavik, Iceland</div>
+          <div class="dest-meta"> 8h · Europe</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,800 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (1.6k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1580060839134-75a5edca2e99?auto=format&fit=crop&w=800&q=80"
+            alt="Cape Town, South Africa">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Cape Town, SA</div>
+          <div class="dest-meta"> 15h · Africa</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$1,400 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7 (1.4k)</div>
+          </div>
+        </div>
+      </div>
+      <div class="dest-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="dest-img">
+          <img src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?auto=format&fit=crop&w=800&q=80"
+            alt="Costa Rica">
+          <div class="dest-overlay"></div>
+        </div>
+        <div class="dest-info">
+          <div class="dest-name">Costa Rica</div>
+          <div class="dest-meta">7h · Central America</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="dest-price">$950 <span>/ person</span></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8 (2.8k)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+      </div>
+    </div>
+    
+    
+  </section>
 
-<!-- news section -->
-<section style="background: var(--light);">
-  <div class="section-header" data-aos="fade-up">
-    <div>
-      <div class="section-label">Journal</div>
-      <h2 class="section-title">News, Tips & Guides</h2>
+  <!-- hotels section -->
+  <section style="background: var(--light);">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <div class="section-label">Stay</div>
+        <h2 class="section-title">Top Rated Hotels</h2>
+      </div>
+      <a href="#" class="section-link">View all hotels →</a>
     </div>
-    <a href="#" class="section-link">All articles →</a>
-  </div>
-  <div class="news-grid">
-    <div class="news-card" data-aos="fade-up" data-aos-delay="100">
-      <div class="news-img">
-        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="Travel Tips">
+    <div class="hotels-grid">
+      <div class="hotel-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="hotel-img">
+          <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=800&q=80"
+            alt="Luxury Suite">
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-tag">Top Pick</div>
+          <div class="hotel-name">Le Grand Palais Hotel</div>
+          <div class="hotel-loc"> Paris, France</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="hotel-price">$340 <small>/ night</small></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9</div>
+          </div>
+        </div>
       </div>
-      <div class="news-body">
-        <div class="news-cat">Travel Tips</div>
-        <div class="news-title">10 Packing Secrets That Frequent Flyers Swear By</div>
-        <div class="news-date">March 28, 2026 · 5 min read</div>
+      <div class="hotel-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="hotel-img">
+          <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=800&q=80"
+            alt="Waterfront Resort">
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-tag"> Popular</div>
+          <div class="hotel-name">Azure Bay Resort & Spa</div>
+          <div class="hotel-loc"> Maldives</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="hotel-price">$520 <small>/ night</small></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.8</div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="hotel-img">
+          <img src="https://images.unsplash.com/photo-1563911302283-d2bc129e7570?auto=format&fit=crop&w=800&q=80"
+            alt="Desert View Resort">
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-tag"> Luxury</div>
+          <div class="hotel-name">Golden Sands Retreat</div>
+          <div class="hotel-loc"> Dubai, UAE</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="hotel-price">$680 <small>/ night</small></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.9</div>
+          </div>
+        </div>
+      </div>
+      <div class="hotel-card" data-aos="fade-up" data-aos-delay="400">
+        <div class="hotel-img">
+          <img src="https://images.unsplash.com/photo-1587061949409-02df41d5e562?auto=format&fit=crop&w=800&q=80"
+            alt="Eco Lodge">
+        </div>
+        <div class="hotel-info">
+          <div class="hotel-tag"> Eco</div>
+          <div class="hotel-name">Rainforest Canopy Lodge</div>
+          <div class="hotel-loc"> Costa Rica</div>
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 8px;">
+            <div class="hotel-price">$210 <small>/ night</small></div>
+            <div class="rating"><span class="star"><i class="fa-solid fa-star"></i></span> 4.7</div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="news-card" data-aos="fade-up" data-aos-delay="200">
-      <div class="news-img">
-        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80" alt="Eco Travel">
-      </div>
-      <div class="news-body">
-        <div class="news-cat">Sustainability</div>
-        <div class="news-title">How to Travel Responsibly Without Sacrificing Comfort</div>
-        <div class="news-date">April 2, 2026 · 7 min read</div>
-      </div>
-    </div>
-    <div class="news-card" data-aos="fade-up" data-aos-delay="300">
-      <div class="news-img">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80" alt="Food Tourism">
-      </div>
-      <div class="news-body">
-        <div class="news-cat">Food & Culture</div>
-        <div class="news-title">The World's Most Underrated Street Food Destinations</div>
-        <div class="news-date">April 7, 2026 · 6 min read</div>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- newsletter section -->
-<div class="newsletter" >
-  <h2>Get Travel Deals in Your Inbox</h2>
-  <p>Join 50,000+ travelers who receive exclusive deals and destination inspiration every week.</p>
-  <div class="newsletter-form" data-aos="fade-up">
-    <input class="newsletter-input" type="email" placeholder="Enter your email address">
-    <button class="newsletter-btn">Subscribe →</button>
-  </div>
-</div>
-
-<!-- footer section -->
-<footer data-aos="fade-up">
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo logo-white" style="color: white;">
-        <div class="logo-dot"></div>
-        Triply
+  <!-- top banner section -->
+  <div class="promo-section" style="padding-top: 56px;">
+    <div class="promo-banner">
+      <div data-aos="fade-right">
+        <div class="promo-eyebrow"> Mobile App</div>
+        <h2 class="promo-title">Dare to live the life you've always wanted</h2>
+        <p class="promo-sub">Download our app and unlock exclusive deals, real-time itinerary management, and 24/7
+          travel support right in your pocket.</p>
+        <div class="store-btns">
+          <div class="store-btn">
+            <span class="store-icon"></span>
+            <div class="store-text">
+              <span class="store-small">Download on the</span>
+              <span class="store-name">App Store</span>
+            </div>
+          </div>
+          <div class="store-btn">
+            <span class="store-icon"></span>
+            <div class="store-text">
+              <span class="store-small">Get it on</span>
+              <span class="store-name">Google Play</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <p>Making the world accessible one trip at a time. Trusted by travelers in over 120 countries.</p>
-      <div class="social-links" style="margin-top: 20px;">
-        <a class="social-link" href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a class="social-link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
-        <a class="social-link" href="#"><i class="fa-brands fa-twitter"></i></a>
-        <a class="social-link" href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+      <div class="promo-cards">
+        <div class="promo-card" data-aos="fade-left" data-aos-delay="100">
+          <div class="promo-card-icon"><i class="fa-regular fa-map"></i></div>
+          <div class="promo-card-title">Offline Maps</div>
+          <div class="promo-card-sub">Navigate anywhere, even without data</div>
+        </div>
+        <div class="promo-card" data-aos="fade-left" data-aos-delay="200">
+          <div class="promo-card-icon"><i class="fa-regular fa-shield-alt"></i></div>
+          <div class="promo-card-title">24/7 Support</div>
+          <div class="promo-card-sub">Expert help whenever you need it</div>
+        </div>
+        <div class="promo-card" data-aos="fade-left" data-aos-delay="300">
+          <div class="promo-card-icon"><i class="fa-solid fa-ticket"></i></div>
+          <div class="promo-card-title">E-Tickets</div>
+          <div class="promo-card-sub">All your bookings in one place</div>
+        </div>
+        <div class="promo-card" data-aos="fade-left" data-aos-delay="400">
+          <div class="promo-card-icon"><i class="fa-solid fa-dollar-sign"></i></div>
+          <div class="promo-card-title">Best Prices</div>
+          <div class="promo-card-sub">Price match guarantee on all stays</div>
+        </div>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <ul>
-        <li><a href="#">About Us</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Partners</a></li>
-      </ul>
+  </div>
+
+  <!-- flight section -->
+  <section class="flights-section" data-aos="fade-up">
+    <div class="section-header">
+      <div>
+        <div class="section-label">Fly</div>
+        <h2 class="section-title">Flight Offer Deals</h2>
+      </div>
+      <a href="#" class="section-link">All flights →</a>
     </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <ul>
-        <li><a href="#">Flights</a></li>
-        <li><a href="#">Hotels</a></li>
-        <li><a href="#">Car Rentals</a></li>
-        <li><a href="#">Tours</a></li>
-        <li><a href="#">Insurance</a></li>
-      </ul>
+    <table class="flights-table">
+      <thead>
+        <tr>
+          <th>Airline</th>
+          <th>Route</th>
+          <th>Departure</th>
+          <th>Duration</th>
+          <th>Stops</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="airline-logo">
+              <div class="airline-dot">EA</div> EasyAir
+            </div>
+          </td>
+          <td>New York → Paris</td>
+          <td>06:45 AM</td>
+          <td>8h 20m</td>
+          <td><span class="badge badge-green">Nonstop</span></td>
+          <td><span class="flight-price">$489</span></td>
+          <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="airline-logo">
+              <div class="airline-dot">SA</div> SkyAsia
+            </div>
+          </td>
+          <td>London → Tokyo</td>
+          <td>11:30 AM</td>
+          <td>12h 45m</td>
+          <td><span class="badge badge-green">Nonstop</span></td>
+          <td><span class="flight-price">$742</span></td>
+          <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="airline-logo">
+              <div class="airline-dot">WA</div> WingAir
+            </div>
+          </td>
+          <td>Dubai → Bali</td>
+          <td>02:15 PM</td>
+          <td>9h 10m</td>
+          <td><span class="badge badge-orange">1 Stop</span></td>
+          <td><span class="flight-price">$395</span></td>
+          <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
+        </tr>
+        <tr>
+          <td>
+            <div class="airline-logo">
+              <div class="airline-dot">OA</div> OceanAir
+            </div>
+          </td>
+          <td>Sydney → Maldives</td>
+          <td>08:00 AM</td>
+          <td>11h 30m</td>
+          <td><span class="badge badge-green">Nonstop</span></td>
+          <td><span class="flight-price">$628</span></td>
+          <td><button class="btn-primary" style="font-size: 12px; padding: 7px 16px;">Book Now</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- banner section -->
+  <div class="banner-row">
+    <div class="banner-item" data-aos="zoom-in" data-aos-delay="100">
+      <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80"
+        alt="Adventure">
+      <div class="banner-overlay">
+        <div class="banner-tag">Adventure</div>
+        <div class="banner-title">Waiting for a fun place</div>
+      </div>
     </div>
-    <div class="footer-col">
-      <h4>Support</h4>
-      <ul>
-        <li><a href="#">Help Center</a></li>
-        <li><a href="#">Contact Us</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Sitemap</a></li>
-      </ul>
+    <div class="banner-item" data-aos="zoom-in" data-aos-delay="200">
+      <img src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=800&q=80"
+        alt="Camping">
+      <div class="banner-overlay">
+        <div class="banner-tag">Camping</div>
+        <div class="banner-title">Into the wild this summer</div>
+      </div>
+    </div>
+    <div class="banner-item" data-aos="zoom-in" data-aos-delay="300">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80" alt="Diving">
+      <div class="banner-overlay">
+        <div class="banner-tag">Diving</div>
+        <div class="banner-title">Explore ocean depths</div>
+      </div>
+    </div>
+    <div class="banner-item" data-aos="zoom-in" data-aos-delay="400">
+      <img src="https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=800&q=80"
+        alt="Scenic">
+      <div class="banner-overlay">
+        <div class="banner-tag">Scenic</div>
+        <div class="banner-title">Waiting for a fun place</div>
+      </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <p>© 2026 Triply Inc. All rights reserved.</p>
-    <p style="color: rgba(255,255,255,.35); font-size: 12px;">Made with ❤ for explorers everywhere</p>
+
+  <!-- destination section -->
+  <section class="ease-section">
+    <div class="ease-inner">
+      <div data-aos="fade-right">
+        <div class="section-label">Why Us</div>
+        <h2 class="section-title">Destinations with Ease</h2>
+        <p style="color: var(--muted); margin: 16px 0 24px; font-size: 15px; line-height: 1.7;">We handle every detail
+          so you can focus on making memories. From booking to boarding, we've got you covered every step of the
+          journey.</p>
+        <p style="font-size: 13px; color: var(--muted); margin-bottom: 10px;">Secure payment options:</p>
+        <div class="payments">
+          <div class="pay-badge">💳 Visa</div>
+          <div class="pay-badge">◎ Mastercard</div>
+          <div class="pay-badge">P PayPal</div>
+          <div class="pay-badge">₿ Crypto</div>
+        </div>
+      </div>
+      <div class="ease-cards">
+        <div class="ease-card" data-aos="fade-left" data-aos-delay="100">
+          <div class="ease-icon"><i class="fa-regular fa-map"></i></div>
+          <div class="ease-card-title">Smart Itineraries</div>
+          <div class="ease-card-text">AI-powered trip planning tailored to your preferences and budget</div>
+        </div>
+        <div class="ease-card" data-aos="fade-left" data-aos-delay="200">
+          <div class="ease-icon"><i class="fa-regular fa-shield-alt"></i></div>
+          <div class="ease-card-title">Travel Insurance</div>
+          <div class="ease-card-text">Comprehensive coverage so you travel with complete peace of mind</div>
+        </div>
+        <div class="ease-card" data-aos="fade-left" data-aos-delay="300">
+          <div class="ease-icon"><i class="fa-solid fa-user-group"></i></div>
+          <div class="ease-card-title">Local Guides</div>
+          <div class="ease-card-text">Connect with verified local experts for authentic experiences</div>
+        </div>
+        <div class="ease-card" data-aos="fade-left" data-aos-delay="400">
+          <div class="ease-icon"><i class="fa-regular fa-calendar-check"></i></div>
+          <div class="ease-card-title">Instant Booking</div>
+          <div class="ease-card-text">Confirm flights, hotels, and tours in seconds with zero hassle</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--  TESTIMONIALS section-->
+  <section>
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <div class="section-label">Reviews</div>
+        <h2 class="section-title">What our clients say</h2>
+      </div>
+      <a href="#" class="section-link">Read all reviews →</a>
+    </div>
+    <div class="marquee-1">
+      <div class="testimonials-grid marquee">
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #DBEAFE; color: #1D4ED8;">SM</div>
+            <div>
+              <div class="reviewer-name">Sarah Mitchell</div>
+              <div class="reviewer-loc"> New York, USA</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Triply transformed our honeymoon into something truly magical. Every detail was
+            perfect — from the villa in Santorini to the private sunset cruise. Absolutely flawless."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #D1FAE5; color: #065F46;">JK</div>
+            <div>
+              <div class="reviewer-name">James Kowalski</div>
+              <div class="reviewer-loc"> London, UK</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"I've used dozens of travel apps, but Triply is on a different level. The customer
+            service alone is worth it — they rebooked everything within minutes when my flight was cancelled."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #FEF3C7; color: #92400E;">LN</div>
+            <div>
+              <div class="reviewer-name">Lena Nguyen</div>
+              <div class="reviewer-loc"> Sydney, Australia</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Solo travel has never felt safer or more exciting. Triply's local guides in Kyoto
+            gave me experiences I couldn't have found on my own. Will be booking again soon!"</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #DBEAFE; color: #1D4ED8;">SM</div>
+            <div>
+              <div class="reviewer-name">Sarah Mitchell</div>
+              <div class="reviewer-loc"> New York, USA</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Triply transformed our honeymoon into something truly magical. Every detail was
+            perfect — from the villa in Santorini to the private sunset cruise. Absolutely flawless."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #D1FAE5; color: #065F46;">JK</div>
+            <div>
+              <div class="reviewer-name">James Kowalski</div>
+              <div class="reviewer-loc"> London, UK</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"I've used dozens of travel apps, but Triply is on a different level. The customer
+            service alone is worth it — they rebooked everything within minutes when my flight was cancelled."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #FEF3C7; color: #92400E;">LN</div>
+            <div>
+              <div class="reviewer-name">Lena Nguyen</div>
+              <div class="reviewer-loc"> Sydney, Australia</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Solo travel has never felt safer or more exciting. Triply's local guides in Kyoto
+            gave me experiences I couldn't have found on my own. Will be booking again soon!"</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #DBEAFE; color: #1D4ED8;">SM</div>
+            <div>
+              <div class="reviewer-name">Sarah Mitchell</div>
+              <div class="reviewer-loc"> New York, USA</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Triply transformed our honeymoon into something truly magical. Every detail was
+            perfect — from the villa in Santorini to the private sunset cruise. Absolutely flawless."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #D1FAE5; color: #065F46;">JK</div>
+            <div>
+              <div class="reviewer-name">James Kowalski</div>
+              <div class="reviewer-loc"> London, UK</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"I've used dozens of travel apps, but Triply is on a different level. The customer
+            service alone is worth it — they rebooked everything within minutes when my flight was cancelled."</p>
+        </div>
+        <div class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="reviewer">
+            <div class="reviewer-avatar" style="background: #FEF3C7; color: #92400E;">LN</div>
+            <div>
+              <div class="reviewer-name">Lena Nguyen</div>
+              <div class="reviewer-loc"> Sydney, Australia</div>
+            </div>
+          </div>
+          <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i
+              class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+          <p class="testimonial-text">"Solo travel has never felt safer or more exciting. Triply's local guides in Kyoto
+            gave me experiences I couldn't have found on my own. Will be booking again soon!"</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- news section -->
+  <section style="background: var(--light);">
+    <div class="section-header" data-aos="fade-up">
+      <div>
+        <div class="section-label">Journal</div>
+        <h2 class="section-title">News, Tips & Guides</h2>
+      </div>
+      <a href="#" class="section-link">All articles →</a>
+    </div>
+    <div class="news-grid">
+      <div class="news-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80"
+            alt="Travel Tips">
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Travel Tips</div>
+          <div class="news-title">10 Packing Secrets That Frequent Flyers Swear By</div>
+          <div class="news-date">March 28, 2026 · 5 min read</div>
+        </div>
+      </div>
+      <div class="news-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=800&q=80"
+            alt="Eco Travel">
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Sustainability</div>
+          <div class="news-title">How to Travel Responsibly Without Sacrificing Comfort</div>
+          <div class="news-date">April 2, 2026 · 7 min read</div>
+        </div>
+      </div>
+      <div class="news-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="news-img">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80"
+            alt="Food Tourism">
+        </div>
+        <div class="news-body">
+          <div class="news-cat">Food & Culture</div>
+          <div class="news-title">The World's Most Underrated Street Food Destinations</div>
+          <div class="news-date">April 7, 2026 · 6 min read</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- newsletter section -->
+  <div class="newsletter">
+    <h2>Get Travel Deals in Your Inbox</h2>
+    <p>Join 50,000+ travelers who receive exclusive deals and destination inspiration every week.</p>
+    <div class="newsletter-form" data-aos="fade-up">
+      <input class="newsletter-input" type="email" placeholder="Enter your email address">
+      <button class="newsletter-btn">Subscribe →</button>
+    </div>
   </div>
-</footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- footer section -->
+  <footer data-aos="fade-up">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo logo-white" style="color: white;">
+          <div class="logo-dot"></div>
+          Triply
+        </div>
+        <p>Making the world accessible one trip at a time. Trusted by travelers in over 120 countries.</p>
+        <div class="social-links" style="margin-top: 20px;">
+          <a class="social-link" href="#"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-link" href="#"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-link" href="#"><i class="fa-brands fa-twitter"></i></a>
+          <a class="social-link" href="#"><i class="fa-brands fa-pinterest-p"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Flights</a></li>
+          <li><a href="#">Hotels</a></li>
+          <li><a href="#">Car Rentals</a></li>
+          <li><a href="#">Tours</a></li>
+          <li><a href="#">Insurance</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Sitemap</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Triply Inc. All rights reserved.</p>
+      <p style="color: rgba(255,255,255,.35); font-size: 12px;">Made with ❤ for explorers everywhere</p>
+    </div>
+  </footer>
 
-<script>
-  
-  document.querySelectorAll('.tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="../js/jquery.marquee.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.marquee').marquee({
+        duration: 20000,
+        gap: 24,
+        direction: 'left',
+        duplicated: true,
+        pauseOnHover: true
+      });
     });
-  });
 
-  AOS.init({
-    duration: 800,
-    once: true,
-    offset: 100
-  });
-</script>
+    document.querySelectorAll('.tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100
+    });
+
+      window.addEventListener('load', () => {
+        const nav = document.querySelector('.navbar');
+        const catBar = document.getElementById('categoryNavBar');
+        const updatePos = () => {
+          if (!nav || !catBar) return;
+          const navH = nav.getBoundingClientRect().height;
+          if (window.scrollY > 50) {
+            nav.classList.add('scrolled'); catBar.classList.add('scrolled'); catBar.style.top = (navH - 10) + 'px';
+          } else {
+            nav.classList.remove('scrolled'); catBar.classList.remove('scrolled'); catBar.style.top = (navH + 4) + 'px';
+          }
+        };
+        window.addEventListener('scroll', updatePos);
+        updatePos();
+      });
+  </script>
+  <script src="../js/navbar.js" defer></script>
 </body>
 </html>

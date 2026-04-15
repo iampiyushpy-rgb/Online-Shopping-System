@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details — MediStore</title>
+    <meta name="description" content="View product details, dosage information, and related health products at MediStore.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/ProductDetails.css">
+    <style>
+        /* --- Medicine Theme Overrides --- */
+        :root {
+            --med-primary: #2d5a27;
+            --med-accent: #4caf50;
+            --med-warm-bg: #f8fafc;
+        }
+
+        body { background: #f8fafc; }
+
+        .back-link { background: white; border-color: #e0f2e0; }
+        .back-link i { color: var(--med-accent); }
+        .back-link:hover { background: #eef7ee; color: var(--med-primary); }
+
+        .price-tag, .apc-price { color: var(--med-primary) !important; }
+
+        .btn-buy { background: var(--med-accent); }
+        .btn-buy:hover { background: var(--med-primary); }
+
+        .btn-add-cart { color: var(--med-accent); border-color: var(--med-accent); }
+        .btn-add-cart:hover { background: #eef7ee; }
+
+        .pd-badge { background: var(--med-accent); }
+        .pd-like-btn:hover { color: #ef4444; }
+        .pd-like-btn.liked { color: #ef4444; background: #fff1f2; }
+        .pd-discount-badge { background: linear-gradient(135deg, #c0392b, #a93226); }
+
+        /* Brand line */
+        .product-brand-line {
+            font-size: 1rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+        .product-brand-line strong { color: var(--med-accent); }
+
+        /* Offers section */
+        .offers-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e0f2e0;
+        }
+        .offers-section h4 { margin-bottom: 1rem; color: var(--med-primary); }
+        .offer-item { border-left: 3px solid var(--med-accent); padding-left: 1rem; margin-bottom: 1rem; }
+        .offer-item:last-child { margin-bottom: 0; }
+        .offer-item p:first-child { font-weight: 600; color: var(--text-dark); }
+        .offer-item p:last-child { font-size: 0.9rem; color: var(--text-muted); }
+        .offer-item a { color: var(--med-accent); }
+
+        /* Category label */
+        #category-name { color: var(--med-accent) !important; }
+
+        /* Spec grid */
+        .spec-item { border-color: #e0f2e0; }
+
+        /* Section header accent */
+        .section-header h2::before { background-color: var(--med-accent) !important; }
+
+        /* Related product cards */
+        .product-card .product-price { color: var(--med-primary); }
+        .product-card .add-to-cart { border-color: var(--med-accent); color: var(--med-accent); }
+        .product-card .add-to-cart:hover { background: var(--med-accent); color: white; }
+
+        /* Related products brand */
+        .related-brand {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="breadcrumb-nav">
+        <a href="../template/Medicine_&_Nutrients.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> <span>Back to MediStore</span>
+        </a>
+    </nav>
+
+    <div class="details-container" style="padding-top: 25px;">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+            <div class="main-image-container">
+                <img id="product-img" src="" alt="Product" class="main-image">
+                <span class="pd-badge" id="product-badge" style="display:none;"></span>
+                <button class="pd-like-btn" id="like-btn" title="Add to Wishlist">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            <div class="thumbnail-container" id="thumb-list"></div>
+
+            <!-- Health Info Section -->
+            <div class="video-player-container">
+                <img src="https://images.unsplash.com/photo-1631549916768-4119b2e5f926?q=80&w=800&h=450&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                <div class="video-overlay" onclick="alert('Opening dosage guide...')">
+                    <i class="fas fa-file-medical play-btn"></i>
+                    <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        View Dosage Guide</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Product Meta -->
+        <div class="product-meta">
+            <p id="category-name"
+                style="color: var(--med-accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                Medicine</p>
+            <h1 id="product-title">Loading Product...</h1>
+            <p class="product-brand-line" id="product-brand"></p>
+
+            <!-- Dynamic Rating -->
+            <div class="rating" id="rating-container"></div>
+
+            <!-- Price Row -->
+            <div class="pd-price-row">
+                <div class="price-tag" id="product-price">$0.00</div>
+                <span class="pd-original-price" id="original-price" style="display:none;"></span>
+                <span class="pd-discount-badge" id="discount-badge" style="display:none;"></span>
+            </div>
+
+            <p class="description" id="product-desc">
+                Premium quality health product. Pharmacist-verified and lab-tested for purity and potency.
+            </p>
+
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <span>Form</span>
+                    <strong id="spec-format">Tablets</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Serving Size</span>
+                    <strong>1 per day</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Origin</span>
+                    <strong>USA / GMP</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Shipping</span>
+                    <strong>Free over $30</strong>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-buy"><i class="fas fa-bolt"></i> BUY NOW</button>
+                <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            </div>
+
+            <div class="offers-section">
+                <h4><i class="fas fa-tags" style="color: var(--med-accent); margin-right: 0.5rem;"></i>Health Savings</h4>
+                <div class="offer-item">
+                    <p>Subscribe & Save 10%</p>
+                    <p>Set up auto-refill and save on every order. <a href="#">Learn More</a></p>
+                </div>
+                <div class="offer-item">
+                    <p>Bundle Discount</p>
+                    <p>Buy 3+ products, get 15% off your entire order — applied at checkout.</p>
+                </div>
+                <div class="offer-item">
+                    <p>Free Health Consult</p>
+                    <p>Chat with a certified pharmacist within 24 hours of your purchase.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="container" style="background: var(--bg-gray);">
+        <div class="section-header">
+            <h2>Customers also purchased</h2>
+        </div>
+        <div class="product-scroll-container" id="related-scroll"></div>
+    </section>
+
+    <footer style="background-color: #2d5a27; color: white; padding: 4rem 5%;">
+        <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2026 MediStore. All rights reserved. | Made with <i class="fas fa-heart" style="color: #4caf50;"></i> for your health
+        </div>
+    </footer>
+
+    <script src="../js/Medicine_&_Nutrients_ProductDetails.js" defer></script>
+</body>
+</html>

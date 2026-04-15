@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Fashion</title>
+    <meta name="description" content="View detailed product information, specs, and related fashion items.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/fashion.css">
+    <link rel="stylesheet" href="../css/fashion_productdetails.css">
+</head>
+
+<body>
+
+    <nav class="breadcrumb-nav">
+        <a href="fashion.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> <span>Back to Fashion</span>
+        </a>
+    </nav>
+
+    <div class="details-container" style="padding-top: 25px;">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+            <div class="main-image-container">
+                <img id="product-img" src="" alt="Product Image" class="main-image">
+                <!-- Badge -->
+                <span class="pd-badge" id="product-badge" style="display:none;"></span>
+                <!-- Like Button -->
+                <button class="pd-like-btn" id="like-btn" title="Add to Wishlist">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            <div class="thumbnail-container" id="thumb-list">
+                <!-- Thumbnails populated via JS -->
+            </div>
+
+            <!-- Product Video Section -->
+            <div class="video-player-container">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?q=80&w=800&h=450&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                <div class="video-overlay" onclick="alert('Playing Product Demo Video...')">
+                    <i class="fas fa-play-circle play-btn"></i>
+                    <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Watch Product Demo</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Meta Data -->
+        <div class="product-meta">
+            <p style="color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;"
+                id="category-name">Fashion</p>
+            <h1 id="product-title">Loading Product...</h1>
+
+            <!-- Dynamic Rating -->
+            <div class="rating" id="rating-container">
+                <!-- Stars and text injected via JS -->
+            </div>
+
+            <!-- Price Row with Original Price & Discount -->
+            <div class="pd-price-row">
+                <div class="price-tag" id="product-price">₹0</div>
+                <span class="pd-original-price" id="original-price" style="display:none;"></span>
+                <span class="pd-discount-badge" id="discount-badge" style="display:none;"></span>
+            </div>
+
+            <p class="description" id="product-desc">
+                Premium fashion item crafted with superior materials and attention to detail. Perfect for modern wardrobes.
+            </p>
+
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <span>Material</span>
+                    <strong id="spec-material">Premium Silk Blend</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Sizes Available</span>
+                    <strong>S, M, L, XL</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Warranty</span>
+                    <strong>30 Days Return</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Shipping</span>
+                    <strong>Free Delivery</strong>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-buy"><i class="fas fa-bolt"></i> BUY NOW</button>
+                <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            </div>
+
+            <div style="background: var(--warm-white); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow); border: 1px solid var(--border);">
+                <h4 style="margin-bottom: 1rem;">Offers & Savings</h4>
+                <div style="border-left: 3px solid var(--gold); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="font-weight: 600; color: var(--ink);">Bank Offer</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">10% Instant Discount on major cards. <a href="#" style="color: var(--gold);">T&C</a></p>
+                </div>
+                <div style="border-left: 3px solid var(--gold); padding-left: 1rem; margin-bottom: 1rem;">
+                    <p style="font-weight: 600; color: var(--ink);">EMI Available</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">No-cost EMI starting from ₹500/month.</p>
+                </div>
+                <div style="border-left: 3px solid var(--gold); padding-left: 1rem;">
+                    <p style="font-weight: 600; color: var(--ink);">Free Styling</p>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Free styling session with every outfit purchase over ₹5,000.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="container" style="background: var(--cream);">
+        <div class="section-header">
+            <h2>Style Inspiration</h2>
+        </div>
+        <div class="product-scroll-container" id="related-scroll">
+            <!-- Populated via JS -->
+        </div>
+    </section>
+
+    <footer>
+        <!-- Existing footer content from fashion.html -->
+        <div class="footer-top">
+            <div>
+              <div class="footer-logo">LU<span>X</span>E</div>
+              <p class="footer-desc">Fashion that tells your story. Premium quality, timeless design, delivered with care to your doorstep across India.</p>
+              <div class="social-links">
+                <a class="social-btn" href="#">f</a>
+                <a class="social-btn" href="#">in</a>
+                <a class="social-btn" href="#">tw</a>
+                <a class="social-btn" href="#">yt</a>
+                <a class="social-btn" href="#">📷</a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Shop</h4>
+              <ul class="footer-links">
+                <li><a href="#">Men's Fashion</a></li>
+                <li><a href="#">Women's Fashion</a></li>
+                <li><a href="#">Kids' Fashion</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">New Arrivals</a></li>
+                <li><a href="#">Sale</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Help</h4>
+              <ul class="footer-links">
+                <li><a href="#">Size Guide</a></li>
+                <li><a href="#">Track Order</a></li>
+                <li><a href="#">Returns</a></li>
+                <li><a href="#">Shipping Info</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul class="footer-links">
+                <li><a href="#">About LUXE</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+                <li><a href="#">Sustainability</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <div class="footer-copy">© 2026 LUXE Fashion. All rights reserved. Made with ❤️ in India.</div>
+            <div class="payment-icons">
+              <div class="payment-icon">VISA</div>
+              <div class="payment-icon">MC</div>
+              <div class="payment-icon">UPI</div>
+              <div class="payment-icon">PayTM</div>
+              <div class="payment-icon">COD</div>
+            </div>
+          </div>
+    </footer>
+
+    <script src="../js/fashion_productdetails.js" defer></script>
+</body>
+
+</html>

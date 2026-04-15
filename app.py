@@ -12,7 +12,7 @@ def index():
     products = cursor.fetchall()
     cursor.close()
     conn.close()
-    return render_template('index.html', products=products)
+    return render_template('index.html')
 
 @app.route('/login')
 def login():
@@ -61,6 +61,9 @@ def add_product():
 @app.route('/payment')
 def payment_gateway():
     return render_template('payment_gateway.html')
+@app.route('/cart')
+def cart():
+    return render_template('cart.html')
 
 if __name__ == '__main__':
     app.run(debug=True, port=5001)

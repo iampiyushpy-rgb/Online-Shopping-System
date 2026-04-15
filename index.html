@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="visual/css/style.css">
     <style>
         /* Special effect for the Travel Nav Link */
@@ -26,11 +28,12 @@
             gap: 6px;
             transition: all 0.3s ease;
         }
+
         .nav-link.travel-link:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
         }
-        
+
         /* Special effect for the Travel Category Pill */
         .cat-pill.travel-pill {
             background: linear-gradient(45deg, #0f172a, #3b82f6);
@@ -39,19 +42,23 @@
             box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
             position: relative;
         }
+
         .cat-pill.travel-pill a {
             color: white !important;
             display: flex;
             align-items: center;
             gap: 6px;
         }
+
         .cat-pill.travel-pill a:hover {
             opacity: 0.9;
         }
+
         .cat-pill.travel-pill i {
             color: inherit;
             animation: flightFloat 2s infinite ease-in-out;
         }
+
         /* New Badge */
         .travel-badge {
             position: absolute;
@@ -67,9 +74,17 @@
             z-index: 2;
             box-shadow: 0 2px 5px rgba(239, 68, 68, 0.4);
         }
+
         @keyframes flightFloat {
-            0%, 100% { transform: translateY(0) scale(1.1); }
-            50% { transform: translateY(-3px) scale(1.1); }
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1.1);
+            }
+
+            50% {
+                transform: translateY(-3px) scale(1.1);
+            }
         }
     </style>
 </head>
@@ -117,7 +132,9 @@
                 </a>
                 <ul class="nav-links ms-3">
                     <li><a class="nav-link active" href="#shop">Shop</a></li>
-                    <li style="margin-top: 5px; margin-bottom: 5px;"><a class="nav-link travel-link" href="visual/template/travel_landing.html"><i class="bi bi-airplane-engines-fill"></i> Travel</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;"><a class="nav-link travel-link"
+                            href="visual/template/travel_landing.html"><i class="bi bi-airplane-engines-fill"></i>
+                            Travel</a></li>
                 </ul>
                 <div class="nav-search-bar">
                     <i class="bi bi-search nav-search-icon"></i>
@@ -196,9 +213,11 @@
                         <i class="bi bi-bag"></i>
                         <span class="cart-badge" id="cart-badge">0</span>
                     </button>
-                    <a id="login-nav-btn" class="nav-login-btn" href="visual/template/login.html"><i class="bi bi-person-circle"></i>
+                    <a id="login-nav-btn" class="nav-login-btn" href="visual/template/login.html"><i
+                            class="bi bi-person-circle"></i>
                         Login</a>
-                    <a id="user-profile-btn" class="nav-login-btn d-none" href="visual/template/account.html"><i class="bi bi-person-circle"></i>
+                    <a id="user-profile-btn" class="nav-login-btn d-none" href="visual/template/account.html"><i
+                            class="bi bi-person-circle"></i>
                         <span id="user-nav-name">Profile</span></a>
                     <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
                             class="bi bi-list" id="hamburgerIcon"></i></button>
@@ -213,13 +232,20 @@
                 <div class="cat-pill active" data-cat="For You" onclick="filterProducts('All', this)"><i
                         class="bi bi-grid-fill"></i> For You</div>
                 <div class="cat-pill" data-cat="Grocery" onclick="filterProducts('Grocery', this)"><i
-                        class="bi bi-grid-fill"></i> <a style="text-decoration: none; color: inherit; " href="visual/template/grocery.html">Grocery</a></div>
+                        class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; "
+                        href="visual/template/grocery.html">Grocery</a></div>
                 <div class="cat-pill" data-cat="Fashion" onclick="filterProducts('Fashion', this)"><i
-                        class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; " href="visual/template/fashion.html">Fashion</a></div>
+                        class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; "
+                        href="visual/template/fashion.html">Fashion</a></div>
                 <div class="cat-pill" data-cat="Mobiles" onclick="filterProducts('Mobiles', this)"><i
                         class="bi bi-phone"></i> Mobiles</div>
                 <div class="cat-pill" data-cat="Beauty" onclick="filterProducts('Beauty', this)"><i
-                        class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="visual/template/beauty.html">Beauty</a></div>
+                        class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; "
+                        href="visual/template/beauty.html">Beauty</a></div>
+                <div class="cat-pill" data-cat="pet" onclick="filterProducts('pet', this)"><i
+                        class="bi bi-tencent-qq"></i><a style="text-decoration: none; color: inherit; "
+                        href="visual/template/pet.html">Pet</a></div>
+
                 <div class="cat-pill" data-cat="Electronics" onclick="filterProducts('Electronics', this)"><i
                         class="bi bi-cpu"></i> Electronics</div>
                 <div class="cat-pill" data-cat="Home" onclick="filterProducts('Home', this)"><i class="bi bi-house"></i>
@@ -232,16 +258,18 @@
                         class="bi bi-basket"></i> Food</div>
                 <div class="cat-pill" data-cat="Auto" onclick="filterProducts('Auto', this)"><i
                         class="bi bi-car-front"></i> Auto</div>
-                <div class="cat-pill" data-cat="2 Wheelers"><a href="visual/template/2_Wheelers.html" style="text-decoration: none; color: inherit;"><i
-                        class="bi bi-bicycle"></i> 2 Wheelers</a></div>
-                <div class="cat-pill" data-cat="Books" onclick="filterProducts('Books', this)"><i
-                        class="bi bi-book"></i> Books</div>
+                <div class="cat-pill" data-cat="2 Wheelers"><a href="visual/template/2_Wheelers.html"
+                        style="text-decoration: none; color: inherit;"><i class="bi bi-bicycle"></i> 2 Wheelers</a>
+                </div>
+                <div class="cat-pill" data-cat="Books" onclick="filterProducts('Books', this)"><i class="bi bi-book"><a
+                            href="visual/template/Books.html" style="text-decoration: none; color: inherit;"></i>
+                    Books</a></div>
                 <div class="cat-pill" data-cat="Furniture" onclick="filterProducts('Furniture', this)"><i
                         class="bi bi-lamp"></i> Furniture</div>
-                <div class="cat-pill" data-cat="Sports" onclick="filterProducts('Sports', this)"><i
-                        class="bi bi-trophy"></i> Sports</div>
-                <div class="cat-pill" data-cat="Medicines" onclick="filterProducts('Medicines', this)"><i
-                        class="bi bi-capsule"></i> Medicines</div>
+                <div class="cat-pill" data-cat="Sports"><a href="visual/template/Fitness_&_Sports.html"
+                        style="text-decoration: none; color: inherit;"><i class="bi bi-trophy"></i> Sports</a></div>
+                <div class="cat-pill" data-cat="Medicines"><a href="visual/template/Medicine_&_Nutrients.html"
+                        style="text-decoration: none; color: inherit;"><i class="bi bi-capsule"></i> Medicines</a></div>
                 <div class="cat-pill travel-pill" data-cat="Travel">
                     <span class="travel-badge">NEW</span>
                     <a href="visual/template/travel_landing.html" style="text-decoration: none; color: inherit;">
@@ -257,10 +285,11 @@
         <a class="mobile-nav-link" href="#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
         <a class="mobile-nav-link" href="visual/template/seller.html"><i class="bi bi-shop"></i> Partner with us</a>
         <div class="mobile-nav-divider"></div>
-        <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="visual/template/login.html" style="border-radius:12px;"><i
-                class="bi bi-person-circle"></i> Login</a>
-        <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="visual/template/account.html" style="border-radius:12px;"><i
-                class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+        <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="visual/template/login.html"
+            style="border-radius:12px;"><i class="bi bi-person-circle"></i> Login</a>
+        <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="visual/template/account.html"
+            style="border-radius:12px;"><i class="bi bi-person-circle"></i> <span
+                id="user-nav-name-mobile">Profile</span></a>
     </div>
 
     <!-- What's New -->
@@ -284,7 +313,7 @@
                                 <div class="wn-card-overlay"><span class="wn-tag">Fashion Drop</span>
                                     <h3 class="wn-card-title">Summer Organic<br>Collection '25</h3>
                                     <p class="wn-card-desc">Handpicked sustainable wear — now live.</p><a
-                                        href="#Fashion-section" class="wn-btn wn-btn-light">Shop Now <i
+                                        href="visual/template/fashion.html" class="wn-btn wn-btn-light">Shop Now <i
                                             class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -293,17 +322,17 @@
                                     style="background-image:url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700')">
                                     <div class="wn-card-overlay"><span class="wn-tag wn-tag-dark">Electronics</span>
                                         <h4 class="wn-card-title-sm">Elite Tech Arrivals</h4><a
-                                            href="#Electronics-section" class="wn-btn wn-btn-outline">Explore <i
-                                                class="bi bi-arrow-right"></i></a>
+                                            href="visual/template/electronic.html" class="wn-btn wn-btn-outline">Explore
+                                            <i class="bi bi-arrow-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="wn-card wn-half"
                                     style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=700')">
                                     <div class="wn-card-overlay"><span class="wn-tag"
                                             style="background:#D4AF37;color:#1A1A1A;">Grocery</span>
-                                        <h4 class="wn-card-title-sm">Pure Farm Harvest</h4><a href="#Food-section"
-                                            class="wn-btn wn-btn-outline">Order Fresh <i
-                                                class="bi bi-arrow-right"></i></a>
+                                        <h4 class="wn-card-title-sm">Pure Farm Harvest</h4><a
+                                            href="visual/template/grocery.html" class="wn-btn wn-btn-outline">Order
+                                            Fresh <i class="bi bi-arrow-right"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -317,7 +346,7 @@
                                         style="background:#e8748a;">Beauty</span>
                                     <h3 class="wn-card-title">Glow Up<br>Essentials '25</h3>
                                     <p class="wn-card-desc">Serums, mists & skin care — freshly restocked.</p><a
-                                        href="#Beauty-section" class="wn-btn wn-btn-light">Shop Now <i
+                                        href="visual/template/beauty.html" class="wn-btn wn-btn-light">Shop Now <i
                                             class="bi bi-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -358,8 +387,8 @@
                                     style="background-image:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700')">
                                     <div class="wn-card-overlay"><span class="wn-tag wn-tag-dark">Audio</span>
                                         <h4 class="wn-card-title-sm">Noise Buds Pro Drop</h4><a
-                                            href="#Electronics-section" class="wn-btn wn-btn-outline">Listen Up <i
-                                                class="bi bi-arrow-right"></i></a>
+                                            href="visual/template/electronic.html" class="wn-btn wn-btn-outline">Listen
+                                            Up <i class="bi bi-arrow-right"></i></a>
                                     </div>
                                 </div>
                                 <div class="wn-card wn-half"
@@ -462,8 +491,8 @@
         </div>
     </section>
 
-    
-       
+
+
     <script>
         const WN_TOTAL = 5, WN_DURATION = 4500;
         let wnCurrent = 0, wnTimer = null;
@@ -598,7 +627,7 @@
         </div>
     </footer>
 
-    
+
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -1265,3 +1294,4 @@
     </style>
 
 </html>
+<!-- jiijxm -->

@@ -1,0 +1,748 @@
+/* ===================================================
+   Medicine_&_Nutrients.css — Hero Carousel & Page Styles
+   Theme: Green, White & Black (Medical / Health)
+   =================================================== */
+
+/* --- Medicine Custom Properties --- */
+.med-body {
+    --med-primary: #2d5a27;
+    --med-accent: #4caf50;
+    --med-accent-hover: #388e3c;
+    --med-warm-bg: #ffffff;
+    --med-section-alt: #eef7ee;
+    --med-dark: #070f07;
+    --med-card-border: #e0f2e0;
+    --med-muted: #64748b;
+    background-color: var(--med-warm-bg);
+}
+
+/* --- Hero Carousel Base --- */
+.hero-carousel {
+    position: relative;
+    height: 85vh;
+    width: 100%;
+    overflow: hidden;
+    background: var(--med-dark);
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel-inner {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    pointer-events: none;
+    background-color: var(--med-dark);
+}
+
+.carousel-slide.active {
+    display: flex;
+    z-index: 2;
+    pointer-events: auto;
+}
+
+/* Slide Animations */
+@keyframes slideFromRight {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes slideFromLeft {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+.carousel-slide.active.next-slide {
+    animation: slideFromRight 0.5s linear forwards;
+}
+
+.carousel-slide.active.prev-slide {
+    animation: slideFromLeft 0.5s linear forwards;
+}
+
+/* Content fade-in */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: perspective(1000px) rotateY(15deg) translateY(50px) scale(0.9); }
+    to { opacity: 1; transform: perspective(1000px) rotateY(0deg) translateY(0) scale(1); }
+}
+
+/* --- Carousel Arrow Controls --- */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(76, 175, 80, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.25);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 30;
+    opacity: 0;
+    transition: 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-carousel:hover .carousel-control {
+    opacity: 1;
+}
+
+.carousel-control:hover {
+    background: var(--med-accent);
+    border-color: var(--med-accent);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 0 25px rgba(76, 175, 80, 0.4);
+}
+
+.carousel-control.prev { left: 30px; }
+.carousel-control.next { right: 30px; }
+
+/* --- Hero Content Layout --- */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    max-width: 1400px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 1rem;
+    z-index: 10;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.hero-text {
+    flex: 0 0 50%;
+    color: white;
+    text-align: left;
+    padding-right: 2rem;
+    box-sizing: border-box;
+}
+
+.hero-text .category-tag {
+    background: var(--med-accent);
+    color: white;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    opacity: 0;
+}
+
+.carousel-slide.active .category-tag {
+    animation: fadeInUp 0.8s ease-in-out forwards 0.15s;
+}
+
+.hero-text h1 {
+    font-size: 4.5rem;
+    line-height: 1.05;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+}
+
+.carousel-slide.active h1 {
+    animation: fadeInUp 0.8s ease-in-out forwards 0.3s;
+}
+
+.hero-text p {
+    font-size: 1.3rem;
+    opacity: 0;
+    margin-bottom: 3rem;
+    max-width: 550px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.carousel-slide.active p {
+    animation: fadeInUp 0.8s ease-in-out forwards 0.45s;
+}
+
+/* --- Hero Product Card (Glassmorphic) --- */
+.hero-product-display {
+    flex: 0 0 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.hero-card {
+    background: rgba(76, 175, 80, 0.06);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border: 1px solid rgba(76, 175, 80, 0.15);
+    border-radius: 40px;
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    max-height: 90%;
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5),
+        inset 0 0 0 1px rgba(76, 175, 80, 0.08);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.carousel-slide.active .hero-card {
+    animation: scaleIn 1s ease-in-out forwards 0.2s;
+}
+
+.hero-card:hover {
+    transform: perspective(1000px) scale(1.02) translateY(-10px);
+    background: rgba(76, 175, 80, 0.09);
+    transition: all 0.4s ease;
+}
+
+.hero-card img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: contain;
+    margin: 0 auto 0.8rem auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+    flex-shrink: 1;
+    border-radius: 12px;
+}
+
+.hero-card h3 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.hero-card .hero-price {
+    font-size: 1.5rem;
+    color: var(--med-accent);
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.hero-card .btn-light {
+    background: white;
+    color: #0f172a;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    width: fit-content;
+    align-self: center;
+}
+
+.hero-card .btn-light:hover {
+    background: var(--med-accent);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+}
+
+/* --- Carousel Navigation Dots --- */
+.carousel-nav {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 1rem;
+    z-index: 20;
+}
+
+.carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.carousel-dot.active {
+    background: var(--med-accent);
+    width: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+}
+
+/* --- Progress Bar --- */
+.carousel-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    z-index: 40;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, var(--med-accent), #81c784);
+    transition: width 0.1s linear;
+    box-shadow: 0 0 10px var(--med-accent);
+}
+
+/* --- Feature Trust Banner --- */
+.feature-banner {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    padding: 3rem 5%;
+    background: linear-gradient(135deg, #e8f5e9, #f1f8f1, #ffffff);
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--med-card-border);
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.06);
+    transition: var(--transition);
+}
+
+.feature-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(76, 175, 80, 0.12);
+}
+
+.feature-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    background: #e8f5e9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--med-accent);
+    flex-shrink: 0;
+}
+
+.feature-item h4 {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 0.2rem;
+}
+
+.feature-item p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* --- Health Category Strip --- */
+.health-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 1.2rem 5%;
+    background: linear-gradient(135deg, #1a3a15, #2d5a27);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.health-strip::-webkit-scrollbar { display: none; }
+
+.health-strip-item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.6rem 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.88rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.health-strip-item:hover {
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--med-accent);
+}
+
+.health-strip-item i {
+    color: var(--med-accent);
+    font-size: 1rem;
+}
+
+.health-strip-divider {
+    width: 1px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.15);
+    flex-shrink: 0;
+}
+
+/* --- Category Tabs --- */
+.category-tabs {
+    display: flex;
+    gap: 0.6rem;
+    padding: 1.5rem 5%;
+    background: white;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    border-bottom: 2px solid var(--med-card-border);
+}
+
+.category-tabs::-webkit-scrollbar { display: none; }
+
+.category-tab {
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    border: 1.5px solid #e2e8f0;
+    background: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.category-tab:hover,
+.category-tab.active {
+    border-color: var(--med-accent);
+    color: white;
+    background: var(--med-accent);
+    box-shadow: 0 3px 10px rgba(76, 175, 80, 0.2);
+}
+
+.category-tab i {
+    font-size: 0.9rem;
+}
+
+/* --- Section Override for Med Theme --- */
+.med-body .section-header h2::before {
+    background-color: var(--med-accent);
+}
+
+.med-body .section-tagline {
+    color: var(--med-accent);
+}
+
+.med-body .view-all {
+    color: var(--med-accent);
+}
+
+.med-body .view-all:hover {
+    color: var(--med-primary);
+}
+
+.med-body .product-badge.badge-deal { background: #e74c3c; color: white; }
+.med-body .product-badge.badge-best { background: #f1c40f; color: #1e293b; }
+.med-body .product-badge.badge-new  { background: var(--med-accent); color: white; }
+
+.med-body .product-price {
+    color: var(--med-primary);
+}
+
+.med-body .add-to-cart {
+    border-color: var(--med-accent);
+    color: var(--med-accent);
+}
+
+.med-body .add-to-cart:hover {
+    background-color: var(--med-accent);
+    color: white;
+}
+
+/* Product extra info */
+.med-subtitle {
+    font-size: 0.82rem;
+    color: var(--med-muted);
+    margin-bottom: 0.4rem;
+}
+
+.med-dosage {
+    font-size: 0.78rem;
+    color: var(--med-accent);
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+/* Rx badge */
+.rx-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #1a1a1a;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* --- Health Tip Banner --- */
+.health-tip-banner {
+    background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+    padding: 4rem 5%;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.health-tip-banner i.quote-icon {
+    font-size: 3rem;
+    color: var(--med-accent);
+    opacity: 0.5;
+    margin-bottom: 1.5rem;
+}
+
+.health-tip-banner blockquote {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto 1rem;
+    letter-spacing: 0.5px;
+}
+
+.health-tip-banner cite {
+    font-size: 1rem;
+    color: var(--med-accent);
+    font-weight: 600;
+    font-style: normal;
+}
+
+/* --- Expert Spotlight --- */
+.expert-spotlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2rem;
+    padding: 1rem 0;
+}
+
+.expert-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border: 1px solid var(--med-card-border);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.35s ease;
+    cursor: pointer;
+}
+
+.expert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(76, 175, 80, 0.15);
+    border-color: var(--med-accent);
+}
+
+.expert-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid var(--med-accent);
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+}
+
+.expert-card h4 {
+    font-size: 1.05rem;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+}
+
+.expert-card .expert-specialty {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--med-accent);
+    margin-bottom: 0.5rem;
+}
+
+.expert-card .expert-bio {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* --- Newsletter Section --- */
+.newsletter-section {
+    background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+    padding: 5rem 5%;
+    text-align: center;
+    color: white;
+}
+
+.newsletter-section h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 1rem;
+}
+
+.newsletter-section p {
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.newsletter-form {
+    display: flex;
+    gap: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    border-radius: 50px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    font-family: 'Outfit', sans-serif;
+}
+
+.newsletter-form button {
+    padding: 1rem 2rem;
+    background: var(--med-accent);
+    color: white;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-size: 0.95rem;
+    font-family: 'Outfit', sans-serif;
+}
+
+.newsletter-form button:hover {
+    background: var(--med-primary);
+}
+
+/* --- Responsive Design --- */
+
+@media (max-width: 992px) {
+    .hero-carousel {
+        height: auto;
+        min-height: 90vh;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
+        padding: 4rem 2rem;
+    }
+
+    .hero-text {
+        text-align: center;
+        padding-right: 0;
+        flex: 1;
+    }
+
+    .hero-text h1 { font-size: 3rem; margin-bottom: 1.5rem; }
+    .hero-text p { margin: 0 auto 2.5rem auto; font-size: 1.1rem; }
+
+    .hero-product-display { flex: 1; width: 100%; padding-bottom: 4rem; }
+    .hero-card { width: 100%; max-width: 320px; margin: 0 auto; }
+
+    .feature-banner { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    .expert-spotlight { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+}
+
+@media (max-width: 768px) {
+    .hero-text h1 { font-size: 2.5rem; }
+    .hero-text p { font-size: 1rem; }
+    .carousel-control { width: 44px; height: 44px; font-size: 1.1rem; }
+    .carousel-control.prev { left: 12px; }
+    .carousel-control.next { right: 12px; }
+    .feature-banner { grid-template-columns: 1fr 1fr; padding: 2rem 5%; }
+    .feature-item { padding: 1rem; }
+    .feature-icon { width: 42px; height: 42px; font-size: 1.1rem; }
+    .health-strip { justify-content: flex-start; }
+
+    .newsletter-form {
+        flex-direction: column;
+        border-radius: 16px;
+    }
+    .newsletter-form input { border-radius: 12px 12px 0 0; }
+    .newsletter-form button { border-radius: 0 0 12px 12px; }
+}
+
+@media (max-width: 480px) {
+    .hero-carousel { min-height: 80vh; padding-top: 2rem; }
+    .hero-content { padding: 2rem 1rem; gap: 2rem; }
+    .hero-text h1 { font-size: 2rem; }
+    .hero-text .category-tag { padding: 0.4rem 1.2rem; font-size: 0.75rem; letter-spacing: 2px; }
+    .hero-text p { font-size: 0.9rem; margin-bottom: 2rem; }
+    .hero-card { padding: 1.5rem 1rem; border-radius: 24px; max-width: 280px; }
+    .hero-card img { max-height: 130px; }
+    .hero-card h3 { font-size: 1.1rem; }
+    .hero-card .hero-price { font-size: 1.2rem; }
+    .hero-card .btn-light { padding: 0.6rem 1.4rem; font-size: 0.85rem; }
+    .carousel-nav { bottom: 20px; gap: 0.6rem; }
+    .carousel-dot { width: 8px; height: 8px; }
+    .carousel-dot.active { width: 28px; }
+    .feature-banner { grid-template-columns: 1fr; gap: 0.8rem; padding: 1.5rem 5%; }
+    .carousel-control { width: 36px; height: 36px; font-size: 0.9rem; }
+    .carousel-control.prev { left: 8px; }
+    .carousel-control.next { right: 8px; }
+    .health-tip-banner { padding: 3rem 5%; }
+    .health-tip-banner blockquote { font-size: 1.1rem; }
+}

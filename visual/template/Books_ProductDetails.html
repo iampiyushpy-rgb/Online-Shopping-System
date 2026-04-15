@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details — BookShelf</title>
+    <meta name="description" content="View detailed book information, reviews, and related reads at BookShelf.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <link rel="stylesheet" href="../css/ProductDetails.css">
+    <style>
+        /* --- Books Theme Overrides for Product Details --- */
+        :root {
+            --bk-primary: #2d5a27;
+            --bk-accent: #4caf50;
+            --bk-warm-bg: #f8fafc;
+        }
+
+        body {
+            background: #f8fafc;
+        }
+
+        .back-link {
+            background: white;
+            border-color: #e8f5e9;
+        }
+
+        .back-link i {
+            color: var(--accent-green);
+        }
+
+        .back-link:hover {
+            background: var(--light-green);
+            color: var(--bk-primary);
+        }
+
+        .price-tag,
+        .apc-price {
+            color: var(--primary-green) !important;
+        }
+
+        .btn-buy {
+            background: var(--bk-accent);
+        }
+
+        .btn-buy:hover {
+            background: var(--primary-green);
+        }
+
+        .btn-add-cart {
+            color: var(--accent-green);
+            border-color: var(--accent-green);
+        }
+
+        .btn-add-cart:hover {
+            background: var(--light-green);
+        }
+
+        .pd-badge {
+            background: var(--bk-accent);
+        }
+
+        .pd-like-btn:hover {
+            color: #ef4444;
+        }
+
+        .pd-like-btn.liked {
+            color: #ef4444;
+            background: #fff1f2;
+        }
+
+        .pd-discount-badge {
+            background: linear-gradient(135deg, #c0392b, #a93226);
+        }
+
+        /* Book-specific author line */
+        .book-detail-author {
+            font-size: 1.1rem;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Offers section */
+        .offers-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid #e8f5e9;
+        }
+
+        .offers-section h4 {
+            margin-bottom: 1rem;
+            color: var(--bk-primary);
+        }
+
+        .offer-item {
+            border-left: 3px solid var(--accent-green);
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .offer-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .offer-item p:first-child {
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .offer-item p:last-child {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .offer-item a {
+            color: var(--bk-accent);
+        }
+
+        /* Category label */
+        #category-name {
+            color: var(--accent-green) !important;
+        }
+
+        /* Spec grid */
+        .spec-item {
+            border-color: #e8f5e9;
+        }
+
+        /* Section header accent */
+        .section-header h2::before {
+            background-color: var(--accent-green) !important;
+        }
+
+        /* Product cards in related section */
+        .product-card .product-price {
+            color: var(--bk-primary);
+        }
+
+        .product-card .add-to-cart {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .product-card .add-to-cart:hover {
+            background: var(--bk-accent);
+            color: white;
+        }
+
+        /* Related products book author */
+        .related-author {
+            font-size: 0.78rem;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="breadcrumb-nav">
+        <a href="../template/Books.html" class="back-link">
+            <i class="fas fa-arrow-left"></i> <span>Back to BookShelf</span>
+        </a>
+    </nav>
+
+    <div class="details-container" style="padding-top: 25px;">
+        <!-- Left: Image Gallery -->
+        <div class="product-gallery">
+            <div class="main-image-container">
+                <img id="product-img" src="" alt="Book Cover" class="main-image">
+                <!-- Badge -->
+                <span class="pd-badge" id="product-badge" style="display:none;"></span>
+                <!-- Like Button -->
+                <button class="pd-like-btn" id="like-btn" title="Add to Wishlist">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            <div class="thumbnail-container" id="thumb-list">
+                <!-- Thumbnails populated via JS -->
+            </div>
+
+            <!-- Book Preview Section -->
+            <div class="video-player-container">
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=800&h=450&fit=crop"
+                    style="width: 100%; height: 100%; object-fit: cover; opacity: 0.6;">
+                <div class="video-overlay" onclick="alert('Opening book preview...')">
+                    <i class="fas fa-book-open play-btn"></i>
+                    <p style="font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                        Read Sample Chapter</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Meta Data -->
+        <div class="product-meta">
+            <p id="category-name"
+                style="color: var(--accent-green); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem;">
+                Books</p>
+            <h1 id="product-title">Loading Book...</h1>
+            <p class="book-detail-author" id="book-author"></p>
+
+            <!-- Dynamic Rating -->
+            <div class="rating" id="rating-container">
+                <!-- Stars and text injected via JS -->
+            </div>
+
+            <!-- Price Row with Original Price & Discount -->
+            <div class="pd-price-row">
+                <div class="price-tag" id="product-price">$0.00</div>
+                <span class="pd-original-price" id="original-price" style="display:none;"></span>
+                <span class="pd-discount-badge" id="discount-badge" style="display:none;"></span>
+            </div>
+
+            <p class="description" id="product-desc">
+                Discover your next great read. This carefully curated book offers an unforgettable
+                journey through words that will stay with you long after the last page.
+            </p>
+
+            <div class="spec-grid">
+                <div class="spec-item">
+                    <span>Format</span>
+                    <strong id="spec-format">Paperback</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Pages</span>
+                    <strong>320 pages</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Language</span>
+                    <strong>English</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Shipping</span>
+                    <strong>Free over $25</strong>
+                </div>
+            </div>
+
+            <div class="action-btns">
+                <button class="btn-buy"><i class="fas fa-bolt"></i> BUY NOW</button>
+                <button class="btn-add-cart"><i class="fas fa-shopping-cart"></i> ADD TO CART</button>
+            </div>
+
+            <div class="offers-section">
+                <h4><i class="fas fa-tags" style="color: var(--accent-green); margin-right: 0.5rem;"></i>Offers & Savings</h4>
+                <div class="offer-item">
+                    <p>Book Bundle Deal</p>
+                    <p>Buy 3 books, get 15% off your entire order. <a href="#">See Details</a></p>
+                </div>
+                <div class="offer-item">
+                    <p>Student Discount</p>
+                    <p>20% off with valid student ID — applies automatically at checkout.</p>
+                </div>
+                <div class="offer-item">
+                    <p>Free Bookmark</p>
+                    <p>Every order includes a handcrafted artisan bookmark while supplies last.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products -->
+    <section class="container" style="background: var(--bg-gray);">
+        <div class="section-header">
+            <h2>Readers also enjoyed</h2>
+        </div>
+        <div class="product-scroll-container" id="related-scroll">
+            <!-- Populated via JS -->
+        </div>
+    </section>
+
+    <footer style="background-color: #2d5a27; color: white; padding: 4rem 5%;">
+        <!-- Footer content -->
+        <div style="text-align: center; opacity: 0.6; font-size: 0.8rem;">
+            &copy; 2026 BookShelf. All rights reserved. | Made with <i class="fas fa-heart"
+                style="color: #4caf50;"></i> for book lovers
+        </div>
+    </footer>
+
+    <script src="../js/Books_ProductDetails.js" defer></script>
+</body>
+
+</html>

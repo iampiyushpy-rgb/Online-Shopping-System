@@ -1,477 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PAWCO — Premium Pet Care</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/pet.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PAWCO — Premium Pet Care</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/pet.css">
+  <link rel="stylesheet" href="../css/navbar.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
 </head>
+
 <body>
 
-<!-- CURSOR -->
-<div id="cur-dot"></div>
-<div id="cur-ring"></div>
-
-<!-- LOADER -->
-<div id="loader">
-  <div class="loader-paw">
-    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-      <ellipse cx="40" cy="52" rx="18" ry="14" fill="none" stroke="#FFB347" stroke-width="2"/>
-      <ellipse cx="22" cy="34" rx="7" ry="9" fill="none" stroke="#FF8C42" stroke-width="1.5"/>
-      <ellipse cx="58" cy="34" rx="7" ry="9" fill="none" stroke="#FF8C42" stroke-width="1.5"/>
-      <ellipse cx="32" cy="24" rx="5" ry="7" fill="none" stroke="#FFB347" stroke-width="1.5"/>
-      <ellipse cx="48" cy="24" rx="5" ry="7" fill="none" stroke="#FFB347" stroke-width="1.5"/>
-    </svg>
-  </div>
-  <div class="loader-brand">PAW<span>CO</span></div>
-  <div class="loader-track"><div class="loader-fill"></div></div>
-  <div class="loader-tagline">Loved by pets, trusted by families</div>
-</div>
-
-
-
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="hero-canvas">
-    <div class="blob blob1"></div>
-    <div class="blob blob2"></div>
-    <div class="blob blob3"></div>
-    <div class="paw-bg paw1">🐾</div>
-    <div class="paw-bg paw2">🐾</div>
-    <div class="paw-bg paw3">🐾</div>
-  </div>
-
-  <div class="hero-left">
-    <div class="hero-badge">🏆 India's #1 Pet Care Brand</div>
-    <h1 class="hero-title">
-      Because They
-      <span class="italic">Deserve</span>
-      <span class="line2">The Best</span>
-    </h1>
-    <p class="hero-sub">Vet-formulated, naturally sourced food, grooming & accessories for dogs, cats, birds & small pets. Tail wags guaranteed.</p>
-    <div class="hero-actions">
-      <a href="#products" class="btn-fill"><span>Explore Products</span></a>
-      <a href="#nutrition" class="btn-ghost">Our Nutrition</a>
-    </div>
-    <div class="hero-trust">
-      <div class="trust-item"><span class="trust-num">80K+</span><span class="trust-label">Happy Pets</span></div>
-      <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Vet Approved</span></div>
-      <div class="trust-item"><span class="trust-num">Zero</span><span class="trust-label">Artificial Additives</span></div>
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-overlay-inner">
+      <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
+      <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
+      <button class="nav-icon-btn" onclick="toggleSearch()"
+        style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
+          class="bi bi-search"></i></button>
     </div>
   </div>
 
-  <div class="hero-right">
-    <div class="hero-scene-3d">
-      <div class="float-chip chip1"><div class="chip-dot orange"></div>Vet Approved</div>
-      <div class="float-chip chip2"><div class="chip-dot yellow"></div>Grain Free Option</div>
-      <div class="float-chip chip3"><div class="chip-dot green"></div>Natural Ingredients</div>
+  <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
 
-      <div class="card-main">
-        <div class="card-main-bg">
-          <div class="product-3d-wrap">
-            <div class="prod-bag">
-              <div class="prod-label"></div>
-              <div class="prod-shine"></div>
-              <div class="prod-paw">🐾</div>
+  <nav class="navbar animate__animated animate__fadeInDown">
+    <div class="container">
+      <div class="navbar-inner w-100">
+        <a class="navbar-brand fw-bold" href="../../index.html"
+          style="display:flex;align-items:center;gap:0;text-decoration:none;">
+          <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="flex-shrink:0;">
+            <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+            <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
+              stroke-linecap="round" fill="none" />
+            <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="9.5" cy="17" r="1.2" fill="white" />
+            <circle cx="16.5" cy="17" r="1.2" fill="white" />
+            <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#1A1A1A"
+              letter-spacing="-0.3">Urban</text>
+            <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#5A8A5A"
+              letter-spacing="-0.3">mart</text>
+            <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+          </svg>
+        </a>
+        <ul class="nav-links ms-3">
+          <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
+        </ul>
+        <div class="nav-search-bar">
+          <i class="bi bi-search nav-search-icon"></i>
+          <input type="text" id="navSearchInput" class="nav-search-input" placeholder="Search products, categories...">
+          <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+              class="bi bi-x"></i></button>
+        </div>
+        <div class="nav-right">
+          <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites" style="position:relative;">
+            <i class="bi bi-heart"></i>
+            <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
+          </button>
+          <div class="settings-wrapper">
+            <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                class="bi bi-gear"></i></button>
+            <div class="settings-panel" id="settingsPanel">
+              <div class="settings-panel-header">Preferences</div>
+              <div class="settings-item" onclick="toggleSetting('notifications')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                  <div>
+                    <div class="settings-item-label">Notifications</div>
+                    <div class="settings-item-sub">Deals &amp; order updates</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-notifications"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('darkmode')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                  <div>
+                    <div class="settings-item-label">Dark Mode</div>
+                    <div class="settings-item-sub">Switch appearance</div>
+                  </div>
+                </div>
+                <button class="s-toggle" id="toggle-darkmode"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('offers')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                  <div>
+                    <div class="settings-item-label">Personalised Offers</div>
+                    <div class="settings-item-sub">Based on your activity</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-offers"></button>
+              </div>
+              <div class="settings-divider"></div>
+              <div class="settings-panel-header">Account</div>
+              <a class="settings-link-item" href="login.html">
+                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                  Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="#">
+                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                  Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="seller.html">
+                <div class="settings-item-icon" style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                    class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                  with Us</span><i class="bi bi-chevron-right ms-auto"
+                  style="font-size:0.7rem;color:var(--primary-nature);"></i>
+              </a>
+              <a class="settings-link-item" href="about.html">
+                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                  UrbanMart</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+            </div>
+          </div>
+          <button class="nav-icon-btn" onclick="window.location.href='cart.html'" title="Cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+          <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
+            Login</a>
+          <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
+            <span id="user-nav-name">Profile</span></a>
+          <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i class="bi bi-list"
+              id="hamburgerIcon"></i></button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="category-nav-bar" id="categoryNavBar">
+    <div class="category-nav-overflow-wrap" id="catOverflowWrap">
+      <div class="category-nav-scroll" id="category-filters">
+        <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-grid-fill"></i> For You</div>
+        <div class="cat-pill " data-cat="Grocery" onclick="window.location.href='grocery.html'"><i
+            class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; " href="grocery.html">Grocery</a>
+        </div>
+        <div class="cat-pill " data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
+            class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; "
+            href="fashion.html">Fashion</a></div>
+        <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-phone"></i> Mobiles</div>
+        <div class="cat-pill " data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
+            class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="beauty.html">Beauty</a>
+        </div>
+        <div class="cat-pill active" data-cat="Pet" onclick="window.location.href='pet.html'"><i
+            class="bi bi-tencent-qq"></i> Pet</div>
+
+        <div class="cat-pill " data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
+            class="bi bi-cpu"></i> Electronics</div>
+        <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
+            class="bi bi-house"></i>
+          Home</div>
+        <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lightning-charge"></i> Appliances</div>
+        <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-controller"></i> Toys</div>
+        <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-basket"></i> Food</div>
+        <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-car-front"></i> Auto</div>
+        <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a
+            href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i class="bi bi-bicycle"></i> 2
+            Wheelers</a></div>
+        <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i class="bi bi-book"></i>
+          <a href="Books.html" style="text-decoration: none; color: inherit;">Books</a>
+        </div>
+        <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lamp"></i> Furniture</div>
+        <div class="cat-pill " data-cat="Sports" onclick="window.location.href='Fitness_&_Sports.html'"><a
+            href="Fitness_&_Sports.html" style="text-decoration: none; color: inherit;"><i class="bi bi-trophy"></i>
+            Sports</a></div>
+        <div class="cat-pill " data-cat="Medicines" onclick="window.location.href='Medicine_&_Nutrients.html'"><a
+            href="Medicine_&_Nutrients.html" style="text-decoration: none; color: inherit;"><i
+              class="bi bi-capsule"></i> Medicines</a></div>
+        <div class="cat-pill travel-pill " data-cat="Travel" onclick="window.location.href='travel_landing.html'">
+          <span class="travel-badge">NEW</span>
+          <a href="travel_landing.html" style="text-decoration: none; color: inherit;">
+            <i class="bi bi-airplane-fill"></i> Travel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-mobile-panel" id="mobilePanel">
+    <a class="mobile-nav-link" href="../../index.html#home" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+    <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
+    <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+    <div class="mobile-nav-divider"></div>
+    <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+        class="bi bi-person-circle"></i> Login</a>
+    <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html"
+      style="border-radius:12px;"><i class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+  </div>
+
+
+  <!-- CURSOR -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-paw">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="40" cy="52" rx="18" ry="14" fill="none" stroke="#FFB347" stroke-width="2" />
+        <ellipse cx="22" cy="34" rx="7" ry="9" fill="none" stroke="#FF8C42" stroke-width="1.5" />
+        <ellipse cx="58" cy="34" rx="7" ry="9" fill="none" stroke="#FF8C42" stroke-width="1.5" />
+        <ellipse cx="32" cy="24" rx="5" ry="7" fill="none" stroke="#FFB347" stroke-width="1.5" />
+        <ellipse cx="48" cy="24" rx="5" ry="7" fill="none" stroke="#FFB347" stroke-width="1.5" />
+      </svg>
+    </div>
+    <div class="loader-brand">PAW<span>CO</span></div>
+    <div class="loader-track">
+      <div class="loader-fill"></div>
+    </div>
+    <div class="loader-tagline">Loved by pets, trusted by families</div>
+  </div>
+
+
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-canvas">
+      <div class="blob blob1"></div>
+      <div class="blob blob2"></div>
+      <div class="blob blob3"></div>
+      <div class="paw-bg paw1">🐾</div>
+      <div class="paw-bg paw2">🐾</div>
+      <div class="paw-bg paw3">🐾</div>
+    </div>
+
+    <div class="hero-left">
+      <div class="hero-badge">🏆 India's #1 Pet Care Brand</div>
+      <h1 class="hero-title">
+        Because They
+        <span class="italic">Deserve</span>
+        <span class="line2">The Best</span>
+      </h1>
+      <p class="hero-sub">Vet-formulated, naturally sourced food, grooming & accessories for dogs, cats, birds & small
+        pets. Tail wags guaranteed.</p>
+      <div class="hero-actions">
+        <a href="#products" class="btn-fill"><span>Explore Products</span></a>
+        <a href="#nutrition" class="btn-ghost">Our Nutrition</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="trust-num">80K+</span><span class="trust-label">Happy Pets</span></div>
+        <div class="trust-item"><span class="trust-num">100%</span><span class="trust-label">Vet Approved</span></div>
+        <div class="trust-item"><span class="trust-num">Zero</span><span class="trust-label">Artificial Additives</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-scene-3d">
+        <div class="float-chip chip1">
+          <div class="chip-dot orange"></div>Vet Approved
+        </div>
+        <div class="float-chip chip2">
+          <div class="chip-dot yellow"></div>Grain Free Option
+        </div>
+        <div class="float-chip chip3">
+          <div class="chip-dot green"></div>Natural Ingredients
+        </div>
+
+        <div class="card-main">
+          <div class="card-main-bg">
+            <div class="product-3d-wrap">
+              <div class="prod-bag">
+                <div class="prod-label"></div>
+                <div class="prod-shine"></div>
+                <div class="prod-paw">🐾</div>
+              </div>
+            </div>
+          </div>
+          <div class="card-main-info">
+            <h4>Premium Chicken & Rice</h4>
+            <p>Dogs · Adult Formula · 5kg</p>
+            <div class="price-row">
+              <span class="price">₹2,499</span>
+              <button class="add-quick" onclick="addToCart(1)">+ Add</button>
             </div>
           </div>
         </div>
-        <div class="card-main-info">
-          <h4>Premium Chicken & Rice</h4>
-          <p>Dogs · Adult Formula · 5kg</p>
-          <div class="price-row">
-            <span class="price">₹2,499</span>
-            <button class="add-quick" onclick="addToCart(1)">+ Add</button>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-bar"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker">
+    <div class="ticker-track" id="tickerTrack">
+      <span class="ticker-item">Free Shipping Above ₹999</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">100% Natural Ingredients</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">Vet Recommended Formulas</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">30-Day Satisfaction Guarantee</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">Delivered in 48 Hours</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">Free Shipping Above ₹999</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">100% Natural Ingredients</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">Vet Recommended Formulas</span>
+      <span class="ticker-sep">🐾</span>
+      <span class="ticker-item">30-Day Satisfaction Guarantee</span>
+      <span class="ticker-sep">🐾</span>
+    </div>
+  </div>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="sec-header reveal">
+      <span class="sec-tag">Shop By Pet</span>
+      <h2 class="sec-title">Care for <span class="ital">Every Companion</span></h2>
+      <p class="sec-sub">From playful pups to curious cats, chirpy birds to tiny hamsters — we have everything they
+        need.</p>
+    </div>
+    <div class="cat-grid">
+      <div class="cat-card cat-dogs reveal reveal-d1" onclick="filterByCategory('dogs')">
+        <div class="cat-bg-layer"></div>
+        <div class="cat-pattern"></div>
+        <div class="cat-icon-wrap">🐕</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Category</div>
+          <div class="cat-name">Dogs</div>
+          <div class="cat-count">220+ Products</div>
+          <a class="cat-link">Shop Dogs →</a>
+        </div>
+      </div>
+      <div class="cat-card cat-cats reveal reveal-d2" onclick="filterByCategory('cats')">
+        <div class="cat-bg-layer"></div>
+        <div class="cat-pattern"></div>
+        <div class="cat-icon-wrap">🐈</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Category</div>
+          <div class="cat-name">Cats</div>
+          <div class="cat-count">160+ Products</div>
+          <a class="cat-link">Shop Cats →</a>
+        </div>
+      </div>
+      <div class="cat-card cat-birds reveal reveal-d3" onclick="filterByCategory('birds')">
+        <div class="cat-bg-layer"></div>
+        <div class="cat-pattern"></div>
+        <div class="cat-icon-wrap">🐦</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Category</div>
+          <div class="cat-name">Birds</div>
+          <div class="cat-count">90+ Products</div>
+          <a class="cat-link">Shop Birds →</a>
+        </div>
+      </div>
+      <div class="cat-card cat-small reveal reveal-d4" onclick="filterByCategory('all')">
+        <div class="cat-bg-layer"></div>
+        <div class="cat-pattern"></div>
+        <div class="cat-icon-wrap">🐹</div>
+        <div class="cat-overlay"></div>
+        <div class="cat-info">
+          <div class="cat-eyebrow">Category</div>
+          <div class="cat-name">Small Pets</div>
+          <div class="cat-count">70+ Products</div>
+          <a class="cat-link">Shop Small →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="section section-alt" id="products">
+    <div class="sec-header center reveal">
+      <span class="sec-tag">Our Products</span>
+      <h2 class="sec-title">Tail-Wagging <span class="ital">Favourites</span></h2>
+      <p class="sec-sub">Curated with love — vet-approved nutrition, premium grooming & fun accessories.</p>
+    </div>
+    <div class="filter-row reveal">
+      <button class="f-tab on" onclick="filterProd(this,'all')">All</button>
+      <button class="f-tab" onclick="filterProd(this,'food')">Food</button>
+      <button class="f-tab" onclick="filterProd(this,'treats')">Treats</button>
+      <button class="f-tab" onclick="filterProd(this,'grooming')">Grooming</button>
+      <button class="f-tab" onclick="filterProd(this,'dogs')">Dogs</button>
+      <button class="f-tab" onclick="filterProd(this,'cats')">Cats</button>
+      <button class="f-tab" onclick="filterProd(this,'sale')">On Sale</button>
+    </div>
+    <div class="prod-grid" id="prodGrid"></div>
+  </section>
+
+  <!-- NUTRITION SECTION -->
+  <section class="nutr-section" id="nutrition">
+    <div class="nutr-bg-rings">
+      <div class="n-ring"></div>
+      <div class="n-ring"></div>
+      <div class="n-ring"></div>
+      <div class="n-ring"></div>
+    </div>
+    <div class="nutr-grid">
+      <div>
+        <span class="sec-tag sec-tag-white reveal">What's Inside</span>
+        <h2 class="sec-title sec-title-white reveal">Powered by <span class="ital">Real Nutrition</span></h2>
+        <p class="sec-sub sec-sub-white reveal">Every PAWCO formula is crafted with real meat, vegetables and superfoods
+          — no fillers, no artificial colours, no compromises.</p>
+        <div class="nutr-list" style="margin-top:32px;">
+          <div class="nutr-item reveal reveal-d1">
+            <div class="nutr-icon">🥩</div>
+            <div class="nutr-text">
+              <h4>Real Meat First</h4>
+              <p>Chicken, lamb or fish listed as the #1 ingredient — premium protein for strong muscles and energy.</p>
+            </div>
+          </div>
+          <div class="nutr-item reveal reveal-d2">
+            <div class="nutr-icon">🥕</div>
+            <div class="nutr-text">
+              <h4>Fresh Vegetables</h4>
+              <p>Carrots, sweet potato and spinach packed with vitamins for immunity and a shiny coat.</p>
+            </div>
+          </div>
+          <div class="nutr-item reveal reveal-d3">
+            <div class="nutr-icon">🐟</div>
+            <div class="nutr-text">
+              <h4>Omega-3 Rich Oils</h4>
+              <p>Salmon and flaxseed oil for skin health, joint support and a lustrous, itch-free coat.</p>
+            </div>
+          </div>
+          <div class="nutr-item reveal reveal-d4">
+            <div class="nutr-icon">🌾</div>
+            <div class="nutr-text">
+              <h4>Prebiotic Fibres</h4>
+              <p>Chicory root and pumpkin for healthy digestion and a happy, settled tummy.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nutr-visual reveal">
+        <div class="nutr-cube-wrap">
+          <div class="cube-face cf-front">🥩</div>
+          <div class="cube-face cf-back">🐟</div>
+          <div class="cube-face cf-left">🥕</div>
+          <div class="cube-face cf-right">🌾</div>
+          <div class="cube-face cf-top">🐾</div>
+          <div class="cube-face cf-bottom">💚</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMO STRIP -->
+  <div class="promo-strip" id="about">
+    <div class="promo-left reveal">
+      <div class="promo-eyebrow">Limited Time Offer</div>
+      <h2 class="promo-title">Happy Tails Sale —<br><em>Up to 35% Off</em></h2>
+      <p class="promo-desc">Stock up on your pet's favourites at the lowest prices of the year. Because every tail wag
+        deserves a reward.</p>
+      <a href="#products" class="btn-white">Shop the Sale</a>
+    </div>
+    <div class="promo-right reveal reveal-d2">
+      <div class="promo-card">
+        <div class="promo-badge">35%</div>
+        <div class="promo-badge-sub">OFF Selected Products</div>
+        <div class="countdown-row">
+          <div class="cd-box"><span class="cd-n" id="cdD">04</span>
+            <div class="cd-l">Days</div>
+          </div>
+          <div class="cd-box"><span class="cd-n" id="cdH">08</span>
+            <div class="cd-l">Hrs</div>
+          </div>
+          <div class="cd-box"><span class="cd-n" id="cdM">22</span>
+            <div class="cd-l">Min</div>
+          </div>
+          <div class="cd-box"><span class="cd-n" id="cdS">00</span>
+            <div class="cd-l">Sec</div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="hero-scroll">
-    <div class="scroll-bar"></div>
-    Scroll
-  </div>
-</section>
-
-<!-- TICKER -->
-<div class="ticker">
-  <div class="ticker-track" id="tickerTrack">
-    <span class="ticker-item">Free Shipping Above ₹999</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">100% Natural Ingredients</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">Vet Recommended Formulas</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">30-Day Satisfaction Guarantee</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">Delivered in 48 Hours</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">Free Shipping Above ₹999</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">100% Natural Ingredients</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">Vet Recommended Formulas</span>
-    <span class="ticker-sep">🐾</span>
-    <span class="ticker-item">30-Day Satisfaction Guarantee</span>
-    <span class="ticker-sep">🐾</span>
-  </div>
-</div>
-
-<!-- CATEGORIES -->
-<section class="section" id="categories">
-  <div class="sec-header reveal">
-    <span class="sec-tag">Shop By Pet</span>
-    <h2 class="sec-title">Care for <span class="ital">Every Companion</span></h2>
-    <p class="sec-sub">From playful pups to curious cats, chirpy birds to tiny hamsters — we have everything they need.</p>
-  </div>
-  <div class="cat-grid">
-    <div class="cat-card cat-dogs reveal reveal-d1" onclick="filterByCategory('dogs')">
-      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
-      <div class="cat-icon-wrap">🐕</div>
-      <div class="cat-overlay"></div>
-      <div class="cat-info">
-        <div class="cat-eyebrow">Category</div>
-        <div class="cat-name">Dogs</div>
-        <div class="cat-count">220+ Products</div>
-        <a class="cat-link">Shop Dogs →</a>
-      </div>
+  <!-- TRENDING -->
+  <section class="section" id="trending">
+    <div class="sec-header reveal">
+      <span class="sec-tag">What's Hot Right Now</span>
+      <h2 class="sec-title">Trending <span class="ital">Picks</span></h2>
     </div>
-    <div class="cat-card cat-cats reveal reveal-d2" onclick="filterByCategory('cats')">
-      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
-      <div class="cat-icon-wrap">🐈</div>
-      <div class="cat-overlay"></div>
-      <div class="cat-info">
-        <div class="cat-eyebrow">Category</div>
-        <div class="cat-name">Cats</div>
-        <div class="cat-count">160+ Products</div>
-        <a class="cat-link">Shop Cats →</a>
-      </div>
-    </div>
-    <div class="cat-card cat-birds reveal reveal-d3" onclick="filterByCategory('birds')">
-      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
-      <div class="cat-icon-wrap">🐦</div>
-      <div class="cat-overlay"></div>
-      <div class="cat-info">
-        <div class="cat-eyebrow">Category</div>
-        <div class="cat-name">Birds</div>
-        <div class="cat-count">90+ Products</div>
-        <a class="cat-link">Shop Birds →</a>
-      </div>
-    </div>
-    <div class="cat-card cat-small reveal reveal-d4" onclick="filterByCategory('all')">
-      <div class="cat-bg-layer"></div><div class="cat-pattern"></div>
-      <div class="cat-icon-wrap">🐹</div>
-      <div class="cat-overlay"></div>
-      <div class="cat-info">
-        <div class="cat-eyebrow">Category</div>
-        <div class="cat-name">Small Pets</div>
-        <div class="cat-count">70+ Products</div>
-        <a class="cat-link">Shop Small →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRODUCTS -->
-<section class="section section-alt" id="products">
-  <div class="sec-header center reveal">
-    <span class="sec-tag">Our Products</span>
-    <h2 class="sec-title">Tail-Wagging <span class="ital">Favourites</span></h2>
-    <p class="sec-sub">Curated with love — vet-approved nutrition, premium grooming & fun accessories.</p>
-  </div>
-  <div class="filter-row reveal">
-    <button class="f-tab on" onclick="filterProd(this,'all')">All</button>
-    <button class="f-tab" onclick="filterProd(this,'food')">Food</button>
-    <button class="f-tab" onclick="filterProd(this,'treats')">Treats</button>
-    <button class="f-tab" onclick="filterProd(this,'grooming')">Grooming</button>
-    <button class="f-tab" onclick="filterProd(this,'dogs')">Dogs</button>
-    <button class="f-tab" onclick="filterProd(this,'cats')">Cats</button>
-    <button class="f-tab" onclick="filterProd(this,'sale')">On Sale</button>
-  </div>
-  <div class="prod-grid" id="prodGrid"></div>
-</section>
-
-<!-- NUTRITION SECTION -->
-<section class="nutr-section" id="nutrition">
-  <div class="nutr-bg-rings">
-    <div class="n-ring"></div><div class="n-ring"></div>
-    <div class="n-ring"></div><div class="n-ring"></div>
-  </div>
-  <div class="nutr-grid">
-    <div>
-      <span class="sec-tag sec-tag-white reveal">What's Inside</span>
-      <h2 class="sec-title sec-title-white reveal">Powered by <span class="ital">Real Nutrition</span></h2>
-      <p class="sec-sub sec-sub-white reveal">Every PAWCO formula is crafted with real meat, vegetables and superfoods — no fillers, no artificial colours, no compromises.</p>
-      <div class="nutr-list" style="margin-top:32px;">
-        <div class="nutr-item reveal reveal-d1">
-          <div class="nutr-icon">🥩</div>
-          <div class="nutr-text"><h4>Real Meat First</h4><p>Chicken, lamb or fish listed as the #1 ingredient — premium protein for strong muscles and energy.</p></div>
+    <div class="trend-grid">
+      <div class="trend-card tc1 reveal reveal-d1">
+        <div class="trend-bg"></div>
+        <div class="trend-ov"></div>
+        <div class="trend-badge">🔥 Bestseller</div>
+        <div class="trend-deco">→</div>
+        <div class="trend-info">
+          <div class="trend-cat">Dogs · Nutrition</div>
+          <div class="trend-name">Starter Puppy Kit</div>
+          <div class="trend-price">From ₹1,299</div>
         </div>
-        <div class="nutr-item reveal reveal-d2">
-          <div class="nutr-icon">🥕</div>
-          <div class="nutr-text"><h4>Fresh Vegetables</h4><p>Carrots, sweet potato and spinach packed with vitamins for immunity and a shiny coat.</p></div>
+      </div>
+      <div class="trend-card tc2 reveal reveal-d2">
+        <div class="trend-bg"></div>
+        <div class="trend-ov"></div>
+        <div class="trend-badge">⭐ Top Rated</div>
+        <div class="trend-deco">→</div>
+        <div class="trend-info">
+          <div class="trend-cat">Cats · Grooming</div>
+          <div class="trend-name">Spa Day Bundle</div>
+          <div class="trend-price">From ₹899</div>
         </div>
-        <div class="nutr-item reveal reveal-d3">
-          <div class="nutr-icon">🐟</div>
-          <div class="nutr-text"><h4>Omega-3 Rich Oils</h4><p>Salmon and flaxseed oil for skin health, joint support and a lustrous, itch-free coat.</p></div>
-        </div>
-        <div class="nutr-item reveal reveal-d4">
-          <div class="nutr-icon">🌾</div>
-          <div class="nutr-text"><h4>Prebiotic Fibres</h4><p>Chicory root and pumpkin for healthy digestion and a happy, settled tummy.</p></div>
+      </div>
+      <div class="trend-card tc3 reveal reveal-d3">
+        <div class="trend-bg"></div>
+        <div class="trend-ov"></div>
+        <div class="trend-badge">🐾 New Arrival</div>
+        <div class="trend-deco">→</div>
+        <div class="trend-info">
+          <div class="trend-cat">All Pets · Accessories</div>
+          <div class="trend-name">Play & Fun Pack</div>
+          <div class="trend-price">From ₹599</div>
         </div>
       </div>
     </div>
-    <div class="nutr-visual reveal">
-      <div class="nutr-cube-wrap">
-        <div class="cube-face cf-front">🥩</div>
-        <div class="cube-face cf-back">🐟</div>
-        <div class="cube-face cf-left">🥕</div>
-        <div class="cube-face cf-right">🌾</div>
-        <div class="cube-face cf-top">🐾</div>
-        <div class="cube-face cf-bottom">💚</div>
+  </section>
+
+  <!-- WHY US -->
+  <div class="section section-dark">
+    <div class="sec-header center reveal">
+      <span class="sec-tag sec-tag-white">Why PAWCO</span>
+      <h2 class="sec-title sec-title-white">Our <span class="ital">Promise</span> to You</h2>
+    </div>
+    <div class="features-grid">
+      <div class="feat-card reveal reveal-d1">
+        <span class="feat-ico">🚚</span>
+        <div class="feat-title">Fast Delivery</div>
+        <div class="feat-desc">Free shipping above ₹999. 48-hour delivery across 500+ cities in India.</div>
+      </div>
+      <div class="feat-card reveal reveal-d2">
+        <span class="feat-ico">🥩</span>
+        <div class="feat-title">Real Ingredients</div>
+        <div class="feat-desc">No fillers, artificial colours or preservatives. Ever. Just honest, wholesome nutrition.
+        </div>
+      </div>
+      <div class="feat-card reveal reveal-d3">
+        <span class="feat-ico">🩺</span>
+        <div class="feat-title">Vet Formulated</div>
+        <div class="feat-desc">Every product developed and approved by certified veterinary nutritionists.</div>
+      </div>
+      <div class="feat-card reveal reveal-d4">
+        <span class="feat-ico">🔄</span>
+        <div class="feat-title">Happy Pet Guarantee</div>
+        <div class="feat-desc">30-day returns, no questions asked. If your pet doesn't love it, neither do we.</div>
       </div>
     </div>
   </div>
-</section>
 
-<!-- PROMO STRIP -->
-<div class="promo-strip" id="about">
-  <div class="promo-left reveal">
-    <div class="promo-eyebrow">Limited Time Offer</div>
-    <h2 class="promo-title">Happy Tails Sale —<br><em>Up to 35% Off</em></h2>
-    <p class="promo-desc">Stock up on your pet's favourites at the lowest prices of the year. Because every tail wag deserves a reward.</p>
-    <a href="#products" class="btn-white">Shop the Sale</a>
+  <!-- TESTIMONIALS -->
+  <section class="section section-alt">
+    <div class="sec-header center reveal">
+      <span class="sec-tag">Real Pets, Real Results</span>
+      <h2 class="sec-title">What Pet Parents <span class="ital">Are Saying</span></h2>
+    </div>
+    <div class="test-grid">
+      <div class="test-card reveal reveal-d1">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"My Labrador Bruno has never been more energetic! His coat is shining and he finishes his
+          bowl every single time."</p>
+        <div class="test-author">
+          <div class="test-av" style="background:#FFF3E0;">🐕</div>
+          <div>
+            <div class="test-name">Rahul Verma</div>
+            <div class="test-role">Dog Parent · Delhi</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal reveal-d2">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"Switched my two cats to PAWCO and the difference in their energy and digestion is night
+          and day. Absolutely love this brand!"</p>
+        <div class="test-author">
+          <div class="test-av" style="background:#FFF3E0;">🐈</div>
+          <div>
+            <div class="test-name">Meera Nair</div>
+            <div class="test-role">Cat Mom · Kochi</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card reveal reveal-d3">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">"The grooming kit is incredible — my Golden's fur has never looked better. Fast delivery
+          and beautiful packaging too!"</p>
+        <div class="test-author">
+          <div class="test-av" style="background:#FFF3E0;">🐩</div>
+          <div>
+            <div class="test-name">Ananya Joshi</div>
+            <div class="test-role">Pet Parent · Pune</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section">
+    <div class="nl-inner reveal">
+      <h2>Join the <em>PAWCO Pack</em> — Get 10% Off</h2>
+      <p>Be the first to know about new launches, vet tips, and exclusive deals for your furry family.</p>
+      <div class="nl-form">
+        <input type="email" placeholder="Enter your email" id="nlEmail">
+        <button onclick="subscribe()">Subscribe</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">PAW<span class="dot">CO</span></div>
+        <p class="footer-desc">Premium nutrition and care for every pet in your family. Crafted with love, backed by
+          science — because they deserve only the best.</p>
+        <div class="socials">
+          <a class="soc-btn" href="#">f</a>
+          <a class="soc-btn" href="#">in</a>
+          <a class="soc-btn" href="#">tw</a>
+          <a class="soc-btn" href="#">▶</a>
+          <a class="soc-btn" href="#">📷</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Shop</h5>
+        <ul class="footer-links">
+          <li><a href="#">Dog Food</a></li>
+          <li><a href="#">Cat Food</a></li>
+          <li><a href="#">Treats & Chews</a></li>
+          <li><a href="#">Grooming</a></li>
+          <li><a href="#">Accessories</a></li>
+          <li><a href="#">Gift Sets</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Help</h5>
+        <ul class="footer-links">
+          <li><a href="#">Pet Nutrition Quiz</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Feeding Guide</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#">Our Story</a></li>
+          <li><a href="#">Vet Partners</a></li>
+          <li><a href="#">Sustainability</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 PAWCO Pet Care. All rights reserved. Made with 🐾 in India.</div>
+      <div class="pay-icons">
+        <div class="pay-ic">VISA</div>
+        <div class="pay-ic">MC</div>
+        <div class="pay-ic">UPI</div>
+        <div class="pay-ic">PayTM</div>
+        <div class="pay-ic">COD</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-veil" id="cartVeil" onclick="closeCart()"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-hdr">
+      <div class="cart-hdr-title">Your Cart 🐾</div>
+      <button class="cart-hdr-close" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody"></div>
+    <div class="cart-ftr" id="cartFtr" style="display:none;">
+      <div class="cart-total-row"><span class="ctl">Total</span><span class="ctv" id="cartTotal">₹0</span></div>
+      <button class="checkout-btn" onclick="checkout()">Checkout Securely</button>
+    </div>
   </div>
-  <div class="promo-right reveal reveal-d2">
-    <div class="promo-card">
-      <div class="promo-badge">35%</div>
-      <div class="promo-badge-sub">OFF Selected Products</div>
-      <div class="countdown-row">
-        <div class="cd-box"><span class="cd-n" id="cdD">04</span><div class="cd-l">Days</div></div>
-        <div class="cd-box"><span class="cd-n" id="cdH">08</span><div class="cd-l">Hrs</div></div>
-        <div class="cd-box"><span class="cd-n" id="cdM">22</span><div class="cd-l">Min</div></div>
-        <div class="cd-box"><span class="cd-n" id="cdS">00</span><div class="cd-l">Sec</div></div>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-veil" id="searchVeil">
+    <div class="search-wrap">
+      <input type="text" placeholder="Search for your pet…" id="searchInput" oninput="onSearch(this.value)">
+      <button class="search-x" onclick="closeSearch()">✕</button>
+      <div class="search-tags">
+        <span class="s-tag" onclick="qSearch('Puppy Food')">Puppy Food</span>
+        <span class="s-tag" onclick="qSearch('Cat Treats')">Cat Treats</span>
+        <span class="s-tag" onclick="qSearch('Dog Shampoo')">Dog Shampoo</span>
+        <span class="s-tag" onclick="qSearch('Chew Toys')">Chew Toys</span>
+        <span class="s-tag" onclick="qSearch('Bird Seed')">Bird Seed</span>
+        <span class="s-tag" onclick="qSearch('Flea Collar')">Flea Collar</span>
+        <span class="s-tag" onclick="qSearch('Pet Bed')">Pet Bed</span>
       </div>
     </div>
   </div>
-</div>
 
-<!-- TRENDING -->
-<section class="section" id="trending">
-  <div class="sec-header reveal">
-    <span class="sec-tag">What's Hot Right Now</span>
-    <h2 class="sec-title">Trending <span class="ital">Picks</span></h2>
-  </div>
-  <div class="trend-grid">
-    <div class="trend-card tc1 reveal reveal-d1">
-      <div class="trend-bg"></div><div class="trend-ov"></div>
-      <div class="trend-badge">🔥 Bestseller</div>
-      <div class="trend-deco">→</div>
-      <div class="trend-info">
-        <div class="trend-cat">Dogs · Nutrition</div>
-        <div class="trend-name">Starter Puppy Kit</div>
-        <div class="trend-price">From ₹1,299</div>
-      </div>
-    </div>
-    <div class="trend-card tc2 reveal reveal-d2">
-      <div class="trend-bg"></div><div class="trend-ov"></div>
-      <div class="trend-badge">⭐ Top Rated</div>
-      <div class="trend-deco">→</div>
-      <div class="trend-info">
-        <div class="trend-cat">Cats · Grooming</div>
-        <div class="trend-name">Spa Day Bundle</div>
-        <div class="trend-price">From ₹899</div>
-      </div>
-    </div>
-    <div class="trend-card tc3 reveal reveal-d3">
-      <div class="trend-bg"></div><div class="trend-ov"></div>
-      <div class="trend-badge">🐾 New Arrival</div>
-      <div class="trend-deco">→</div>
-      <div class="trend-info">
-        <div class="trend-cat">All Pets · Accessories</div>
-        <div class="trend-name">Play & Fun Pack</div>
-        <div class="trend-price">From ₹599</div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- TOAST -->
+  <div class="toast" id="toast"><span class="toast-ic">🐾</span><span id="toastMsg">Done!</span></div>
 
-<!-- WHY US -->
-<div class="section section-dark">
-  <div class="sec-header center reveal">
-    <span class="sec-tag sec-tag-white">Why PAWCO</span>
-    <h2 class="sec-title sec-title-white">Our <span class="ital">Promise</span> to You</h2>
-  </div>
-  <div class="features-grid">
-    <div class="feat-card reveal reveal-d1">
-      <span class="feat-ico">🚚</span>
-      <div class="feat-title">Fast Delivery</div>
-      <div class="feat-desc">Free shipping above ₹999. 48-hour delivery across 500+ cities in India.</div>
-    </div>
-    <div class="feat-card reveal reveal-d2">
-      <span class="feat-ico">🥩</span>
-      <div class="feat-title">Real Ingredients</div>
-      <div class="feat-desc">No fillers, artificial colours or preservatives. Ever. Just honest, wholesome nutrition.</div>
-    </div>
-    <div class="feat-card reveal reveal-d3">
-      <span class="feat-ico">🩺</span>
-      <div class="feat-title">Vet Formulated</div>
-      <div class="feat-desc">Every product developed and approved by certified veterinary nutritionists.</div>
-    </div>
-    <div class="feat-card reveal reveal-d4">
-      <span class="feat-ico">🔄</span>
-      <div class="feat-title">Happy Pet Guarantee</div>
-      <div class="feat-desc">30-day returns, no questions asked. If your pet doesn't love it, neither do we.</div>
-    </div>
-  </div>
-</div>
+  <!-- WISHLIST FLASH -->
+  <div class="wl-flash" id="wlFlash">🐾 Added to Wishlist!</div>
 
-<!-- TESTIMONIALS -->
-<section class="section section-alt">
-  <div class="sec-header center reveal">
-    <span class="sec-tag">Real Pets, Real Results</span>
-    <h2 class="sec-title">What Pet Parents <span class="ital">Are Saying</span></h2>
-  </div>
-  <div class="test-grid">
-    <div class="test-card reveal reveal-d1">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"My Labrador Bruno has never been more energetic! His coat is shining and he finishes his bowl every single time."</p>
-      <div class="test-author">
-        <div class="test-av" style="background:#FFF3E0;">🐕</div>
-        <div><div class="test-name">Rahul Verma</div><div class="test-role">Dog Parent · Delhi</div></div>
-      </div>
-    </div>
-    <div class="test-card reveal reveal-d2">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"Switched my two cats to PAWCO and the difference in their energy and digestion is night and day. Absolutely love this brand!"</p>
-      <div class="test-author">
-        <div class="test-av" style="background:#FFF3E0;">🐈</div>
-        <div><div class="test-name">Meera Nair</div><div class="test-role">Cat Mom · Kochi</div></div>
-      </div>
-    </div>
-    <div class="test-card reveal reveal-d3">
-      <div class="test-stars">★★★★★</div>
-      <p class="test-quote">"The grooming kit is incredible — my Golden's fur has never looked better. Fast delivery and beautiful packaging too!"</p>
-      <div class="test-author">
-        <div class="test-av" style="background:#FFF3E0;">🐩</div>
-        <div><div class="test-name">Ananya Joshi</div><div class="test-role">Pet Parent · Pune</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- NEWSLETTER -->
-<section class="section">
-  <div class="nl-inner reveal">
-    <h2>Join the <em>PAWCO Pack</em> — Get 10% Off</h2>
-    <p>Be the first to know about new launches, vet tips, and exclusive deals for your furry family.</p>
-    <div class="nl-form">
-      <input type="email" placeholder="Enter your email" id="nlEmail">
-      <button onclick="subscribe()">Subscribe</button>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <div class="footer-brand">PAW<span class="dot">CO</span></div>
-      <p class="footer-desc">Premium nutrition and care for every pet in your family. Crafted with love, backed by science — because they deserve only the best.</p>
-      <div class="socials">
-        <a class="soc-btn" href="#">f</a>
-        <a class="soc-btn" href="#">in</a>
-        <a class="soc-btn" href="#">tw</a>
-        <a class="soc-btn" href="#">▶</a>
-        <a class="soc-btn" href="#">📷</a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h5>Shop</h5>
-      <ul class="footer-links">
-        <li><a href="#">Dog Food</a></li>
-        <li><a href="#">Cat Food</a></li>
-        <li><a href="#">Treats & Chews</a></li>
-        <li><a href="#">Grooming</a></li>
-        <li><a href="#">Accessories</a></li>
-        <li><a href="#">Gift Sets</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Help</h5>
-      <ul class="footer-links">
-        <li><a href="#">Pet Nutrition Quiz</a></li>
-        <li><a href="#">Track Order</a></li>
-        <li><a href="#">Returns</a></li>
-        <li><a href="#">Feeding Guide</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Company</h5>
-      <ul class="footer-links">
-        <li><a href="#">Our Story</a></li>
-        <li><a href="#">Vet Partners</a></li>
-        <li><a href="#">Sustainability</a></li>
-        <li><a href="#">Blog</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Terms</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-copy">© 2026 PAWCO Pet Care. All rights reserved. Made with 🐾 in India.</div>
-    <div class="pay-icons">
-      <div class="pay-ic">VISA</div>
-      <div class="pay-ic">MC</div>
-      <div class="pay-ic">UPI</div>
-      <div class="pay-ic">PayTM</div>
-      <div class="pay-ic">COD</div>
-    </div>
-  </div>
-</footer>
-
-<!-- CART DRAWER -->
-<div class="cart-veil" id="cartVeil" onclick="closeCart()"></div>
-<div class="cart-panel" id="cartPanel">
-  <div class="cart-hdr">
-    <div class="cart-hdr-title">Your Cart 🐾</div>
-    <button class="cart-hdr-close" onclick="closeCart()">✕</button>
-  </div>
-  <div class="cart-body" id="cartBody"></div>
-  <div class="cart-ftr" id="cartFtr" style="display:none;">
-    <div class="cart-total-row"><span class="ctl">Total</span><span class="ctv" id="cartTotal">₹0</span></div>
-    <button class="checkout-btn" onclick="checkout()">Checkout Securely</button>
-  </div>
-</div>
-
-<!-- SEARCH OVERLAY -->
-<div class="search-veil" id="searchVeil">
-  <div class="search-wrap">
-    <input type="text" placeholder="Search for your pet…" id="searchInput" oninput="onSearch(this.value)">
-    <button class="search-x" onclick="closeSearch()">✕</button>
-    <div class="search-tags">
-      <span class="s-tag" onclick="qSearch('Puppy Food')">Puppy Food</span>
-      <span class="s-tag" onclick="qSearch('Cat Treats')">Cat Treats</span>
-      <span class="s-tag" onclick="qSearch('Dog Shampoo')">Dog Shampoo</span>
-      <span class="s-tag" onclick="qSearch('Chew Toys')">Chew Toys</span>
-      <span class="s-tag" onclick="qSearch('Bird Seed')">Bird Seed</span>
-      <span class="s-tag" onclick="qSearch('Flea Collar')">Flea Collar</span>
-      <span class="s-tag" onclick="qSearch('Pet Bed')">Pet Bed</span>
-    </div>
-  </div>
-</div>
-
-<!-- TOAST -->
-<div class="toast" id="toast"><span class="toast-ic">🐾</span><span id="toastMsg">Done!</span></div>
-
-<!-- WISHLIST FLASH -->
-<div class="wl-flash" id="wlFlash">🐾 Added to Wishlist!</div>
-
-<script src="../js/pet.js"></script>
+  <script src="../js/navbar.js" defer></script>
+  <script src="../js/pet.js"></script>
 </body>
+
 </html>

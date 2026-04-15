@@ -1,23 +1,1266 @@
-{% extends "layout.html" %}
-{% block content %}
-<h2 class="mb-4">Our Products</h2>
-<div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-    {% for product in products %}
-    <div class="col">
-        <div class="card h-100 border-0 shadow-sm product-card">
-            <img src="{{ product.image_url or 'https://via.placeholder.com/300' }}" class="card-img-top" alt="{{ product.name }}" style="height: 200px; object-fit: cover;">
-            <div class="card-body">
-                <h5 class="card-title">{{ product.name }}</h5>
-                <p class="card-text text-muted small text-truncate">{{ product.description }}</p>
-                <div class="d-flex justify-content-between align-items-center mt-3">
-                    <span class="h5 mb-0 text-primary">₹{{ product.price }}</span>
-                    <button onclick="addToCart(product.id)" class="btn btn-primary btn-sm px-3">
-                        Add to Cart
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanMart | Premium E-commerce</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Special effect for the Travel Nav Link */
+        .nav-link.travel-link {
+            background: linear-gradient(135deg, #3b82f6, #6366f1);
+            color: white !important;
+            padding: 6px 18px !important;
+            border-radius: 20px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: all 0.3s ease;
+        }
+        .nav-link.travel-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        /* Special effect for the Travel Category Pill */
+        .cat-pill.travel-pill {
+            background: linear-gradient(45deg, #0f172a, #3b82f6);
+            color: white !important;
+            border: none;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+            position: relative;
+        }
+        .cat-pill.travel-pill a {
+            color: white !important;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .cat-pill.travel-pill a:hover {
+            opacity: 0.9;
+        }
+        .cat-pill.travel-pill i {
+            color: inherit;
+            animation: flightFloat 2s infinite ease-in-out;
+        }
+        /* New Badge */
+        .travel-badge {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background: #ef4444;
+            color: white;
+            font-size: 9px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 8px;
+            letter-spacing: 0.5px;
+            z-index: 2;
+            box-shadow: 0 2px 5px rgba(239, 68, 68, 0.4);
+        }
+        @keyframes flightFloat {
+            0%, 100% { transform: translateY(0) scale(1.1); }
+            50% { transform: translateY(-3px) scale(1.1); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="loader-logo">UrbanMart</div>
+            <div class="text-secondary small mt-2">Curating the Best for You...</div>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-inner">
+            <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
+            <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
+            <button class="nav-icon-btn" onclick="toggleSearch()"
+                style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
+                    class="bi bi-search"></i></button>
+        </div>
+    </div>
+
+    <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
+
+    <nav class="navbar animate__animated animate__fadeInDown">
+        <div class="container">
+            <div class="navbar-inner w-100">
+                <a class="navbar-brand fw-bold" href="#"
+                    style="display:flex;align-items:center;gap:0;text-decoration:none;">
+                    <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        style="flex-shrink:0;">
+                        <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+                        <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
+                            stroke-linecap="round" fill="none" />
+                        <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+                        <circle cx="9.5" cy="17" r="1.2" fill="white" />
+                        <circle cx="16.5" cy="17" r="1.2" fill="white" />
+                        <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#1A1A1A" letter-spacing="-0.3">Urban</text>
+                        <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
+                            fill="#5A8A5A" letter-spacing="-0.3">mart</text>
+                        <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+                    </svg>
+                </a>
+                <ul class="nav-links ms-3">
+                    <li><a class="nav-link active" href="#shop">Shop</a></li>
+                    <li style="margin-top: 5px; margin-bottom: 5px;"><a class="nav-link travel-link" href="visual/template/travel_landing.html"><i class="bi bi-airplane-engines-fill"></i> Travel</a></li>
+                </ul>
+                <div class="nav-search-bar">
+                    <i class="bi bi-search nav-search-icon"></i>
+                    <input type="text" id="navSearchInput" class="nav-search-input"
+                        placeholder="Search products, categories...">
+                    <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+                            class="bi bi-x"></i></button>
+                </div>
+                <div class="nav-right">
+                    <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites"
+                        style="position:relative;">
+                        <i class="bi bi-heart"></i>
+                        <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
                     </button>
+                    <div class="settings-wrapper">
+                        <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                                class="bi bi-gear"></i></button>
+                        <div class="settings-panel" id="settingsPanel">
+                            <div class="settings-panel-header">Preferences</div>
+                            <div class="settings-item" onclick="toggleSetting('notifications')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Notifications</div>
+                                        <div class="settings-item-sub">Deals &amp; order updates</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-notifications"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('darkmode')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Dark Mode</div>
+                                        <div class="settings-item-sub">Switch appearance</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle" id="toggle-darkmode"></button>
+                            </div>
+                            <div class="settings-item" onclick="toggleSetting('offers')">
+                                <div class="settings-item-left">
+                                    <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                                    <div>
+                                        <div class="settings-item-label">Personalised Offers</div>
+                                        <div class="settings-item-sub">Based on your activity</div>
+                                    </div>
+                                </div>
+                                <button class="s-toggle on" id="toggle-offers"></button>
+                            </div>
+                            <div class="settings-divider"></div>
+                            <div class="settings-panel-header">Account</div>
+                            <a class="settings-link-item" href="{{ url_for('login') }}">
+                                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                                    Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="#">
+                                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                                    Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+                            </a>
+                            <a class="settings-link-item" href="visual/template/seller.html">
+                                <div class="settings-item-icon"
+                                    style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                                        class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                                    with Us</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;color:var(--primary-nature);"></i>
+                            </a>
+                            <a class="settings-link-item" href="visual/template/about.html">
+                                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                                    UrbanMart</span><i class="bi bi-chevron-right ms-auto"
+                                    style="font-size:0.7rem;"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <button class="nav-icon-btn" onclick="window.location.href='{{ url_for('cart') }}'" title="Cart">
+                        <i class="bi bi-bag"></i>
+                        <span class="cart-badge" id="cart-badge">0</span>
+                    </button>
+                    <a id="login-nav-btn" class="nav-login-btn" href="{{ url_for('login') }}"><i class="bi bi-person-circle"></i>
+                        Login</a>
+                    <a id="user-profile-btn" class="nav-login-btn d-none" href="visual/template/account.html"><i class="bi bi-person-circle"></i>
+                        <span id="user-nav-name">Profile</span></a>
+                    <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
+                            class="bi bi-list" id="hamburgerIcon"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="category-nav-bar" id="categoryNavBar">
+        <div class="category-nav-overflow-wrap" id="catOverflowWrap">
+            <div class="category-nav-scroll" id="category-filters">
+                <div class="cat-pill active" data-cat="For You" onclick="filterProducts('All', this)"><i
+                        class="bi bi-grid-fill"></i> For You</div>
+                <div class="cat-pill" data-cat="Grocery" onclick="filterProducts('Grocery', this)"><i
+                        class="bi bi-grid-fill"></i> <a style="text-decoration: none; color: inherit; " href="visual/template/grocery.html">Grocery</a></div>
+                <div class="cat-pill" data-cat="Fashion" onclick="filterProducts('Fashion', this)"><i
+                        class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; " href="visual/template/fashion.html">Fashion</a></div>
+                <div class="cat-pill" data-cat="Mobiles" onclick="filterProducts('Mobiles', this)"><i
+                        class="bi bi-phone"></i> Mobiles</div>
+                <div class="cat-pill" data-cat="Beauty" onclick="filterProducts('Beauty', this)"><i
+                        class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="visual/template/beauty.html">Beauty</a></div>
+                <div class="cat-pill" data-cat="Electronics" onclick="filterProducts('Electronics', this)"><i
+                        class="bi bi-cpu"></i> Electronics</div>
+                <div class="cat-pill" data-cat="Home" onclick="filterProducts('Home', this)"><i class="bi bi-house"></i>
+                    Home</div>
+                <div class="cat-pill" data-cat="Appliances" onclick="filterProducts('Appliances', this)"><i
+                        class="bi bi-lightning-charge"></i> Appliances</div>
+                <div class="cat-pill" data-cat="Toys" onclick="filterProducts('Toys', this)"><i
+                        class="bi bi-controller"></i> Toys</div>
+                <div class="cat-pill" data-cat="Food" onclick="filterProducts('Food', this)"><i
+                        class="bi bi-basket"></i> Food</div>
+                <div class="cat-pill" data-cat="Auto" onclick="filterProducts('Auto', this)"><i
+                        class="bi bi-car-front"></i> Auto</div>
+                <div class="cat-pill" data-cat="2 Wheelers"><a href="visual/template/2_Wheelers.html" style="text-decoration: none; color: inherit;"><i
+                        class="bi bi-bicycle"></i> 2 Wheelers</a></div>
+                <div class="cat-pill" data-cat="Books" onclick="filterProducts('Books', this)"><i
+                        class="bi bi-book"><a href="visual/template/Books.html" style="text-decoration: none; color: inherit;"></i> Books</a></div>
+                <div class="cat-pill" data-cat="Furniture" onclick="filterProducts('Furniture', this)"><i
+                        class="bi bi-lamp"></i> Furniture</div>
+                <div class="cat-pill" data-cat="Sports" onclick="filterProducts('Sports', this)"><i
+                        class="bi bi-trophy"></i> Sports</div>
+                <div class="cat-pill" data-cat="Medicines" onclick="filterProducts('Medicines', this)"><i
+                        class="bi bi-capsule"></i> Medicines</div>
+                <div class="cat-pill travel-pill" data-cat="Travel">
+                    <span class="travel-badge">NEW</span>
+                    <a href="visual/template/travel_landing.html" style="text-decoration: none; color: inherit;">
+                        <i class="bi bi-airplane-fill"></i> Travel
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
-</div>
-{% endblock %}
+
+    <div class="nav-mobile-panel" id="mobilePanel">
+        <a class="mobile-nav-link" href="#home" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+        <a class="mobile-nav-link" href="#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
+        <a class="mobile-nav-link" href="visual/template/seller.html"><i class="bi bi-shop"></i> Partner with us</a>
+        <div class="mobile-nav-divider"></div>
+        <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="{{ url_for('login') }}" style="border-radius:12px;"><i
+                class="bi bi-person-circle"></i> Login</a>
+        <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="visual/template/account.html" style="border-radius:12px;"><i
+                class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+    </div>
+
+    <!-- What's New -->
+    <section id="home" class="whatsnew-section animate__animated animate__fadeIn" data-aos="fade-up">
+        <div class="container">
+            <div class="whatsnew-header">
+                <div class="whatsnew-badge"><span class="badge-dot"></span> What's New</div>
+                <h2 class="whatsnew-title">Fresh Drops This Week</h2>
+                <p class="whatsnew-sub">Curated arrivals, limited stocks — don't miss out.</p>
+            </div>
+            <div class="wn-slideshow" id="wnSlideshow">
+                <button class="wn-arrow wn-arrow-prev" onclick="wnGoTo(wnCurrent - 1)" aria-label="Previous"><i
+                        class="bi bi-chevron-left"></i></button>
+                <button class="wn-arrow wn-arrow-next" onclick="wnGoTo(wnCurrent + 1)" aria-label="Next"><i
+                        class="bi bi-chevron-right"></i></button>
+                <div class="wn-track" id="wnTrack">
+                    <div class="wn-slide">
+                        <div class="whatsnew-grid">
+                            <div class="wn-card wn-feature"
+                                style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=900')">
+                                <div class="wn-card-overlay"><span class="wn-tag">Fashion Drop</span>
+                                    <h3 class="wn-card-title">Summer Organic<br>Collection '25</h3>
+                                    <p class="wn-card-desc">Handpicked sustainable wear — now live.</p><a
+                                        href="#Fashion-section" class="wn-btn wn-btn-light">Shop Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="wn-stack">
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1498049794561-7780e7231661?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag wn-tag-dark">Electronics</span>
+                                        <h4 class="wn-card-title-sm">Elite Tech Arrivals</h4><a
+                                            href="#Electronics-section" class="wn-btn wn-btn-outline">Explore <i
+                                                class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1542838132-92c53300491e?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag"
+                                            style="background:#D4AF37;color:#1A1A1A;">Grocery</span>
+                                        <h4 class="wn-card-title-sm">Pure Farm Harvest</h4><a href="#Food-section"
+                                            class="wn-btn wn-btn-outline">Order Fresh <i
+                                                class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wn-slide">
+                        <div class="whatsnew-grid">
+                            <div class="wn-card wn-feature"
+                                style="background-image:url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900')">
+                                <div class="wn-card-overlay"><span class="wn-tag"
+                                        style="background:#e8748a;">Beauty</span>
+                                    <h3 class="wn-card-title">Glow Up<br>Essentials '25</h3>
+                                    <p class="wn-card-desc">Serums, mists & skin care — freshly restocked.</p><a
+                                        href="#Beauty-section" class="wn-btn wn-btn-light">Shop Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="wn-stack">
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag"
+                                            style="background:#D4AF37;color:#1A1A1A;">Home</span>
+                                        <h4 class="wn-card-title-sm">Living Room Refresh</h4><a href="#Home-section"
+                                            class="wn-btn wn-btn-outline">Explore <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1585659722982-789758793322?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag wn-tag-dark">Appliances</span>
+                                        <h4 class="wn-card-title-sm">Smart Kitchen Gear</h4><a
+                                            href="#Appliances-section" class="wn-btn wn-btn-outline">Shop Now <i
+                                                class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wn-slide">
+                        <div class="whatsnew-grid">
+                            <div class="wn-card wn-feature"
+                                style="background-image:url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900')">
+                                <div class="wn-card-overlay"><span class="wn-tag"
+                                        style="background:#2563eb;">Mobiles</span>
+                                    <h3 class="wn-card-title">Flagship Phones<br>Just Landed</h3>
+                                    <p class="wn-card-desc">Top-tier specs, unbeatable prices — limited stock.</p><a
+                                        href="#Mobiles-section" class="wn-btn wn-btn-light">Shop Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="wn-stack">
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag wn-tag-dark">Audio</span>
+                                        <h4 class="wn-card-title-sm">Noise Buds Pro Drop</h4><a
+                                            href="#Electronics-section" class="wn-btn wn-btn-outline">Listen Up <i
+                                                class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag"
+                                            style="background:#e11d48;">Toys</span>
+                                        <h4 class="wn-card-title-sm">Kids' Favourites</h4><a href="#Toys-section"
+                                            class="wn-btn wn-btn-outline">Explore <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wn-slide">
+                        <div class="whatsnew-grid">
+                            <div class="wn-card wn-feature"
+                                style="background-image:url('https://images.unsplash.com/photo-1616455579100-2ceaa4eb4e2b?w=900')">
+                                <div class="wn-card-overlay"><span class="wn-tag"
+                                        style="background:#7c3aed;">Auto</span>
+                                    <h3 class="wn-card-title">Drive In Style<br>This Season</h3>
+                                    <p class="wn-card-desc">Car care kits, accessories & more — fully loaded.</p><a
+                                        href="#Auto-section" class="wn-btn wn-btn-light">Shop Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="wn-stack">
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag" style="background:#c2410c;">2
+                                            Wheelers</span>
+                                        <h4 class="wn-card-title-sm">Helmet & Gear Up</h4><a href="#2-Wheelers-section"
+                                            class="wn-btn wn-btn-outline">Explore <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag"
+                                            style="background:#0369a1;">Books</span>
+                                        <h4 class="wn-card-title-sm">New Reads In Stock</h4><a href="#Books-section"
+                                            class="wn-btn wn-btn-outline">Browse <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wn-slide">
+                        <div class="whatsnew-grid">
+                            <div class="wn-card wn-feature"
+                                style="background-image:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900');background-position:top center;">
+                                <div class="wn-card-overlay"><span class="wn-tag"
+                                        style="background:#9333ea;">Furniture</span>
+                                    <h3 class="wn-card-title">Minimalist Homes<br>Made Beautiful</h3>
+                                    <p class="wn-card-desc">Bookshelves, sofas & accent pieces — curated for you.</p><a
+                                        href="#Furniture-section" class="wn-btn wn-btn-light">Shop Now <i
+                                            class="bi bi-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="wn-stack">
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag"
+                                            style="background:#65a30d;">Food</span>
+                                        <h4 class="wn-card-title-sm">Organic Honey Batch</h4><a href="#Food-section"
+                                            class="wn-btn wn-btn-outline">Order Fresh <i
+                                                class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <div class="wn-card wn-half"
+                                    style="background-image:url('https://images.unsplash.com/photo-1551028711-031cde72b4d5?w=700')">
+                                    <div class="wn-card-overlay"><span class="wn-tag">Fashion</span>
+                                        <h4 class="wn-card-title-sm">Linen Essentials</h4><a href="#Fashion-section"
+                                            class="wn-btn wn-btn-outline">Browse <i class="bi bi-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wn-controls">
+                    <div class="wn-dots" id="wnDots"></div>
+                    <div class="wn-progress-wrap">
+                        <div class="wn-progress-bar" id="wnProgressBar"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="wn-ticker-wrap">
+                <div class="wn-ticker-inner">
+                    <span>🌿 New Organic Honey Batch — Limited Stock</span><span>✦</span>
+                    <span>👟 Summer Fashion Drop — Up to 30% Off</span><span>✦</span>
+                    <span>🎧 Noise Buds Pro Now Available</span><span>✦</span>
+                    <span>🧴 Beauty Essentials Restocked</span><span>✦</span>
+                    <span>🏠 Home Appliance Sale Ends Sunday</span><span>✦</span>
+                    <span>🌿 New Organic Honey Batch — Limited Stock</span><span>✦</span>
+                    <span>👟 Summer Fashion Drop — Up to 30% Off</span><span>✦</span>
+                    <span>🎧 Noise Buds Pro Now Available</span><span>✦</span>
+                    <span>🧴 Beauty Essentials Restocked</span><span>✦</span>
+                    <span>🏠 Home Appliance Sale Ends Sunday</span><span>✦</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+       
+    <script>
+        const WN_TOTAL = 5, WN_DURATION = 4500;
+        let wnCurrent = 0, wnTimer = null;
+        const wnTrack = document.getElementById('wnTrack');
+        const wnDotsEl = document.getElementById('wnDots');
+        const wnBar = document.getElementById('wnProgressBar');
+        const wnBox = document.getElementById('wnSlideshow');
+        for (let i = 0; i < WN_TOTAL; i++) {
+            const d = document.createElement('button');
+            d.className = 'wn-dot' + (i === 0 ? ' active' : '');
+            d.setAttribute('aria-label', 'Slide ' + (i + 1));
+            d.addEventListener('click', () => wnGoTo(i));
+            wnDotsEl.appendChild(d);
+        }
+        function wnUpdateDots() { wnDotsEl.querySelectorAll('.wn-dot').forEach((d, i) => d.classList.toggle('active', i === wnCurrent)); }
+        function wnGoTo(idx) { wnCurrent = ((idx % WN_TOTAL) + WN_TOTAL) % WN_TOTAL; wnTrack.style.transform = `translateX(-${wnCurrent * 100}%)`; wnUpdateDots(); wnResetTimer(); }
+        function wnRunProgress() { wnBar.style.transition = 'none'; wnBar.style.width = '0%'; void wnBar.offsetWidth; wnBar.style.transition = `width ${WN_DURATION}ms linear`; wnBar.style.width = '100%'; }
+        function wnResetTimer() { clearInterval(wnTimer); wnRunProgress(); wnTimer = setInterval(() => wnGoTo(wnCurrent + 1), WN_DURATION); }
+        wnBox.addEventListener('mouseenter', () => { clearInterval(wnTimer); const computed = getComputedStyle(wnBar).width; wnBar.style.transition = 'none'; wnBar.style.width = computed; });
+        wnBox.addEventListener('mouseleave', () => wnResetTimer());
+        let wnTouchX = 0;
+        wnBox.addEventListener('touchstart', e => { wnTouchX = e.touches[0].clientX; }, { passive: true });
+        wnBox.addEventListener('touchend', e => { const dx = e.changedTouches[0].clientX - wnTouchX; if (Math.abs(dx) > 40) wnGoTo(wnCurrent + (dx < 0 ? 1 : -1)); }, { passive: true });
+        wnResetTimer();
+    </script>
+
+    <!-- Product Grid -->
+    <section id="shop" class="container py-3">
+        <div id="product-sections"></div>
+    </section>
+
+    <div class="modal fade" id="userLoginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 25px; background: var(--bg-color);">
+                <div class="modal-body p-5 text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-lock-fill display-4" style="color: var(--primary-nature);"></i>
+                        <h3 class="fw-bold mt-2">Login Required</h3>
+                        <p class="text-secondary">Please sign in to view product details and shop.</p>
+                    </div>
+                    <form id="modalLoginForm">
+                        <input type="email" id="modalEmail"
+                            class="form-control mb-3 py-3 rounded-pill border-0 shadow-sm px-4"
+                            placeholder="Email Address" required>
+                        <input type="password" id="modalPass"
+                            class="form-control mb-4 py-3 rounded-pill border-0 shadow-sm px-4" placeholder="Password"
+                            required>
+                        <button type="submit"
+                            class="btn btn-success w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">Sign In</button>
+                    </form>
+                    <p class="small text-muted mb-0">New here? <a href="{{ url_for('login') }}"
+                            style="color: var(--primary-nature);" class="fw-bold text-decoration-none">Create an
+                            account</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="um-footer mt-5">
+        <div class="container">
+            <!-- Main footer grid -->
+            <div class="um-footer-grid">
+                <!-- Brand col -->
+                <div class="um-footer-brand">
+                    <div class="um-footer-logo">Urban<span>mart</span><span class="um-footer-dot">.</span></div>
+                    <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep
+                        across India.</p>
+                    <div class="um-footer-socials">
+                        <a href="#" class="um-social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="um-social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="um-social-btn" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="um-social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+                        <a href="#" class="um-social-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
+                    </div>
+                </div>
+
+                <!-- Shop col -->
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Shop</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="#">Fashion &amp; Clothing</a></li>
+                        <li><a href="#">Mobiles &amp; Tablets</a></li>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Home &amp; Furniture</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                        <li><a href="#">Sale</a></li>
+                    </ul>
+                </div>
+
+                <!-- Help col -->
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Help</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Returns &amp; Refunds</a></li>
+                        <li><a href="#">Shipping Info</a></li>
+                        <li><a href="#">Size Guide</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company col -->
+                <div class="um-footer-col">
+                    <h6 class="um-footer-col-head">Company</h6>
+                    <ul class="um-footer-links">
+                        <li><a href="visual/template/about.html">About UrbanMart</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="visual/template/seller.html">Partner with Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms &amp; Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <div class="um-footer-divider"></div>
+
+            <!-- Bottom bar -->
+            <div class="um-footer-bottom">
+                <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill"
+                        style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
+                <div class="um-payment-badges">
+                    <span class="um-pay-badge">VISA</span>
+                    <span class="um-pay-badge">MC</span>
+                    <span class="um-pay-badge">UPI</span>
+                    <span class="um-pay-badge">PayTM</span>
+                    <span class="um-pay-badge">COD</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="visual/js/products.js"></script>
+
+    <script>
+        // Keep tempIndex UI interactions
+        let settingsOpen = false;
+        function toggleSettings() {
+            settingsOpen = !settingsOpen;
+            const panel = document.getElementById('settingsPanel');
+            const btn = document.getElementById('settingsBtn');
+            if (panel) panel.classList.toggle('open', settingsOpen);
+            if (btn) btn.classList.toggle('active', settingsOpen);
+            document.getElementById('navBackdrop')?.classList.toggle('active', settingsOpen);
+            if (mobileOpen) closeMobile();
+        }
+        function closeSettings() {
+            settingsOpen = false;
+            document.getElementById('settingsPanel')?.classList.remove('open');
+            document.getElementById('settingsBtn')?.classList.remove('active');
+        }
+        function toggleSetting(id) { document.getElementById('toggle-' + id)?.classList.toggle('on'); }
+
+        let mobileOpen = false, searchOpen = false;
+        function toggleMobile() {
+            mobileOpen = !mobileOpen;
+            const panel = document.getElementById('mobilePanel');
+            const icon = document.getElementById('hamburgerIcon');
+            const backdrop = document.getElementById('navBackdrop');
+            if (mobileOpen) {
+                if (panel) { panel.style.display = 'flex'; requestAnimationFrame(() => panel.classList.add('open')); }
+                if (icon) icon.className = 'bi bi-x-lg';
+                backdrop?.classList.add('active');
+            } else { closeMobile(); }
+        }
+        function closeMobile() {
+            mobileOpen = false;
+            const panel = document.getElementById('mobilePanel');
+            const icon = document.getElementById('hamburgerIcon');
+            if (panel) {
+                panel.classList.remove('open');
+                setTimeout(() => { if (!mobileOpen) panel.style.display = 'none'; }, 350);
+            }
+            if (icon) icon.className = 'bi bi-list';
+        }
+        function closeAll() { closeMobile(); closeSettings(); document.getElementById('navBackdrop')?.classList.remove('active'); }
+        function toggleSearch() {
+            searchOpen = !searchOpen;
+            const overlay = document.getElementById('searchOverlay');
+            if (overlay) overlay.classList.toggle('active', searchOpen);
+            if (searchOpen) setTimeout(() => document.getElementById('searchInput')?.focus(), 300);
+        }
+        function clearNavSearch() {
+            const input = document.getElementById('navSearchInput');
+            const clear = document.getElementById('navSearchClear');
+            if (input) input.value = '';
+            clear?.classList.remove('visible');
+            input?.focus();
+        }
+
+        // --- CART STATE LOGIC (IndexedDB) ---
+        let cartDB;
+        const cartRequest = indexedDB.open('PBSSDCartDB', 1);
+        cartRequest.onupgradeneeded = (e) => {
+            const db = e.target.result;
+            if (!db.objectStoreNames.contains('cart_state')) db.createObjectStore('cart_state');
+        };
+        cartRequest.onsuccess = (e) => {
+            cartDB = e.target.result;
+            refreshCartBadge();
+        };
+
+        function getCartBadgeEl() {
+            return document.getElementById('cart-badge') || document.getElementById('cartBadge');
+        }
+        function refreshCartBadge() {
+            if (!cartDB) return;
+            const tx = cartDB.transaction(['cart_state'], 'readonly');
+            const store = tx.objectStore('cart_state');
+            const getReq = store.get('count');
+            getReq.onsuccess = () => {
+                const badge = getCartBadgeEl();
+                if (badge) badge.innerText = getReq.result || 0;
+            };
+        }
+
+        // --- CORE LOGIC from index.html ---
+        function renderProducts() {
+            const container = document.getElementById('product-sections');
+            if (!container) return;
+            container.innerHTML = categories.map(cat => {
+                const catProducts = products.filter(p => p.section === cat);
+                const sectionId = cat.replace(/\s+/g, '-');
+                return `
+                    <div class="cat-section" id="${sectionId}-section" data-aos="fade-up">
+                        <div class="cat-section-head">
+                            <div class="cat-section-left">
+                                <div class="cat-icon-blob" style="background:#f0f0ed;color:var(--primary-nature);"><i class="bi bi-grid"></i></div>
+                                <div class="cat-section-meta">
+                                    <h3 class="cat-section-title">${cat}</h3>
+                                    <span class="cat-section-count">${catProducts.length} products</span>
+                                </div>
+                            </div>
+                            <div class="cat-section-line"></div>
+                        </div>
+                        <div class="cat-scroll-wrap">
+                            <div class="cat-scroll">
+                                ${catProducts.map(p => `
+                                    <div class="pcard" onclick="window.location.href='product_detail.html?id=${p.id}'">
+                                        <div class="pcard-img-wrap">
+                                            <img src="${p.image}" class="pcard-img" alt="${p.name}" loading="lazy">
+                                        </div>
+                                        <div class="pcard-body">
+                                            <h6 class="pcard-name" title="${p.name}">${p.name}</h6>
+                                            <div class="pcard-stars mb-2">
+                                                ${'<i class="bi bi-star-fill"></i>'.repeat(p.rating)}
+                                                ${'<i class="bi bi-star" style="color:#e5e5e0;"></i>'.repeat(5 - p.rating)}
+                                            </div>
+                                            <div class="pcard-footer">
+                                                <div class="pcard-price">${p.price}</div>
+                                                <button class="pcard-add-btn" onclick="event.stopPropagation(); addToCart(${p.id})" title="Add to cart">
+                                                    <i class="bi bi-plus-lg"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function filterProducts(cat, el) {
+            document.querySelectorAll('.cat-pill, .category-pill').forEach(p => p.classList.remove('active'));
+            if (el) el.classList.add('active');
+            if (cat === 'All') {
+                const shop = document.getElementById('shop');
+                if (shop) window.scrollTo({ top: shop.offsetTop - 130, behavior: 'smooth' });
+                return;
+            }
+            const target = document.getElementById(`${cat.replace(/\s+/g, '-')}-section`);
+            if (target) window.scrollTo({ top: target.offsetTop - 130, behavior: 'smooth' });
+        }
+
+        // --- AUTH LOGIC from index.html ---
+        function checkAuth() {
+            const user = JSON.parse(localStorage.getItem('pbssd_user'));
+            const loginNav = document.getElementById('login-nav-btn');
+            const profileNav = document.getElementById('user-profile-btn');
+            const loginNavMobile = document.getElementById('login-nav-btn-mobile');
+            const profileNavMobile = document.getElementById('user-profile-btn-mobile');
+            const nameDesktop = document.getElementById('user-nav-name');
+            const nameMobile = document.getElementById('user-nav-name-mobile');
+
+            if (user) {
+                loginNav?.classList.add('d-none');
+                loginNavMobile?.classList.add('d-none');
+                profileNav?.classList.remove('d-none');
+                profileNavMobile?.classList.remove('d-none');
+                if (nameDesktop) nameDesktop.innerText = user.name || 'Profile';
+                if (nameMobile) nameMobile.innerText = user.name || 'Profile';
+                if (user.photo) {
+                    const img = document.getElementById('user-nav-photo');
+                    if (img) { img.src = user.photo; img.style.display = 'inline-block'; }
+                }
+            } else {
+                loginNav?.classList.remove('d-none');
+                loginNavMobile?.classList.remove('d-none');
+                profileNav?.classList.add('d-none');
+                profileNavMobile?.classList.add('d-none');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('navSearchInput');
+            const clear = document.getElementById('navSearchClear');
+            input?.addEventListener('input', () => clear?.classList.toggle('visible', input.value.length > 0));
+            checkAuth();
+        });
+
+        document.getElementById('modalLoginForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('modalEmail')?.value;
+            const pass = document.getElementById('modalPass')?.value;
+            const request = indexedDB.open('PBSSDFreshAuthDB', 1);
+            request.onsuccess = (event) => {
+                const db = event.target.result;
+                const tx = db.transaction(['users'], 'readonly');
+                const store = tx.objectStore('users');
+                const getReq = store.get(email);
+                getReq.onsuccess = () => {
+                    const user = getReq.result;
+                    if (user && user.password === pass) {
+                        localStorage.setItem('pbssd_user', JSON.stringify({ name: user.name, email: user.email, photo: user.photo }));
+                        bootstrap.Modal.getInstance(document.getElementById('userLoginModal'))?.hide();
+                        checkAuth();
+                        Swal.fire({ icon: 'success', title: 'Welcome back!', timer: 1500, showConfirmButton: false });
+                    } else {
+                        Swal.fire({ icon: 'error', title: 'Invalid credentials' });
+                    }
+                };
+            };
+        });
+
+        function handleLogout() {
+            localStorage.removeItem('pbssd_user');
+            window.location.reload();
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            if (!localStorage.getItem('pbssd_user')) {
+                new bootstrap.Modal(document.getElementById('userLoginModal')).show();
+                return;
+            }
+            let cart = JSON.parse(localStorage.getItem('pbssd_cart') || '[]');
+            const existingItem = cart.find(item => item.id === productId);
+            if (existingItem) existingItem.quantity += 1;
+            else cart.push({ ...product, quantity: 1 });
+            localStorage.setItem('pbssd_cart', JSON.stringify(cart));
+            const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const badge = getCartBadgeEl();
+            if (badge) badge.innerText = count;
+            if (cartDB) {
+                const tx = cartDB.transaction(['cart_state'], 'readwrite');
+                tx.objectStore('cart_state').put(count, 'count');
+            }
+            Swal.fire({
+                title: 'Added!', toast: true, position: 'top-end',
+                showConfirmButton: false, timer: 1500, icon: 'success',
+                background: '#FAFAF7', color: '#1A1A1A'
+            });
+        }
+
+        function quickView(id) {
+            if (!localStorage.getItem('pbssd_user')) {
+                new bootstrap.Modal(document.getElementById('userLoginModal')).show();
+                return;
+            }
+            const p = products.find(x => x.id === id);
+            if (!p) return;
+            Swal.fire({
+                title: p.name,
+                text: p.description,
+                imageUrl: p.image,
+                imageWidth: 400,
+                confirmButtonText: 'Great!',
+                background: '#FAFAF7', color: '#1A1A1A'
+            });
+        }
+
+        // Category nav fades
+        const catScroll = document.getElementById('category-filters');
+        const catWrap = document.getElementById('catOverflowWrap');
+        function updateCatFades() {
+            if (!catScroll || !catWrap) return;
+            const { scrollLeft, scrollWidth, clientWidth } = catScroll;
+            catWrap.classList.toggle('show-left', scrollLeft > 8);
+            catWrap.classList.toggle('hide-right', scrollLeft + clientWidth >= scrollWidth - 8);
+        }
+        catScroll?.addEventListener('scroll', updateCatFades, { passive: true });
+        window.addEventListener('resize', updateCatFades);
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (searchOpen) toggleSearch(); if (mobileOpen) closeAll(); } });
+
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.navbar');
+            const catBar = document.getElementById('categoryNavBar');
+            if (!nav || !catBar) return;
+            const navH = nav.getBoundingClientRect().height;
+            if (window.scrollY > 50) { nav.classList.add('scrolled'); catBar.classList.add('scrolled'); catBar.style.top = (navH - 10) + 'px'; }
+            else { nav.classList.remove('scrolled'); catBar.classList.remove('scrolled'); catBar.style.top = (navH + 4) + 'px'; }
+        });
+
+        // Keep favourites feature from temp page
+        let favourites = [];
+        let favDrawerOpen = false;
+        function toggleFavDrawer() {
+            favDrawerOpen = !favDrawerOpen;
+            document.getElementById('favDrawer')?.classList.toggle('open', favDrawerOpen);
+            document.getElementById('favBackdrop')?.classList.toggle('open', favDrawerOpen);
+        }
+        function addToFavourites(productId, btn) {
+            if (favourites.includes(productId)) return;
+            favourites.push(productId);
+            if (btn) {
+                const icon = btn.querySelector('i');
+                if (icon) icon.className = 'bi bi-heart-fill';
+                btn.style.color = '#e11d48';
+                btn.style.background = 'white';
+            }
+            const iconBadge = document.getElementById('favIconBadge');
+            if (iconBadge) {
+                iconBadge.textContent = favourites.length;
+                iconBadge.style.display = 'flex';
+            }
+            renderFavDrawer();
+            Swal.fire({ title: 'Saved to Favourites!', toast: true, position: 'top-end', showConfirmButton: false, timer: 1400, icon: 'success', background: '#FAFAF7', color: '#1A1A1A' });
+        }
+        function removeFromFavourites(productId) {
+            favourites = favourites.filter(id => id !== productId);
+            const iconBadge = document.getElementById('favIconBadge');
+            if (iconBadge) {
+                iconBadge.textContent = favourites.length;
+                iconBadge.style.display = favourites.length === 0 ? 'none' : 'flex';
+            }
+            renderFavDrawer();
+        }
+        function renderFavDrawer() {
+            const grid = document.getElementById('favGrid');
+            const empty = document.getElementById('favEmpty');
+            const count = document.getElementById('favDrawerCount');
+            if (!grid || !empty || !count) return;
+            count.textContent = favourites.length;
+            if (favourites.length === 0) {
+                empty.style.display = 'flex';
+                grid.innerHTML = '';
+                return;
+            }
+            empty.style.display = 'none';
+            grid.innerHTML = favourites.map(id => {
+                const p = products.find(x => x.id === id);
+                if (!p) return '';
+                return `
+                <div class="fav-item" id="fav-item-${id}">
+                    <img src="${p.image}" class="fav-item-img" alt="${p.name}">
+                    <div class="fav-item-info">
+                        <div class="fav-item-name">${p.name}</div>
+                        <div><span class="fav-item-price">${p.price}</span></div>
+                        <div class="fav-item-actions">
+                            <button class="fav-add-btn" onclick="addToCart(${id})"><i class="bi bi-bag-plus"></i> Add to Cart</button>
+                            <button class="fav-remove-btn" onclick="removeFromFavourites(${id})" title="Remove"><i class="bi bi-trash3"></i></button>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        window.addEventListener('load', () => {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => { if (preloader) { preloader.style.opacity = '0'; preloader.style.visibility = 'hidden'; } }, 1000);
+            AOS.init({ duration: 900, once: true, offset: 80, easing: 'ease-out-cubic' });
+            renderProducts();
+            checkAuth();
+            const cart = JSON.parse(localStorage.getItem('pbssd_cart') || '[]');
+            const badge = getCartBadgeEl();
+            if (badge) badge.innerText = cart.reduce((s, i) => s + i.quantity, 0);
+            setTimeout(updateCatFades, 50);
+            const nav = document.querySelector('.navbar');
+            const catBar = document.getElementById('categoryNavBar');
+            if (nav && catBar) catBar.style.top = (nav.getBoundingClientRect().height + 4) + 'px';
+        });
+    </script>
+
+    <!-- Favourites Drawer -->
+    <div class="fav-backdrop" id="favBackdrop" onclick="toggleFavDrawer()"></div>
+    <div class="fav-drawer" id="favDrawer">
+        <div class="fav-drawer-head">
+            <div class="fav-drawer-title">
+                <i class="bi bi-heart-fill" style="color:#e11d48;"></i>
+                Favourites
+                <span class="fav-drawer-count" id="favDrawerCount">0</span>
+            </div>
+            <button class="fav-drawer-close" onclick="toggleFavDrawer()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <div class="fav-drawer-body" id="favDrawerBody">
+            <div class="fav-empty" id="favEmpty">
+                <div class="fav-empty-icon"><i class="bi bi-heart"></i></div>
+                <h5>Nothing saved yet</h5>
+                <p>Tap the heart on any product to save it here.</p>
+            </div>
+            <div class="fav-grid" id="favGrid"></div>
+        </div>
+    </div>
+
+    <style>
+        .fav-nav-link {
+            position: relative;
+            display: flex !important;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .fav-nav-badge {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            min-width: 18px;
+            height: 18px;
+            background: #e11d48;
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 800;
+            border-radius: 50px;
+            padding: 0 4px;
+            margin-left: 2px;
+            animation: fav-pop 0.35s cubic-bezier(0.34, 1.6, 0.64, 1);
+        }
+
+        @keyframes fav-pop {
+            from {
+                transform: scale(0);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .fav-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            z-index: 1900;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+        }
+
+        .fav-backdrop.open {
+            display: block;
+        }
+
+        .fav-drawer {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 420px;
+            max-width: 96vw;
+            background: var(--bg-color);
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            transform: translateX(100%);
+            transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: -12px 0 48px rgba(0, 0, 0, 0.14);
+        }
+
+        .fav-drawer.open {
+            transform: translateX(0);
+        }
+
+        .fav-drawer-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 22px 18px;
+            border-bottom: 0.5px solid var(--border-soft);
+            flex-shrink: 0;
+        }
+
+        .fav-drawer-title {
+            font-family: var(--heading-font);
+            font-size: 1.15rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .fav-drawer-count {
+            font-family: var(--body-font);
+            font-size: 0.72rem;
+            font-weight: 800;
+            background: #e11d48;
+            color: white;
+            border-radius: 50px;
+            padding: 2px 8px;
+        }
+
+        .fav-drawer-close {
+            width: 36px;
+            height: 36px;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .fav-drawer-close:hover {
+            background: #f5f5f0;
+            color: var(--headline-color);
+        }
+
+        .fav-drawer-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 18px;
+            scrollbar-width: thin;
+            scrollbar-color: var(--primary-nature) transparent;
+        }
+
+        .fav-empty {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 24px;
+            text-align: center;
+        }
+
+        .fav-empty-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: #fff0f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: #e11d48;
+            margin-bottom: 18px;
+            animation: fav-pulse 2s infinite ease-in-out;
+        }
+
+        @keyframes fav-pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        .fav-empty h5 {
+            font-family: var(--heading-font);
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .fav-empty p {
+            font-size: 0.84rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .fav-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .fav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 14px;
+            padding: 12px;
+            transition: all 0.3s ease;
+            animation: fav-slide-in 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
+        }
+
+        @keyframes fav-slide-in {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fav-item:hover {
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .fav-item-img {
+            width: 72px;
+            height: 72px;
+            border-radius: 10px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .fav-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .fav-item-name {
+            font-family: var(--heading-font);
+            font-size: 0.88rem;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 3px;
+        }
+
+        .fav-item-price {
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--primary-nature);
+        }
+
+        .fav-item-orig {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .fav-item-actions {
+            display: flex;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .fav-add-btn {
+            font-size: 0.74rem;
+            font-weight: 700;
+            background: var(--primary-nature);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 5px 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .fav-add-btn:hover {
+            filter: brightness(0.9);
+        }
+
+        .fav-remove-btn {
+            width: 28px;
+            height: 28px;
+            border: 0.5px solid var(--border-soft);
+            border-radius: 8px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
+        }
+
+        .fav-remove-btn:hover {
+            background: #fff0f2;
+            color: #e11d48;
+            border-color: #fecdd3;
+        }
+    </style>
+
+</html>

@@ -20,7 +20,6 @@ body {
 
 .heading-lora {
     font-family: var(--heading-font);
-    color: var(--headline-color);
 }
 
 .split-container {
@@ -30,6 +29,7 @@ body {
 
 .side-image {
     flex: 1;
+    background-image: url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=2560');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -37,7 +37,9 @@ body {
 }
 
 @media (min-width: 992px) {
-    .side-image { display: block; }
+    .side-image {
+        display: block;
+    }
 }
 
 .side-image .overlay {
@@ -62,7 +64,6 @@ body {
     max-width: 400px;
 }
 
-/* Floating Labels */
 .form-floating-custom {
     position: relative;
     border-bottom: 0.5px solid var(--border-color);
@@ -86,8 +87,8 @@ body {
     transition: 0.3s ease all;
 }
 
-.form-floating-custom input:focus ~ label,
-.form-floating-custom input:not(:placeholder-shown) ~ label {
+.form-floating-custom input:focus~label,
+.form-floating-custom input:not(:placeholder-shown)~label {
     top: 0;
     font-size: 0.75rem;
     color: var(--primary-cta);
@@ -109,26 +110,30 @@ body {
     padding: 14px;
     font-weight: 600;
     border: none;
-    transition: filter 0.3s;
+    transition: 0.3s;
 }
 
 .btn-primary-nature:hover {
     filter: brightness(0.9);
-    color: white;
 }
 
-.back-link, .toggle-link {
+.back-link,
+.toggle-link {
     color: var(--primary-cta);
     text-decoration: none;
     font-weight: 500;
 }
 
-.back-link:hover { text-decoration: underline; }
-
-/* Animations */
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .animate-fade-in {

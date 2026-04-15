@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Books — BookShelf | Browse Every Genre</title>
+    <meta name="description"
+        content="Browse our complete collection of books across every genre — fiction, non-fiction, horror, romance, sci-fi, and more. Free shipping on orders above $25.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shared Base CSS -->
+    <link rel="stylesheet" href="../css/Abhi_style.css">
+    <!-- Page CSS -->
+    <link rel="stylesheet" href="../css/Books_AllProducts.css">
+</head>
+
+<body style="background: #f8fafc; overflow-x: hidden;">
+
+    <!-- Back to Books -->
+    <nav style="max-width:1600px; margin:1.2rem auto 0; padding:0 5%;">
+        <a href="../template/Books.html" class="back-btn-books">
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-book-open" style="font-size:1rem;"></i>
+            <span>Back to BookShelf</span>
+        </a>
+    </nav>
+
+    <!-- Filter & Sort Bar -->
+    <div class="filter-bar" style="margin-top:20px;">
+        <div class="filter-top-row">
+            <!-- Custom Sort Dropdown -->
+            <div class="custom-dropdown" id="sort-dropdown">
+                <button class="dropdown-trigger" id="dropdown-trigger" type="button">
+                    <i class="fas fa-sliders-h dropdown-icon"></i>
+                    <span class="dropdown-label" id="dropdown-label">Sort: Featured</span>
+                    <i class="fas fa-chevron-down dropdown-arrow"></i>
+                </button>
+                <div class="dropdown-menu" id="dropdown-menu">
+                    <div class="dropdown-item active" data-value="featured">
+                        <i class="fas fa-fire"></i>
+                        <span>Featured</span>
+                        <i class="fas fa-check dropdown-check"></i>
+                    </div>
+                    <div class="dropdown-item" data-value="price-low">
+                        <i class="fas fa-arrow-up-short-wide"></i>
+                        <span>Price: Low → High</span>
+                        <i class="fas fa-check dropdown-check"></i>
+                    </div>
+                    <div class="dropdown-item" data-value="price-high">
+                        <i class="fas fa-arrow-down-wide-short"></i>
+                        <span>Price: High → Low</span>
+                        <i class="fas fa-check dropdown-check"></i>
+                    </div>
+                    <div class="dropdown-item" data-value="rating">
+                        <i class="fas fa-star"></i>
+                        <span>Highest Rated</span>
+                        <i class="fas fa-check dropdown-check"></i>
+                    </div>
+                    <div class="dropdown-item" data-value="reviews">
+                        <i class="fas fa-comments"></i>
+                        <span>Most Reviewed</span>
+                        <i class="fas fa-check dropdown-check"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown-backdrop" id="dropdown-backdrop"></div>
+            <div class="results-count">
+                Showing <span id="results-count">0</span> books
+            </div>
+        </div>
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all"><i class="fas fa-th"></i> All</button>
+            <button class="filter-btn" data-filter="horror"><i class="fas fa-ghost"></i> Horror</button>
+            <button class="filter-btn" data-filter="autobiography"><i class="fas fa-user-pen"></i> Autobiography</button>
+            <button class="filter-btn" data-filter="drama"><i class="fas fa-masks-theater"></i> Drama</button>
+            <button class="filter-btn" data-filter="sci-fi"><i class="fas fa-rocket"></i> Sci-Fi</button>
+            <button class="filter-btn" data-filter="fantasy"><i class="fas fa-hat-wizard"></i> Fantasy</button>
+            <button class="filter-btn" data-filter="romance"><i class="fas fa-heart"></i> Romance</button>
+            <button class="filter-btn" data-filter="mystery"><i class="fas fa-magnifying-glass"></i> Mystery</button>
+            <button class="filter-btn" data-filter="self-help"><i class="fas fa-lightbulb"></i> Self-Help</button>
+            <button class="filter-btn" data-filter="history"><i class="fas fa-landmark"></i> History</button>
+            <button class="filter-btn" data-filter="young adult"><i class="fas fa-wand-magic-sparkles"></i> Young Adult</button>
+            <button class="filter-btn" data-filter="poetry"><i class="fas fa-feather-pointed"></i> Poetry</button>
+            <button class="filter-btn" data-filter="non-fiction"><i class="fas fa-newspaper"></i> Non-Fiction</button>
+            <button class="filter-btn" data-filter="classic"><i class="fas fa-scroll"></i> Classics</button>
+            <button class="filter-btn" data-filter="manga"><i class="fas fa-book-skull"></i> Manga</button>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <div class="products-grid-wrapper">
+        <div class="products-grid" id="products-grid">
+            <!-- All product cards injected via JS -->
+        </div>
+
+        <!-- End of products -->
+        <div class="load-more-section">
+            <p>You've seen all books! 📚</p>
+            <div class="products-end-mark"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer style="background-color: #2d5a27; color: white; padding: 3rem 5%;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div>
+                <h3 style="margin-bottom: 1rem; font-size: 1.3rem;"><i class="fas fa-book-open"
+                        style="margin-right: 0.5rem; color: #4caf50;"></i>BookShelf</h3>
+                <p style="opacity: 0.8; font-size: 0.9rem;">Your ultimate destination for every genre of fiction
+                    and non-fiction. Curated with care for passionate readers.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.8rem;">Quick Links</h4>
+                <ul style="list-style: none; opacity: 0.8; font-size: 0.85rem;">
+                    <li style="margin-bottom: 0.4rem;"><a href="../template/Books.html"
+                            style="color:white;text-decoration:none;">Home</a></li>
+                    <li style="margin-bottom: 0.4rem;"><a href="#" style="color:white;text-decoration:none;">About</a>
+                    </li>
+                    <li style="margin-bottom: 0.4rem;"><a href="#"
+                            style="color:white;text-decoration:none;">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 0.8rem;">Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.2rem; opacity: 0.8;">
+                    <i class="fab fa-instagram" style="cursor:pointer;"></i>
+                    <i class="fab fa-facebook" style="cursor:pointer;"></i>
+                    <i class="fab fa-twitter" style="cursor:pointer;"></i>
+                    <i class="fab fa-goodreads-g" style="cursor:pointer;"></i>
+                </div>
+            </div>
+        </div>
+        <div
+            style="text-align: center; margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size:0.8rem; opacity:0.6;">
+            &copy; 2026 BookShelf. All rights reserved.</div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="back-to-top" title="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="../js/Books_AllProducts.js" defer></script>
+</body>
+
+</html>

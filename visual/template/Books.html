@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeSmart - Premium Home Essentials</title>
+    <title>Books — Discover Your Next Great Read</title>
     <meta name="description"
-        content="Discover premium home essentials with HomeSmart. From cookware to gardening, elevate your living space today.">
+        content="Explore thousands of books across genres — from spine-chilling horror to heartfelt memoirs, timeless classics to trending bestsellers. Find your next adventure today.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,12 +22,11 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/Abhi_style.css">
-    <link rel="stylesheet" href="../css/Homesmart.css">
+    <link rel="stylesheet" href="../css/Books.css">
     <link rel="stylesheet" href="../css/navbar.css">
 </head>
 
-<body>
-
+<body class="books-body">
 
     <div class="search-overlay" id="searchOverlay">
         <div class="search-overlay-inner">
@@ -172,7 +171,7 @@
                         class="bi bi-tencent-qq"></i> Pet</div>
                 <div class="cat-pill " data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
                         class="bi bi-cpu"></i> Electronics</div>
-                <div class="cat-pill active" data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
+                <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
                         class="bi bi-house"></i>
                     Home</div>
                 <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
@@ -186,7 +185,7 @@
                 <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a
                         href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i
                             class="bi bi-bicycle"></i> 2 Wheelers</a></div>
-                <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i
+                <div class="cat-pill active" data-cat="Books" onclick="window.location.href='Books.html'"><i
                         class="bi bi-book"></i> <a href="Books.html"
                         style="text-decoration: none; color: inherit;">Books</a></div>
                 <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
@@ -222,13 +221,14 @@
                 id="user-nav-name-mobile">Profile</span></a>
     </div>
 
+
     <!-- Hero Carousel -->
     <section class="hero-carousel">
         <div class="carousel-inner" id="hero-carousel-inner">
             <!-- Dynamic Slides Injected via JS -->
         </div>
 
-        <!-- Carousel Arrows (Hidden on idle) -->
+        <!-- Carousel Arrows -->
         <button class="carousel-control prev" id="prevSlide"><i class="fas fa-chevron-left"></i></button>
         <button class="carousel-control next" id="nextSlide"><i class="fas fa-chevron-right"></i></button>
 
@@ -243,145 +243,331 @@
         </div>
     </section>
 
+    <!-- Feature Trust Bar -->
+    <div class="feature-banner">
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+            <div>
+                <h4>Free Shipping</h4>
+                <p>On orders above $25</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-book-open"></i></div>
+            <div>
+                <h4>100K+ Titles</h4>
+                <p>Every genre covered</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-rotate-left"></i></div>
+            <div>
+                <h4>Easy Returns</h4>
+                <p>30-day hassle-free</p>
+            </div>
+        </div>
+        <div class="feature-item">
+            <div class="feature-icon"><i class="fas fa-award"></i></div>
+            <div>
+                <h4>Curated Picks</h4>
+                <p>Editor-recommended reads</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reading List Quick Strip -->
+    <div class="reading-strip">
+        <div class="reading-strip-item">
+            <i class="fas fa-fire"></i>
+            <span>Trending Now</span>
+        </div>
+        <div class="reading-strip-divider"></div>
+        <div class="reading-strip-item">
+            <i class="fas fa-trophy"></i>
+            <span>Award Winners 2026</span>
+        </div>
+        <div class="reading-strip-divider"></div>
+        <div class="reading-strip-item">
+            <i class="fas fa-star"></i>
+            <span>Staff Picks</span>
+        </div>
+        <div class="reading-strip-divider"></div>
+        <div class="reading-strip-item">
+            <i class="fas fa-clock"></i>
+            <span>New Releases</span>
+        </div>
+        <div class="reading-strip-divider"></div>
+        <div class="reading-strip-item">
+            <i class="fas fa-percent"></i>
+            <span>Under $10</span>
+        </div>
+    </div>
+
+    <!-- Genre Quick Navigation Tabs -->
+    <div class="genre-tabs">
+        <button class="genre-tab active" data-genre="horror"><i class="fas fa-ghost"></i> Horror</button>
+        <button class="genre-tab" data-genre="autobiography"><i class="fas fa-user-pen"></i> Autobiography</button>
+        <button class="genre-tab" data-genre="drama"><i class="fas fa-masks-theater"></i> Drama</button>
+        <button class="genre-tab" data-genre="scifi"><i class="fas fa-rocket"></i> Sci-Fi & Fantasy</button>
+        <button class="genre-tab" data-genre="romance"><i class="fas fa-heart"></i> Romance</button>
+        <button class="genre-tab" data-genre="mystery"><i class="fas fa-magnifying-glass"></i> Mystery</button>
+        <button class="genre-tab" data-genre="selfhelp"><i class="fas fa-lightbulb"></i> Self-Help</button>
+        <button class="genre-tab" data-genre="history"><i class="fas fa-landmark"></i> History</button>
+        <button class="genre-tab" data-genre="children"><i class="fas fa-wand-magic-sparkles"></i> Young Adult</button>
+        <button class="genre-tab" data-genre="poetry"><i class="fas fa-feather-pointed"></i> Poetry</button>
+    </div>
+
     <!-- Main Content -->
     <main id="shop">
 
-        <!-- Today's Top Deals -->
-        <section class="container" style="background: #fff8f8;">
+        <!-- Top Deals — Hardcoded Featured Section -->
+        <section class="container" style="background: var(--book-warm-bg);">
             <div class="section-header">
                 <div>
-                    <span class="section-tagline">LIMITED TIME ONLY</span>
-                    <h2>Today's Top Deals</h2>
+                    <span class="section-tagline">LIMITED TIME OFFERS</span>
+                    <h2>Today's Top Book Deals</h2>
                 </div>
-                <a href="../template/Homesmart_AllProducts.html" class="view-all">Shop All Deals <i
-                        class="fas fa-arrow-right"></i></a>
+                <a href="Books_AllProducts.html" class="view-all">Shop All Deals <i class="fas fa-arrow-right"></i></a>
             </div>
             <div class="product-scroll-container">
                 <div class="product-card"
-                    onclick="window.location.href='../template/ProductDetails.html?name=Smart Kitchen Combo&price=$199&img=https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.7&reviews=2450&originalPrice=$399&desc=Multi-functional automated kitchen tools. Blender, food processor, and mixer in one sleek unit.&badge=50%25 OFF'">
+                    onclick="window.location.href='Books_ProductDetails.html?name=The Midnight Library&price=$18.99&img=https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.9&reviews=42000&originalPrice=$28.99&desc=A dazzling novel about all the choices that go into a life well lived.&badge=Bestseller&author=Matt Haig'">
                     <div class="image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1556910110-ad52744d7c1f?q=80&w=400&h=300&fit=crop"
-                            class="product-image">
+                        <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="The Midnight Library">
+                        <span class="product-badge badge-deal">35% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>The Midnight Library</h3>
+                        <p class="book-author">by Matt Haig</p>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$28.99</span>
+                            $18.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=Atomic Habits&price=$16.99&img=https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.8&reviews=85000&originalPrice=$27.99&desc=The definitive guide to building good habits.&badge=Top Rated&author=James Clear'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Atomic Habits">
+                        <span class="product-badge badge-deal">40% OFF</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Atomic Habits</h3>
+                        <p class="book-author">by James Clear</p>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$27.99</span>
+                            $16.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=Becoming&price=$15.99&img=https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.9&reviews=54000&originalPrice=$32.50&desc=An intimate memoir by the former First Lady.&badge=Award Winner&author=Michelle Obama'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Becoming">
                         <span class="product-badge badge-deal">50% OFF</span>
                     </div>
                     <div class="product-info">
-                        <h3>Smart Kitchen Combo</h3>
+                        <h3>Becoming</h3>
+                        <p class="book-author">by Michelle Obama</p>
                         <p class="product-price"><span
-                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$399</span>
-                            $199</p><button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-                <!-- More deal items... -->
-                <div class="product-card"
-                    onclick="window.location.href='../template/ProductDetails.html?name=Luxury Sofa Set Lux&price=$1,200&img=https://images.unsplash.com/photo-1493663214224-992ca251d102?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.9&reviews=1890&originalPrice=$1,800&desc=Hand-stitched premium velvet upholstery. Modern L-shaped design seats 5 comfortably.&badge=Top Pick'">
-                    <div class="image-wrapper"><img
-                            src="https://images.unsplash.com/photo-1493663214224-992ca251d102?q=80&w=400&h=300&fit=crop"
-                            class="product-image"><span class="product-badge badge-deal">Top Pick</span></div>
-                    <div class="product-info">
-                        <h3>Luxury Sofa Set Lux</h3>
-                        <p class="product-price">$1,200</p><button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Best Sellers -->
-        <section class="container">
-            <div class="section-header">
-                <div>
-                    <span class="section-tagline">CUSTOMER FAVORITES</span>
-                    <h2>Best Sellers of the Week</h2>
-                </div>
-                <a href="../template/Homesmart_AllProducts.html" class="view-all">Browse Popular <i
-                        class="fas fa-arrow-right"></i></a>
-            </div>
-            <div class="product-scroll-container">
-                <div class="product-card"
-                    onclick="window.location.href='../template/ProductDetails.html?name=Chef Knife Set&price=$89&img=https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.8&reviews=3200&badge=%231 Seller'">
-                    <div class="image-wrapper"><img
-                            src="https://images.unsplash.com/photo-1590794056226-79ef3a8147e1?q=80&w=400&h=300&fit=crop"
-                            class="product-image"><span class="product-badge badge-best">#1 Seller</span></div>
-                    <div class="product-info">
-                        <h3>Professional Chef knife Set</h3>
-                        <p class="product-price">$89</p><button class="add-to-cart">Add to Cart</button>
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$32.50</span>
+                            $15.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
                     </div>
                 </div>
                 <div class="product-card"
-                    onclick="window.location.href='../template/ProductDetails.html?name=Organic Air Pure&price=$45&img=https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&h=300&fit=crop&cat=Best Sellers&rating=4.5&reviews=1560&badge=Trending'">
-                    <div class="image-wrapper"><img
-                            src="https://images.unsplash.com/photo-1512132411229-c30391241dd8?q=80&w=400&h=300&fit=crop"
-                            class="product-image"><span class="product-badge badge-best">Trending</span></div>
-                    <div class="product-info">
-                        <h3>Organic Air Pure</h3>
-                        <p class="product-price">$45</p><button class="add-to-cart">Add to Cart</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Hardcoded Sections with Renamed Headers -->
-        <section class="container" style="background: var(--light-green);">
-            <div class="section-header">
-                <div>
-                    <span class="section-tagline">KITCHEN MASTERCLASS</span>
-                    <h2>Gourmet Cookware Collection</h2>
-                </div>
-                <a href="../template/Homesmart_AllProducts.html" class="view-all">View All <i
-                        class="fas fa-chevron-right"></i></a>
-            </div>
-            <div class="product-scroll-container">
-                <div class="product-card"
-                    onclick="window.location.href='../template/ProductDetails.html?name=Emerald Ceramic Pot Set&price=$129.99&img=../assets/cookware_category_green_1775381016223.png&cat=Cookware&rating=4.8&reviews=3200&originalPrice=$189.99&desc=Eco-friendly ceramic with non-stick coating. Set of 5 pots and pans for healthy, oil-free cooking.&badge=Best Seller'">
+                    onclick="window.location.href='Books_ProductDetails.html?name=Dune&price=$14.99&img=https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&h=300&fit=crop&cat=Deals&rating=4.9&reviews=67000&originalPrice=$24.99&desc=The monumental sci-fi epic that started it all.&badge=Legendary&author=Frank Herbert'">
                     <div class="image-wrapper">
-                        <img src="../assets/cookware_category_green_1775381016223.png" alt="Cookware"
-                            class="product-image">
-                        <span class="product-badge badge-new">New Arrival</span>
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Dune">
+                        <span class="product-badge badge-deal">40% OFF</span>
                     </div>
                     <div class="product-info">
-                        <h3>Emerald Ceramic Pot Set</h3>
-                        <p class="product-price">$129.99</p><button class="add-to-cart"
-                            onclick="event.stopPropagation();">Add to Cart</button>
+                        <h3>Dune</h3>
+                        <p class="book-author">by Frank Herbert</p>
+                        <p class="product-price"><span
+                                style="text-decoration: line-through; font-size: 0.9rem; color: #94a3b8;">$24.99</span>
+                            $14.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
                     </div>
                 </div>
-                <!-- ... other items would be updated similarly or handled via JS ... -->
             </div>
         </section>
 
-        <div id="dynamic-categories"></div>
+        <!-- Bestsellers — Hardcoded -->
+        <section class="container" style="background: var(--book-section-alt);">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">READER FAVORITES</span>
+                    <h2>Bestsellers of the Month</h2>
+                </div>
+                <a href="Books_AllProducts.html" class="view-all">Browse Popular <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="product-scroll-container">
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=Project Hail Mary&price=$22.99&img=https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&h=300&fit=crop&cat=Bestsellers&rating=4.9&reviews=56000&badge=Must Read&author=Andy Weir'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Project Hail Mary">
+                        <span class="product-badge badge-best">#1 Seller</span>
+                        <span class="rank-badge">#1</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Project Hail Mary</h3>
+                        <p class="book-author">by Andy Weir</p>
+                        <p class="book-rating"><i class="fas fa-star"></i> 4.9</p>
+                        <p class="product-price">$22.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=It Ends with Us&price=$15.99&img=https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&h=300&fit=crop&cat=Bestsellers&rating=4.6&reviews=120000&badge=Trending&author=Colleen Hoover'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="It Ends with Us">
+                        <span class="product-badge badge-best">Trending</span>
+                        <span class="rank-badge">#2</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>It Ends with Us</h3>
+                        <p class="book-author">by Colleen Hoover</p>
+                        <p class="book-rating"><i class="fas fa-star"></i> 4.6</p>
+                        <p class="product-price">$15.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=Sapiens&price=$18.99&img=https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=400&h=300&fit=crop&cat=Bestsellers&rating=4.8&reviews=72000&badge=Essential&author=Yuval Noah Harari'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Sapiens">
+                        <span class="product-badge badge-best">Essential</span>
+                        <span class="rank-badge">#3</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Sapiens</h3>
+                        <p class="book-author">by Yuval Noah Harari</p>
+                        <p class="book-rating"><i class="fas fa-star"></i> 4.8</p>
+                        <p class="product-price">$18.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card"
+                    onclick="window.location.href='Books_ProductDetails.html?name=Normal People&price=$15.99&img=https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=400&h=300&fit=crop&cat=Bestsellers&rating=4.6&reviews=38000&badge=Adapted&author=Sally Rooney'">
+                    <div class="image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1543002588-bfa74002ed7e?q=80&w=400&h=300&fit=crop"
+                            class="product-image" alt="Normal People">
+                        <span class="product-badge badge-best">Adapted</span>
+                        <span class="rank-badge">#4</span>
+                    </div>
+                    <div class="product-info">
+                        <h3>Normal People</h3>
+                        <p class="book-author">by Sally Rooney</p>
+                        <p class="book-rating"><i class="fas fa-star"></i> 4.6</p>
+                        <p class="product-price">$15.99</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Banner -->
+        <div class="quote-banner">
+            <i class="fas fa-quote-left"></i>
+            <blockquote>"A reader lives a thousand lives before he dies. The man who never reads lives only one."
+            </blockquote>
+            <cite>— George R.R. Martin</cite>
+        </div>
+
+        <!-- Featured Authors Section -->
+        <section class="container" style="background: var(--book-warm-bg);">
+            <div class="section-header">
+                <div>
+                    <span class="section-tagline">LITERARY ICONS</span>
+                    <h2>Featured Authors</h2>
+                </div>
+            </div>
+            <div class="author-spotlight" id="author-spotlight-grid">
+                <!-- Dynamic Authors Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Dynamic Genre Sections -->
+        <div id="dynamic-categories">
+            <!-- All 10 genre sections injected via JS -->
+        </div>
 
     </main>
 
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <h2>Join the Book Lovers Club</h2>
+        <p>Get weekly curated reading lists, exclusive deals, and early access to new releases delivered straight to
+            your inbox.</p>
+        <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
     <!-- Footer -->
-    <footer style="background-color: var(--primary-green); color: white; padding: 4rem 5%;">
+    <footer style="background-color: var(--book-primary, #2d5a27); color: white; padding: 4rem 5%;">
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
             <div>
-                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">HomeSmart</h3>
-                <p style="opacity: 0.8; margin-bottom: 1.5rem;">The ultimate destination for premium home essentials and
-                    elegant living solutions.</p>
+                <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;"><i class="fas fa-book-open"
+                        style="margin-right: 0.5rem; color: #4caf50;"></i>BookShelf</h3>
+                <p style="opacity: 0.8; margin-bottom: 1.5rem;">Your ultimate destination for books across every genre.
+                    Curated, delivered, and loved by millions of readers worldwide.</p>
             </div>
             <div>
-                <h4 style="margin-bottom: 1rem;">Shop</h4>
+                <h4 style="margin-bottom: 1rem;">Browse</h4>
                 <ul style="list-style: none; opacity: 0.8;">
-                    <li style="margin-bottom: 0.5rem;">New Arrivals</li>
-                    <li style="margin-bottom: 0.5rem;">Best Sellers</li>
-                    <li style="margin-bottom: 0.5rem;">Sale</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Fiction & Literature</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Non-Fiction</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Children's Books</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Bestsellers</li>
                 </ul>
             </div>
             <div>
                 <h4 style="margin-bottom: 1rem;">Support</h4>
                 <ul style="list-style: none; opacity: 0.8;">
-                    <li style="margin-bottom: 0.5rem;">Help Center</li>
-                    <li style="margin-bottom: 0.5rem;">Shipping Info</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Help Center</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Shipping Info</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Returns Policy</li>
+                    <li style="margin-bottom: 0.5rem; cursor: pointer;">Gift Cards</li>
                 </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Connect</h4>
+                <div style="display: flex; gap: 1rem; font-size: 1.3rem; opacity: 0.8;">
+                    <i class="fab fa-instagram" style="cursor:pointer;"></i>
+                    <i class="fab fa-facebook" style="cursor:pointer;"></i>
+                    <i class="fab fa-twitter" style="cursor:pointer;"></i>
+                    <i class="fab fa-goodreads-g" style="cursor:pointer;"></i>
+                </div>
+                <div style="margin-top: 1.5rem;">
+                    <h4 style="margin-bottom: 0.5rem;">We Accept</h4>
+                    <div style="display: flex; gap: 0.8rem; font-size: 1.5rem; opacity: 0.7;">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                        <i class="fab fa-cc-apple-pay"></i>
+                    </div>
+                </div>
             </div>
         </div>
         <div
             style="text-align: center; margin-top: 4rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
-            &copy; 2026 HomeSmart. All rights reserved.</div>
+            &copy; 2026 BookShelf. All rights reserved. | Made with <i class="fas fa-heart" style="color: #4caf50;"></i>
+            for book lovers
+        </div>
     </footer>
 
     <script src="../js/navbar.js" defer></script>
-    <script src="../js/Homesmart.js" defer></script>
+    <script src="../js/Books.js" defer></script>
 </body>
 
 </html>

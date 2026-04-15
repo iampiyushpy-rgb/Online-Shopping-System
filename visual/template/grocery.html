@@ -1,989 +1,1639 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>sprout. — Fresh Grocery</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sprout. — Fresh Grocery</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Lora:wght@500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-<style>
-  /* Grocery Specific Styles */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <style>
+    /* Grocery Specific Styles */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  :root {
-    --ivory:   #FAFAF7;
-    --white:   #FFFFFF;
-    --sage:    #5A8A5A;
-    --pale:    #E8F0E0;
-    --deep:    #3A6A3A;
-    --black:   #1A1A1A;
-    --gray:    #777777;
-    --border:  #E5E5E0;
-    --radius:  10px;
-  }
+    :root {
+      --ivory: #FAFAF7;
+      --white: #FFFFFF;
+      --sage: #5A8A5A;
+      --pale: #E8F0E0;
+      --deep: #3A6A3A;
+      --black: #1A1A1A;
+      --gray: #777777;
+      --border: #E5E5E0;
+      --radius: 10px;
+    }
 
-  html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-  body {
-    background: var(--ivory);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--black);
-    font-size: 15px;
-    line-height: 1.6;
-  }
+    body {
+      background: var(--ivory);
+      font-family: 'DM Sans', sans-serif;
+      color: var(--black);
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-  /* ── ANNOUNCEMENT ── */
-  .announcement {
-    background: var(--pale); color: var(--deep);
-    text-align: center; padding: 0.55rem;
-    margin-top: 15px;
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.02em;
-  }
+    /* ── ANNOUNCEMENT ── */
+    .announcement {
+      background: var(--pale);
+      color: var(--deep);
+      text-align: center;
+      padding: 0.55rem;
+      margin-top: 15px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
 
-  /* ── HERO SLIDER ── */
-  .hero-slider {
-    position: relative; overflow: hidden;
-    width: 100%; height: 520px;
-    background: var(--pale);
-  }
-  .slides-track {
-    display: flex; height: 100%;
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    will-change: transform;
-  }
-  .slide {
-    min-width: 100%; height: 100%;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 8%;
-    position: relative; overflow: hidden;
-  }
-  .slide::before {
-    content: ''; position: absolute; inset: 0;
-    background: inherit; opacity: 0.06;
-    background-size: 40px 40px;
-  }
-  .slide-0 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1540331547168-8b63109225b7?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-  .slide-1 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-  .slide-2 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-  .slide-3 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-  .slide-4 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
-  .slide-5 { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80&w=2000'); background-size: cover; background-position: center; }
+    /* ── HERO SLIDER ── */
+    .hero-slider {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: 520px;
+      background: var(--pale);
+    }
 
-  .slide-content {
-    flex: 1; z-index: 2; animation: slideIn 0.6s ease both;
-  }
-  .slide-tag {
-    display: inline-block;
-    background: var(--sage); color: #fff;
-    font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 0.3rem 0.85rem; border-radius: 20px; margin-bottom: 1.2rem;
-  }
-  .slide-content h1 {
-    font-family: 'Lora', serif;
-    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
-    font-style: italic; font-weight: 400;
-    line-height: 1.18; color: var(--ivory);
-    margin-bottom: 0.9rem;
-  }
-  .slide-content h1 em { color: var(--sage); font-style: normal; }
-  .slide-content p {
-    color: rgba(255, 255, 255, 0.85); font-size: 1rem; max-width: 400px; margin-bottom: 1.8rem; line-height: 1.7;
-  }
-  .slide-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--sage); color: #fff; border: none;
-    padding: 0.8rem 1.8rem; border-radius: 8px; font-family: 'DM Sans', sans-serif;
-    font-weight: 500; font-size: 0.95rem; cursor: pointer; transition: all 0.2s;
-  }
-  .btn-primary:hover { background: var(--deep); transform: translateY(-1px); }
-  .btn-outline {
-    background: rgba(255,255,255,0.6); color: var(--deep);
-    border: 1px solid rgba(90,138,90,0.35);
-    padding: 0.8rem 1.8rem; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 0.95rem; cursor: pointer;
-    transition: all 0.2s; backdrop-filter: blur(4px);
-  }
-  .btn-outline:hover { background: rgba(255,255,255,0.9); }
+    .slides-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
 
-  /* product cards inside slider */
-  .slide-products {
-    flex: 0 0 auto; display: flex; gap: 1rem; z-index: 2;
-    align-items: center;
-  }
-  .slide-pcard {
-    background: rgba(255,255,255,0.82); border: 0.5px solid rgba(255,255,255,0.9);
-    border-radius: 14px; padding: 1.2rem 1rem;
-    display: flex; flex-direction: column; align-items: center;
-    gap: 0.45rem; width: 130px; text-align: center;
-    backdrop-filter: blur(8px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    transition: transform 0.25s, box-shadow 0.25s;
-    cursor: pointer;
-  }
-  .slide-pcard:hover { transform: translateY(-5px); box-shadow: 0 10px 28px rgba(90,138,90,0.18); }
-  .slide-pcard .sp-emoji { width: 50px; height: 50px; border-radius: 50%; overflow: hidden; display: flex; align-items: center; justify-content: center; }
-  .slide-pcard .sp-emoji img { width: 100%; height: 100%; object-fit: cover; }
-  .slide-pcard .sp-name { font-size: 0.78rem; font-weight: 500; color: var(--black); }
-  .slide-pcard .sp-price { font-size: 0.82rem; font-weight: 600; color: var(--sage); }
-  .slide-pcard .sp-add {
-    width: 26px; height: 26px; border-radius: 50%; background: var(--pale);
-    border: none; cursor: pointer; font-size: 1rem; font-weight: 700;
-    color: var(--deep); display: flex; align-items: center; justify-content: center;
-    transition: background 0.2s;
-  }
-  .slide-pcard .sp-add:hover { background: var(--sage); color: #fff; }
-  /* featured bigger card */
-  .slide-pcard.featured {
-    width: 155px; padding: 1.5rem 1.2rem;
-    background: rgba(255,255,255,0.92);
-  }
-  .slide-pcard.featured .sp-emoji { width: 70px; height: 70px; }
-  .slide-pcard.featured .sp-name { font-size: 0.85rem; }
-  .slide-pcard.featured .sp-price { font-size: 0.9rem; }
+    .slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 8%;
+      position: relative;
+      overflow: hidden;
+    }
 
-  /* arrows */
-  .slider-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%); z-index: 10;
-    width: 44px; height: 44px; border-radius: 50%;
-    background: rgba(255,255,255,0.88); border: 0.5px solid var(--border);
-    cursor: pointer; display: flex; align-items: center; justify-content: center;
-    font-size: 1.1rem; color: var(--deep);
-    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    transition: background 0.2s, transform 0.2s;
-    backdrop-filter: blur(6px);
-  }
-  .slider-arrow:hover { background: var(--white); transform: translateY(-50%) scale(1.08); }
-  .arrow-prev { left: 2%; }
-  .arrow-next { right: 2%; }
+    .slide::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      opacity: 0.06;
+      background-size: 40px 40px;
+    }
 
-  /* dots */
-  .slider-dots {
-    position: absolute; bottom: 1.4rem; left: 50%; transform: translateX(-50%);
-    display: flex; gap: 0.5rem; z-index: 10;
-  }
-  .dot {
-    width: 8px; height: 8px; border-radius: 4px;
-    background: rgba(90,138,90,0.3); border: none; cursor: pointer;
-    transition: all 0.3s; padding: 0;
-  }
-  .dot.active { width: 24px; background: var(--sage); }
+    .slide-0 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1540331547168-8b63109225b7?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  @keyframes slideIn {
-    from { opacity: 0; transform: translateX(30px); }
-    to   { opacity: 1; transform: translateX(0); }
-  }
+    .slide-1 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* ── CATEGORY PILLS ── */
-  .section { max-width: 1300px; margin: 0 auto; padding: 2.5rem 5%; }
-  .section-label {
-    font-size: 0.78rem; font-weight: 600; text-transform: uppercase;
-    letter-spacing: 0.1em; color: var(--sage); margin-bottom: 0.6rem;
-  }
-  .section-title {
-    font-family: 'Lora', serif; font-size: 1.7rem; font-weight: 600;
-    color: var(--black); margin-bottom: 1.5rem;
-  }
-  .pills {
-    display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 2.5rem;
-  }
-  .pill {
-    background: var(--pale); color: var(--deep); border: none;
-    padding: 0.45rem 1.1rem; border-radius: 20px; font-family: 'DM Sans', sans-serif;
-    font-size: 0.82rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
-    display: flex; align-items: center; gap: 0.35rem;
-  }
-  .pill:hover, .pill.active { background: var(--sage); color: #fff; }
+    .slide-2 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1628088062854-d1870b4553da?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* ── PRODUCT GRID ── */
-  .product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1.2rem;
-  }
-  .product-card {
-    background: var(--white); border: 0.5px solid var(--border);
-    border-radius: var(--radius); overflow: hidden;
-    transition: box-shadow 0.25s, transform 0.25s;
-    cursor: pointer;
-    animation: fadeUp 0.5s ease both;
-  }
-  .product-card:hover { box-shadow: 0 10px 30px rgba(90,138,90,0.13); transform: translateY(-4px); }
-  .product-img {
-    background: var(--pale);
-    height: 150px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 4rem; position: relative; overflow: hidden;
-    background-image: url(visual/assets/milk-groccery.jpg);
-  }
-  .product-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .product-img::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, transparent 60%, rgba(232,240,224,0.4));
-  }
-  .product-badge {
-    position: absolute; top: 10px; left: 10px; z-index:1;
-    background: var(--sage); color: #fff;
-    font-size: 0.65rem; font-weight: 600; padding: 0.18rem 0.55rem;
-    border-radius: 10px; letter-spacing: 0.04em;
-  }
-  .product-info { padding: 1rem; }
-  .product-info h3 {
-    font-weight: 500; font-size: 0.9rem; color: var(--black); margin-bottom: 0.2rem;
-  }
-  .product-info .sub {
-    font-size: 0.78rem; color: var(--gray); margin-bottom: 0.7rem;
-  }
-  .product-footer {
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .price { font-weight: 600; font-size: 0.95rem; color: var(--sage); }
-  .old-price {
-    font-size: 0.75rem; color: var(--gray); text-decoration: line-through; margin-left: 0.3rem;
-  }
-  .add-btn {
-    width: 30px; height: 30px; border-radius: 50%;
-    background: var(--pale); border: none; cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    color: var(--deep); font-size: 1.1rem; font-weight: 600;
-    transition: background 0.2s;
-  }
-  .add-btn:hover { background: var(--sage); color: #fff; }
+    .slide-3 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* ── BANNER ── */
-  .banner-section { padding: 2rem 5%; }
-  .banner-wrap { max-width: 1300px; margin: 0 auto; }
-  .banner {
-    background: linear-gradient(120deg, var(--deep) 0%, var(--sage) 100%);
-    border-radius: 16px; padding: 3rem 4rem;
-    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .banner-text h2 {
-    font-family: 'Lora', serif; font-size: 2rem; font-style: italic;
-    color: #fff; margin-bottom: 0.5rem;
-  }
-  .banner-text p { color: rgba(255,255,255,0.8); font-size: 0.95rem; }
-  .banner-emojis { font-size: 3rem; letter-spacing: 0.5rem; }
-  .btn-white {
-    background: #fff; color: var(--deep); border: none;
-    padding: 0.8rem 1.8rem; border-radius: 8px;
-    font-family: 'DM Sans', sans-serif; font-weight: 600;
-    font-size: 0.9rem; cursor: pointer; transition: opacity 0.2s;
-    white-space: nowrap;
-  }
-  .btn-white:hover { opacity: 0.88; }
+    .slide-4 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1606312619070-d48b4c652a52?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* ── WHY US ── */
-  .features { max-width: 1300px; margin: 0 auto; padding: 2.5rem 5%; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
-  .feature-card {
-    background: var(--white); 
-    border: 0.5px solid var(--border);
-    margin-bottom: 20px;
-    border-radius: var(--radius); padding: 1.6rem;
-    text-align: center; transition: box-shadow 0.2s;
-  }
-  .feature-card:hover { box-shadow: 0 6px 20px rgba(90,138,90,0.10); }
-  .feature-icon { font-size: 2rem; margin-bottom: 0.8rem; }
-  .feature-card h4 { font-weight: 600; font-size: 0.9rem; margin-bottom: 0.4rem; }
-  .feature-card p { font-size: 0.8rem; color: var(--gray); }
-  
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
+    .slide-5 {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1552611052-33e04de081de?auto=format&fit=crop&q=80&w=2000');
+      background-size: cover;
+      background-position: center;
+    }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 900px) {
-    .hero-slider { height: auto; min-height: 420px; }
-    .slide-products { justify-content: center; }
-    .footer-inner { grid-template-columns: 1fr 1fr; }
-    .nav-links { display: none; }
-  }
-  @media (max-width: 600px) {
-    .banner { padding: 2rem; }
-    .footer-inner { grid-template-columns: 1fr; }
-    .banner-emojis { display: none; }
-  }
-</style>
+    .slide-content {
+      flex: 1;
+      z-index: 2;
+      animation: slideIn 0.6s ease both;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      background: var(--sage);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      margin-bottom: 1.2rem;
+    }
+
+    .slide-content h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.18;
+      color: var(--ivory);
+      margin-bottom: 0.9rem;
+    }
+
+    .slide-content h1 em {
+      color: var(--sage);
+      font-style: normal;
+    }
+
+    .slide-content p {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 1rem;
+      max-width: 400px;
+      margin-bottom: 1.8rem;
+      line-height: 1.7;
+    }
+
+    .slide-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--sage);
+      color: #fff;
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--deep);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.6);
+      color: var(--deep);
+      border: 1px solid rgba(90, 138, 90, 0.35);
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    /* product cards inside slider */
+    .slide-products {
+      flex: 0 0 auto;
+      display: flex;
+      gap: 1rem;
+      z-index: 2;
+      align-items: center;
+    }
+
+    .slide-pcard {
+      background: rgba(255, 255, 255, 0.82);
+      border: 0.5px solid rgba(255, 255, 255, 0.9);
+      border-radius: 14px;
+      padding: 1.2rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.45rem;
+      width: 130px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+      transition: transform 0.25s, box-shadow 0.25s;
+      cursor: pointer;
+    }
+
+    .slide-pcard:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 28px rgba(90, 138, 90, 0.18);
+    }
+
+    .slide-pcard .sp-emoji {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .slide-pcard .sp-emoji img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slide-pcard .sp-name {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--black);
+    }
+
+    .slide-pcard .sp-price {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sage);
+    }
+
+    .slide-pcard .sp-add {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--pale);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--deep);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+
+    .slide-pcard .sp-add:hover {
+      background: var(--sage);
+      color: #fff;
+    }
+
+    /* featured bigger card */
+    .slide-pcard.featured {
+      width: 155px;
+      padding: 1.5rem 1.2rem;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .slide-pcard.featured .sp-emoji {
+      width: 70px;
+      height: 70px;
+    }
+
+    .slide-pcard.featured .sp-name {
+      font-size: 0.85rem;
+    }
+
+    .slide-pcard.featured .sp-price {
+      font-size: 0.9rem;
+    }
+
+    /* arrows */
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.88);
+      border: 0.5px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: var(--deep);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      transition: background 0.2s, transform 0.2s;
+      backdrop-filter: blur(6px);
+    }
+
+    .slider-arrow:hover {
+      background: var(--white);
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .arrow-prev {
+      left: 2%;
+    }
+
+    .arrow-next {
+      right: 2%;
+    }
+
+    /* dots */
+    .slider-dots {
+      position: absolute;
+      bottom: 1.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 0.5rem;
+      z-index: 10;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(90, 138, 90, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      padding: 0;
+    }
+
+    .dot.active {
+      width: 24px;
+      background: var(--sage);
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    /* ── CATEGORY PILLS ── */
+    .section {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2.5rem 5%;
+    }
+
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-family: 'Lora', serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 1.5rem;
+    }
+
+    .pills {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+
+    .pill {
+      background: var(--pale);
+      color: var(--deep);
+      border: none;
+      padding: 0.45rem 1.1rem;
+      border-radius: 20px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .pill:hover,
+    .pill.active {
+      background: var(--sage);
+      color: #fff;
+    }
+
+    /* ── PRODUCT GRID ── */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.25s;
+      cursor: pointer;
+      animation: fadeUp 0.5s ease both;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 10px 30px rgba(90, 138, 90, 0.13);
+      transform: translateY(-4px);
+    }
+
+    .product-img {
+      background: var(--pale);
+      height: 150px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      position: relative;
+      overflow: hidden;
+      background-image: url(visual/assets/milk-groccery.jpg);
+    }
+
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 60%, rgba(232, 240, 224, 0.4));
+    }
+
+    .product-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 1;
+      background: var(--sage);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    .product-info {
+      padding: 1rem;
+    }
+
+    .product-info h3 {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--black);
+      margin-bottom: 0.2rem;
+    }
+
+    .product-info .sub {
+      font-size: 0.78rem;
+      color: var(--gray);
+      margin-bottom: 0.7rem;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .price {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--sage);
+    }
+
+    .old-price {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-decoration: line-through;
+      margin-left: 0.3rem;
+    }
+
+    .add-btn {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--pale);
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--deep);
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .add-btn:hover {
+      background: var(--sage);
+      color: #fff;
+    }
+
+    /* ── BANNER ── */
+    .banner-section {
+      padding: 2rem 5%;
+    }
+
+    .banner-wrap {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .banner {
+      background: linear-gradient(120deg, var(--deep) 0%, var(--sage) 100%);
+      border-radius: 16px;
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .banner-text h2 {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-style: italic;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+
+    .banner-text p {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+
+    .banner-emojis {
+      font-size: 3rem;
+      letter-spacing: 0.5rem;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--deep);
+      border: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .btn-white:hover {
+      opacity: 0.88;
+    }
+
+    /* ── WHY US ── */
+    .features {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 2.5rem 5%;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 0.5px solid var(--border);
+      margin-bottom: 20px;
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      text-align: center;
+      transition: box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      box-shadow: 0 6px 20px rgba(90, 138, 90, 0.10);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-card h4 {
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card p {
+      font-size: 0.8rem;
+      color: var(--gray);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-slider {
+        height: auto;
+        min-height: 420px;
+      }
+
+      .slide-products {
+        justify-content: center;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .banner {
+        padding: 2rem;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .banner-emojis {
+        display: none;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="../css/navbar.css">
 </head>
+
 <body>
 
-<div id="preloader">
+  <div id="preloader">
     <div class="loader-content">
-        <div class="loader-logo">UrbanMart</div>
-        <div class="text-secondary small mt-2">Curating the Best for You...</div>
+      <div class="loader-logo">UrbanMart</div>
+      <div class="text-secondary small mt-2">Curating the Best for You...</div>
     </div>
-</div>
+  </div>
 
-<div class="search-overlay" id="searchOverlay">
+
+  <div class="search-overlay" id="searchOverlay">
     <div class="search-overlay-inner">
-        <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
-        <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
-        <button class="nav-icon-btn" onclick="toggleSearch()"
-            style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
-                class="bi bi-search"></i></button>
+      <button class="search-close-btn" onclick="toggleSearch()"><i class="bi bi-x-lg"></i></button>
+      <input type="text" id="searchInput" placeholder="Search products, categories..." autofocus>
+      <button class="nav-icon-btn" onclick="toggleSearch()"
+        style="background:var(--primary-nature);color:white;border-color:var(--primary-nature);"><i
+          class="bi bi-search"></i></button>
     </div>
-</div>
+  </div>
 
-<div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
+  <div class="nav-backdrop" id="navBackdrop" onclick="closeAll()"></div>
 
-<nav class="navbar animate__animated animate__fadeInDown">
+  <nav class="navbar animate__animated animate__fadeInDown">
     <div class="container">
-        <div class="navbar-inner w-100">
-            <a class="navbar-brand fw-bold" href="../../index.html"
-                style="display:flex;align-items:center;gap:0;text-decoration:none;">
-                <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
-                    style="flex-shrink:0;">
-                    <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
-                    <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
-                        stroke-linecap="round" fill="none" />
-                    <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
-                    <circle cx="9.5" cy="17" r="1.2" fill="white" />
-                    <circle cx="16.5" cy="17" r="1.2" fill="white" />
-                    <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
-                        fill="#1A1A1A" letter-spacing="-0.3">Urban</text>
-                    <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5"
-                        fill="#5A8A5A" letter-spacing="-0.3">mart</text>
-                    <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
-                </svg>
-            </a>
-            <ul class="nav-links ms-3">
-                <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
-            </ul>
-            <div class="nav-search-bar">
-                <i class="bi bi-search nav-search-icon"></i>
-                <input type="text" id="navSearchInput" class="nav-search-input"
-                    placeholder="Search products, categories...">
-                <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
-                        class="bi bi-x"></i></button>
-            </div>
-            <div class="nav-right">
-                <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites"
-                    style="position:relative;">
-                    <i class="bi bi-heart"></i>
-                    <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
-                </button>
-                <div class="settings-wrapper">
-                    <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
-                            class="bi bi-gear"></i></button>
-                    <div class="settings-panel" id="settingsPanel">
-                        <div class="settings-panel-header">Preferences</div>
-                        <div class="settings-item" onclick="toggleSetting('notifications')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Notifications</div>
-                                    <div class="settings-item-sub">Deals &amp; order updates</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle on" id="toggle-notifications"></button>
-                        </div>
-                        <div class="settings-item" onclick="toggleSetting('darkmode')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Dark Mode</div>
-                                    <div class="settings-item-sub">Switch appearance</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle" id="toggle-darkmode"></button>
-                        </div>
-                        <div class="settings-item" onclick="toggleSetting('offers')">
-                            <div class="settings-item-left">
-                                <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
-                                <div>
-                                    <div class="settings-item-label">Personalised Offers</div>
-                                    <div class="settings-item-sub">Based on your activity</div>
-                                </div>
-                            </div>
-                            <button class="s-toggle on" id="toggle-offers"></button>
-                        </div>
-                        <div class="settings-divider"></div>
-                        <div class="settings-panel-header">Account</div>
-                        <a class="settings-link-item" href="login.html">
-                            <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
-                                Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
-                        </a>
-                        <a class="settings-link-item" href="#">
-                            <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
-                                Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
-                        </a>
-                        <a class="settings-link-item" href="seller.html">
-                            <div class="settings-item-icon"
-                                style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
-                                    class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
-                                with Us</span><i class="bi bi-chevron-right ms-auto"
-                                style="font-size:0.7rem;color:var(--primary-nature);"></i>
-                        </a>
-                        <a class="settings-link-item" href="about.html">
-                            <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
-                                UrbanMart</span><i class="bi bi-chevron-right ms-auto"
-                                style="font-size:0.7rem;"></i>
-                        </a>
-                    </div>
-                </div>
-                <button class="nav-icon-btn" onclick="window.location.href='cart.html'"
-                    title="Cart">
-                    <i class="bi bi-bag"></i>
-                    <span class="cart-badge" id="cart-badge">0</span>
-                </button>
-                <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
-                    Login</a>
-                <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
-                    <span id="user-nav-name">Profile</span></a>
-                <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i
-                        class="bi bi-list" id="hamburgerIcon"></i></button>
-            </div>
+      <div class="navbar-inner w-100">
+        <a class="navbar-brand fw-bold" href="../../index.html"
+          style="display:flex;align-items:center;gap:0;text-decoration:none;">
+          <svg width="148" height="36" viewBox="0 0 148 36" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="flex-shrink:0;">
+            <rect x="2" y="10" width="22" height="20" rx="3.5" fill="#5A8A5A" />
+            <path d="M8 10 C8 6.5 10.5 4 13 4 C15.5 4 18 6.5 18 10" stroke="#5A8A5A" stroke-width="2.2"
+              stroke-linecap="round" fill="none" />
+            <path d="M9 17 L17 17" stroke="white" stroke-width="1.8" stroke-linecap="round" />
+            <circle cx="9.5" cy="17" r="1.2" fill="white" />
+            <circle cx="16.5" cy="17" r="1.2" fill="white" />
+            <text x="29" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#1A1A1A"
+              letter-spacing="-0.3">Urban</text>
+            <text x="80" y="24" font-family="'Lora', Georgia, serif" font-weight="700" font-size="15.5" fill="#5A8A5A"
+              letter-spacing="-0.3">mart</text>
+            <circle cx="144" cy="23" r="2.5" fill="#5A8A5A" />
+          </svg>
+        </a>
+        <ul class="nav-links ms-3">
+          <li><a class="nav-link" href="../../index.html#shop">Shop</a></li>
+        </ul>
+        <div class="nav-search-bar">
+          <i class="bi bi-search nav-search-icon"></i>
+          <input type="text" id="navSearchInput" class="nav-search-input" placeholder="Search products, categories...">
+          <button class="nav-search-clear" id="navSearchClear" onclick="clearNavSearch()" title="Clear"><i
+              class="bi bi-x"></i></button>
         </div>
+        <div class="nav-right">
+          <button class="nav-icon-btn" onclick="toggleFavDrawer()" title="Favourites" style="position:relative;">
+            <i class="bi bi-heart"></i>
+            <span class="cart-badge" id="favIconBadge" style="display:none;background:#e11d48;">0</span>
+          </button>
+          <div class="settings-wrapper">
+            <button class="nav-icon-btn" onclick="toggleSettings()" title="Settings" id="settingsBtn"><i
+                class="bi bi-gear"></i></button>
+            <div class="settings-panel" id="settingsPanel">
+              <div class="settings-panel-header">Preferences</div>
+              <div class="settings-item" onclick="toggleSetting('notifications')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-bell"></i></div>
+                  <div>
+                    <div class="settings-item-label">Notifications</div>
+                    <div class="settings-item-sub">Deals &amp; order updates</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-notifications"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('darkmode')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-moon"></i></div>
+                  <div>
+                    <div class="settings-item-label">Dark Mode</div>
+                    <div class="settings-item-sub">Switch appearance</div>
+                  </div>
+                </div>
+                <button class="s-toggle" id="toggle-darkmode"></button>
+              </div>
+              <div class="settings-item" onclick="toggleSetting('offers')">
+                <div class="settings-item-left">
+                  <div class="settings-item-icon"><i class="bi bi-tag"></i></div>
+                  <div>
+                    <div class="settings-item-label">Personalised Offers</div>
+                    <div class="settings-item-sub">Based on your activity</div>
+                  </div>
+                </div>
+                <button class="s-toggle on" id="toggle-offers"></button>
+              </div>
+              <div class="settings-divider"></div>
+              <div class="settings-panel-header">Account</div>
+              <a class="settings-link-item" href="login.html">
+                <div class="settings-item-icon"><i class="bi bi-person-circle"></i></div><span>My
+                  Profile</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="#">
+                <div class="settings-item-icon"><i class="bi bi-box-seam"></i></div><span>My
+                  Orders</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+              <a class="settings-link-item" href="seller.html">
+                <div class="settings-item-icon" style="background:rgba(90,138,90,0.1);color:var(--primary-nature);"><i
+                    class="bi bi-shop"></i></div><span style="color:var(--primary-nature);">Partner
+                  with Us</span><i class="bi bi-chevron-right ms-auto"
+                  style="font-size:0.7rem;color:var(--primary-nature);"></i>
+              </a>
+              <a class="settings-link-item" href="about.html">
+                <div class="settings-item-icon"><i class="bi bi-info-circle"></i></div><span>About
+                  UrbanMart</span><i class="bi bi-chevron-right ms-auto" style="font-size:0.7rem;"></i>
+              </a>
+            </div>
+          </div>
+          <button class="nav-icon-btn" onclick="window.location.href='cart.html'" title="Cart">
+            <i class="bi bi-bag"></i>
+            <span class="cart-badge" id="cart-badge">0</span>
+          </button>
+          <a id="login-nav-btn" class="nav-login-btn" href="login.html"><i class="bi bi-person-circle"></i>
+            Login</a>
+          <a id="user-profile-btn" class="nav-login-btn d-none" href="account.html"><i class="bi bi-person-circle"></i>
+            <span id="user-nav-name">Profile</span></a>
+          <button class="nav-hamburger" id="hamburgerBtn" onclick="toggleMobile()" title="Menu"><i class="bi bi-list"
+              id="hamburgerIcon"></i></button>
+        </div>
+      </div>
     </div>
-</nav>
+  </nav>
 
-<div class="category-nav-bar" id="categoryNavBar">
+  <div class="category-nav-bar" id="categoryNavBar">
     <div class="category-nav-overflow-wrap" id="catOverflowWrap">
-        <div class="category-nav-scroll" id="category-filters">
-            <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-grid-fill"></i> For You</div>
-            <div class="cat-pill active" data-cat="Grocery" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"><i
-                        class="bi bi-grid-fill"></i> Grocery</div>
-            <div class="cat-pill" data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
-                        class="bi bi-bag-heart"></i> Fashion</div>
-            <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-phone"></i> Mobiles</div>
-            <div class="cat-pill" data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
-                        class="bi bi-stars"></i> Beauty</div>
-            <div class="cat-pill" data-cat="Electronics" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-cpu"></i> Electronics</div>
-            <div class="cat-pill" data-cat="Home" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-house"></i> Home</div>
-            <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-lightning-charge"></i> Appliances</div>
-            <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-controller"></i> Toys</div>
-            <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-basket"></i> Food</div>
-            <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-car-front"></i> Auto</div>
-            <div class="cat-pill" data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><i
-                        class="bi bi-bicycle"></i> 2 Wheelers</div>
-            <div class="cat-pill" data-cat="Books" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-book"></i> Books</div>
-            <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-lamp"></i> Furniture</div>
-            <div class="cat-pill" data-cat="Sports" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-trophy"></i> Sports</div>
-            <div class="cat-pill" data-cat="Medicines" onclick="window.location.href='../../index.html#shop'"><i
-                        class="bi bi-capsule"></i> Medicines</div>
+      <div class="category-nav-scroll" id="category-filters">
+        <div class="cat-pill" data-cat="For You" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-grid-fill"></i> For You</div>
+        <div class="cat-pill active" data-cat="Grocery" onclick="window.location.href='grocery.html'"><i
+            class="bi bi-cart"></i> <a style="text-decoration: none; color: inherit; " href="grocery.html">Grocery</a>
         </div>
-    </div>
-</div>
+        <div class="cat-pill " data-cat="Fashion" onclick="window.location.href='fashion.html'"><i
+            class="bi bi-bag-heart"></i> <a style="text-decoration: none; color: inherit; "
+            href="fashion.html">Fashion</a></div>
+        <div class="cat-pill" data-cat="Mobiles" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-phone"></i> Mobiles</div>
+        <div class="cat-pill " data-cat="Beauty" onclick="window.location.href='beauty.html'"><i
+            class="bi bi-stars"></i><a style="text-decoration: none; color: inherit; " href="beauty.html">Beauty</a>
+        </div>
+        <div class="cat-pill" data-cat="pet" onclick="filterProducts('pet', this)"><i class="bi bi-tencent-qq"></i><a
+            style="text-decoration: none; color: inherit; " href="pet.html">Pet</a></div>
+        <div class="cat-pill " data-cat="Electronics" onclick="window.location.href='electronic.html'"><i
+            class="bi bi-cpu"></i> Electronics</div>
+        <div class="cat-pill " data-cat="Home" onclick="window.location.href='Homesmart.html'"><i
+            class="bi bi-house"></i>
+          Home</div>
+        <div class="cat-pill" data-cat="Appliances" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lightning-charge"></i> Appliances</div>
+        <div class="cat-pill" data-cat="Toys" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-controller"></i> Toys</div>
+        <div class="cat-pill" data-cat="Food" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-basket"></i> Food</div>
+        <div class="cat-pill" data-cat="Auto" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-car-front"></i> Auto</div>
+        <div class="cat-pill " data-cat="2 Wheelers" onclick="window.location.href='2_Wheelers.html'"><a
+            href="2_Wheelers.html" style="text-decoration: none; color: inherit;"><i class="bi bi-bicycle"></i> 2
+            Wheelers</a></div>
+        <div class="cat-pill " data-cat="Books" onclick="window.location.href='Books.html'"><i class="bi bi-book"></i>
+          <a href="Books.html" style="text-decoration: none; color: inherit;">Books</a>
+        </div>
+        <div class="cat-pill" data-cat="Furniture" onclick="window.location.href='../../index.html#shop'"><i
+            class="bi bi-lamp"></i> Furniture</div>
+        <div class="cat-pill " data-cat="Sports" onclick="window.location.href='Fitness_&_Sports.html'"><a
+            href="Fitness_&_Sports.html" style="text-decoration: none; color: inherit;"><i class="bi bi-trophy"></i>
+            Sports</a></div>
+        <div class="cat-pill " data-cat="Medicines" onclick="window.location.href='Medicine_&_Nutrients.html'"><a
+            href="Medicine_&_Nutrients.html" style="text-decoration: none; color: inherit;"><i
+              class="bi bi-capsule"></i> Medicines</a></div>
 
-<div class="nav-mobile-panel" id="mobilePanel">
-    <a class="mobile-nav-link" href="../../index.html"><i class="bi bi-house"></i> Home</a>
-    <a class="mobile-nav-link" href="../../index.html#shop"><i class="bi bi-bag"></i> Shop</a>
+        <div class="cat-pill travel-pill " data-cat="Travel" onclick="window.location.href='travel_landing.html'">
+          <span class="travel-badge">NEW</span>
+          <a href="travel_landing.html" style="text-decoration: none; color: inherit;">
+            <i class="bi bi-airplane-fill"></i> Travel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-mobile-panel" id="mobilePanel">
+    <a class="mobile-nav-link" href="../../index.html#home" onclick="closeAll()"><i class="bi bi-house"></i> Home</a>
+    <a class="mobile-nav-link" href="../../index.html#shop" onclick="closeAll()"><i class="bi bi-bag"></i> Shop</a>
     <a class="mobile-nav-link" href="seller.html"><i class="bi bi-shop"></i> Partner with us</a>
-</div>
+    <div class="mobile-nav-divider"></div>
+    <a id="login-nav-btn-mobile" class="mobile-fab-btn login" href="login.html" style="border-radius:12px;"><i
+        class="bi bi-person-circle"></i> Login</a>
+    <a id="user-profile-btn-mobile" class="mobile-fab-btn login d-none" href="account.html"
+      style="border-radius:12px;"><i class="bi bi-person-circle"></i> <span id="user-nav-name-mobile">Profile</span></a>
+  </div>
 
-<!-- ANNOUNCEMENT -->
-<div class="announcement">🌿 Free delivery on orders over ₹499 &nbsp;|&nbsp; Fresh produce delivered daily</div>
 
-<!-- HERO SLIDER -->
-<div class="hero-slider">
-  <div class="slides-track" id="slidesTrack">
+  <!-- ANNOUNCEMENT -->
+  <div class="announcement">🌿 Free delivery on orders over ₹499 &nbsp;|&nbsp; Fresh produce delivered daily</div>
 
-    <!-- SLIDE 1 — Vegetables -->
-    <div class="slide slide-0">
-      <div class="slide-content">
-        <span class="slide-tag">🌿 Farm to Table</span>
-        <h1>Crisp, fresh<br/><em>vegetables</em> daily.</h1>
-        <p>Hand-picked from local farms every morning. Organic, pesticide-free, and bursting with flavour.</p>
-        <div class="slide-actions">
-          <button class="btn-primary" data-target="vegetables">Shop Vegetables →</button>
-          <button class="btn-outline">View all deals</button>
+  <!-- HERO SLIDER -->
+  <div class="hero-slider">
+    <div class="slides-track" id="slidesTrack">
+
+      <!-- SLIDE 1 — Vegetables -->
+      <div class="slide slide-0">
+        <div class="slide-content">
+          <span class="slide-tag">🌿 Farm to Table</span>
+          <h1>Crisp, fresh<br /><em>vegetables</em> daily.</h1>
+          <p>Hand-picked from local farms every morning. Organic, pesticide-free, and bursting with flavour.</p>
+          <div class="slide-actions">
+            <button class="btn-primary" data-target="vegetables">Shop Vegetables →</button>
+            <button class="btn-outline">View all deals</button>
+          </div>
+        </div>
+        <div class="slide-products">
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Baby Carrots.jpg" alt="Carrots"></div>
+            <div class="sp-name">Baby Carrots</div>
+            <div class="sp-price">₹35</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard featured">
+            <div class="sp-emoji"><img src="../assets/Broccoli.jpg" alt="Broccoli"></div>
+            <div class="sp-name">Organic Broccoli</div>
+            <div class="sp-price">₹49</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Cherry Tomatoes.jpg" alt="Tomatoes"></div>
+            <div class="sp-name">Cherry Tomatoes</div>
+            <div class="sp-price">₹58</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="slide-products">
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Baby Carrots.jpg" alt="Carrots"></div>
-          <div class="sp-name">Baby Carrots</div>
-          <div class="sp-price">₹35</div>
-          <button class="sp-add add-btn">+</button>
+
+      <!-- SLIDE 2 — Fruits -->
+      <div class="slide slide-1">
+        <div class="slide-content">
+          <span class="slide-tag">🍎 Seasonal Picks</span>
+          <h1>Nature's sweetest<br /><em>fruits</em>, delivered.</h1>
+          <p>From juicy mangoes to crisp apples — sourced from the finest orchards across India.</p>
+          <div class="slide-actions">
+            <button class="btn-primary" data-target="fruits">Shop Fruits →</button>
+            <button class="btn-outline">View all deals</button>
+          </div>
         </div>
-        <div class="slide-pcard featured">
-          <div class="sp-emoji"><img src="../assets/Broccoli.jpg" alt="Broccoli"></div>
-          <div class="sp-name">Organic Broccoli</div>
-          <div class="sp-price">₹49</div>
-          <button class="sp-add add-btn">+</button>
+        <div class="slide-products">
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Bananas.jpg" alt="Bananas"></div>
+            <div class="sp-name">Bananas</div>
+            <div class="sp-price">₹38</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard featured">
+            <div class="sp-emoji"><img src="../assets/Alphonso Mango.jpg" alt="Mango"></div>
+            <div class="sp-name">Alphonso Mango</div>
+            <div class="sp-price">₹130</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Fresh Strawberries.jpg" alt="Strawberries"></div>
+            <div class="sp-name">Strawberries</div>
+            <div class="sp-price">₹89</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
         </div>
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Cherry Tomatoes.jpg" alt="Tomatoes"></div>
-          <div class="sp-name">Cherry Tomatoes</div>
-          <div class="sp-price">₹58</div>
-          <button class="sp-add add-btn">+</button>
+      </div>
+
+      <!-- SLIDE 3 — Dairy -->
+      <div class="slide slide-2">
+        <div class="slide-content">
+          <span class="slide-tag">🥛 Farm Fresh</span>
+          <h1>Wholesome<br /><em>dairy</em> every morning.</h1>
+          <p>Pure, pasteurised, and packed with goodness — from our trusted farm partners to your breakfast table.</p>
+          <div class="slide-actions">
+            <button class="btn-primary" data-target="dairy">Shop Dairy →</button>
+            <button class="btn-outline">View all deals</button>
+          </div>
+        </div>
+        <div class="slide-products">
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Unsalted Butter.jpg" alt="Butter"></div>
+            <div class="sp-name">Unsalted Butter</div>
+            <div class="sp-price">₹55</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard featured">
+            <div class="sp-emoji"><img src="../assets/milk-groccery.jpg" alt="Milk"></div>
+            <div class="sp-name">Full Cream Milk</div>
+            <div class="sp-price">₹32</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/cheese-img.jpg" alt="Cheese"></div>
+            <div class="sp-name">Cheddar Cheese</div>
+            <div class="sp-price">₹145</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 5 — Chocolate -->
+      <div class="slide slide-4">
+        <div class="slide-content">
+          <span class="slide-tag">🍫 Indulge Mindfully</span>
+          <h1>Premium<br /><em>chocolate</em>, every bite.</h1>
+          <p>From rich dark bars to silky milk chocolate — curated from world-class confectioners.</p>
+          <div class="slide-actions">
+            <button class="btn-primary" data-target="chocolate">Shop Chocolate →</button>
+            <button class="btn-outline">View all deals</button>
+          </div>
+        </div>
+        <div class="slide-products">
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Choco Chip Cookies.jpg " alt="Choco Bites"></div>
+            <div class="sp-name">Milk Choco Bites</div>
+            <div class="sp-price">₹120</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard featured">
+            <div class="sp-emoji"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"></div>
+            <div class="sp-name">Dark Chocolate Bar</div>
+            <div class="sp-price">₹185</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"></div>
+            <div class="sp-name">Hazelnut Praline</div>
+            <div class="sp-price">₹210</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SLIDE 6 — Maggi -->
+      <div class="slide slide-5">
+        <div class="slide-content">
+          <span class="slide-tag">🍜 Quick Meals</span>
+          <h1>Ready in<br /><em>2 minutes</em>, always.</h1>
+          <p>Stock up on your favourite noodles and instant meals. Perfect for busy days and midnight cravings.</p>
+          <div class="slide-actions">
+            <button class="btn-primary" data-target="noodles">Shop Noodles →</button>
+            <button class="btn-outline">View all deals</button>
+          </div>
+        </div>
+        <div class="slide-products">
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Atta Maggi.jpg" alt="Atta Maggi"></div>
+            <div class="sp-name">Atta Maggi</div>
+            <div class="sp-price">₹78</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard featured">
+            <div class="sp-emoji"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi Noodles"></div>
+            <div class="sp-name">Maggi 2-Min Noodles</div>
+            <div class="sp-price">₹72</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+          <div class="slide-pcard">
+            <div class="sp-emoji"><img src="../assets/Cup Noodles.jpg" alt="Cup Noodles"></div>
+            <div class="sp-name">Cup Noodles</div>
+            <div class="sp-price">₹35</div>
+            <button class="sp-add add-btn">+</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /slides-track -->
+
+    <!-- Arrows -->
+    <button class="slider-arrow arrow-prev" id="arrowPrev">&#8592;</button>
+    <button class="slider-arrow arrow-next" id="arrowNext">&#8594;</button>
+
+    <!-- Dots -->
+    <div class="slider-dots" id="sliderDots"></div>
+  </div>
+
+  <!-- CATEGORY PILLS + PRODUCTS -->
+  <div class="section">
+    <p class="section-label">All Categories</p>
+    <h2 class="section-title">Shop by Category</h2>
+    <div class="pills">
+      <button class="pill active" data-target="all">🥬 All</button>
+      <button class="pill" data-target="dairy">🥛 Dairy</button>
+      <button class="pill" data-target="vegetables">🥦 Vegetables</button>
+      <button class="pill" data-target="fruits">🍎 Fruits</button>
+      <button class="pill" data-target="chocolate">🍫 Chocolate</button>
+      <button class="pill" data-target="noodles">🍜 Maggi & Noodles</button>
+      <button class="pill">🧃 Beverages</button>
+
+    </div>
+
+    <!-- DAIRY -->
+    <p id="dairy" class="section-label" style="margin-top:1.5rem;">Dairy Products</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Fresh & Wholesome</h3>
+    <div class="product-grid">
+      <div class="product-card" style="animation-delay:0s">
+        <div class="product-img"><img src="../assets/milk-groccery.jpg" alt="Milk"><span
+            class="product-badge">ORGANIC</span></div>
+        <div class="product-info">
+          <h3>Full Cream Milk</h3>
+          <div class="sub">500 ml · Pasteurised</div>
+          <div class="product-footer">
+            <div><span class="price">₹32</span><span class="old-price">₹38</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="animation-delay:0.05s">
+        <div class="product-img"><img src="../assets/cheese-img.jpg" alt="Cheese"></div>
+        <div class="product-info">
+          <h3>Cheddar Cheese</h3>
+          <div class="sub">200 g · Sliced</div>
+          <div class="product-footer">
+            <div><span class="price">₹145</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="animation-delay:0.1s">
+        <div class="product-img"><img src="../assets/Creamy Yoghurt.jpg" alt="Yoghurt"><span
+            class="product-badge">POPULAR</span></div>
+        <div class="product-info">
+          <h3>Creamy Yoghurt</h3>
+          <div class="sub">400 g · Probiotic</div>
+          <div class="product-footer">
+            <div><span class="price">₹68</span><span class="old-price">₹80</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="animation-delay:0.15s">
+        <div class="product-img"><img src="../assets/Unsalted Butter.jpg" alt="Butter"></div>
+        <div class="product-info">
+          <h3>Unsalted Butter</h3>
+          <div class="sub">100 g · Amul</div>
+          <div class="product-footer">
+            <div><span class="price">₹55</span></div>
+            <button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card" style="animation-delay:0.2s">
+        <div class="product-img"><img src="../assets/Free Range Eggs.jpg" alt="Eggs"><span class="product-badge">FARM
+            FRESH</span></div>
+        <div class="product-info">
+          <h3>Free Range Eggs</h3>
+          <div class="sub">6 pcs · Brown</div>
+          <div class="product-footer">
+            <div><span class="price">₹72</span></div>
+            <button class="add-btn">+</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 2 — Fruits -->
-    <div class="slide slide-1">
-      <div class="slide-content">
-        <span class="slide-tag">🍎 Seasonal Picks</span>
-        <h1>Nature's sweetest<br/><em>fruits</em>, delivered.</h1>
-        <p>From juicy mangoes to crisp apples — sourced from the finest orchards across India.</p>
-        <div class="slide-actions">
-          <button class="btn-primary" data-target="fruits">Shop Fruits →</button>
-          <button class="btn-outline">View all deals</button>
+    <!-- VEGETABLES -->
+    <p id="vegetables" class="section-label" style="margin-top:3rem;">Vegetables</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Garden-Fresh Picks</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Broccoli.jpg" alt="Broccoli"><span
+            class="product-badge">ORGANIC</span></div>
+        <div class="product-info">
+          <h3>Broccoli</h3>
+          <div class="sub">500 g · Local Farm</div>
+          <div class="product-footer">
+            <div><span class="price">₹49</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="slide-products">
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Bananas.jpg" alt="Bananas"></div>
-          <div class="sp-name">Bananas</div>
-          <div class="sp-price">₹38</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard featured">
-          <div class="sp-emoji"><img src="../assets/Alphonso Mango.jpg" alt="Mango"></div>
-          <div class="sp-name">Alphonso Mango</div>
-          <div class="sp-price">₹130</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Fresh Strawberries.jpg" alt="Strawberries"></div>
-          <div class="sp-name">Strawberries</div>
-          <div class="sp-price">₹89</div>
-          <button class="sp-add add-btn">+</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Baby Carrots.jpg" alt="Carrots"></div>
+        <div class="product-info">
+          <h3>Baby Carrots</h3>
+          <div class="sub">250 g · Crunchy</div>
+          <div class="product-footer">
+            <div><span class="price">₹35</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- SLIDE 3 — Dairy -->
-    <div class="slide slide-2">
-      <div class="slide-content">
-        <span class="slide-tag">🥛 Farm Fresh</span>
-        <h1>Wholesome<br/><em>dairy</em> every morning.</h1>
-        <p>Pure, pasteurised, and packed with goodness — from our trusted farm partners to your breakfast table.</p>
-        <div class="slide-actions">
-          <button class="btn-primary" data-target="dairy">Shop Dairy →</button>
-          <button class="btn-outline">View all deals</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Cherry Tomatoes.jpg" alt="Tomatoes"><span
+            class="product-badge">FRESH</span></div>
+        <div class="product-info">
+          <h3>Cherry Tomatoes</h3>
+          <div class="sub">300 g · Vine Ripened</div>
+          <div class="product-footer">
+            <div><span class="price">₹58</span><span class="old-price">₹70</span></div><button
+              class="add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="slide-products">
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Unsalted Butter.jpg" alt="Butter"></div>
-          <div class="sp-name">Unsalted Butter</div>
-          <div class="sp-price">₹55</div>
-          <button class="sp-add add-btn">+</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/English Cucumber.jpg" alt="Cucumber"></div>
+        <div class="product-info">
+          <h3>English Cucumber</h3>
+          <div class="sub">2 pcs · Crisp</div>
+          <div class="product-footer">
+            <div><span class="price">₹28</span></div><button class="add-btn">+</button>
+          </div>
         </div>
-        <div class="slide-pcard featured">
-          <div class="sp-emoji"><img src="../assets/milk-groccery.jpg" alt="Milk"></div>
-          <div class="sp-name">Full Cream Milk</div>
-          <div class="sp-price">₹32</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/cheese-img.jpg" alt="Cheese"></div>
-          <div class="sp-name">Cheddar Cheese</div>
-          <div class="sp-price">₹145</div>
-          <button class="sp-add add-btn">+</button>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Bell Peppers (Mix).jpg" alt="Peppers"></div>
+        <div class="product-info">
+          <h3>Bell Peppers (Mix)</h3>
+          <div class="sub">3 pcs · Red, Yellow, Green</div>
+          <div class="product-footer">
+            <div><span class="price">₹79</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- SLIDE 5 — Chocolate -->
-    <div class="slide slide-4">
-      <div class="slide-content">
-        <span class="slide-tag">🍫 Indulge Mindfully</span>
-        <h1>Premium<br/><em>chocolate</em>, every bite.</h1>
-        <p>From rich dark bars to silky milk chocolate — curated from world-class confectioners.</p>
-        <div class="slide-actions">
-          <button class="btn-primary" data-target="chocolate">Shop Chocolate →</button>
-          <button class="btn-outline">View all deals</button>
+    <!-- FRUITS -->
+    <p id="fruits" class="section-label" style="margin-top:3rem;">Fruits</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Nature's Sweetness</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Royal Gala Apples.jpg" alt="Apples"><span
+            class="product-badge">SEASONAL</span></div>
+        <div class="product-info">
+          <h3>Royal Gala Apples</h3>
+          <div class="sub">4 pcs · Kashmir</div>
+          <div class="product-footer">
+            <div><span class="price">₹95</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="slide-products">
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Choco Chip Cookies.jpg " alt="Choco Bites"></div>
-          <div class="sp-name">Milk Choco Bites</div>
-          <div class="sp-price">₹120</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard featured">
-          <div class="sp-emoji"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"></div>
-          <div class="sp-name">Dark Chocolate Bar</div>
-          <div class="sp-price">₹185</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"></div>
-          <div class="sp-name">Hazelnut Praline</div>
-          <div class="sp-price">₹210</div>
-          <button class="sp-add add-btn">+</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Bananas.jpg" alt="Bananas"></div>
+        <div class="product-info">
+          <h3>Bananas</h3>
+          <div class="sub">6 pcs · Robusta</div>
+          <div class="product-footer">
+            <div><span class="price">₹38</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
-    </div>
-
-    <!-- SLIDE 6 — Maggi -->
-    <div class="slide slide-5">
-      <div class="slide-content">
-        <span class="slide-tag">🍜 Quick Meals</span>
-        <h1>Ready in<br/><em>2 minutes</em>, always.</h1>
-        <p>Stock up on your favourite noodles and instant meals. Perfect for busy days and midnight cravings.</p>
-        <div class="slide-actions">
-          <button class="btn-primary" data-target="noodles">Shop Noodles →</button>
-          <button class="btn-outline">View all deals</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Fresh Strawberries.jpg" alt="Strawberries"><span
+            class="product-badge">POPULAR</span></div>
+        <div class="product-info">
+          <h3>Fresh Strawberries</h3>
+          <div class="sub">200 g · Sweet</div>
+          <div class="product-footer">
+            <div><span class="price">₹89</span><span class="old-price">₹110</span></div><button
+              class="add-btn">+</button>
+          </div>
         </div>
       </div>
-      <div class="slide-products">
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Atta Maggi.jpg" alt="Atta Maggi"></div>
-          <div class="sp-name">Atta Maggi</div>
-          <div class="sp-price">₹78</div>
-          <button class="sp-add add-btn">+</button>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Black Grapes.jpg" alt="Grapes"></div>
+        <div class="product-info">
+          <h3>Black Grapes</h3>
+          <div class="sub">500 g · Seedless</div>
+          <div class="product-footer">
+            <div><span class="price">₹72</span></div><button class="add-btn">+</button>
+          </div>
         </div>
-        <div class="slide-pcard featured">
-          <div class="sp-emoji"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi Noodles"></div>
-          <div class="sp-name">Maggi 2-Min Noodles</div>
-          <div class="sp-price">₹72</div>
-          <button class="sp-add add-btn">+</button>
-        </div>
-        <div class="slide-pcard">
-          <div class="sp-emoji"><img src="../assets/Cup Noodles.jpg" alt="Cup Noodles"></div>
-          <div class="sp-name">Cup Noodles</div>
-          <div class="sp-price">₹35</div>
-          <button class="sp-add add-btn">+</button>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Navel Oranges.jpg" alt="Oranges"></div>
+        <div class="product-info">
+          <h3>Navel Oranges</h3>
+          <div class="sub">4 pcs · Juicy</div>
+          <div class="product-footer">
+            <div><span class="price">₹65</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
     </div>
 
-  </div><!-- /slides-track -->
+    <!-- CHOCOLATE -->
+    <p id="chocolate" class="section-label" style="margin-top:3rem;">Chocolate</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Indulge Mindfully</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"><span
+            class="product-badge">70% DARK</span></div>
+        <div class="product-info">
+          <h3>Dark Chocolate Bar</h3>
+          <div class="sub">90 g · Lindt</div>
+          <div class="product-footer">
+            <div><span class="price">₹185</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Milk Chocolate Bites.jpg" alt="Milk Chocolate"></div>
+        <div class="product-info">
+          <h3>Milk Chocolate Bites</h3>
+          <div class="sub">150 g · Cadbury</div>
+          <div class="product-footer">
+            <div><span class="price">₹120</span><span class="old-price">₹145</span></div><button
+              class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"><span
+            class="product-badge">NEW</span></div>
+        <div class="product-info">
+          <h3>Hazelnut Praline</h3>
+          <div class="sub">100 g · Ferrero</div>
+          <div class="product-footer">
+            <div><span class="price">₹210</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Choco Chip Cookies.jpg" alt="Cookies"></div>
+        <div class="product-info">
+          <h3>Choco Chip Cookies</h3>
+          <div class="sub">200 g · Crispy</div>
+          <div class="product-footer">
+            <div><span class="price">₹90</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/White Chocolate Block.jpg" alt="White Chocolate"></div>
+        <div class="product-info">
+          <h3>White Chocolate Block</h3>
+          <div class="sub">80 g · Creamy</div>
+          <div class="product-footer">
+            <div><span class="price">₹155</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
 
-  <!-- Arrows -->
-  <button class="slider-arrow arrow-prev" id="arrowPrev">&#8592;</button>
-  <button class="slider-arrow arrow-next" id="arrowNext">&#8594;</button>
+    </div>
 
-  <!-- Dots -->
-  <div class="slider-dots" id="sliderDots"></div>
-</div>
+    <!-- MAGGI & NOODLES -->
+    <p id="noodles" class="section-label" style="margin-top:3rem;">Maggi & Noodles</p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Quick & Tasty Meals</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi"><span
+            class="product-badge">BESTSELLER</span></div>
+        <div class="product-info">
+          <h3>Maggi 2-Minute Noodles</h3>
+          <div class="sub">280 g · Pack of 4</div>
+          <div class="product-footer">
+            <div><span class="price">₹72</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Atta Maggi.jpg" alt="Atta Maggi"></div>
+        <div class="product-info">
+          <h3>Atta Maggi</h3>
+          <div class="sub">280 g · Whole Wheat</div>
+          <div class="product-footer">
+            <div><span class="price">₹78</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Yippee Noodles.jpg" alt="Yippee"></div>
+        <div class="product-info">
+          <h3>Yippee Noodles</h3>
+          <div class="sub">240 g · Sunfeast</div>
+          <div class="product-footer">
+            <div><span class="price">₹60</span><span class="old-price">₹75</span></div><button
+              class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Top Ramen Chicken.jpg" alt="Top Ramen"></div>
+        <div class="product-info">
+          <h3>Top Ramen Chicken</h3>
+          <div class="sub">240 g · Nissin</div>
+          <div class="product-footer">
+            <div><span class="price">₹58</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/Cup Noodles.jpg" alt="Cup Noodles"></div>
+        <div class="product-info">
+          <h3>Cup Noodles</h3>
+          <div class="sub">70 g · Instant</div>
+          <div class="product-footer">
+            <div><span class="price">₹35</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
 
-<!-- CATEGORY PILLS + PRODUCTS -->
-<div class="section">
-  <p class="section-label">All Categories</p>
-  <h2 class="section-title">Shop by Category</h2>
-  <div class="pills">
-    <button class="pill active" data-target="all">🥬 All</button>
-    <button class="pill" data-target="dairy">🥛 Dairy</button>
-    <button class="pill" data-target="vegetables">🥦 Vegetables</button>
-    <button class="pill" data-target="fruits">🍎 Fruits</button>
-    <button class="pill" data-target="chocolate">🍫 Chocolate</button>
-    <button class="pill" data-target="noodles">🍜 Maggi & Noodles</button>
-    <button class="pill">🧃 Beverages</button>
-    
+    </div>
+
   </div>
 
-  <!-- DAIRY -->
-  <p id="dairy" class="section-label" style="margin-top:1.5rem;">Dairy Products</p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Fresh & Wholesome</h3>
-  <div class="product-grid">
-    <div class="product-card" style="animation-delay:0s">
-      <div class="product-img"><img src="../assets/milk-groccery.jpg" alt="Milk"><span class="product-badge">ORGANIC</span></div>
-      <div class="product-info">
-        <h3>Full Cream Milk</h3>
-        <div class="sub">500 ml · Pasteurised</div>
-        <div class="product-footer">
-          <div><span class="price">₹32</span><span class="old-price">₹38</span></div>
-          <button class="add-btn">+</button>
+  <!-- PROMO BANNER -->
+  <div class="banner-section">
+    <div class="banner-wrap">
+      <div class="banner">
+        <div class="banner-text">
+          <h2>Fresh every morning. Delivered by noon.</h2>
+          <p>Subscribe to our weekly veggie box and save 20% on every order.</p>
+          <button class="btn-white" style="margin-top:1.4rem;">Subscribe & Save 20%</button>
+        </div>
+        <div class="banner-emojis">🥦🍎🥛🍫</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MIXED PRODUCTS SECTION -->
+  <div class="section" style="padding-top: 0;">
+    <p class="section-label">Daily Essentials Mix </p>
+    <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">summer deal for you</h3>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/whey protein.jpg" alt="protein"><span
+            class="product-badge">BESTSELLER</span></div>
+        <div class="product-info">
+          <h3>Whey protein</h3>
+          <div class="sub">1kg · protein</div>
+          <div class="product-footer">
+            <div><span class="price">₹4999</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/bru_coffee.jpg" alt="coffee"></div>
+        <div class="product-info">
+          <h3>Bru coffee</h3>
+          <div class="sub">500 ml · coffee</div>
+          <div class="product-footer">
+            <div><span class="price">₹320</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/alomonds.jpg" alt="alomonds"><span
+            class="product-badge">SEASONAL</span></div>
+        <div class="product-info">
+          <h3>Almonds</h3>
+          <div class="sub">100g · Sweet</div>
+          <div class="product-footer">
+            <div><span class="price">₹330</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/fortune.jpg" alt="oil"></div>
+        <div class="product-info">
+          <h3>Oil furtune</h3>
+          <div class="sub">5kg · healthy</div>
+          <div class="product-footer">
+            <div><span class="price">₹1805</span></div><button class="add-btn">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-img"><img src="../assets/tide.jpg" alt="Maggi"></div>
+        <div class="product-info">
+          <h3>Tide</h3>
+          <div class="sub">4lg pack</div>
+          <div class="product-footer">
+            <div><span class="price">₹420</span></div><button class="add-btn">+</button>
+          </div>
         </div>
       </div>
     </div>
-    <div class="product-card" style="animation-delay:0.05s">
-      <div class="product-img"><img src="../assets/cheese-img.jpg" alt="Cheese"></div>
-      <div class="product-info">
-        <h3>Cheddar Cheese</h3>
-        <div class="sub">200 g · Sliced</div>
-        <div class="product-footer">
-          <div><span class="price">₹145</span></div>
-          <button class="add-btn">+</button>
-        </div>
-      </div>
+  </div>
+
+  <!-- FEATURES -->
+  <div class="features">
+    <div class="feature-card">
+      <div class="feature-icon">🚚</div>
+      <h4>Free Delivery</h4>
+      <p>On orders above ₹499. Delivered fresh to your doorstep.</p>
     </div>
-    <div class="product-card" style="animation-delay:0.1s">
-      <div class="product-img"><img src="../assets/Creamy Yoghurt.jpg" alt="Yoghurt"><span class="product-badge">POPULAR</span></div>
-      <div class="product-info">
-        <h3>Creamy Yoghurt</h3>
-        <div class="sub">400 g · Probiotic</div>
-        <div class="product-footer">
-          <div><span class="price">₹68</span><span class="old-price">₹80</span></div>
-          <button class="add-btn">+</button>
-        </div>
-      </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌿</div>
+      <h4>100% Organic</h4>
+      <p>All produce is certified organic and pesticide-free.</p>
     </div>
-    <div class="product-card" style="animation-delay:0.15s">
-      <div class="product-img"><img src="../assets/Unsalted Butter.jpg" alt="Butter"></div>
-      <div class="product-info">
-        <h3>Unsalted Butter</h3>
-        <div class="sub">100 g · Amul</div>
-        <div class="product-footer">
-          <div><span class="price">₹55</span></div>
-          <button class="add-btn">+</button>
-        </div>
-      </div>
+    <div class="feature-card">
+      <div class="feature-icon">🕐</div>
+      <h4>Same-Day Delivery</h4>
+      <p>Order before 11 AM and receive your groceries today.</p>
     </div>
-    <div class="product-card" style="animation-delay:0.2s">
-      <div class="product-img"><img src="../assets/Free Range Eggs.jpg" alt="Eggs"><span class="product-badge">FARM FRESH</span></div>
-      <div class="product-info">
-        <h3>Free Range Eggs</h3>
-        <div class="sub">6 pcs · Brown</div>
-        <div class="product-footer">
-          <div><span class="price">₹72</span></div>
-          <button class="add-btn">+</button>
-        </div>
-      </div>
+    <div class="feature-card">
+      <div class="feature-icon">💚</div>
+      <h4>Satisfaction Guaranteed</h4>
+      <p>Not happy? We'll replace or refund, no questions asked.</p>
     </div>
   </div>
 
-  <!-- VEGETABLES -->
-  <p id="vegetables" class="section-label" style="margin-top:3rem;">Vegetables</p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Garden-Fresh Picks</h3>
-  <div class="product-grid">
-    <div class="product-card"><div class="product-img"><img src="../assets/Broccoli.jpg" alt="Broccoli"><span class="product-badge">ORGANIC</span></div><div class="product-info"><h3>Broccoli</h3><div class="sub">500 g · Local Farm</div><div class="product-footer"><div><span class="price">₹49</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Baby Carrots.jpg" alt="Carrots"></div><div class="product-info"><h3>Baby Carrots</h3><div class="sub">250 g · Crunchy</div><div class="product-footer"><div><span class="price">₹35</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Cherry Tomatoes.jpg" alt="Tomatoes"><span class="product-badge">FRESH</span></div><div class="product-info"><h3>Cherry Tomatoes</h3><div class="sub">300 g · Vine Ripened</div><div class="product-footer"><div><span class="price">₹58</span><span class="old-price">₹70</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/English Cucumber.jpg" alt="Cucumber"></div><div class="product-info"><h3>English Cucumber</h3><div class="sub">2 pcs · Crisp</div><div class="product-footer"><div><span class="price">₹28</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Bell Peppers (Mix).jpg" alt="Peppers"></div><div class="product-info"><h3>Bell Peppers (Mix)</h3><div class="sub">3 pcs · Red, Yellow, Green</div><div class="product-footer"><div><span class="price">₹79</span></div><button class="add-btn">+</button></div></div></div>
-  </div>
-
-  <!-- FRUITS -->
-  <p id="fruits" class="section-label" style="margin-top:3rem;">Fruits</p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Nature's Sweetness</h3>
-  <div class="product-grid">
-    <div class="product-card"><div class="product-img"><img src="../assets/Royal Gala Apples.jpg" alt="Apples"><span class="product-badge">SEASONAL</span></div><div class="product-info"><h3>Royal Gala Apples</h3><div class="sub">4 pcs · Kashmir</div><div class="product-footer"><div><span class="price">₹95</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Bananas.jpg" alt="Bananas"></div><div class="product-info"><h3>Bananas</h3><div class="sub">6 pcs · Robusta</div><div class="product-footer"><div><span class="price">₹38</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Fresh Strawberries.jpg" alt="Strawberries"><span class="product-badge">POPULAR</span></div><div class="product-info"><h3>Fresh Strawberries</h3><div class="sub">200 g · Sweet</div><div class="product-footer"><div><span class="price">₹89</span><span class="old-price">₹110</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Black Grapes.jpg" alt="Grapes"></div><div class="product-info"><h3>Black Grapes</h3><div class="sub">500 g · Seedless</div><div class="product-footer"><div><span class="price">₹72</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Navel Oranges.jpg" alt="Oranges"></div><div class="product-info"><h3>Navel Oranges</h3><div class="sub">4 pcs · Juicy</div><div class="product-footer"><div><span class="price">₹65</span></div><button class="add-btn">+</button></div></div></div>
-  </div>
-
-  <!-- CHOCOLATE -->
-  <p id="chocolate" class="section-label" style="margin-top:3rem;">Chocolate</p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Indulge Mindfully</h3>
-  <div class="product-grid">
-    <div class="product-card"><div class="product-img"><img src="../assets/Dark Chocolate Bar.jpg" alt="Dark Chocolate"><span class="product-badge">70% DARK</span></div><div class="product-info"><h3>Dark Chocolate Bar</h3><div class="sub">90 g · Lindt</div><div class="product-footer"><div><span class="price">₹185</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Milk Chocolate Bites.jpg" alt="Milk Chocolate"></div><div class="product-info"><h3>Milk Chocolate Bites</h3><div class="sub">150 g · Cadbury</div><div class="product-footer"><div><span class="price">₹120</span><span class="old-price">₹145</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Hazelnut Praline.jpg" alt="Praline"><span class="product-badge">NEW</span></div><div class="product-info"><h3>Hazelnut Praline</h3><div class="sub">100 g · Ferrero</div><div class="product-footer"><div><span class="price">₹210</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Choco Chip Cookies.jpg" alt="Cookies"></div><div class="product-info"><h3>Choco Chip Cookies</h3><div class="sub">200 g · Crispy</div><div class="product-footer"><div><span class="price">₹90</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/White Chocolate Block.jpg" alt="White Chocolate"></div><div class="product-info"><h3>White Chocolate Block</h3><div class="sub">80 g · Creamy</div><div class="product-footer"><div><span class="price">₹155</span></div><button class="add-btn">+</button></div></div></div>
-
-  </div>
-
-  <!-- MAGGI & NOODLES -->
-  <p id="noodles" class="section-label" style="margin-top:3rem;">Maggi & Noodles</p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">Quick & Tasty Meals</h3>
-  <div class="product-grid">
-    <div class="product-card"><div class="product-img"><img src="../assets/Maggi 2-Minute Noodles.jpg" alt="Maggi"><span class="product-badge">BESTSELLER</span></div><div class="product-info"><h3>Maggi 2-Minute Noodles</h3><div class="sub">280 g · Pack of 4</div><div class="product-footer"><div><span class="price">₹72</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Atta Maggi.jpg" alt="Atta Maggi"></div><div class="product-info"><h3>Atta Maggi</h3><div class="sub">280 g · Whole Wheat</div><div class="product-footer"><div><span class="price">₹78</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Yippee Noodles.jpg" alt="Yippee"></div><div class="product-info"><h3>Yippee Noodles</h3><div class="sub">240 g · Sunfeast</div><div class="product-footer"><div><span class="price">₹60</span><span class="old-price">₹75</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Top Ramen Chicken.jpg" alt="Top Ramen"></div><div class="product-info"><h3>Top Ramen Chicken</h3><div class="sub">240 g · Nissin</div><div class="product-footer"><div><span class="price">₹58</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/Cup Noodles.jpg" alt="Cup Noodles"></div><div class="product-info"><h3>Cup Noodles</h3><div class="sub">70 g · Instant</div><div class="product-footer"><div><span class="price">₹35</span></div><button class="add-btn">+</button></div></div></div>
-
-  </div>
-
-</div>
-
-<!-- PROMO BANNER -->
-<div class="banner-section">
-  <div class="banner-wrap">
-    <div class="banner">
-      <div class="banner-text">
-        <h2>Fresh every morning. Delivered by noon.</h2>
-        <p>Subscribe to our weekly veggie box and save 20% on every order.</p>
-        <button class="btn-white" style="margin-top:1.4rem;">Subscribe & Save 20%</button>
-      </div>
-      <div class="banner-emojis">🥦🍎🥛🍫</div>
-    </div>
-  </div>
-</div>
-
-<!-- MIXED PRODUCTS SECTION -->
-<div class="section" style="padding-top: 0;">
-  <p class="section-label">Daily Essentials Mix </p>
-  <h3 class="section-title" style="font-size:1.3rem;margin-bottom:1.2rem;">summer deal for you</h3>
-  <div class="product-grid">
-    <div class="product-card"><div class="product-img"><img src="../assets/whey protein.jpg" alt="protein"><span class="product-badge">BESTSELLER</span></div><div class="product-info"><h3>Whey protein</h3><div class="sub">1kg · protein</div><div class="product-footer"><div><span class="price">₹4999</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/bru_coffee.jpg" alt="coffee"></div><div class="product-info"><h3>Bru coffee</h3><div class="sub">500 ml · coffee</div><div class="product-footer"><div><span class="price">₹320</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/alomonds.jpg" alt="alomonds"><span class="product-badge">SEASONAL</span></div><div class="product-info"><h3>Almonds</h3><div class="sub">100g · Sweet</div><div class="product-footer"><div><span class="price">₹330</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/fortune.jpg" alt="oil"></div><div class="product-info"><h3>Oil furtune</h3><div class="sub">5kg · healthy</div><div class="product-footer"><div><span class="price">₹1805</span></div><button class="add-btn">+</button></div></div></div>
-    <div class="product-card"><div class="product-img"><img src="../assets/tide.jpg" alt="Maggi"></div><div class="product-info"><h3>Tide</h3><div class="sub">4lg pack</div><div class="product-footer"><div><span class="price">₹420</span></div><button class="add-btn">+</button></div></div></div>
-  </div>
-</div>
-
-<!-- FEATURES -->
-<div class="features">
-  <div class="feature-card">
-    <div class="feature-icon">🚚</div>
-    <h4>Free Delivery</h4>
-    <p>On orders above ₹499. Delivered fresh to your doorstep.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🌿</div>
-    <h4>100% Organic</h4>
-    <p>All produce is certified organic and pesticide-free.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">🕐</div>
-    <h4>Same-Day Delivery</h4>
-    <p>Order before 11 AM and receive your groceries today.</p>
-  </div>
-  <div class="feature-card">
-    <div class="feature-icon">💚</div>
-    <h4>Satisfaction Guaranteed</h4>
-    <p>Not happy? We'll replace or refund, no questions asked.</p>
-  </div>
-</div>
-
-<!-- FOOTER -->
-<footer class="um-footer mt-5">
+  <!-- FOOTER -->
+  <footer class="um-footer mt-5">
     <div class="container">
-        <!-- Main footer grid -->
-        <div class="um-footer-grid">
-            <!-- Brand col -->
-            <div class="um-footer-brand">
-                <div class="um-footer-logo">Urban<span>mart</span><span class="um-footer-dot">.</span></div>
-                <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep
-                    across India.</p>
-                <div class="um-footer-socials">
-                    <a href="#" class="um-social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="um-social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
-                    <a href="#" class="um-social-btn" title="Twitter"><i class="bi bi-twitter-x"></i></a>
-                    <a href="#" class="um-social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
-                    <a href="#" class="um-social-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
-                </div>
-            </div>
-
-            <!-- Shop col -->
-            <div class="um-footer-col">
-                <h6 class="um-footer-col-head">Shop</h6>
-                <ul class="um-footer-links">
-                    <li><a href="#">Fashion &amp; Clothing</a></li>
-                    <li><a href="#">Mobiles &amp; Tablets</a></li>
-                    <li><a href="#">Electronics</a></li>
-                    <li><a href="#">Home &amp; Furniture</a></li>
-                    <li><a href="#">New Arrivals</a></li>
-                    <li><a href="#">Sale</a></li>
-                </ul>
-            </div>
-
-            <!-- Help col -->
-            <div class="um-footer-col">
-                <h6 class="um-footer-col-head">Help</h6>
-                <ul class="um-footer-links">
-                    <li><a href="#">Track Order</a></li>
-                    <li><a href="#">Returns &amp; Refunds</a></li>
-                    <li><a href="#">Shipping Info</a></li>
-                    <li><a href="#">Size Guide</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-
-            <!-- Company col -->
-            <div class="um-footer-col">
-                <h6 class="um-footer-col-head">Company</h6>
-                <ul class="um-footer-links">
-                    <li><a href="about.html">About UrbanMart</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Press</a></li>
-                    <li><a href="seller.html">Partner with Us</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                </ul>
-            </div>
+      <!-- Main footer grid -->
+      <div class="um-footer-grid">
+        <!-- Brand col -->
+        <div class="um-footer-brand">
+          <div class="um-footer-logo">Urban<span>mart</span><span class="um-footer-dot">.</span></div>
+          <p class="um-footer-tagline">Premium products, curated with care.<br>Delivered to your doorstep
+            across India.</p>
+          <div class="um-footer-socials">
+            <a href="#" class="um-social-btn" title="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="um-social-btn" title="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="um-social-btn" title="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="um-social-btn" title="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="um-social-btn" title="Pinterest"><i class="bi bi-pinterest"></i></a>
+          </div>
         </div>
 
-        <!-- Divider -->
-        <div class="um-footer-divider"></div>
-
-        <!-- Bottom bar -->
-        <div class="um-footer-bottom">
-            <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill"
-                    style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
-            <div class="um-payment-badges">
-                <span class="um-pay-badge">VISA</span>
-                <span class="um-pay-badge">MC</span>
-                <span class="um-pay-badge">UPI</span>
-                <span class="um-pay-badge">PayTM</span>
-                <span class="um-pay-badge">COD</span>
-            </div>
+        <!-- Shop col -->
+        <div class="um-footer-col">
+          <h6 class="um-footer-col-head">Shop</h6>
+          <ul class="um-footer-links">
+            <li><a href="#">Fashion &amp; Clothing</a></li>
+            <li><a href="#">Mobiles &amp; Tablets</a></li>
+            <li><a href="#">Electronics</a></li>
+            <li><a href="#">Home &amp; Furniture</a></li>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Sale</a></li>
+          </ul>
         </div>
+
+        <!-- Help col -->
+        <div class="um-footer-col">
+          <h6 class="um-footer-col-head">Help</h6>
+          <ul class="um-footer-links">
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns &amp; Refunds</a></li>
+            <li><a href="#">Shipping Info</a></li>
+            <li><a href="#">Size Guide</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Company col -->
+        <div class="um-footer-col">
+          <h6 class="um-footer-col-head">Company</h6>
+          <ul class="um-footer-links">
+            <li><a href="about.html">About UrbanMart</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="seller.html">Partner with Us</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="um-footer-divider"></div>
+
+      <!-- Bottom bar -->
+      <div class="um-footer-bottom">
+        <p class="um-footer-copy">© 2026 UrbanMart. All rights reserved. Made with <i class="bi bi-heart-fill"
+            style="color:#e87a7a;font-size:0.75rem;"></i> in India.</p>
+        <div class="um-payment-badges">
+          <span class="um-pay-badge">VISA</span>
+          <span class="um-pay-badge">MC</span>
+          <span class="um-pay-badge">UPI</span>
+          <span class="um-pay-badge">PayTM</span>
+          <span class="um-pay-badge">COD</span>
+        </div>
+      </div>
     </div>
-</footer>
+  </footer>
 
-<!-- Favourites Drawer -->
-<div class="fav-backdrop" id="favBackdrop" onclick="toggleFavDrawer()"></div>
-<div class="fav-drawer" id="favDrawer">
+  <!-- Favourites Drawer -->
+  <div class="fav-backdrop" id="favBackdrop" onclick="toggleFavDrawer()"></div>
+  <div class="fav-drawer" id="favDrawer">
     <div class="fav-drawer-head">
-        <div class="fav-drawer-title">
-            <i class="bi bi-heart-fill" style="color:#e11d48;"></i>
-            Favourites
-            <span class="fav-drawer-count" id="favDrawerCount">0</span>
-        </div>
-        <button class="fav-drawer-close" onclick="toggleFavDrawer()"><i class="bi bi-x-lg"></i></button>
+      <div class="fav-drawer-title">
+        <i class="bi bi-heart-fill" style="color:#e11d48;"></i>
+        Favourites
+        <span class="fav-drawer-count" id="favDrawerCount">0</span>
+      </div>
+      <button class="fav-drawer-close" onclick="toggleFavDrawer()"><i class="bi bi-x-lg"></i></button>
     </div>
     <div class="fav-drawer-body" id="favDrawerBody">
-        <div class="fav-empty" id="favEmpty">
-            <div class="fav-empty-icon"><i class="bi bi-heart"></i></div>
-            <h5>Nothing saved yet</h5>
-            <p>Tap the heart on any product to save it here.</p>
-        </div>
-        <div class="fav-grid" id="favGrid"></div>
+      <div class="fav-empty" id="favEmpty">
+        <div class="fav-empty-icon"><i class="bi bi-heart"></i></div>
+        <h5>Nothing saved yet</h5>
+        <p>Tap the heart on any product to save it here.</p>
+      </div>
+      <div class="fav-grid" id="favGrid"></div>
     </div>
-</div>
+  </div>
 
-<div class="modal fade" id="userLoginModal" tabindex="-1">
+  <div class="modal fade" id="userLoginModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 25px; background: var(--ivory);">
-            <div class="modal-body p-5 text-center">
-                <div class="mb-4">
-                    <i class="bi bi-lock-fill display-4" style="color: var(--sage);"></i>
-                    <h3 class="fw-bold mt-2">Login Required</h3>
-                    <p class="text-secondary">Please sign in to view product details and shop.</p>
-                </div>
-                <form id="modalLoginForm">
-                    <input type="email" id="modalEmail"
-                        class="form-control mb-3 py-3 rounded-pill border-0 shadow-sm px-4"
-                        placeholder="Email Address" required>
-                    <input type="password" id="modalPass"
-                        class="form-control mb-4 py-3 rounded-pill border-0 shadow-sm px-4" placeholder="Password"
-                        required>
-                    <button type="submit"
-                        class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">Sign In</button>
-                </form>
-                <p class="small text-muted mb-0">New here? <a href="login.html"
-                        style="color: var(--sage);" class="fw-bold text-decoration-none">Create an
-                        account</a></p>
-            </div>
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 25px; background: var(--ivory);">
+        <div class="modal-body p-5 text-center">
+          <div class="mb-4">
+            <i class="bi bi-lock-fill display-4" style="color: var(--sage);"></i>
+            <h3 class="fw-bold mt-2">Login Required</h3>
+            <p class="text-secondary">Please sign in to view product details and shop.</p>
+          </div>
+          <form id="modalLoginForm">
+            <input type="email" id="modalEmail" class="form-control mb-3 py-3 rounded-pill border-0 shadow-sm px-4"
+              placeholder="Email Address" required>
+            <input type="password" id="modalPass" class="form-control mb-4 py-3 rounded-pill border-0 shadow-sm px-4"
+              placeholder="Password" required>
+            <button type="submit" class="btn btn-primary w-100 py-3 rounded-pill fw-bold shadow-sm mb-3">Sign
+              In</button>
+          </form>
+          <p class="small text-muted mb-0">New here? <a href="login.html" style="color: var(--sage);"
+              class="fw-bold text-decoration-none">Create an
+              account</a></p>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-<script>
-  // --- UI Interactions ---
-  let settingsOpen = false;
-  function toggleSettings() {
+  <script>
+    // --- UI Interactions ---
+    let settingsOpen = false;
+    function toggleSettings() {
       settingsOpen = !settingsOpen;
       const panel = document.getElementById('settingsPanel');
       const btn = document.getElementById('settingsBtn');
@@ -991,309 +1641,351 @@
       if (btn) btn.classList.toggle('active', settingsOpen);
       document.getElementById('navBackdrop')?.classList.toggle('active', settingsOpen);
       if (mobileOpen) closeMobile();
-  }
-  function closeSettings() {
+    }
+    function closeSettings() {
       settingsOpen = false;
       document.getElementById('settingsPanel')?.classList.remove('open');
       document.getElementById('settingsBtn')?.classList.remove('active');
-  }
-  function toggleSetting(id) { document.getElementById('toggle-' + id)?.classList.toggle('on'); }
+    }
+    function toggleSetting(id) { document.getElementById('toggle-' + id)?.classList.toggle('on'); }
 
-  let mobileOpen = false, searchOpen = false;
-  function toggleMobile() {
+    let mobileOpen = false, searchOpen = false;
+    function toggleMobile() {
       mobileOpen = !mobileOpen;
       const panel = document.getElementById('mobilePanel');
       const icon = document.getElementById('hamburgerIcon');
       const backdrop = document.getElementById('navBackdrop');
       if (mobileOpen) {
-          if (panel) { panel.style.display = 'flex'; requestAnimationFrame(() => panel.classList.add('open')); }
-          if (icon) icon.className = 'bi bi-x-lg';
-          backdrop?.classList.add('active');
+        if (panel) { panel.style.display = 'flex'; requestAnimationFrame(() => panel.classList.add('open')); }
+        if (icon) icon.className = 'bi bi-x-lg';
+        backdrop?.classList.add('active');
       } else { closeMobile(); }
-  }
-  function closeMobile() {
+    }
+    function closeMobile() {
       mobileOpen = false;
       const panel = document.getElementById('mobilePanel');
       const icon = document.getElementById('hamburgerIcon');
       if (panel) {
-          panel.classList.remove('open');
-          setTimeout(() => { if (!mobileOpen) panel.style.display = 'none'; }, 350);
+        panel.classList.remove('open');
+        setTimeout(() => { if (!mobileOpen) panel.style.display = 'none'; }, 350);
       }
       if (icon) icon.className = 'bi bi-list';
-  }
-  function closeAll() { closeMobile(); closeSettings(); document.getElementById('navBackdrop')?.classList.remove('active'); }
-  function toggleSearch() {
+    }
+    function closeAll() { closeMobile(); closeSettings(); document.getElementById('navBackdrop')?.classList.remove('active'); }
+    function toggleSearch() {
       searchOpen = !searchOpen;
       const overlay = document.getElementById('searchOverlay');
       if (overlay) overlay.classList.toggle('active', searchOpen);
       if (searchOpen) setTimeout(() => document.getElementById('searchInput')?.focus(), 300);
-  }
-  function clearNavSearch() {
+    }
+    function clearNavSearch() {
       const input = document.getElementById('navSearchInput');
       const clear = document.getElementById('navSearchClear');
       if (input) input.value = '';
       clear?.classList.remove('visible');
       input?.focus();
-  }
+    }
 
-  // --- CART STATE LOGIC (IndexedDB) ---
-  let cartDB;
-  const cartRequest = indexedDB.open('PBSSDCartDB', 1);
-  cartRequest.onupgradeneeded = (e) => {
+    // --- CART STATE LOGIC (IndexedDB) ---
+    let cartDB;
+    const cartRequest = indexedDB.open('PBSSDCartDB', 1);
+    cartRequest.onupgradeneeded = (e) => {
       const db = e.target.result;
       if (!db.objectStoreNames.contains('cart_state')) db.createObjectStore('cart_state');
-  };
-  cartRequest.onsuccess = (e) => {
+    };
+    cartRequest.onsuccess = (e) => {
       cartDB = e.target.result;
       refreshCartBadge();
-  };
+    };
 
-  function getCartBadgeEl() {
+    function getCartBadgeEl() {
       return document.getElementById('cart-badge') || document.getElementById('cartBadge');
-  }
-  function refreshCartBadge() {
+    }
+    function refreshCartBadge() {
       if (!cartDB) return;
       const tx = cartDB.transaction(['cart_state'], 'readonly');
       const store = tx.objectStore('cart_state');
       const getReq = store.get('count');
       getReq.onsuccess = () => {
-          const badge = getCartBadgeEl();
-          if (badge) badge.innerText = getReq.result || 0;
+        const badge = getCartBadgeEl();
+        if (badge) badge.innerText = getReq.result || 0;
       };
-  }
+    }
 
-  window.addEventListener('load', () => {
+    function checkAuth() {
+      const user = JSON.parse(localStorage.getItem('pbssd_user'));
+      const loginNav = document.getElementById('login-nav-btn');
+      const profileNav = document.getElementById('user-profile-btn');
+      const nameDesktop = document.getElementById('user-nav-name');
+      const loginNavMobile = document.getElementById('login-nav-btn-mobile');
+      const profileNavMobile = document.getElementById('user-profile-btn-mobile');
+      const nameMobile = document.getElementById('user-nav-name-mobile');
+      if (user) {
+        loginNav?.classList.add('d-none');
+        profileNav?.classList.remove('d-none');
+        loginNavMobile?.classList.add('d-none');
+        profileNavMobile?.classList.remove('d-none');
+        if (nameDesktop) nameDesktop.innerText = user.name || 'Profile';
+        if (nameMobile) nameMobile.innerText = user.name || 'Profile';
+      }
+    }
+
+    window.addEventListener('load', () => {
       const preloader = document.getElementById('preloader');
       setTimeout(() => { if (preloader) { preloader.style.opacity = '0'; preloader.style.visibility = 'hidden'; } }, 1000);
       AOS.init({ duration: 900, once: true, offset: 80, easing: 'ease-out-cubic' });
-      
+      checkAuth();
+
       const nav = document.querySelector('.navbar');
       const catBar = document.getElementById('categoryNavBar');
       if (nav && catBar) catBar.style.top = (nav.getBoundingClientRect().height + 4) + 'px';
-  });
-
-  // ── SLIDER ──
-  const track = document.getElementById('slidesTrack');
-  const dotsContainer = document.getElementById('sliderDots');
-  const totalSlides = track.children.length;
-  let current = 0;
-  let autoTimer;
-
-  // Build dots
-  for (let i = 0; i < totalSlides; i++) {
-    const d = document.createElement('button');
-    d.className = 'dot' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => goTo(i));
-    dotsContainer.appendChild(d);
-  }
-
-  function goTo(n) {
-    current = (n + totalSlides) % totalSlides;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
-    resetTimer();
-  }
-
-  function resetTimer() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => goTo(current + 1), 4500);
-  }
-
-  document.getElementById('arrowPrev').addEventListener('click', () => goTo(current - 1));
-  document.getElementById('arrowNext').addEventListener('click', () => goTo(current + 1));
-
-  // Swipe support
-  let startX = 0;
-  track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - startX;
-    if (Math.abs(dx) > 50) goTo(dx < 0 ? current + 1 : current - 1);
-  });
-
-  resetTimer();
-
-  // ── CATEGORY PILLS ──
-  document.querySelectorAll('.pill').forEach(pill => {
-    pill.addEventListener('click', () => {
-      document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-      pill.classList.add('active');
-      
-      const targetId = pill.getAttribute('data-target');
-      if (targetId === 'all') {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        return;
-      }
-      
-      const targetSection = document.getElementById(targetId);
-      if (targetSection) {
-        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - 20;
-        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-      }
     });
-  });
 
-  // ── SLIDER BUTTONS TO SECTIONS ──
-  document.querySelectorAll('.slide-actions .btn-primary').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.getAttribute('data-target');
-      if (targetId) {
+    // ── SLIDER ──
+    const track = document.getElementById('slidesTrack');
+    const dotsContainer = document.getElementById('sliderDots');
+    const totalSlides = track.children.length;
+    let current = 0;
+    let autoTimer;
+
+    // Build dots
+    for (let i = 0; i < totalSlides; i++) {
+      const d = document.createElement('button');
+      d.className = 'dot' + (i === 0 ? ' active' : '');
+      d.addEventListener('click', () => goTo(i));
+      dotsContainer.appendChild(d);
+    }
+
+    function goTo(n) {
+      current = (n + totalSlides) % totalSlides;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === current));
+      resetTimer();
+    }
+
+    function resetTimer() {
+      clearInterval(autoTimer);
+      autoTimer = setInterval(() => goTo(current + 1), 4500);
+    }
+
+    document.getElementById('arrowPrev').addEventListener('click', () => goTo(current - 1));
+    document.getElementById('arrowNext').addEventListener('click', () => goTo(current + 1));
+
+    // Swipe support
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) goTo(dx < 0 ? current + 1 : current - 1);
+    });
+
+    resetTimer();
+
+    // ── CATEGORY PILLS ──
+    document.querySelectorAll('.pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+
+        const targetId = pill.getAttribute('data-target');
+        if (targetId === 'all') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
         const targetSection = document.getElementById(targetId);
         if (targetSection) {
           const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - 20;
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-          
-          // Sync active pill
-          document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
-          const targetPill = document.querySelector(`.pill[data-target="${targetId}"]`);
-          if (targetPill) targetPill.classList.add('active');
         }
-      }
+      });
     });
-  });
 
-  // ── BAG COUNTER ──
-  document.querySelectorAll('.add-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      
-      const badge = document.getElementById('cart-badge');
-      if (!badge) return;
+    // ── SLIDER BUTTONS TO SECTIONS ──
+    document.querySelectorAll('.slide-actions .btn-primary').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-target');
+        if (targetId) {
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - 20;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
 
-      let count = parseInt(badge.innerText) || 0;
-      count++;
-      
-      // Update UI
-      badge.innerText = count;
+            // Sync active pill
+            document.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+            const targetPill = document.querySelector(`.pill[data-target="${targetId}"]`);
+            if (targetPill) targetPill.classList.add('active');
+          }
+        }
+      });
+    });
 
-      // Update IndexedDB for persistence across pages
-      if (cartDB) {
+    // ── BAG COUNTER ──
+    document.querySelectorAll('.add-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        const badge = document.getElementById('cart-badge');
+        if (!badge) return;
+
+        let count = parseInt(badge.innerText) || 0;
+        count++;
+
+        // Update UI
+        badge.innerText = count;
+
+        // Update IndexedDB for persistence across pages
+        if (cartDB) {
           const tx = cartDB.transaction(['cart_state'], 'readwrite');
           tx.objectStore('cart_state').put(count, 'count');
-      }
+        }
 
-      const orig = btn.textContent;
-      btn.textContent = '✓';
-      btn.style.background = 'var(--sage)';
-      btn.style.color = '#fff';
-      setTimeout(() => {
-        btn.textContent = orig;
-      }, 900);
+        const orig = btn.textContent;
+        btn.textContent = '✓';
+        btn.style.background = 'var(--sage)';
+        btn.style.color = '#fff';
+        setTimeout(() => {
+          btn.textContent = orig;
+        }, 900);
+      });
     });
-  });
 
-  // ── SCROLL FADE IN ──
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = 1; });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.product-card').forEach(c => observer.observe(c));
-</script>
+    // ── SCROLL FADE IN ──
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.style.opacity = 1; });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.product-card').forEach(c => observer.observe(c));
+  </script>
+  <script src="../js/navbar.js" defer></script>
 </body>
 <style>
-    /* Favourites Drawer Styles from style.css */
-    .fav-backdrop {
-        display: none;
-        position: fixed;
-        inset: 0;
-        z-index: 1900;
-        background: rgba(0, 0, 0, 0.35);
-        backdrop-filter: blur(4px);
-    }
-    .fav-backdrop.open { display: block; }
-    .fav-drawer {
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 420px;
-        max-width: 96vw;
-        background: var(--ivory);
-        z-index: 2000;
-        display: flex;
-        flex-direction: column;
-        transform: translateX(100%);
-        transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -12px 0 48px rgba(0, 0, 0, 0.14);
-    }
-    .fav-drawer.open { transform: translateX(0); }
-    .fav-drawer-head {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px 22px 18px;
-        border-bottom: 0.5px solid var(--border);
-        flex-shrink: 0;
-    }
-    .fav-drawer-title {
-        font-family: var(--heading-font);
-        font-size: 1.15rem;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 9px;
-    }
-    .fav-drawer-count {
-        font-family: var(--body-font);
-        font-size: 0.72rem;
-        font-weight: 800;
-        background: #e11d48;
-        color: white;
-        border-radius: 50px;
-        padding: 2px 8px;
-    }
-    .fav-drawer-close {
-        width: 36px;
-        height: 36px;
-        border: 0.5px solid var(--border);
-        border-radius: 10px;
-        background: white;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        font-size: 1rem;
-        color: var(--gray);
-        transition: all 0.2s;
-    }
-    .fav-drawer-body {
-        flex: 1;
-        overflow-y: auto;
-        padding: 18px;
-    }
-    .fav-empty {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 60px 24px;
-        text-align: center;
-    }
-    .fav-empty-icon {
-        width: 72px;
-        height: 72px;
-        border-radius: 50%;
-        background: #fff0f2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        color: #e11d48;
-        margin-bottom: 18px;
-    }
-    .fav-grid { display: flex; flex-direction: column; gap: 12px; }
-    .fav-item {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        background: white;
-        border: 0.5px solid var(--border);
-        border-radius: 14px;
-        padding: 12px;
-    }
-    .fav-item-img {
-        width: 72px;
-        height: 72px;
-        border-radius: 10px;
-        object-fit: cover;
-    }
+  /* Favourites Drawer Styles from style.css */
+  .fav-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1900;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(4px);
+  }
+
+  .fav-backdrop.open {
+    display: block;
+  }
+
+  .fav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 420px;
+    max-width: 96vw;
+    background: var(--ivory);
+    z-index: 2000;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -12px 0 48px rgba(0, 0, 0, 0.14);
+  }
+
+  .fav-drawer.open {
+    transform: translateX(0);
+  }
+
+  .fav-drawer-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 22px 18px;
+    border-bottom: 0.5px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  .fav-drawer-title {
+    font-family: var(--heading-font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+  }
+
+  .fav-drawer-count {
+    font-family: var(--body-font);
+    font-size: 0.72rem;
+    font-weight: 800;
+    background: #e11d48;
+    color: white;
+    border-radius: 50px;
+    padding: 2px 8px;
+  }
+
+  .fav-drawer-close {
+    width: 36px;
+    height: 36px;
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--gray);
+    transition: all 0.2s;
+  }
+
+  .fav-drawer-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+  }
+
+  .fav-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 24px;
+    text-align: center;
+  }
+
+  .fav-empty-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: #fff0f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #e11d48;
+    margin-bottom: 18px;
+  }
+
+  .fav-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .fav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: white;
+    border: 0.5px solid var(--border);
+    border-radius: 14px;
+    padding: 12px;
+  }
+
+  .fav-item-img {
+    width: 72px;
+    height: 72px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
 </style>
+
 </html>

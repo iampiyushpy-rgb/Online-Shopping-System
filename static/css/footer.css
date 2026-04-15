@@ -1,0 +1,32 @@
+:root{
+    --primary-color: #5A8A5A;
+    --secondary-color: #E8F0E0;
+    --textpill-color: #3A6A3A;
+    --border-grey:#E5E5E0;
+    --sub-text-color: #777777;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*{padding: 0;margin: 0;box-sizing: border-box;}
+
+body{background-color: #FAFAF7;font-family: "Open Sans", sans-serif;font-optical-sizing: auto;font-style: normal;font-variation-settings:"wdth" 100;font-size: 16px;line-height: 24px;color: #000;}
+ul{padding: 0;margin: 0;text-decoration: none;list-style-type: none;}
+a{transition: 0.5s;text-decoration: none;}
+h1,h2,h3,h4,h5,h6{margin: 0;line-height: 100%;}
+p{text-align: left;}
+img{max-width: 100%;height: auto;}
+
+.c-footer-w {background-color: var(--secondary-color);border-top: 1px solid var(--border-grey);}
+.footer-heading {font-family: 'DM Sans', sans-serif;font-weight: 700;color: var(--textpill-color);margin-bottom: 1.5rem;letter-spacing: 0.5px;font-size: 1rem;}
+.footer-text {color: var(--sub-text-color);font-size: 14px;line-height: 1.6;}
+.footer-links li {margin-bottom: 10px;}
+.footer-links a {color: var(--sub-text-color);font-size: 14px;}
+.footer-links a:hover {color: var(--primary-color);text-decoration: underline;}
+.social-icons a {display: inline-flex;align-items: center;justify-content: center;width: 40px;height: 40px;border-radius: 50%;background-color: rgba(58, 106, 58, 0.1);color: var(--textpill-color);margin-right: 10px;transition: all 0.3s ease;}
+.social-icons a:hover {background-color: var(--primary-color);color: #fff;box-shadow: 0 0 0 0.2rem rgba(90, 138, 90, 0.25);}
+.newsletter-form .form-control {border-radius: 25px 0 0 25px;border: 1px solid var(--border-grey);box-shadow: none;padding: 0.5rem 1rem;}
+.newsletter-form .form-control:focus {border-color: var(--primary-color);box-shadow: 0 0 0 0.2rem rgba(90, 138, 90, 0.25);}
+.btn-subscribe {background-color: var(--primary-color);color: #fff;border-radius: 0 25px 25px 0;padding: 0.5rem 1.5rem;border: 1px solid var(--primary-color);}
+.btn-subscribe:hover {background-color: var(--textpill-color);color: #fff;border-color: var(--textpill-color);}
+.footer-divider {margin: 30px 0;border-color: var(--primary-color);}
+.footer-bottom p {color: var(--sub-text-color);font-size: 13px;margin: 0;text-align: center;}
