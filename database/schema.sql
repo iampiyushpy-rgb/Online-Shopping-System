@@ -48,3 +48,16 @@ Email_address VARCHAR(100),
 Phone bigint,
 Location text,
 Password VARCHAR(100));
+
+--by soumalyo:-
+create Table IF NOT EXISTS product_datails{
+    product_id int AUTO_INCREMENT unique Primary key,
+    category_id int unique not null,
+    product_name varchar(20) not null,
+    description text not null,
+    image_url text not null,
+    rating int,
+    stock int not null,
+    created_at timestamp not null
+};
+
