@@ -23,6 +23,70 @@ h1,h2,h3,h4,h5,h6{margin: 0;line-height: 100%;}
 img{max-width: 100%;height: auto;}
 button{border: none;outline: none;background: none;cursor: pointer;font-family: var(--font-body);}
 
+  /* PRELOADER  */
+  #triply-preloader { position: fixed; inset: 0; width: 100vw; height: 100vh; background: #1A1F36; display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 9999; overflow: hidden; transition: opacity 0.6s ease, visibility 0.6s ease; }
+  .tp-globe-wrap { position: relative; width: 120px; height: 120px; margin-bottom: 32px; }
+  .tp-globe { width: 120px; height: 120px; border-radius: 50%; border: 2px solid #FFCA28; position: relative; display: flex; align-items: center; justify-content: center; animation: tp-spin 4s linear infinite; }
+  .tp-globe::before { content: ''; position: absolute; inset: 0; border-radius: 50%; border: 1px solid rgba(255,202,40,0.2); border-left: 1px solid rgba(255,202,40,0.6); border-right: 1px solid rgba(255,202,40,0.6); transform: scaleX(0.35); }
+  .tp-globe::after { content: ''; position: absolute; width: 100%; height: 1px; background: rgba(255,202,40,0.4); top: 50%; }
+  .tp-globe-lat { position: absolute; width: 100%; height: 1px; background: rgba(255,202,40,0.25); }
+  .tp-globe-lat:nth-child(1) { top: 25%; }
+  .tp-globe-lat:nth-child(2) { top: 75%; }
+  .tp-plane { position: absolute; width: 28px; height: 28px; top: -14px; left: 50%; transform: translateX(-50%); animation: tp-orbit 4s linear infinite; transform-origin: 0px 74px; }
+  .tp-plane svg { width: 28px; height: 28px; fill: #FFCA28; filter: drop-shadow(0 0 6px rgba(255,202,40,0.6)); }
+
+
+  @keyframes tp-spin { 
+    from { 
+      transform: rotateY(0deg); 
+    } 
+    to { 
+      transform: rotateY(360deg);
+    } 
+  }
+  @keyframes tp-orbit { 
+    from { 
+      transform: translateX(-50%) rotate(0deg) translateY(-60px); 
+    } to { 
+      transform: translateX(-50%) rotate(360deg) translateY(-60px); 
+    } 
+  }
+
+  .tp-brand { text-align: center; margin-bottom: 36px; }
+  .tp-brand-name { font-family: 'Playfair Display', Georgia, serif; font-size: 36px; font-weight: 600; color: #FFFFFF; letter-spacing: -0.5px; line-height: 1; }
+  .tp-brand-name span { color: #FFCA28; }
+  .tp-brand-sub { font-family: 'DM Sans', system-ui, sans-serif; font-size: 11px; color: rgba(255,255,255,0.4); letter-spacing: 3px; text-transform: uppercase; margin-top: 6px; }
+  .tp-progress-wrap { width: 200px; margin-bottom: 14px; }
+  .tp-progress-bar { height: 2px; background: rgba(255,202,40,0.15); border-radius: 99px; overflow: hidden; }
+  .tp-progress-fill { height: 100%; background: #FFCA28; border-radius: 99px; width: 0%; transition: width 0.3s ease; }
+  .tp-status-text { font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 1.5px; text-transform: uppercase; animation: tp-blink 1.6s ease-in-out infinite; }
+
+  
+  @keyframes tp-blink { 
+    0%, 100% { 
+      opacity: 0.4; 
+    } 50% { 
+      opacity: 1; 
+    } 
+  }
+  .tp-dots { display: flex; gap: 8px; margin-top: 28px; }
+  .tp-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,202,40,0.3); animation: tp-pulse 1.4s ease-in-out infinite; }
+  .tp-dot:nth-child(2) { animation-delay: 0.2s; }
+  .tp-dot:nth-child(3) { animation-delay: 0.4s; }
+
+  @keyframes tp-pulse { 
+    0%, 100% { background: rgba(255,202,40,0.3); transform: scale(1); 
+    } 50% { 
+      background: #FFCA28; transform: scale(1.4); 
+    } 
+  }
+
+
+  .tp-bg-circle { position: absolute; border-radius: 50%; border: 1px solid rgba(255,202,40,0.06); pointer-events: none; }
+  .tp-bg-circle:nth-child(1) { width: 320px; height: 320px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .tp-bg-circle:nth-child(2) { width: 480px; height: 480px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .tp-bg-circle:nth-child(3) { width: 640px; height: 640px; top: 50%; left: 50%; transform: translate(-50%,-50%); }
+
   /* NAV */
   nav {display: flex; align-items: center; justify-content: space-between;padding: 0 5%; height: 68px; background: var(--white); position: sticky; top: 0; z-index: 100;}
   .logo { font-family: var(--font-display); font-size: 22px; color: var(--navy); font-weight: 600; display: flex; align-items: center; gap: 8px; }
