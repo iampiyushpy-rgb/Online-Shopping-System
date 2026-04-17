@@ -149,9 +149,34 @@ document.addEventListener('DOMContentLoaded', () => {
         buttons[1].innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Processing...';
 
         setTimeout(() => {
-            document.getElementById('step-payment').classList.add('d-none');
-            document.getElementById('step-thankyou').classList.remove('d-none');
-            document.getElementById('checkoutProgress').classList.add('bg-success');
+            const request = indexedDB.open('PBSSDOrderDB', 1);
+            request.onupgradeneeded = (e) => {
+                const db = e.target.result;
+                if (!db.objectStoreNames.contains('orders')) {
+                    db.createObjectStore('orders', { keyPath: 'id', autoIncrement: true });
+                }
+            };
+            request.onsuccess = (e) => {
+                const db = e.target.result;
+                const tx = db.transaction(['orders'], 'readwrite');
+                const store = tx.objectStore('orders');
+                
+                const totalText = document.getElementById('totalAmount').innerText;
+                const orderData = {
+                    date: new Date().toISOString(),
+                    items: [...cartItems],
+                    total: totalText,
+                    status: 'Processing'
+                };
+                
+                store.add(orderData);
+                
+                tx.oncomplete = () => {
+                    document.getElementById('step-payment').classList.add('d-none');
+                    document.getElementById('step-thankyou').classList.remove('d-none');
+                    document.getElementById('checkoutProgress').classList.add('bg-success');
+                };
+            };
         }, 1500);
     };
 
@@ -159,5 +184,18 @@ document.addEventListener('DOMContentLoaded', () => {
         cartItems = [];
         syncCart();
         renderCart();
+
+        const cartReq = indexedDB.open('PBSSDCartDB', 2);
+        cartReq.onsuccess = (e) => {
+            const db = e.target.result;
+            if (db.objectStoreNames.contains('cart_items')) {
+                const tx = db.transaction(['cart_items'], 'readwrite');
+                tx.objectStore('cart_items').clear();
+            }
+            if (db.objectStoreNames.contains('cart_state')) {
+                const stateTx = db.transaction(['cart_state'], 'readwrite');
+                stateTx.objectStore('cart_state').put(0, 'count');
+            }
+        };
     };
 });
