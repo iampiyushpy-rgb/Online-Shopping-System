@@ -76,7 +76,7 @@
         <div class="container">
             <h1 class="display-3 heading-lora fw-bold mb-4">Grow your craft with us.</h1>
             <p class="lead mb-5 text-secondary mx-auto" style="max-width: 600px;">Join our community of sustainable creators and reach conscious customers worldwide.</p>
-            <button class="btn btn-nature btn-lg px-5 py-3 rounded-pill shadow-lg">Start Selling Today</button>
+            <a href="#partner-form" class="btn btn-nature btn-lg px-5 py-3 rounded-pill shadow-lg text-decoration-none">Start Selling Today</a>
         </div>
     </section>
 
@@ -125,6 +125,54 @@
                     <i class="bi bi-headset display-4 mb-3" style="color: var(--primary-nature)"></i>
                     <h4 class="heading-lora fw-bold">24/7 Support</h4>
                     <p class="text-secondary">Dedicated account managers for premium partners.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="partner-form" class="container py-5 mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg" style="border-radius: 20px;">
+                    <div class="card-body p-5">
+                        <h3 class="heading-lora fw-bold mb-4 text-center color-nature">Seller Registration Form</h3>
+                        <p class="text-center text-muted mb-4">Provide your business details below to get started.</p>
+                        <form id="sellerRegistrationForm">
+                            <div class="row g-4">
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Seller Name</label>
+                                    <input type="text" class="form-control py-2" id="sellerName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Shop Name</label>
+                                    <input type="text" class="form-control py-2" id="shopName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Aadhar Number</label>
+                                    <input type="text" class="form-control py-2" id="aadharNumber" pattern="\d{12}" title="12 digit Aadhar number" placeholder="XXXX XXXX XXXX" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">GST Number</label>
+                                    <input type="text" class="form-control py-2" id="gstNumber" placeholder="e.g. 29ABCDE1234F2Z5" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Contact Number</label>
+                                    <input type="tel" class="form-control py-2" id="contactInfo" placeholder="+91" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Seller Photo</label>
+                                    <input type="file" class="form-control py-2" id="sellerPhoto" accept="image/*" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label fw-bold">Shop Location</label>
+                                    <textarea class="form-control py-2" id="shopLocation" rows="3" placeholder="Full address of the shop" required></textarea>
+                                </div>
+                                <div class="col-12 mt-4 text-center">
+                                    <button type="submit" class="btn btn-nature btn-lg px-5 rounded-pill shadow-sm w-100" id="sellerSubmitBtn">Submit Application</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -206,5 +254,8 @@
         // Run animation once on load
         window.addEventListener('DOMContentLoaded', startCounters);
     </script>
+    <!-- SweetAlert for nice popup -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../js/seller.js"></script>
 </body>
 </html>
