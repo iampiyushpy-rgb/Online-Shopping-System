@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const sellerName = document.getElementById('sellerName').value.trim();
             const shopName = document.getElementById('shopName').value.trim();
+            const email = document.getElementById('sellerEmail').value.trim();
+            const password = document.getElementById('sellerPassword').value;
             const aadharNumber = document.getElementById('aadharNumber').value.trim();
             const gstNumber = document.getElementById('gstNumber').value.trim();
             const contactInfo = document.getElementById('contactInfo').value.trim();
@@ -38,6 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 id: 'SLLR_' + Date.now().toString(),
                 sellerName,
                 shopName,
+                email,
+                password,
                 aadharNumber,
                 gstNumber,
                 contactInfo,
@@ -64,12 +68,23 @@ document.addEventListener('DOMContentLoaded', () => {
                 const addRequest = store.add(sellerData);
 
                 addRequest.onsuccess = () => {
+                    localStorage.setItem('pbssd_seller', JSON.stringify({
+                        id: sellerData.id,
+                        sellerName: sellerData.sellerName,
+                        shopName: sellerData.shopName
+                    }));
+                    
                     Swal.fire({
                         icon: 'success',
-                        title: 'Application Submitted!',
-                        text: 'Your registration has been successfully saved to the local database. We will review it shortly.',
-                        confirmButtonColor: '#5A8A5A'
+                        title: 'Registration Successful!',
+                        text: 'Welcome aboard! Redirecting you to your seller dashboard...',
+                        confirmButtonColor: '#5A8A5A',
+                        timer: 2000,
+                        showConfirmButton: false
+                    }).then(() => {
+                        window.location.href = 'seller_dashboard.html';
                     });
+                    
                     form.reset();
                     resetBtn(submitBtn, originalBtnText);
                 };
@@ -99,6 +114,85 @@ document.addEventListener('DOMContentLoaded', () => {
                 resetBtn(submitBtn, originalBtnText);
             };
         });
+    }
+
+    // Seller Login Form Execution
+    const loginForm = document.getElementById('sellerLoginForm');
+    const loginSubmitBtn = document.getElementById('loginSubmitBtn');
+    
+    if (loginForm) {
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            loginSubmitBtn.disabled = true;
+            const originalLoginText = loginSubmitBtn.innerText;
+            loginSubmitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Logging in...';
+            
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPass').value;
+            
+            const request = indexedDB.open('PBSSDSellerDB', 1);
+            
+            request.onsuccess = (event) => {
+                const db = event.target.result;
+                
+                // Safety check if database was just created but no data
+                if (!db.objectStoreNames.contains('sellers')) {
+                    loginFailed('No registered sellers found.');
+                    db.close();
+                    return;
+                }
+                
+                const tx = db.transaction(['sellers'], 'readonly');
+                const store = tx.objectStore('sellers');
+                const getAllReq = store.getAll();
+                
+                getAllReq.onsuccess = () => {
+                    const sellers = getAllReq.result || [];
+                    const matchedSeller = sellers.find(s => s.email === email && s.password === password);
+                    
+                    if (matchedSeller) {
+                        localStorage.setItem('pbssd_seller', JSON.stringify({
+                            id: matchedSeller.id,
+                            sellerName: matchedSeller.sellerName,
+                            shopName: matchedSeller.shopName
+                        }));
+                        
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Login Successful!',
+                            text: 'Redirecting to your dashboard...',
+                            confirmButtonColor: '#5A8A5A',
+                            timer: 1500,
+                            showConfirmButton: false
+                        }).then(() => {
+                            window.location.href = 'seller_dashboard.html';
+                        });
+                    } else {
+                        loginFailed('Invalid email address or password.');
+                    }
+                };
+                
+                getAllReq.onerror = () => {
+                    loginFailed('Error verifying credentials.');
+                };
+                
+                tx.oncomplete = () => db.close();
+            };
+            
+            request.onerror = () => loginFailed('Database connection failed.');
+        });
+    }
+
+    function loginFailed(msg) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Login Failed',
+            text: msg,
+            confirmButtonColor: '#e11d48'
+        });
+        loginSubmitBtn.disabled = false;
+        loginSubmitBtn.innerText = 'Login';
     }
 
     function resetBtn(btn, text) {

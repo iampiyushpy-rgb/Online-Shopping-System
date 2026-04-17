@@ -66,9 +66,12 @@
     <nav class="navbar navbar-expand-lg sticky-top bg-white border-bottom py-3">
         <div class="container">
             <a class="navbar-brand fw-bold" href="../../index.html" style="color: var(--primary-nature)">PBSSD <span style="color: #1A1A1A">FRESH</span></a>
-            <a href="../../index.html" class="btn btn-outline-secondary rounded-pill px-4 small">
-                <i class="bi bi-arrow-left me-1"></i> Back to Shop
-            </a>
+            <div class="d-flex gap-3">
+                <button class="btn btn-outline-success rounded-pill px-4 small fw-bold" data-bs-toggle="modal" data-bs-target="#sellerLoginModal" style="color: var(--primary-nature); border-color: var(--primary-nature);">Sign In</button>
+                <a href="../../index.html" class="btn btn-outline-secondary rounded-pill px-4 small">
+                    <i class="bi bi-arrow-left me-1"></i> Back to Shop
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -76,7 +79,10 @@
         <div class="container">
             <h1 class="display-3 heading-lora fw-bold mb-4">Grow your craft with us.</h1>
             <p class="lead mb-5 text-secondary mx-auto" style="max-width: 600px;">Join our community of sustainable creators and reach conscious customers worldwide.</p>
-            <a href="#partner-form" class="btn btn-nature btn-lg px-5 py-3 rounded-pill shadow-lg text-decoration-none">Start Selling Today</a>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+                <a href="#partner-form" class="btn btn-nature btn-lg px-5 py-3 rounded-pill shadow-lg text-decoration-none">Start Selling Today</a>
+                <button class="btn btn-light btn-lg px-5 py-3 rounded-pill shadow-sm fw-bold border" data-bs-toggle="modal" data-bs-target="#sellerLoginModal" style="color: var(--primary-nature);">Login to Dashboard</button>
+            </div>
         </div>
     </section>
 
@@ -148,6 +154,14 @@
                                     <input type="text" class="form-control py-2" id="shopName" required>
                                 </div>
                                 <div class="col-md-6">
+                                    <label class="form-label fw-bold">Email Address</label>
+                                    <input type="email" class="form-control py-2" id="sellerEmail" placeholder="your@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label fw-bold">Password</label>
+                                    <input type="password" class="form-control py-2" id="sellerPassword" placeholder="Minimum 6 characters" minlength="6" required>
+                                </div>
+                                <div class="col-md-6">
                                     <label class="form-label fw-bold">Aadhar Number</label>
                                     <input type="text" class="form-control py-2" id="aadharNumber" pattern="\d{12}" title="12 digit Aadhar number" placeholder="XXXX XXXX XXXX" required>
                                 </div>
@@ -177,6 +191,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Seller Login Modal -->
+    <div class="modal fade" id="sellerLoginModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 25px;">
+                <div class="modal-body p-5 text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-shop display-4" style="color: var(--primary-nature);"></i>
+                        <h3 class="heading-lora fw-bold mt-3">Seller Login</h3>
+                        <p class="text-secondary">Welcome back! Please access your dashboard.</p>
+                    </div>
+                    <form id="sellerLoginForm">
+                        <input type="email" id="loginEmail" class="form-control mb-3 py-3 rounded-pill shadow-sm px-4" placeholder="Email Address" required>
+                        <input type="password" id="loginPass" class="form-control mb-4 py-3 rounded-pill shadow-sm px-4" placeholder="Password" required>
+                        <button type="submit" class="btn btn-nature w-100 py-3 rounded-pill fw-bold shadow-sm mb-3" id="loginSubmitBtn">Login</button>
+                    </form>
+                    <p class="small text-muted mb-0">Not a seller yet? <a href="#partner-form" data-bs-dismiss="modal" class="fw-bold text-decoration-none" style="color: var(--primary-nature);">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="c-footer-w">
         <div class="container py-5">
@@ -254,6 +289,8 @@
         // Run animation once on load
         window.addEventListener('DOMContentLoaded', startCounters);
     </script>
+    <!-- Bootstrap JS for Modals -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- SweetAlert for nice popup -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../js/seller.js"></script>
