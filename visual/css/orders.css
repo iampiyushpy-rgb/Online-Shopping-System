@@ -1,65 +1,138 @@
+/* Orders Overhaul for Maximum Professionalism */
 .orders-w {
-    min-height: 70vh;
-    background-color: var(--bg-color, #FAFAF7);
+    min-height: 80vh;
+    background-color: #F8F9FA;
+    font-family: 'DM Sans', sans-serif;
 }
-.order-card {
-    background-color: #fff;
-    border: none;
-    border-radius: 1rem;
+
+.orders-hero {
+    background: linear-gradient(135deg, #1A1A1A 0%, #2A3A2A 100%);
+    color: white;
+    padding: 3rem 0;
+    border-radius: 1.5rem;
+    margin-bottom: -3rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    position: relative;
     overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-    transition: all 0.3s ease;
 }
+
+.orders-hero::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(90,138,90,0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(30%, -30%);
+}
+
+.order-card {
+    background: #ffffff;
+    border: 1px solid rgba(0,0,0,0.04);
+    border-radius: 1.5rem;
+    overflow: hidden;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.03);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
 .order-card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    transform: translateY(-2px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    transform: translateY(-5px);
 }
+
 .order-header {
-    background-color: #fcfcfc;
-    padding: 1.5rem 2rem;
-    border-bottom: 1px solid #f1f1f1;
+    background-color: #FFFFFF;
+    padding: 1.5rem 2.5rem;
+    border-bottom: 2px dashed #f0f0f0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1.5rem;
 }
+
 .order-body {
-    padding: 2rem;
+    padding: 2.5rem;
+    background: #FAFAFA;
 }
+
+.order-item-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.config-item {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.config-item:hover {
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    transform: translateY(-2px);
+}
+
 .order-item-img {
-    width: 70px;
-    height: 70px;
-    object-fit: cover;
-    border-radius: 0.5rem;
-    border: 1px solid #eee;
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    border-radius: 0.75rem;
+    background: #f8f9fa;
+    padding: 8px;
+    border: 1px solid #ebebeb;
 }
+
 .order-status {
-    padding: 0.4rem 1.2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.25rem;
     border-radius: 2rem;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
 }
-.status-Processing { background: #fff3cd; color: #856404; }
-.status-Shipped { background: #cce5ff; color: #004085; }
-.status-Delivered { background: #d4edda; color: #155724; }
-.color-nature {
-    color: #5A8A5A !important;
+.status-Processing { background: rgba(255,193,7,0.15); color: #B07D00; }
+.status-Shipped { background: rgba(13,110,253,0.1); color: #0D6EFD; }
+.status-Delivered { background: rgba(90,138,90,0.15); color: #5A8A5A; }
+.color-nature { color: #5A8A5A !important; }
+
+.track-btn {
+    background: white;
+    color: #1A1A1A;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.track-btn:hover {
+    background: #1A1A1A;
+    color: white;
+    border-color: #1A1A1A;
 }
 
 .empty-orders {
     text-align: center;
-    padding: 5rem 2rem;
+    padding: 6rem 2rem;
     background: #fff;
     border-radius: 1.5rem;
-    border: 1px dashed #dedede;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.03);
 }
 .empty-orders i {
     font-size: 5rem;
-    color: #e2e2e2;
+    background: linear-gradient(135deg, #bbb 0%, #ddd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
     display: block;
 }
