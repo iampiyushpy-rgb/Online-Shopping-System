@@ -47,89 +47,7 @@ const heroSlides = [
     }
 ];
 
-// ── Food Products Database ─────────────────────────────
-const foodProducts = {
-    sweets: [
-        { name: "Gulab Jamun (12 pcs)", restaurant: "Haldiram's", price: 8.99, originalPrice: 12.99, img: "https://images.unsplash.com/photo-1666190064816-46e0b02d0dd4?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 12400, badge: "Bestseller", veg: true, time: "25 min", cuisine: "Indian Sweets" },
-        { name: "Rasmalai Box (6 pcs)", restaurant: "Bikanervala", price: 10.99, originalPrice: 15.99, img: "https://images.unsplash.com/photo-1601303516990-33a5b60b6a47?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 8900, badge: "Top Rated", veg: true, time: "30 min", cuisine: "Indian Sweets" },
-        { name: "Belgian Chocolate Cake", restaurant: "The Cheesecake Factory", price: 24.99, originalPrice: 34.99, img: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 15600, badge: "Premium", veg: true, time: "35 min", cuisine: "Bakery" },
-        { name: "Classic Tiramisu", restaurant: "Italian Kitchen", price: 12.99, img: "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 6700, badge: "", veg: true, time: "20 min", cuisine: "Italian" },
-        { name: "Mango Kulfi (4 pcs)", restaurant: "Naturals", price: 7.49, originalPrice: 9.99, img: "https://images.unsplash.com/photo-1615478503562-ec2d8aa0a24e?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 9800, badge: "Summer Special", veg: true, time: "20 min", cuisine: "Indian" },
-        { name: "Red Velvet Cupcakes (6)", restaurant: "Magnolia Bakery", price: 14.99, img: "https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 4200, badge: "", veg: true, time: "25 min", cuisine: "Bakery" }
-    ],
-    spicy: [
-        { name: "Chicken Biryani (Family)", restaurant: "Paradise Biryani", price: 18.99, originalPrice: 24.99, img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 45000, badge: "🔥 Most Ordered", veg: false, time: "35 min", cuisine: "Hyderabadi" },
-        { name: "Schezwan Noodles", restaurant: "Wok Express", price: 9.99, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 7600, badge: "Spicy", veg: true, time: "20 min", cuisine: "Indo-Chinese" },
-        { name: "Paneer Tikka Masala", restaurant: "Punjab Grill", price: 13.99, originalPrice: 17.99, img: "https://images.unsplash.com/photo-1565557623262-b51c2513a641?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 18200, badge: "Chef's Special", veg: true, time: "30 min", cuisine: "North Indian" },
-        { name: "Nashville Hot Chicken", restaurant: "Fire Bird", price: 15.99, img: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 11000, badge: "🌶️ Extra Hot", veg: false, time: "25 min", cuisine: "American" },
-        { name: "Thai Green Curry", restaurant: "Bangkok Street", price: 14.49, img: "https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 8400, badge: "", veg: false, time: "30 min", cuisine: "Thai" },
-        { name: "Spicy Lamb Kebab Platter", restaurant: "Barbeque Nation", price: 22.99, originalPrice: 29.99, img: "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 14500, badge: "Premium", veg: false, time: "40 min", cuisine: "Mughlai" }
-    ],
-    pizza: [
-        { name: "Margherita Pizza (Large)", restaurant: "Domino's", price: 11.99, originalPrice: 16.99, img: "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 52000, badge: "Value Deal", veg: true, time: "30 min", cuisine: "Italian" },
-        { name: "BBQ Chicken Pizza", restaurant: "Pizza Hut", price: 15.99, img: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 34000, badge: "", veg: false, time: "35 min", cuisine: "Italian" },
-        { name: "Truffle Mushroom Pizza", restaurant: "Artisan Pizzeria", price: 19.99, img: "https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 8700, badge: "Gourmet", veg: true, time: "40 min", cuisine: "Italian" },
-        { name: "Pepperoni Feast", restaurant: "Papa John's", price: 14.49, originalPrice: 18.99, img: "https://images.unsplash.com/photo-1628840042765-356cda07504e?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 28000, badge: "Popular", veg: false, time: "30 min", cuisine: "Italian" },
-        { name: "Four Cheese Garlic Bread", restaurant: "Domino's", price: 6.99, img: "https://images.unsplash.com/photo-1619531040576-f9416740661b?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 19000, badge: "", veg: true, time: "20 min", cuisine: "Italian" },
-        { name: "Calzone Supreme", restaurant: "Oven Story", price: 16.99, img: "https://images.unsplash.com/photo-1536964549093-de7d3cc0a869?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 5400, badge: "New", veg: false, time: "35 min", cuisine: "Italian" }
-    ],
-    burgers: [
-        { name: "Classic Smash Burger", restaurant: "Shake Shack", price: 10.99, img: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 38000, badge: "Fan Favorite", veg: false, time: "20 min", cuisine: "American" },
-        { name: "Veg Crunch Burger", restaurant: "Burger Singh", price: 7.99, originalPrice: 10.99, img: "https://images.unsplash.com/photo-1525059696034-4967a8e1dca2?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 14000, badge: "30% OFF", veg: true, time: "15 min", cuisine: "Fusion" },
-        { name: "Double Bacon Cheeseburger", restaurant: "Five Guys", price: 14.99, img: "https://images.unsplash.com/photo-1553979459-d2229ba7433b?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 22000, badge: "Premium", veg: false, time: "25 min", cuisine: "American" },
-        { name: "Falafel Wrap Burger", restaurant: "The Green Bowl", price: 9.49, img: "https://images.unsplash.com/photo-1572802419224-296b0aeee15d?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 6800, badge: "Healthy", veg: true, time: "20 min", cuisine: "Mediterranean" },
-        { name: "Chicken Zinger Meal", restaurant: "KFC", price: 8.99, originalPrice: 12.49, img: "https://images.unsplash.com/photo-1586816001966-79b736744398?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 41000, badge: "Combo Deal", veg: false, time: "15 min", cuisine: "Fast Food" },
-        { name: "Wagyu Beef Slider Trio", restaurant: "Gordon Ramsay Street", price: 24.99, img: "https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 3200, badge: "Gourmet", veg: false, time: "30 min", cuisine: "Premium" }
-    ],
-    beverages: [
-        { name: "Mango Lassi (Large)", restaurant: "Lassi Corner", price: 4.99, img: "https://images.unsplash.com/photo-1527661591475-527312dd65f5?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 16000, badge: "Refreshing", veg: true, time: "10 min", cuisine: "Indian" },
-        { name: "Cold Brew Coffee", restaurant: "Blue Tokai", price: 5.49, img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 12000, badge: "Artisan", veg: true, time: "10 min", cuisine: "Café" },
-        { name: "Fresh Fruit Smoothie Bowl", restaurant: "Smoothie Factory", price: 8.99, img: "https://images.unsplash.com/photo-1502741224143-90386d7f8c82?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 7800, badge: "Healthy", veg: true, time: "12 min", cuisine: "Health" },
-        { name: "Classic Mojito (Virgin)", restaurant: "SodaBottleOpenerWala", price: 6.49, img: "https://images.unsplash.com/photo-1544145945-f90425340c7e?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 5400, badge: "", veg: true, time: "10 min", cuisine: "Café" },
-        { name: "Matcha Green Tea Latte", restaurant: "Starbucks", price: 5.99, img: "https://images.unsplash.com/photo-1515823064-d6e0c04616a7?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 9200, badge: "Trending", veg: true, time: "8 min", cuisine: "Café" },
-        { name: "Oreo Milkshake", restaurant: "Keventers", price: 6.99, originalPrice: 8.99, img: "https://images.unsplash.com/photo-1572490122747-3968b75cc699?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 21000, badge: "Crowd Fav", veg: true, time: "12 min", cuisine: "Shakes" }
-    ],
-    biryani: [
-        { name: "Hyderabadi Dum Biryani", restaurant: "Paradise", price: 14.99, originalPrice: 19.99, img: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 67000, badge: "Legendary", veg: false, time: "40 min", cuisine: "Hyderabadi" },
-        { name: "Lucknowi Biryani", restaurant: "Tunday Kababi", price: 13.99, img: "https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 23000, badge: "Authentic", veg: false, time: "45 min", cuisine: "Awadhi" },
-        { name: "Veg Dum Biryani", restaurant: "Behrouz Biryani", price: 11.99, img: "https://images.unsplash.com/photo-1642821373181-696a54913e93?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 18000, badge: "Bestseller", veg: true, time: "35 min", cuisine: "Royal" },
-        { name: "Egg Biryani Special", restaurant: "Meghana Foods", price: 10.99, img: "https://images.unsplash.com/photo-1633945274405-b6c8069047b0?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 14000, badge: "", veg: false, time: "30 min", cuisine: "South Indian" },
-        { name: "Kolkata Biryani", restaurant: "Arsalan", price: 15.99, img: "https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 31000, badge: "Heritage", veg: false, time: "40 min", cuisine: "Bengali" },
-        { name: "Paneer Biryani Royal", restaurant: "ITC Bukhara", price: 16.99, originalPrice: 22.99, img: "https://images.unsplash.com/photo-1596797038530-2c107229654b?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 8600, badge: "Premium", veg: true, time: "45 min", cuisine: "Mughlai" }
-    ],
-    healthy: [
-        { name: "Quinoa Buddha Bowl", restaurant: "The Green Kitchen", price: 12.99, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 9200, badge: "Superfood", veg: true, time: "20 min", cuisine: "Health" },
-        { name: "Grilled Chicken Salad", restaurant: "Salad Days", price: 10.99, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 11000, badge: "High Protein", veg: false, time: "15 min", cuisine: "Health" },
-        { name: "Avocado Toast Platter", restaurant: "Artisan Café", price: 9.99, img: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 7600, badge: "Trending", veg: true, time: "15 min", cuisine: "Café" },
-        { name: "Poke Bowl (Salmon)", restaurant: "Poké Bar", price: 14.99, img: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 5400, badge: "Fresh", veg: false, time: "20 min", cuisine: "Japanese" },
-        { name: "Overnight Oats Jar", restaurant: "True Elements", price: 6.99, img: "https://images.unsplash.com/photo-1495214783159-3503fd1b572d?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 4200, badge: "Breakfast", veg: true, time: "10 min", cuisine: "Health" },
-        { name: "Detox Green Smoothie", restaurant: "Raw Pressery", price: 7.49, img: "https://images.unsplash.com/photo-1638176066666-ffb2f013c7dd?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 6800, badge: "Cleanse", veg: true, time: "8 min", cuisine: "Juice Bar" }
-    ],
-    chinese: [
-        { name: "Kung Pao Chicken", restaurant: "Wok & Roll", price: 13.99, img: "https://images.unsplash.com/photo-1525755662778-989d0524087e?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 14000, badge: "Popular", veg: false, time: "25 min", cuisine: "Chinese" },
-        { name: "Veg Hakka Noodles", restaurant: "Mainland China", price: 8.99, originalPrice: 11.99, img: "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 22000, badge: "25% OFF", veg: true, time: "20 min", cuisine: "Indo-Chinese" },
-        { name: "Dim Sum Basket (8 pcs)", restaurant: "Yauatcha", price: 16.99, img: "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 9600, badge: "Premium", veg: false, time: "30 min", cuisine: "Chinese" },
-        { name: "Sweet & Sour Tofu", restaurant: "Wok Express", price: 10.49, img: "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?q=80&w=400&h=300&fit=crop", rating: 4.3, reviews: 7800, badge: "", veg: true, time: "20 min", cuisine: "Chinese" },
-        { name: "Dragon Roll Sushi (8 pcs)", restaurant: "Sushi Lab", price: 18.99, img: "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 5200, badge: "Chef's Pick", veg: false, time: "25 min", cuisine: "Japanese" },
-        { name: "Chilli Paneer Dry", restaurant: "Berco's", price: 9.99, img: "https://images.unsplash.com/photo-1645177628172-a94c1f96e6db?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 16000, badge: "Spicy", veg: true, time: "20 min", cuisine: "Indo-Chinese" }
-    ],
-    desserts: [
-        { name: "Brownie Sundae", restaurant: "Baskin Robbins", price: 8.99, img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 19000, badge: "Indulgent", veg: true, time: "15 min", cuisine: "Dessert" },
-        { name: "Churros with Chocolate", restaurant: "Street Churros", price: 7.49, img: "https://images.unsplash.com/photo-1624353365286-3f8d62daad51?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 8400, badge: "", veg: true, time: "15 min", cuisine: "Spanish" },
-        { name: "Crème Brûlée", restaurant: "Le Petit Café", price: 11.99, img: "https://images.unsplash.com/photo-1470324161839-ce2bb6fa6bc3?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 4500, badge: "Classic", veg: true, time: "20 min", cuisine: "French" },
-        { name: "Nutella Waffle Stack", restaurant: "The Waffle House", price: 9.99, originalPrice: 13.99, img: "https://images.unsplash.com/photo-1562376552-0d160a2f238d?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 12000, badge: "30% OFF", veg: true, time: "18 min", cuisine: "Belgian" },
-        { name: "Matcha Ice Cream Mochi", restaurant: "Mochi Bar", price: 10.99, img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 3800, badge: "Unique", veg: true, time: "12 min", cuisine: "Japanese" },
-        { name: "Cheesecake New York Style", restaurant: "The Cheesecake Factory", price: 12.99, img: "https://images.unsplash.com/photo-1524351199432-4b67b7a8a554?q=80&w=400&h=300&fit=crop", rating: 4.9, reviews: 25000, badge: "Iconic", veg: true, time: "15 min", cuisine: "American" }
-    ],
-    breakfast: [
-        { name: "Full English Breakfast", restaurant: "The Breakfast Club", price: 14.99, img: "https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 11000, badge: "Hearty", veg: false, time: "30 min", cuisine: "British" },
-        { name: "Masala Dosa Combo", restaurant: "A2B", price: 6.99, img: "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?q=80&w=400&h=300&fit=crop", rating: 4.8, reviews: 28000, badge: "South Indian", veg: true, time: "20 min", cuisine: "South Indian" },
-        { name: "Fluffy Pancake Stack", restaurant: "IHOP", price: 9.99, img: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=400&h=300&fit=crop", rating: 4.5, reviews: 15000, badge: "Classic", veg: true, time: "18 min", cuisine: "American" },
-        { name: "Eggs Benedict", restaurant: "Café Lota", price: 11.99, img: "https://images.unsplash.com/photo-1608039829572-9b0119e8d56a?q=80&w=400&h=300&fit=crop", rating: 4.6, reviews: 7200, badge: "Brunch", veg: false, time: "25 min", cuisine: "French" },
-        { name: "Poha & Jalebi Set", restaurant: "Indore Kitchen", price: 5.49, img: "https://images.unsplash.com/photo-1606491956689-2ea866880049?q=80&w=400&h=300&fit=crop", rating: 4.4, reviews: 13000, badge: "Taste of India", veg: true, time: "15 min", cuisine: "Street Food" },
-        { name: "Açaí Bowl Supreme", restaurant: "Smoothie King", price: 10.49, img: "https://images.unsplash.com/photo-1590301157890-4810ed352733?q=80&w=400&h=300&fit=crop", rating: 4.7, reviews: 6400, badge: "Superfood", veg: true, time: "10 min", cuisine: "Health" }
-    ]
-};
+// FOOD_DATA_RAW is already available globally from foodData.js
 
 // ── Category Metadata ──────────────────────────────────
 const categoryMeta = {
@@ -352,7 +270,7 @@ function buildProductCard(item) {
     const discount = item.originalPrice ? Math.round((1 - item.price / item.originalPrice) * 100) : 0;
 
     return `
-        <div class="food-product-card" onclick="window.location.href='Food_ProductDetails.html?id=${item.id || 1}'">
+        <div class="food-product-card" onclick="window.location.href='Food_ProductDetails.html?id=${item.id}'">
             <div class="image-wrapper">
                 <img src="${item.img}" alt="${item.name}" loading="lazy">
                 ${item.badge ? `<span class="food-badge ${discount > 0 ? 'food-badge-offer' : item.badge.includes('New') ? 'food-badge-new' : 'food-badge-best'}">${discount > 0 ? discount + '% OFF' : item.badge}</span>` : ''}
@@ -369,8 +287,8 @@ function buildProductCard(item) {
                     <span class="reviews-count">${formatReviews(item.reviews)} ratings</span>
                 </div>
                 <div class="food-price-row">
-                    <span class="food-price">$${item.price.toFixed(2)}${item.originalPrice ? `<span class="original-price">$${item.originalPrice.toFixed(2)}</span>` : ''}</span>
-                    <button class="food-order-btn" onclick="event.stopPropagation(); addToCart('${item.name.replace(/'/g, "\\'")}', ${item.price})"><i class="fas fa-plus"></i> ADD</button>
+                    <span class="food-price">₹${item.price.toFixed(2)}${item.originalPrice ? `<span class="original-price">₹${item.originalPrice.toFixed(2)}</span>` : ''}</span>
+                    <button class="food-order-btn" onclick="event.stopPropagation(); addToCart(${item.id})"><i class="fas fa-plus"></i> ADD</button>
                 </div>
             </div>
         </div>
@@ -382,7 +300,7 @@ function renderCategorySections() {
     if (!container) return;
 
     let html = '';
-    for (const [key, items] of Object.entries(foodProducts)) {
+    for (const [key, items] of Object.entries(getFoodData())) {
         const meta = categoryMeta[key];
         html += `
             <section class="food-container" id="section-${key}" style="background: ${meta.bg};" data-cat="${key}">
@@ -426,7 +344,7 @@ function renderTopDeals() {
 
     // Flatten all products
     let allProducts = [];
-    Object.values(foodProducts).forEach(categoryItems => {
+    Object.values(getFoodData()).forEach(categoryItems => {
         allProducts = allProducts.concat(categoryItems);
     });
 
@@ -442,7 +360,23 @@ function renderTopDeals() {
     // Take top 6 deals to show
     const topDeals = deals.slice(0, 6);
 
-    dealsContainer.innerHTML = topDeals.map(item => buildProductCard(item)).join('');
+    dealsContainer.innerHTML = topDeals.map((item, idx) => `
+        <div class="food-deal-card food-animate-in" style="animation-delay: ${idx * 0.1}s" onclick="window.location.href='Food_ProductDetails.html?id=${item.id}'">
+            <div class="deal-badge">${Math.round((1 - item.price / item.originalPrice) * 100)}% OFF</div>
+            <img class="deal-img" src="${item.img}" alt="${item.name}" loading="lazy">
+            <div class="deal-info">
+                <h4>${item.name}</h4>
+                <div class="deal-rating"><i class="fas fa-star"></i> ${item.rating}</div>
+                <div class="deal-price-row">
+                    <div>
+                        <span class="price">₹${item.price.toFixed(2)}</span>
+                        <span class="old-price">₹${item.originalPrice.toFixed(2)}</span>
+                    </div>
+                    <button class="deal-add-btn" onclick="event.stopPropagation(); addToCart(${item.id})"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
 // ═══════════════════════════════════════════════════════
@@ -472,19 +406,42 @@ function initCategoryTabs() {
 let cartCount = 0;
 
 function initCartCount() {
-    const cart = JSON.parse(localStorage.getItem('urbanmart_cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem('pbssd_cart') || '[]');
     cartCount = cart.length;
     updateCartBadge();
+    updateFavBadge();
 }
 
-function addToCart(name, price) {
-    let cart = JSON.parse(localStorage.getItem('urbanmart_cart') || '[]');
-    cart.push({ name, price, quantity: 1, category: 'Food' });
-    localStorage.setItem('urbanmart_cart', JSON.stringify(cart));
+function updateFavBadge() {
+    const badge = document.getElementById('favIconBadge');
+    if (badge) {
+        const liked = JSON.parse(localStorage.getItem('food_liked') || '[]');
+        badge.textContent = liked.length;
+        badge.style.display = liked.length > 0 ? 'flex' : 'none';
+    }
+}
+
+function addToCart(productId) {
+    let allProducts = [];
+    Object.values(getFoodData()).forEach(arr => allProducts.push(...arr));
+    const product = allProducts.find(p => p.id === productId);
+
+    if (!product) return;
+
+    let cart = JSON.parse(localStorage.getItem('pbssd_cart') || '[]');
+    let existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ ...product, image: product.img, quantity: 1, category: 'Food' });
+    }
+    
+    localStorage.setItem('pbssd_cart', JSON.stringify(cart));
     
     cartCount = cart.length;
     updateCartBadge();
-    showToast(`${name} added to cart — $${price.toFixed(2)}`);
+    showToast(`${product.name} added to cart — ₹${product.price.toFixed(2)}`);
 }
 
 function updateCartBadge() {
@@ -511,6 +468,7 @@ function toggleWishlist(btn, name) {
         showToast('Removed from favourites');
     }
     localStorage.setItem('food_liked', JSON.stringify(likedItems));
+    updateFavBadge();
 }
 
 // ═══════════════════════════════════════════════════════

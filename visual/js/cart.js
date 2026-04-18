@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (cartItems.length === 0) {
             cartContainer.innerHTML = `
-                <div class="empty-cart">
+                <div class="empty-cart animate__animated animate__fadeIn">
                     <i class="bi bi-cart-x"></i>
-                    <h4>Your cart is empty</h4>
-                    <p class="text-center mt-3">Looks like you haven't added any items yet.</p>
-                    <a href="../../index.html" class="btn btn-nature mt-3 px-4">Start Shopping</a>
+                    <h4 class="fw-bold">Your cart is empty</h4>
+                    <p class="text-center mt-3 text-muted">Looks like you haven't added any items yet.</p>
+                    <a href="../../index.html" class="btn btn-nature mt-3 px-5 py-3 rounded-pill fw-bold shadow-sm">Start Shopping</a>
                 </div>
             `;
             updateTotals();

@@ -1196,6 +1196,117 @@
     color: var(--food-green);
 }
 
+/* ── Top Deals Section ──────────────────────────────── */
+.food-deal-card {
+    min-width: 260px;
+    background: white;
+    border-radius: var(--food-radius);
+    padding: 12px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0,0,0,0.03);
+    cursor: pointer;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+}
+
+.food-deal-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(226, 55, 68, 0.15);
+    border-color: var(--food-border);
+}
+
+.deal-badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--food-red);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    z-index: 2;
+    box-shadow: 0 4px 10px rgba(226, 55, 68, 0.3);
+    animation: pulse-badge 2s infinite;
+}
+
+.deal-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: transform 0.5s ease;
+}
+
+.food-deal-card:hover .deal-img {
+    transform: scale(1.05);
+}
+
+.deal-info h4 {
+    margin: 0 0 6px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--food-text);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.deal-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--food-green);
+    margin-bottom: 10px;
+}
+
+.deal-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+}
+
+.deal-price-row .price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--food-red);
+}
+
+.deal-price-row .old-price {
+    font-size: 0.85rem;
+    color: var(--food-text-muted);
+    text-decoration: line-through;
+    margin-left: 6px;
+    font-weight: 500;
+}
+
+.deal-add-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+    background: var(--food-gradient);
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.deal-add-btn:hover {
+    transform: scale(1.1) rotate(90deg);
+    box-shadow: 0 4px 12px rgba(226, 55, 68, 0.3);
+}
+
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE DESIGN
    ═══════════════════════════════════════════════════════ */

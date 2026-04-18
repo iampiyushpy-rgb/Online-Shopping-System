@@ -62,3 +62,18 @@ img{max-width: 100%;height: auto;}
 .btn-subscribe:hover {background-color: var(--textpill-color);color: #fff;border-color: var(--textpill-color);}
 .footer-divider {margin: 30px 0;border-color: var(--primary-color);}
 .footer-bottom p {color: var(--sub-text-color);font-size: 13px;margin: 0;text-align: center;}
+
+/* Continue Shopping Button */
+.btn-outline-nature {
+    color: var(--primary-nature);
+    border: 2px solid var(--primary-nature);
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+.btn-outline-nature:hover {
+    background-color: var(--primary-nature);
+    color: white;
+    transform: translateX(-5px);
+    box-shadow: 0 4px 12px rgba(90, 138, 90, 0.2);
+}
+.text-nature { color: var(--primary-nature); }

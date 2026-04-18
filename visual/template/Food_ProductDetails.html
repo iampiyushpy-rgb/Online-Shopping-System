@@ -65,7 +65,7 @@
                 <span style="color: #696969;" id="review-count">(12K reviews)</span>
             </div>
 
-            <div class="price-tag" id="dish-price">$0.00</div>
+            <div class="price-tag" id="dish-price">₹0.00</div>
 
             <p class="description" id="dish-desc">
                 Delicious food prepared with the finest ingredients. Stay tuned for a flavor explosion!
@@ -106,7 +106,7 @@
                 </div>
                 <div style="border-left: 3px solid var(--food-red, #E23744); padding-left: 1rem; margin-bottom: 1rem;">
                     <p style="font-weight: 600; color: var(--food-text, #1C1C1C);">Free Delivery</p>
-                    <p style="font-size: 0.9rem; color: var(--food-text-muted, #696969);">Free delivery on orders above $20.</p>
+                    <p style="font-size: 0.9rem; color: var(--food-text-muted, #696969);">Free delivery on orders above ₹20.</p>
                 </div>
                 <div style="border-left: 3px solid var(--food-red, #E23744); padding-left: 1rem;">
                     <p style="font-weight: 600; color: var(--food-text, #1C1C1C);">Cashback</p>
@@ -120,7 +120,7 @@
     <!-- Related Products -->
     <section class="related-section">
         <h2 class="section-title">Customers also ordered</h2>
-        <div class="products-grid" id="related-grid" style="grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));">
+        <div class="products-grid horizontal-slider" id="related-grid">
             <!-- Dynamically populated via Food_ProductDetails.js -->
         </div>
     </section>
@@ -133,6 +133,7 @@
     </footer>
 
     <!-- Scripts -->
+    <script src="../js/foodData.js"></script>
     <script src="../js/Food_ProductDetails.js" defer></script>
 </body>
 </html>
